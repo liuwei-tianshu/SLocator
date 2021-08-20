@@ -1,0 +1,1178 @@
+##################################################################
+request:eu.cloudscale.showcase.servlets.homecontroller.home(integer,integer,locale,httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.getpromotional()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getpromotional()
+[select from item left join item left join item left join item left join item left join item where i.i_id =]
+##################################################################
+request:eu.cloudscale.showcase.servlets.buycontroller.get(integer,integer,string,httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.getcustomerobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.services.aservice.getaddressobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.addressdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.services.aservice.getcountrybyname(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.countrydaoimpl.getbyname(string)
+[select c from country as c where c.coname = :countryname]
+method:eu.cloudscale.showcase.db.services.aservice.saveaddress(iaddress)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iaddress)
+[insert into address values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.savecustomer(icustomer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(icustomer)
+[insert into customer values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.buycontroller.get(integer,integer,string,httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.buycontroller.get(integer,integer,string,httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.getuserby(string,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.getuserby(string,string)
+[select c from customer as c where c.cuname = :username and c.cpasswd = :passwd]
+[select from address as a inner join country as c on a.addrid=c.coid where a.addrid=?]
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+##################################################################
+request:eu.cloudscale.showcase.servlets.searchcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.searchbysubject(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findallbysubject(string)
+[select i from item as i where i.isubject = :subject order by i.ititle]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.searchcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.searchbytitle(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findallbytitle(string)
+[select i from item as i, author as a where i.author.aid = a.aid and substring(soundex(i.ititle), 0, 4) = substring(soundex(:title), 0, 4) order by i.ititle]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.searchcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.searchbyauthor(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.authordaoimpl.findbysoundexlname(string)
+[select a from author as a, item as i where substring(soundex(a.alname),0,4)=substring(soundex(:keyword),0,4) and i.author.aid=a.aid order by i.ititle]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findallbyauthor(iauthor)
+[select i from item as i where i.author = :author order by i.ititle]
+##################################################################
+request:eu.cloudscale.showcase.servlets.newproductscontroller.newproductscategory(string,integer,integer,locale,httpservletrequest,model)
+method:eu.cloudscale.showcase.servlets.newproductscontroller.getnewproducts(string,model,integer,integer)
+method:eu.cloudscale.showcase.db.services.aservice.getnewproducts(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getnewproducts(string)
+[select i, a from item as i, author as a where i.author.aid = a.aid and i.isubject = :category order by i.ipubdate desc, i.ititle]
+method:eu.cloudscale.showcase.db.services.aservice.getpromotional()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getpromotional()
+[select from item left join item left join item left join item left join item left join item where i.i_id =]
+##################################################################
+request:eu.cloudscale.showcase.servlets.buyconfirmcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.dobuyconfirm(integer,integer,string,long,string,date,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.findbyid(integer)
+[select c from customer as c where c.c_id = :id]
+method:eu.cloudscale.showcase.db.services.aservice.getcart(integer,double)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.buyconfirmcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.dobuyconfirm(integer,integer,string,long,string,date,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.findbyid(integer)
+[select c from customer as c where c.c_id = :id]
+method:eu.cloudscale.showcase.db.services.aservice.getcart(integer,double)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.saveorder(iaddress,icustomer,string,ishoppingcart,double)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ordersdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.orderlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iorders)
+[insert into orders values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.saveccxacts(iorders,string,long,string,date,ishoppingcart,iaddress)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ccxactsdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iccxacts)
+[insert into cc_xacts values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.clearcart(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.buyconfirmcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.servlets.buyconfirmcontroller.checkemptiness(arraylist<string>,integer,integer,string,long,string,date,string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.services.aservice.countryexist(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.countrydaoimpl.getbyname(string)
+[select c from country as c where c.coname = :countryname]
+method:eu.cloudscale.showcase.db.services.aservice.dobuyconfirm(integer,integer,string,long,string,date,string,string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.findbyid(integer)
+[select c from customer as c where c.c_id = :id]
+method:eu.cloudscale.showcase.db.services.aservice.saveaddress(string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.addressdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.countrydaoimpl.getbyname(string)
+[select c from country as c where c.coname = :countryname]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iaddress)
+[insert into address values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.saveorder(iaddress,icustomer,string,ishoppingcart,double)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ordersdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.orderlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iorders)
+[insert into orders values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.saveccxacts(iorders,string,long,string,date,ishoppingcart,iaddress)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ccxactsdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iccxacts)
+[insert into cc_xacts values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.clearcart(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.buyconfirmcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.servlets.buyconfirmcontroller.checkemptiness(arraylist<string>,integer,integer,string,long,string,date,string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.services.aservice.countryexist(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.countrydaoimpl.getbyname(string)
+[select c from country as c where c.coname = :countryname]
+method:eu.cloudscale.showcase.db.services.aservice.dobuyconfirm(integer,integer,string,long,string,date,string,string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.buyconfirmcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.dobuyconfirm(integer,integer,string,long,string,date,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.findbyid(integer)
+[select c from customer as c where c.c_id = :id]
+method:eu.cloudscale.showcase.db.services.aservice.getcart(integer,double)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.saveorder(iaddress,icustomer,string,ishoppingcart,double)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ordersdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iorders)
+[insert into orders values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.saveccxacts(iorders,string,long,string,date,ishoppingcart,iaddress)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ccxactsdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iccxacts)
+[insert into cc_xacts values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.clearcart(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.buyconfirmcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.dobuyconfirm(integer,integer,string,long,string,date,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.findbyid(integer)
+[select c from customer as c where c.c_id = :id]
+method:eu.cloudscale.showcase.db.services.aservice.getcart(integer,double)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.saveorder(iaddress,icustomer,string,ishoppingcart,double)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ordersdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.orderlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iorders)
+[insert into orders values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.saveccxacts(iorders,string,long,string,date,ishoppingcart,iaddress)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ccxactsdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iccxacts)
+[insert into cc_xacts values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.clearcart(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.buyconfirmcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.servlets.buyconfirmcontroller.checkemptiness(arraylist<string>,integer,integer,string,long,string,date,string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.services.aservice.countryexist(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.countrydaoimpl.getbyname(string)
+[select c from country as c where c.coname = :countryname]
+method:eu.cloudscale.showcase.db.services.aservice.dobuyconfirm(integer,integer,string,long,string,date,string,string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.findbyid(integer)
+[select c from customer as c where c.c_id = :id]
+method:eu.cloudscale.showcase.db.services.aservice.saveaddress(string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.addressdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.countrydaoimpl.getbyname(string)
+[select c from country as c where c.coname = :countryname]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iaddress)
+[insert into address values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.saveorder(iaddress,icustomer,string,ishoppingcart,double)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ordersdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.orderlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iorders)
+[insert into orders values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.saveccxacts(iorders,string,long,string,date,ishoppingcart,iaddress)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ccxactsdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iccxacts)
+[insert into cc_xacts values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.clearcart(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.buyconfirmcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.servlets.buyconfirmcontroller.checkemptiness(arraylist<string>,integer,integer,string,long,string,date,string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.services.aservice.countryexist(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.countrydaoimpl.getbyname(string)
+[select c from country as c where c.coname = :countryname]
+method:eu.cloudscale.showcase.db.services.aservice.dobuyconfirm(integer,integer,string,long,string,date,string,string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.findbyid(integer)
+[select c from customer as c where c.c_id = :id]
+method:eu.cloudscale.showcase.db.services.aservice.saveaddress(string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.addressdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.countrydaoimpl.getbyname(string)
+[select c from country as c where c.coname = :countryname]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iaddress)
+[insert into address values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.saveorder(iaddress,icustomer,string,ishoppingcart,double)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ordersdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iorders)
+[insert into orders values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.saveccxacts(iorders,string,long,string,date,ishoppingcart,iaddress)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ccxactsdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iccxacts)
+[insert into cc_xacts values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.clearcart(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.buyconfirmcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.dobuyconfirm(integer,integer,string,long,string,date,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.findbyid(integer)
+[select c from customer as c where c.c_id = :id]
+method:eu.cloudscale.showcase.db.services.aservice.getcart(integer,double)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.saveorder(iaddress,icustomer,string,ishoppingcart,double)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ordersdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iorders)
+[insert into orders values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.saveccxacts(iorders,string,long,string,date,ishoppingcart,iaddress)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ccxactsdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iccxacts)
+[insert into cc_xacts values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.clearcart(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.buyconfirmcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.servlets.buyconfirmcontroller.checkemptiness(arraylist<string>,integer,integer,string,long,string,date,string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.services.aservice.countryexist(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.countrydaoimpl.getbyname(string)
+[select c from country as c where c.coname = :countryname]
+method:eu.cloudscale.showcase.db.services.aservice.dobuyconfirm(integer,integer,string,long,string,date,string,string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.findbyid(integer)
+[select c from customer as c where c.c_id = :id]
+method:eu.cloudscale.showcase.db.services.aservice.saveaddress(string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.addressdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.countrydaoimpl.getbyname(string)
+[select c from country as c where c.coname = :countryname]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iaddress)
+[insert into address values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.saveorder(iaddress,icustomer,string,ishoppingcart,double)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ordersdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iorders)
+[insert into orders values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.saveccxacts(iorders,string,long,string,date,ishoppingcart,iaddress)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ccxactsdaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iccxacts)
+[insert into cc_xacts values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.clearcart(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.buyconfirmcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.servlets.buyconfirmcontroller.checkemptiness(arraylist<string>,integer,integer,string,long,string,date,string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.services.aservice.countryexist(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.countrydaoimpl.getbyname(string)
+[select c from country as c where c.coname = :countryname]
+##################################################################
+request:eu.cloudscale.showcase.servlets.adminconfirmcontroller.post(integer,double,string,string,httpservletrequest,model,redirectattributes)
+method:eu.cloudscale.showcase.db.services.aservice.finditembyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.saveitem(iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(iitem)
+[insert into item values (?, ?, ?)]
+##################################################################
+request:eu.cloudscale.showcase.servlets.productdetailservlet.get(integer,integer,integer,httpservletrequest,locale,model)
+method:eu.cloudscale.showcase.db.services.aservice.finditembyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+##################################################################
+request:eu.cloudscale.showcase.servlets.adminrequestcontroller.get(integer,httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.finditembyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+##################################################################
+request:eu.cloudscale.showcase.servlets.paymentcontroller.get(httpservletrequest,model,redirectattributes)
+method:eu.cloudscale.showcase.servlets.paymentcontroller.checkemptiness(arraylist<string>,integer,integer,string,long,string,date,string,string,string,string,string,string)
+method:eu.cloudscale.showcase.db.services.aservice.countryexist(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.countrydaoimpl.getbyname(string)
+[select c from country as c where c.coname = :countryname]
+##################################################################
+request:eu.cloudscale.showcase.servlets.logincontroller.post(string,string,string,httpsession,model)
+method:eu.cloudscale.showcase.db.services.aservice.getuserby(string,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.getuserby(string,string)
+[select c from customer as c where c.cuname = :username and c.cpasswd = :passwd]
+[select from address as a inner join country as c on a.addrid=c.coid where a.addrid=?]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.logincontroller.post(string,string,string,httpsession,model)
+method:eu.cloudscale.showcase.db.services.aservice.getuserby(string,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.getuserby(string,string)
+[select c from customer as c where c.cuname = :username and c.cpasswd = :passwd]
+[select from address as a inner join country as c on a.addrid=c.coid where a.addrid=?]
+method:eu.cloudscale.showcase.db.services.aservice.savecustomer(icustomer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(icustomer)
+[insert into customer values (?, ?, ?)]
+##################################################################
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.delete(ishoppingcartline)
+[delete  from shoppingcartline as scl where scl.scl_id = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getobject()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.shoppingcartcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findshoppingcartbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartdaoimpl.findbyid(integer)
+[select sc from shoppingcart as sc where sc.scid = :scid]
+method:eu.cloudscale.showcase.db.services.aservice.createemptycart()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcart)
+[insert into shopping_cart values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.docart(ishoppingcart,integer,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.services.aservice.refreshcart(ishoppingcart,list<integer>,list<integer>)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.services.aservice.addrandomitemtocartifnecessary(ishoppingcart)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getrandomitem()
+[select i from item as i order by rand()]
+method:eu.cloudscale.showcase.db.services.aservice.additem(ishoppingcart,iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.shoppingcartlinedaoimpl.getbyscanditem(integer,int)
+[select scl from shoppingcartline as scl where scl.shoppingcart.scid = :scid and scl.item.iid = :itemid]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartline)
+[insert into shopping_cart_line values (?, ?, ?)]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(ishoppingcartdao,boolean)
+[insert into shopping_cart values (?, ?, ?)]
+##################################################################
+request:eu.cloudscale.showcase.servlets.orderdisplaycontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.getuserby(string,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.getuserby(string,string)
+[select c from customer as c where c.cuname = :username and c.cpasswd = :passwd]
+[select from address as a inner join country as c on a.addrid=c.coid where a.addrid=?]
+method:eu.cloudscale.showcase.db.services.aservice.getmostrecentorder(icustomer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ordersdaoimpl.getmostrecentorder(icustomer)
+[select o from orders as o, customer as c where o.customer.cid = c.cid and c.cid = :cid order by o.odate, o.oid desc]
+[select from customer as c inner join address left outer join country where c.cid=? ]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.orderdisplaycontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.getuserby(string,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.getuserby(string,string)
+[select c from customer as c where c.cuname = :username and c.cpasswd = :passwd]
+[select from address as a inner join country as c on a.addrid=c.coid where a.addrid=?]
+------------------------------------------------------------------
+request:eu.cloudscale.showcase.servlets.orderdisplaycontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.getuserby(string,string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.getuserby(string,string)
+[select c from customer as c where c.cuname = :username and c.cpasswd = :passwd]
+[select from address as a inner join country as c on a.addrid=c.coid where a.addrid=?]
+method:eu.cloudscale.showcase.db.services.aservice.getmostrecentorder(icustomer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.ordersdaoimpl.getmostrecentorder(icustomer)
+[select o from orders as o, customer as c where o.customer.cid = c.cid and c.cid = :cid order by o.odate, o.oid desc]
+[select from customer as c inner join address left outer join country where c.cid=? ]
+method:eu.cloudscale.showcase.db.services.aservice.findallorderlinebyorder(iorders)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.orderlinedaoimpl.findallbyorder(iorders)
+[select ol from orderline as ol where ol.orders = :order]
+[select from item as i where i.iid = ?]
+[select from orders as o inner join address left outer join country inner join address inner join customer left outer join address where o.id=?]
+##################################################################
+request:eu.cloudscale.showcase.servlets.bestsellerscontroller.bestsellers(string,integer,integer,httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.getbestsellers(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getbestsellers(string)
+[select i.iid, a.afname, a.alname, i.ititle, sum(ol.olqty) as val from orderline as ol, item as i, author as a where i.author.aid = a.aid and i.iid = ol.item.iid and i.isubject = :category group by ol.item.iid order by val desc]
+method:eu.cloudscale.showcase.db.services.aservice.getpromotional()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getpromotional()
+[select from item left join item left join item left join item left join item left join item where i.i_id =]
+##################################################################
+request:eu.cloudscale.showcase.servlets.customerregistrationcontroller.get(integer,integer,httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.findcustomerbyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.customerdaoimpl.findbyid(integer)
+[select c from customer as c where c.c_id = :id]
