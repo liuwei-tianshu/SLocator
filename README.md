@@ -12,8 +12,8 @@ This directory contains **Locating the Paths that Generate a Given SQL Query**. 
 We give a demo to show SLocator works on PetClinic:
 ```
 Options:
-  --type <style>     Set types of DBMS logs: individual, session
-  --SQL <SQL query>  Set the SQL query to be locate, several SQL queries for SQL session should be seperated with comma
+  -t, --type <style>     Set types of DBMS logs: individual, session
+  -s, --sql <SQL query>  Set the SQL query to be locate, several SQL queries for SQL session should be seperated with comma
 ```
 
 
