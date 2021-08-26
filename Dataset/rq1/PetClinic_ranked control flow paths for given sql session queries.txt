@@ -1,0 +1,2140 @@
+======================================= 1 given SQL query ===========================================
+Given SQL session queries: 
+select distinct owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.last_name like ?
+select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+Pre-processed SQL session queries : 
+select distinct from owners owner left outer join pets where owner.last_name like ? 
+select from types where pettype.id=? 
+select from visits where visits.pet_id=? 
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner, bindingresult, map) 
+called| string org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner, bindingresult, map) 
+called| collection com.sun.proxy..proxy49.findownerbylastname(string) 
+called| collection org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbylastname(string) 
+called| collection com.sun.proxy..proxy47.findbylastname(string) 
+called| collection org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbylastname(string) 
+sql|select distinct owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.last_name like ?
+sql|select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+sql|select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+after rest| string org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner, bindingresult, map) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:1.0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, False, False, False, False]
+request_matching_number_k:[1, 1, 1, 1, 1]
+request_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:1.0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner,bindingresult,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbylastname(string)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbylastname(string)
+[select distinct owner from owner owner left join fetch owner.pets where owner.lastname like :lastname]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6198747639278099
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.61987476392781
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.589424681223617
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.589424681223617
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initcreationform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.589424681223617
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.589424681223617
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int,model)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.589424681223617
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.589424681223617
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update owners set address=?, city=?, telephone=?, null=? where id=?]
+
+Syntactic Similarity:0.38900434624691305
+Semantic Similarity:0.75
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.139004346246913
+Path matching:False
+Request matching:False
+
+
+
+======================================= 2 given SQL query ===========================================
+Given SQL session queries: 
+insert into owners (first_name, last_name, address, city, telephone) values (?, ?, ?, ?, ?)
+Pre-processed SQL session queries : 
+insert into owners (first_name, last_name, address, city, telephone) values (?, ?, ?, ?, ?)
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner, bindingresult, sessionstatus) 
+called| string org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner, bindingresult, sessionstatus) 
+called| void com.sun.proxy..proxy49.saveowner(owner) 
+called| void org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner) 
+called| void com.sun.proxy..proxy47.save(owner) 
+called| void org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner) 
+sql|insert into owners (first_name, last_name, address, city, telephone) values (?, ?, ?, ?, ?)
+after rest| string org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner, bindingresult, sessionstatus) 
+called| void org.springframework.samples.petclinic.web.ownercontroller.setallowedfields(webdatabinder) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:0.6666666666666666
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, False, False, False, False]
+request_matching_number_k:[1, 1, 1, 1, 1]
+request_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:0.6666666666666666
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[insert into owners (address, city, telephone, null) values (?, ?, ?, ?)]
+
+Syntactic Similarity:0.7047833278772256
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.7047833278772258
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processupdateownerform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[insert into owners (address, city, telephone, null) values (?, ?, ?, ?)]
+
+Syntactic Similarity:0.7047833278772256
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.7047833278772258
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.visitcontroller.processnewvisitform(visit,bindingresult)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savevisit(visit)
+method:org.springframework.samples.petclinic.repository.jpa.jpavisitrepositoryimpl.save(visit)
+[insert into visits (visit_date, description, null) values (?, ?, ?)]
+
+Syntactic Similarity:0.415081185191314
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.415081185191314
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processcreationform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[insert into pets (birth_date, null, null, null) values (?, ?, ?, ?)]
+
+Syntactic Similarity:0.3381626180707814
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.3381626180707814
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processupdateform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[insert into pets (birth_date, null, null, null) values (?, ?, ?, ?)]
+
+Syntactic Similarity:0.3381626180707814
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.3381626180707814
+Path matching:False
+Request matching:False
+
+
+
+======================================= 3 given SQL query ===========================================
+Given SQL session queries: 
+select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+select pettype0_.id as id1_3_, pettype0_.name as name2_3_ from types pettype0_ order by pettype0_.name
+Pre-processed SQL session queries : 
+select from owners owner left outer join pets where owner.id=? 
+select from types order by pettype.name 
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
+called| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
+called| owner com.sun.proxy..proxy49.findownerbyid(int) 
+called| owner org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int) 
+called| owner com.sun.proxy..proxy47.findbyid(int) 
+called| owner org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int) 
+sql|select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+after rest| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
+called| void org.springframework.samples.petclinic.web.ownercontroller.setallowedfields(webdatabinder) 
+called| collection org.springframework.samples.petclinic.web.petcontroller.populatepettypes() 
+called| collection com.sun.proxy..proxy49.findpettypes() 
+called| collection org.springframework.samples.petclinic.service.clinicserviceimpl.findpettypes() 
+called| list com.sun.proxy..proxy45.findpettypes() 
+called| list org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.findpettypes() 
+sql|select pettype0_.id as id1_3_, pettype0_.name as name2_3_ from types pettype0_ order by pettype0_.name
+called| void org.springframework.samples.petclinic.web.petcontroller.initbinder(webdatabinder) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:1.0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, False, False, False, False]
+request_matching_number_k:[1, 1, 1, 1, 1]
+request_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:1.0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5764756656546735
+Semantic Similarity:0.6666666666666666
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.24314233232134
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initcreationform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5764756656546735
+Semantic Similarity:0.6666666666666666
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.24314233232134
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int,model)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5764756656546735
+Semantic Similarity:0.6666666666666666
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.24314233232134
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner,bindingresult,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbylastname(string)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbylastname(string)
+[select distinct owner from owner owner left join fetch owner.pets where owner.lastname like :lastname]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5254571851167075
+Semantic Similarity:0.6666666666666666
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.192123851783374
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update owners set address=?, city=?, telephone=?, null=? where id=?]
+
+Syntactic Similarity:0.2936558526515833
+Semantic Similarity:0.5
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.7936558526515833
+Path matching:False
+Request matching:False
+
+
+
+======================================= 4 given SQL query ===========================================
+Given SQL session queries: 
+select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+select pettype0_.id as id1_3_, pettype0_.name as name2_3_ from types pettype0_ order by pettype0_.name
+Pre-processed SQL session queries : 
+select from owners owner left outer join pets where owner.id=? 
+select from types order by pettype.name 
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.petcontroller.initcreationform(int, map) 
+called| string org.springframework.samples.petclinic.web.petcontroller.initcreationform(int, map) 
+called| owner com.sun.proxy..proxy49.findownerbyid(int) 
+called| owner org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int) 
+called| owner com.sun.proxy..proxy47.findbyid(int) 
+called| owner org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int) 
+sql|select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+called| void org.springframework.samples.petclinic.model.owner.addpet(pet) 
+after rest| string org.springframework.samples.petclinic.web.petcontroller.initcreationform(int, map) 
+called| void org.springframework.samples.petclinic.web.petcontroller.initbinder(webdatabinder) 
+called| boolean org.springframework.samples.petclinic.web.petvalidator.supports(class) 
+called| string org.springframework.samples.petclinic.web.pettypeformatter.print(pettype, locale) 
+called| collection org.springframework.samples.petclinic.web.petcontroller.populatepettypes() 
+called| collection com.sun.proxy..proxy49.findpettypes() 
+called| collection org.springframework.samples.petclinic.service.clinicserviceimpl.findpettypes() 
+called| list com.sun.proxy..proxy45.findpettypes() 
+called| list org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.findpettypes() 
+sql|select pettype0_.id as id1_3_, pettype0_.name as name2_3_ from types pettype0_ order by pettype0_.name
+called| pettype org.springframework.samples.petclinic.web.pettypeformatter.parse(string, locale) 
+called| void org.springframework.samples.petclinic.web.petvalidator.validate(object, errors) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, True, False, False, False]
+path_matching_number_k:[0, 1, 1, 1, 1]
+path_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:0.5
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, True, False, False, False]
+request_matching_number_k:[0, 1, 1, 1, 1]
+request_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:0.5
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5764756656546735
+Semantic Similarity:0.6666666666666666
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.24314233232134
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initcreationform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5764756656546735
+Semantic Similarity:0.6666666666666666
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.24314233232134
+Path matching:True
+Request matching:True
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int,model)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5764756656546735
+Semantic Similarity:0.6666666666666666
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.24314233232134
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner,bindingresult,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbylastname(string)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbylastname(string)
+[select distinct owner from owner owner left join fetch owner.pets where owner.lastname like :lastname]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5254571851167075
+Semantic Similarity:0.6666666666666666
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.192123851783374
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update owners set address=?, city=?, telephone=?, null=? where id=?]
+
+Syntactic Similarity:0.2936558526515833
+Semantic Similarity:0.5
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.7936558526515833
+Path matching:False
+Request matching:False
+
+
+
+======================================= 5 given SQL query ===========================================
+Given SQL session queries: 
+insert into pets (name, birth_date, owner_id, type_id) values (?, ?, ?, ?)
+Pre-processed SQL session queries : 
+insert into pets (name, birth_date, owner_id, type_id) values (?, ?, ?, ?)
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.petcontroller.processcreationform(pet, bindingresult, sessionstatus) 
+called| string org.springframework.samples.petclinic.web.petcontroller.processcreationform(pet, bindingresult, sessionstatus) 
+called| void com.sun.proxy..proxy49.savepet(pet) 
+called| void org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet) 
+called| void com.sun.proxy..proxy45.save(pet) 
+called| void org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet) 
+sql|insert into pets (name, birth_date, owner_id, type_id) values (?, ?, ?, ?)
+after rest| string org.springframework.samples.petclinic.web.petcontroller.processcreationform(pet, bindingresult, sessionstatus) 
+called| void org.springframework.samples.petclinic.web.ownercontroller.setallowedfields(webdatabinder) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:0.6666666666666666
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, False, False, False, False]
+request_matching_number_k:[1, 1, 1, 1, 1]
+request_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:0.6666666666666666
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processcreationform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[insert into pets (birth_date, null, null, null) values (?, ?, ?, ?)]
+
+Syntactic Similarity:0.45337869148355764
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.4533786914835576
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processupdateform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[insert into pets (birth_date, null, null, null) values (?, ?, ?, ?)]
+
+Syntactic Similarity:0.45337869148355764
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.4533786914835576
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.visitcontroller.processnewvisitform(visit,bindingresult)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savevisit(visit)
+method:org.springframework.samples.petclinic.repository.jpa.jpavisitrepositoryimpl.save(visit)
+[insert into visits (visit_date, description, null) values (?, ?, ?)]
+
+Syntactic Similarity:0.39677108554284335
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.39677108554284335
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[insert into owners (address, city, telephone, null) values (?, ?, ?, ?)]
+
+Syntactic Similarity:0.34298912269637644
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.34298912269637644
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processupdateownerform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[insert into owners (address, city, telephone, null) values (?, ?, ?, ?)]
+
+Syntactic Similarity:0.34298912269637644
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.34298912269637644
+Path matching:False
+Request matching:False
+
+
+
+======================================= 6 given SQL query ===========================================
+Given SQL session queries: 
+select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+select pettype0_.id as id1_3_, pettype0_.name as name2_3_ from types pettype0_ order by pettype0_.name
+Pre-processed SQL session queries : 
+select from owners owner left outer join pets where owner.id=? 
+select from types where pettype.id=? 
+select from visits where visits.pet_id=? 
+select from types order by pettype.name 
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
+called| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
+called| owner com.sun.proxy..proxy49.findownerbyid(int) 
+called| owner org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int) 
+called| owner com.sun.proxy..proxy47.findbyid(int) 
+called| owner org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int) 
+sql|select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+sql|select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+sql|select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+after rest| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
+called| void org.springframework.samples.petclinic.web.ownercontroller.setallowedfields(webdatabinder) 
+called| collection org.springframework.samples.petclinic.web.petcontroller.populatepettypes() 
+called| collection com.sun.proxy..proxy49.findpettypes() 
+called| collection org.springframework.samples.petclinic.service.clinicserviceimpl.findpettypes() 
+called| list com.sun.proxy..proxy45.findpettypes() 
+called| list org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.findpettypes() 
+sql|select pettype0_.id as id1_3_, pettype0_.name as name2_3_ from types pettype0_ order by pettype0_.name
+called| void org.springframework.samples.petclinic.web.petcontroller.initbinder(webdatabinder) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:1.0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, False, False, False, False]
+request_matching_number_k:[1, 1, 1, 1, 1]
+request_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:1.0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5429753887835566
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.5429753887835567
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initcreationform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5429753887835566
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.5429753887835567
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int,model)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5429753887835566
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.5429753887835567
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner,bindingresult,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbylastname(string)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbylastname(string)
+[select distinct owner from owner owner left join fetch owner.pets where owner.lastname like :lastname]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.48644975015599756
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.4864497501559977
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update owners set address=?, city=?, telephone=?, null=? where id=?]
+
+Syntactic Similarity:0.3863145440675133
+Semantic Similarity:0.75
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.1363145440675133
+Path matching:False
+Request matching:False
+
+
+
+======================================= 7 given SQL query ===========================================
+Given SQL session queries: 
+select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+select pettype0_.id as id1_3_, pettype0_.name as name2_3_ from types pettype0_ order by pettype0_.name
+Pre-processed SQL session queries : 
+select from owners owner left outer join pets where owner.id=? 
+select from types where pettype.id=? 
+select from visits where visits.pet_id=? 
+select from types order by pettype.name 
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.petcontroller.initcreationform(int, map) 
+called| string org.springframework.samples.petclinic.web.petcontroller.initcreationform(int, map) 
+called| owner com.sun.proxy..proxy49.findownerbyid(int) 
+called| owner org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int) 
+called| owner com.sun.proxy..proxy47.findbyid(int) 
+called| owner org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int) 
+sql|select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+sql|select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+sql|select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+called| void org.springframework.samples.petclinic.model.owner.addpet(pet) 
+after rest| string org.springframework.samples.petclinic.web.petcontroller.initcreationform(int, map) 
+called| void org.springframework.samples.petclinic.web.petcontroller.initbinder(webdatabinder) 
+called| boolean org.springframework.samples.petclinic.web.petvalidator.supports(class) 
+called| string org.springframework.samples.petclinic.web.pettypeformatter.print(pettype, locale) 
+called| collection org.springframework.samples.petclinic.web.petcontroller.populatepettypes() 
+called| collection com.sun.proxy..proxy49.findpettypes() 
+called| collection org.springframework.samples.petclinic.service.clinicserviceimpl.findpettypes() 
+called| list com.sun.proxy..proxy45.findpettypes() 
+called| list org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.findpettypes() 
+sql|select pettype0_.id as id1_3_, pettype0_.name as name2_3_ from types pettype0_ order by pettype0_.name
+called| pettype org.springframework.samples.petclinic.web.pettypeformatter.parse(string, locale) 
+called| void org.springframework.samples.petclinic.web.petvalidator.validate(object, errors) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, True, False, False, False]
+path_matching_number_k:[0, 1, 1, 1, 1]
+path_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:0.5
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, True, False, False, False]
+request_matching_number_k:[0, 1, 1, 1, 1]
+request_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:0.5
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5429753887835566
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.5429753887835567
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initcreationform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5429753887835566
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.5429753887835567
+Path matching:True
+Request matching:True
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int,model)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5429753887835566
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.5429753887835567
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner,bindingresult,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbylastname(string)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbylastname(string)
+[select distinct owner from owner owner left join fetch owner.pets where owner.lastname like :lastname]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.48644975015599756
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.4864497501559977
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update owners set address=?, city=?, telephone=?, null=? where id=?]
+
+Syntactic Similarity:0.3863145440675133
+Semantic Similarity:0.75
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.1363145440675133
+Path matching:False
+Request matching:False
+
+
+
+======================================= 8 given SQL query ===========================================
+Given SQL session queries: 
+select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+Pre-processed SQL session queries : 
+select from owners owner left outer join pets where owner.id=? 
+select from types where pettype.id=? 
+select from visits where visits.pet_id=? 
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
+called| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
+called| owner com.sun.proxy..proxy49.findownerbyid(int) 
+called| owner org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int) 
+called| owner com.sun.proxy..proxy47.findbyid(int) 
+called| owner org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int) 
+sql|select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+sql|select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+sql|select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+after rest| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
+called| void org.springframework.samples.petclinic.web.ownercontroller.setallowedfields(webdatabinder) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:1.0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, False, False, False, False]
+request_matching_number_k:[1, 1, 1, 1, 1]
+request_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:1.0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6748587187294469
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.674858718729447
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initcreationform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6748587187294469
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.674858718729447
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int,model)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6748587187294469
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.674858718729447
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner,bindingresult,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbylastname(string)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbylastname(string)
+[select distinct owner from owner owner left join fetch owner.pets where owner.lastname like :lastname]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6011403093387538
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.6011403093387537
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update owners set address=?, city=?, telephone=?, null=? where id=?]
+
+Syntactic Similarity:0.46239971467233515
+Semantic Similarity:0.75
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.212399714672335
+Path matching:False
+Request matching:False
+
+
+
+======================================= 9 given SQL query ===========================================
+Given SQL session queries: 
+select distinct owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.last_name like ?
+select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+Pre-processed SQL session queries : 
+select distinct from owners owner left outer join pets where owner.last_name like ? 
+select from types where pettype.id=? 
+select from visits where visits.pet_id=? 
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner, bindingresult, map) 
+called| string org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner, bindingresult, map) 
+called| collection com.sun.proxy..proxy49.findownerbylastname(string) 
+called| collection org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbylastname(string) 
+called| collection com.sun.proxy..proxy47.findbylastname(string) 
+called| collection org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbylastname(string) 
+sql|select distinct owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.last_name like ?
+sql|select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+sql|select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+after rest| string org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner, bindingresult, map) 
+called| void org.springframework.samples.petclinic.web.ownercontroller.setallowedfields(webdatabinder) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:1.0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, False, False, False, False]
+request_matching_number_k:[1, 1, 1, 1, 1]
+request_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:1.0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner,bindingresult,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbylastname(string)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbylastname(string)
+[select distinct owner from owner owner left join fetch owner.pets where owner.lastname like :lastname]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6198747639278099
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.61987476392781
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.589424681223617
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.589424681223617
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initcreationform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.589424681223617
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.589424681223617
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int,model)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.589424681223617
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.589424681223617
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update owners set address=?, city=?, telephone=?, null=? where id=?]
+
+Syntactic Similarity:0.38900434624691305
+Semantic Similarity:0.75
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.139004346246913
+Path matching:False
+Request matching:False
+
+
+
+======================================= 10 given SQL query ===========================================
+Given SQL session queries: 
+select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+select pet0_.id as id1_1_0_, pet0_.name as name2_1_0_, pet0_.birth_date as birth_da3_1_0_, pet0_.owner_id as owner_id4_1_0_, pet0_.type_id as type_id5_1_0_, owner1_.id as id1_0_1_, owner1_.first_name as first_na2_0_1_, owner1_.last_name as last_nam3_0_1_, owner1_.address as address4_0_1_, owner1_.city as city5_0_1_, owner1_.telephone as telephon6_0_1_, pettype2_.id as id1_3_2_, pettype2_.name as name2_3_2_, visits3_.pet_id as pet_id4_1_3_, visits3_.id as id1_6_3_, visits3_.id as id1_6_4_, visits3_.visit_date as visit_da2_6_4_, visits3_.description as descript3_6_4_, visits3_.pet_id as pet_id4_6_4_ from pets pet0_ left outer join owners owner1_ on pet0_.owner_id=owner1_.id left outer join types pettype2_ on pet0_.type_id=pettype2_.id left outer join visits visits3_ on pet0_.id=visits3_.pet_id where pet0_.id=?
+Pre-processed SQL session queries : 
+select from owners owner left outer join pets where owner.id=? 
+select from types where pettype.id=? 
+select from visits where visits.pet_id=? 
+select from pets left outer join owners owner left outer join types left outer join visits where pet.id=? 
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
+called| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
+called| owner com.sun.proxy..proxy49.findownerbyid(int) 
+called| owner org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int) 
+called| owner com.sun.proxy..proxy47.findbyid(int) 
+called| owner org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int) 
+sql|select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+sql|select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+sql|select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+after rest| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
+called| void org.springframework.samples.petclinic.web.ownercontroller.setallowedfields(webdatabinder) 
+called| void org.springframework.samples.petclinic.web.visitcontroller.setallowedfields(webdatabinder) 
+called| visit org.springframework.samples.petclinic.web.visitcontroller.loadpetwithvisit(int) 
+called| pet com.sun.proxy..proxy49.findpetbyid(int) 
+called| pet org.springframework.samples.petclinic.service.clinicserviceimpl.findpetbyid(int) 
+called| pet com.sun.proxy..proxy45.findbyid(int) 
+called| pet org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.findbyid(int) 
+sql|select pet0_.id as id1_1_0_, pet0_.name as name2_1_0_, pet0_.birth_date as birth_da3_1_0_, pet0_.owner_id as owner_id4_1_0_, pet0_.type_id as type_id5_1_0_, owner1_.id as id1_0_1_, owner1_.first_name as first_na2_0_1_, owner1_.last_name as last_nam3_0_1_, owner1_.address as address4_0_1_, owner1_.city as city5_0_1_, owner1_.telephone as telephon6_0_1_, pettype2_.id as id1_3_2_, pettype2_.name as name2_3_2_, visits3_.pet_id as pet_id4_1_3_, visits3_.id as id1_6_3_, visits3_.id as id1_6_4_, visits3_.visit_date as visit_da2_6_4_, visits3_.description as descript3_6_4_, visits3_.pet_id as pet_id4_6_4_ from pets pet0_ left outer join owners owner1_ on pet0_.owner_id=owner1_.id left outer join types pettype2_ on pet0_.type_id=pettype2_.id left outer join visits visits3_ on pet0_.id=visits3_.pet_id where pet0_.id=?
+called| void org.springframework.samples.petclinic.model.pet.addvisit(visit) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:1.0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, False, False, False, False]
+request_matching_number_k:[1, 1, 1, 1, 1]
+request_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:1.0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5528688775568145
+Semantic Similarity:0.75
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.3028688775568145
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initcreationform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5528688775568145
+Semantic Similarity:0.75
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.3028688775568145
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int,model)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5528688775568145
+Semantic Similarity:0.75
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.3028688775568145
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner,bindingresult,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbylastname(string)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbylastname(string)
+[select distinct owner from owner owner left join fetch owner.pets where owner.lastname like :lastname]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.49233647225176136
+Semantic Similarity:0.75
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.2423364722517614
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processcreationform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[select birth_date, null, null, null from pets left outer join visits on pets=visits  where id=?]
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update pets set birth_date=?, null=?, null=?, null=? where id=?]
+
+Syntactic Similarity:0.42541956910316653
+Semantic Similarity:0.8
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.2254195691031666
+Path matching:False
+Request matching:False
+
+
+
+======================================= 11 given SQL query ===========================================
+Given SQL session queries: 
+select pet0_.id as id1_1_0_, pet0_.name as name2_1_0_, pet0_.birth_date as birth_da3_1_0_, pet0_.owner_id as owner_id4_1_0_, pet0_.type_id as type_id5_1_0_, owner1_.id as id1_0_1_, owner1_.first_name as first_na2_0_1_, owner1_.last_name as last_nam3_0_1_, owner1_.address as address4_0_1_, owner1_.city as city5_0_1_, owner1_.telephone as telephon6_0_1_, pettype2_.id as id1_3_2_, pettype2_.name as name2_3_2_, visits3_.pet_id as pet_id4_1_3_, visits3_.id as id1_6_3_, visits3_.id as id1_6_4_, visits3_.visit_date as visit_da2_6_4_, visits3_.description as descript3_6_4_, visits3_.pet_id as pet_id4_6_4_ from pets pet0_ left outer join owners owner1_ on pet0_.owner_id=owner1_.id left outer join types pettype2_ on pet0_.type_id=pettype2_.id left outer join visits visits3_ on pet0_.id=visits3_.pet_id where pet0_.id=?
+Pre-processed SQL session queries : 
+select from pets left outer join owners owner left outer join types left outer join visits where pet.id=? 
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.visitcontroller.initnewvisitform(int, map) 
+called| string org.springframework.samples.petclinic.web.visitcontroller.initnewvisitform(int, map) 
+after rest| string org.springframework.samples.petclinic.web.visitcontroller.initnewvisitform(int, map) 
+called| void org.springframework.samples.petclinic.web.visitcontroller.setallowedfields(webdatabinder) 
+called| visit org.springframework.samples.petclinic.web.visitcontroller.loadpetwithvisit(int) 
+called| pet com.sun.proxy..proxy49.findpetbyid(int) 
+called| pet org.springframework.samples.petclinic.service.clinicserviceimpl.findpetbyid(int) 
+called| pet com.sun.proxy..proxy45.findbyid(int) 
+called| pet org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.findbyid(int) 
+sql|select pet0_.id as id1_1_0_, pet0_.name as name2_1_0_, pet0_.birth_date as birth_da3_1_0_, pet0_.owner_id as owner_id4_1_0_, pet0_.type_id as type_id5_1_0_, owner1_.id as id1_0_1_, owner1_.first_name as first_na2_0_1_, owner1_.last_name as last_nam3_0_1_, owner1_.address as address4_0_1_, owner1_.city as city5_0_1_, owner1_.telephone as telephon6_0_1_, pettype2_.id as id1_3_2_, pettype2_.name as name2_3_2_, visits3_.pet_id as pet_id4_1_3_, visits3_.id as id1_6_3_, visits3_.id as id1_6_4_, visits3_.visit_date as visit_da2_6_4_, visits3_.description as descript3_6_4_, visits3_.pet_id as pet_id4_6_4_ from pets pet0_ left outer join owners owner1_ on pet0_.owner_id=owner1_.id left outer join types pettype2_ on pet0_.type_id=pettype2_.id left outer join visits visits3_ on pet0_.id=visits3_.pet_id where pet0_.id=?
+called| void org.springframework.samples.petclinic.model.pet.addvisit(visit) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, False, False, False, False]
+path_matching_number_k:[0, 0, 0, 0, 0]
+path_precision_k:[0.0, 0.0, 0.0, 0.0, 0.0]
+path_ap:0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, False, False, False, False]
+request_matching_number_k:[0, 0, 0, 0, 0]
+request_precision_k:[0.0, 0.0, 0.0, 0.0, 0.0]
+request_ap:0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.visitcontroller.showvisits(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findpetbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.findbyid(int)
+[select birth_date, null, null, null, , address, city, telephone, null, visit_date, description, null from pets left outer join types on pets=types left outer join owners on pets=owners left outer join visits on pets=visits  where id=?]
+
+Syntactic Similarity:0.39040056716516897
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.390400567165169
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initupdateform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findpetbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.findbyid(int)
+[select birth_date, null, null, null, , address, city, telephone, null, visit_date, description, null from pets left outer join types on pets=types left outer join owners on pets=owners left outer join visits on pets=visits  where id=?]
+
+Syntactic Similarity:0.39040056716516897
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.390400567165169
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.visitcontroller.processnewvisitform(visit,bindingresult)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savevisit(visit)
+method:org.springframework.samples.petclinic.repository.jpa.jpavisitrepositoryimpl.save(visit)
+[select birth_date, null, null, null from pets left outer join visits on pets=visits  where id=?]
+[update visits set visit_date=?, description=?, null=? where id=?]
+
+Syntactic Similarity:0.2737198937747949
+Semantic Similarity:0.5
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.7737198937747949
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processcreationform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[select birth_date, null, null, null from pets left outer join visits on pets=visits  where id=?]
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update pets set birth_date=?, null=?, null=?, null=? where id=?]
+
+Syntactic Similarity:0.3120328965911068
+Semantic Similarity:0.2
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.5120328965911067
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processupdateform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[select birth_date, null, null, null from pets left outer join visits on pets=visits  where id=?]
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update pets set birth_date=?, null=?, null=?, null=? where id=?]
+
+Syntactic Similarity:0.3120328965911068
+Semantic Similarity:0.2
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.5120328965911067
+Path matching:False
+Request matching:False
+
+
+
+======================================= 12 given SQL query ===========================================
+Given SQL session queries: 
+insert into visits (visit_date, description, pet_id) values (?, ?, ?)
+Pre-processed SQL session queries : 
+insert into visits (visit_date, description, pet_id) values (?, ?, ?)
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.visitcontroller.processnewvisitform(visit, bindingresult) 
+called| string org.springframework.samples.petclinic.web.visitcontroller.processnewvisitform(visit, bindingresult) 
+called| void com.sun.proxy..proxy49.savevisit(visit) 
+called| void org.springframework.samples.petclinic.service.clinicserviceimpl.savevisit(visit) 
+called| void com.sun.proxy..proxy48.save(visit) 
+called| void org.springframework.samples.petclinic.repository.jpa.jpavisitrepositoryimpl.save(visit) 
+sql|insert into visits (visit_date, description, pet_id) values (?, ?, ?)
+after rest| string org.springframework.samples.petclinic.web.visitcontroller.processnewvisitform(visit, bindingresult) 
+called| void org.springframework.samples.petclinic.web.ownercontroller.setallowedfields(webdatabinder) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:0.6666666666666666
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, False, False, False, False]
+request_matching_number_k:[1, 1, 1, 1, 1]
+request_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:0.6666666666666666
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.visitcontroller.processnewvisitform(visit,bindingresult)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savevisit(visit)
+method:org.springframework.samples.petclinic.repository.jpa.jpavisitrepositoryimpl.save(visit)
+[insert into visits (visit_date, description, null) values (?, ?, ?)]
+
+Syntactic Similarity:0.7622454775064095
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.7622454775064096
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[insert into owners (address, city, telephone, null) values (?, ?, ?, ?)]
+
+Syntactic Similarity:0.45108824580711593
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.45108824580711593
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processupdateownerform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[insert into owners (address, city, telephone, null) values (?, ?, ?, ?)]
+
+Syntactic Similarity:0.45108824580711593
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.45108824580711593
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processcreationform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[insert into pets (birth_date, null, null, null) values (?, ?, ?, ?)]
+
+Syntactic Similarity:0.4251221446725788
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.4251221446725788
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processupdateform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[insert into pets (birth_date, null, null, null) values (?, ?, ?, ?)]
+
+Syntactic Similarity:0.4251221446725788
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.4251221446725788
+Path matching:False
+Request matching:False
+
+
+
+======================================= 13 given SQL query ===========================================
+Given SQL session queries: 
+select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+Pre-processed SQL session queries : 
+select from owners owner left outer join pets where owner.id=? 
+select from types where pettype.id=? 
+select from visits where visits.pet_id=? 
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int, model) 
+called| string org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int, model) 
+called| owner com.sun.proxy..proxy49.findownerbyid(int) 
+called| owner org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int) 
+called| owner com.sun.proxy..proxy47.findbyid(int) 
+called| owner org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int) 
+sql|select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+sql|select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+sql|select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+after rest| string org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int, model) 
+called| void org.springframework.samples.petclinic.web.ownercontroller.setallowedfields(webdatabinder) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, False, True, False, False]
+path_matching_number_k:[0, 0, 1, 1, 1]
+path_precision_k:[0.0, 0.0, 0.3333333333333333, 0.25, 0.2]
+path_ap:0.3333333333333333
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, False, True, False, False]
+request_matching_number_k:[0, 0, 1, 1, 1]
+request_precision_k:[0.0, 0.0, 0.3333333333333333, 0.25, 0.2]
+request_ap:0.3333333333333333
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6748587187294469
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.674858718729447
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initcreationform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6748587187294469
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.674858718729447
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int,model)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6748587187294469
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.674858718729447
+Path matching:True
+Request matching:True
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner,bindingresult,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbylastname(string)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbylastname(string)
+[select distinct owner from owner owner left join fetch owner.pets where owner.lastname like :lastname]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6011403093387538
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.6011403093387537
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update owners set address=?, city=?, telephone=?, null=? where id=?]
+
+Syntactic Similarity:0.46239971467233515
+Semantic Similarity:0.75
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.212399714672335
+Path matching:False
+Request matching:False
+
+
+
+======================================= 14 given SQL query ===========================================
+Given SQL session queries: 
+select owner0_.id as id1_0_1_, owner0_.first_name as first_na2_0_1_, owner0_.last_name as last_nam3_0_1_, owner0_.address as address4_0_1_, owner0_.city as city5_0_1_, owner0_.telephone as telephon6_0_1_, pets1_.owner_id as owner_id4_0_3_, pets1_.id as id1_1_3_, pets1_.id as id1_1_0_, pets1_.name as name2_1_0_, pets1_.birth_date as birth_da3_1_0_, pets1_.owner_id as owner_id4_1_0_, pets1_.type_id as type_id5_1_0_ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+update owners set first_name=?, last_name=?, address=?, city=?, telephone=? where id=?
+Pre-processed SQL session queries : 
+select from owners owner left outer join pets where owner.id=? 
+select from types where pettype.id=? 
+select from visits where visits.pet_id=? 
+update owners set first_name=?, last_name=?, address=?, city=?, telephone=? where id=?
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.ownercontroller.processupdateownerform(owner, bindingresult, sessionstatus) 
+called| string org.springframework.samples.petclinic.web.ownercontroller.processupdateownerform(owner, bindingresult, sessionstatus) 
+called| void com.sun.proxy..proxy49.saveowner(owner) 
+called| void org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner) 
+called| void com.sun.proxy..proxy47.save(owner) 
+called| void org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner) 
+sql|select owner0_.id as id1_0_1_, owner0_.first_name as first_na2_0_1_, owner0_.last_name as last_nam3_0_1_, owner0_.address as address4_0_1_, owner0_.city as city5_0_1_, owner0_.telephone as telephon6_0_1_, pets1_.owner_id as owner_id4_0_3_, pets1_.id as id1_1_3_, pets1_.id as id1_1_0_, pets1_.name as name2_1_0_, pets1_.birth_date as birth_da3_1_0_, pets1_.owner_id as owner_id4_1_0_, pets1_.type_id as type_id5_1_0_ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+sql|select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+sql|select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+sql|update owners set first_name=?, last_name=?, address=?, city=?, telephone=? where id=?
+after rest| string org.springframework.samples.petclinic.web.ownercontroller.processupdateownerform(owner, bindingresult, sessionstatus) 
+called| void org.springframework.samples.petclinic.web.ownercontroller.setallowedfields(webdatabinder) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, True, False, False, False]
+path_matching_number_k:[0, 1, 1, 1, 1]
+path_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:0.3269230769230769
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, True, False, False, False]
+request_matching_number_k:[0, 1, 1, 1, 1]
+request_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:0.3269230769230769
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update owners set address=?, city=?, telephone=?, null=? where id=?]
+
+Syntactic Similarity:0.6372554264669408
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.6372554264669408
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processupdateownerform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update owners set address=?, city=?, telephone=?, null=? where id=?]
+
+Syntactic Similarity:0.6372554264669408
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.6372554264669408
+Path matching:True
+Request matching:True
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6224591119518357
+Semantic Similarity:0.75
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.3724591119518357
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initcreationform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6224591119518357
+Semantic Similarity:0.75
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.3724591119518357
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int,model)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6224591119518357
+Semantic Similarity:0.75
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.3724591119518357
+Path matching:False
+Request matching:False
+
+
+
+======================================= 15 given SQL query ===========================================
+Given SQL session queries: 
+select pet0_.id as id1_1_0_, pet0_.name as name2_1_0_, pet0_.birth_date as birth_da3_1_0_, pet0_.owner_id as owner_id4_1_0_, pet0_.type_id as type_id5_1_0_, owner1_.id as id1_0_1_, owner1_.first_name as first_na2_0_1_, owner1_.last_name as last_nam3_0_1_, owner1_.address as address4_0_1_, owner1_.city as city5_0_1_, owner1_.telephone as telephon6_0_1_, pettype2_.id as id1_3_2_, pettype2_.name as name2_3_2_, visits3_.pet_id as pet_id4_1_3_, visits3_.id as id1_6_3_, visits3_.id as id1_6_4_, visits3_.visit_date as visit_da2_6_4_, visits3_.description as descript3_6_4_, visits3_.pet_id as pet_id4_6_4_ from pets pet0_ left outer join owners owner1_ on pet0_.owner_id=owner1_.id left outer join types pettype2_ on pet0_.type_id=pettype2_.id left outer join visits visits3_ on pet0_.id=visits3_.pet_id where pet0_.id=?
+select pettype0_.id as id1_3_, pettype0_.name as name2_3_ from types pettype0_ order by pettype0_.name
+Pre-processed SQL session queries : 
+select from pets left outer join owners owner left outer join types left outer join visits where pet.id=? 
+select from types order by pettype.name 
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.petcontroller.initupdateform(int, map) 
+called| string org.springframework.samples.petclinic.web.petcontroller.initupdateform(int, map) 
+called| pet com.sun.proxy..proxy49.findpetbyid(int) 
+called| pet org.springframework.samples.petclinic.service.clinicserviceimpl.findpetbyid(int) 
+called| pet com.sun.proxy..proxy45.findbyid(int) 
+called| pet org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.findbyid(int) 
+sql|select pet0_.id as id1_1_0_, pet0_.name as name2_1_0_, pet0_.birth_date as birth_da3_1_0_, pet0_.owner_id as owner_id4_1_0_, pet0_.type_id as type_id5_1_0_, owner1_.id as id1_0_1_, owner1_.first_name as first_na2_0_1_, owner1_.last_name as last_nam3_0_1_, owner1_.address as address4_0_1_, owner1_.city as city5_0_1_, owner1_.telephone as telephon6_0_1_, pettype2_.id as id1_3_2_, pettype2_.name as name2_3_2_, visits3_.pet_id as pet_id4_1_3_, visits3_.id as id1_6_3_, visits3_.id as id1_6_4_, visits3_.visit_date as visit_da2_6_4_, visits3_.description as descript3_6_4_, visits3_.pet_id as pet_id4_6_4_ from pets pet0_ left outer join owners owner1_ on pet0_.owner_id=owner1_.id left outer join types pettype2_ on pet0_.type_id=pettype2_.id left outer join visits visits3_ on pet0_.id=visits3_.pet_id where pet0_.id=?
+after rest| string org.springframework.samples.petclinic.web.petcontroller.initupdateform(int, map) 
+called| void org.springframework.samples.petclinic.web.petcontroller.initbinder(webdatabinder) 
+called| boolean org.springframework.samples.petclinic.web.petvalidator.supports(class) 
+called| string org.springframework.samples.petclinic.web.pettypeformatter.print(pettype, locale) 
+called| collection org.springframework.samples.petclinic.web.petcontroller.populatepettypes() 
+called| collection com.sun.proxy..proxy49.findpettypes() 
+called| collection org.springframework.samples.petclinic.service.clinicserviceimpl.findpettypes() 
+called| list com.sun.proxy..proxy45.findpettypes() 
+called| list org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.findpettypes() 
+sql|select pettype0_.id as id1_3_, pettype0_.name as name2_3_ from types pettype0_ order by pettype0_.name
+called| pettype org.springframework.samples.petclinic.web.pettypeformatter.parse(string, locale) 
+called| void org.springframework.samples.petclinic.web.petvalidator.validate(object, errors) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, True, False, False, False]
+path_matching_number_k:[0, 1, 1, 1, 1]
+path_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:0.5
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, True, False, False, False]
+request_matching_number_k:[0, 1, 1, 1, 1]
+request_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:0.5
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.visitcontroller.showvisits(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findpetbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.findbyid(int)
+[select birth_date, null, null, null, , address, city, telephone, null, visit_date, description, null from pets left outer join types on pets=types left outer join owners on pets=owners left outer join visits on pets=visits  where id=?]
+
+Syntactic Similarity:0.3269885825315503
+Semantic Similarity:0.5
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.8269885825315503
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initupdateform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findpetbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.findbyid(int)
+[select birth_date, null, null, null, , address, city, telephone, null, visit_date, description, null from pets left outer join types on pets=types left outer join owners on pets=owners left outer join visits on pets=visits  where id=?]
+
+Syntactic Similarity:0.3269885825315503
+Semantic Similarity:0.5
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.8269885825315503
+Path matching:True
+Request matching:True
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processcreationform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[select birth_date, null, null, null from pets left outer join visits on pets=visits  where id=?]
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update pets set birth_date=?, null=?, null=?, null=? where id=?]
+
+Syntactic Similarity:0.29411720685528586
+Semantic Similarity:0.4
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.6941172068552859
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processupdateform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[select birth_date, null, null, null from pets left outer join visits on pets=visits  where id=?]
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update pets set birth_date=?, null=?, null=?, null=? where id=?]
+
+Syntactic Similarity:0.29411720685528586
+Semantic Similarity:0.4
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.6941172068552859
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.visitcontroller.processnewvisitform(visit,bindingresult)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savevisit(visit)
+method:org.springframework.samples.petclinic.repository.jpa.jpavisitrepositoryimpl.save(visit)
+[select birth_date, null, null, null from pets left outer join visits on pets=visits  where id=?]
+[update visits set visit_date=?, description=?, null=? where id=?]
+
+Syntactic Similarity:0.24158988400017203
+Semantic Similarity:0.3333333333333333
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.5749232173335054
+Path matching:False
+Request matching:False
+
+
+
+======================================= 16 given SQL query ===========================================
+Given SQL session queries: 
+select pet0_.id as id1_1_1_, pet0_.name as name2_1_1_, pet0_.birth_date as birth_da3_1_1_, pet0_.owner_id as owner_id4_1_1_, pet0_.type_id as type_id5_1_1_, visits1_.pet_id as pet_id4_1_3_, visits1_.id as id1_6_3_, visits1_.id as id1_6_0_, visits1_.visit_date as visit_da2_6_0_, visits1_.description as descript3_6_0_, visits1_.pet_id as pet_id4_6_0_ from pets pet0_ left outer join visits visits1_ on pet0_.id=visits1_.pet_id where pet0_.id=?
+select owner0_.id as id1_0_1_, owner0_.first_name as first_na2_0_1_, owner0_.last_name as last_nam3_0_1_, owner0_.address as address4_0_1_, owner0_.city as city5_0_1_, owner0_.telephone as telephon6_0_1_, pets1_.owner_id as owner_id4_0_3_, pets1_.id as id1_1_3_, pets1_.id as id1_1_0_, pets1_.name as name2_1_0_, pets1_.birth_date as birth_da3_1_0_, pets1_.owner_id as owner_id4_1_0_, pets1_.type_id as type_id5_1_0_ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+update pets set name=?, birth_date=?, owner_id=?, type_id=? where id=?
+Pre-processed SQL session queries : 
+select from pets left outer join visits where pet.id=? 
+select from owners owner left outer join pets where owner.id=? 
+select from types where pettype.id=? 
+select from visits where visits.pet_id=? 
+update pets set name=?, birth_date=?, owner_id=?, type_id=? where id=?
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.petcontroller.processupdateform(pet, bindingresult, sessionstatus) 
+called| string org.springframework.samples.petclinic.web.petcontroller.processupdateform(pet, bindingresult, sessionstatus) 
+called| void com.sun.proxy..proxy49.savepet(pet) 
+called| void org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet) 
+called| void com.sun.proxy..proxy45.save(pet) 
+called| void org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet) 
+sql|select pet0_.id as id1_1_1_, pet0_.name as name2_1_1_, pet0_.birth_date as birth_da3_1_1_, pet0_.owner_id as owner_id4_1_1_, pet0_.type_id as type_id5_1_1_, visits1_.pet_id as pet_id4_1_3_, visits1_.id as id1_6_3_, visits1_.id as id1_6_0_, visits1_.visit_date as visit_da2_6_0_, visits1_.description as descript3_6_0_, visits1_.pet_id as pet_id4_6_0_ from pets pet0_ left outer join visits visits1_ on pet0_.id=visits1_.pet_id where pet0_.id=?
+sql|select owner0_.id as id1_0_1_, owner0_.first_name as first_na2_0_1_, owner0_.last_name as last_nam3_0_1_, owner0_.address as address4_0_1_, owner0_.city as city5_0_1_, owner0_.telephone as telephon6_0_1_, pets1_.owner_id as owner_id4_0_3_, pets1_.id as id1_1_3_, pets1_.id as id1_1_0_, pets1_.name as name2_1_0_, pets1_.birth_date as birth_da3_1_0_, pets1_.owner_id as owner_id4_1_0_, pets1_.type_id as type_id5_1_0_ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+sql|select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+sql|select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+sql|update pets set name=?, birth_date=?, owner_id=?, type_id=? where id=?
+after rest| string org.springframework.samples.petclinic.web.petcontroller.processupdateform(pet, bindingresult, sessionstatus) 
+called| void org.springframework.samples.petclinic.web.ownercontroller.setallowedfields(webdatabinder) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, True, False, False, False]
+path_matching_number_k:[0, 1, 1, 1, 1]
+path_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:0.31666666666666665
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, True, False, False, False]
+request_matching_number_k:[0, 1, 1, 1, 1]
+request_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:0.31666666666666665
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processcreationform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[select birth_date, null, null, null from pets left outer join visits on pets=visits  where id=?]
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update pets set birth_date=?, null=?, null=?, null=? where id=?]
+
+Syntactic Similarity:0.5024772782731012
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.5024772782731013
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processupdateform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[select birth_date, null, null, null from pets left outer join visits on pets=visits  where id=?]
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update pets set birth_date=?, null=?, null=?, null=? where id=?]
+
+Syntactic Similarity:0.5024772782731012
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.5024772782731013
+Path matching:True
+Request matching:True
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5407833935799592
+Semantic Similarity:0.6
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.1407833935799592
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initcreationform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5407833935799592
+Semantic Similarity:0.6
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.1407833935799592
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int,model)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5407833935799592
+Semantic Similarity:0.6
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.1407833935799592
+Path matching:False
+Request matching:False
+
+
+
+======================================= 17 given SQL query ===========================================
+Given SQL session queries: 
+select distinct vet0_.id as id1_5_0_, specialty2_.id as id1_2_1_, vet0_.first_name as first_na2_5_0_, vet0_.last_name as last_nam3_5_0_, specialty2_.name as name2_2_1_, specialtie1_.vet_id as vet_id1_5_0__, specialtie1_.specialty_id as specialt2_4_0__ from vets vet0_ left outer join vet_specialties specialtie1_ on vet0_.id=specialtie1_.vet_id left outer join specialties specialty2_ on specialtie1_.specialty_id=specialty2_.id order by vet0_.last_name, vet0_.first_name
+Pre-processed SQL session queries : 
+select distinct from vets left outer join vet_specialties left outer join specialties order by 
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.vetcontroller.showvetlist(map) 
+called| string org.springframework.samples.petclinic.web.vetcontroller.showvetlist(map) 
+called| collection com.sun.proxy..proxy49.findvets() 
+called| collection org.springframework.samples.petclinic.service.clinicserviceimpl.findvets() 
+called| collection com.sun.proxy..proxy46.findall() 
+called| collection org.springframework.samples.petclinic.repository.jpa.jpavetrepositoryimpl.findall() 
+sql|select distinct vet0_.id as id1_5_0_, specialty2_.id as id1_2_1_, vet0_.first_name as first_na2_5_0_, vet0_.last_name as last_nam3_5_0_, specialty2_.name as name2_2_1_, specialtie1_.vet_id as vet_id1_5_0__, specialtie1_.specialty_id as specialt2_4_0__ from vets vet0_ left outer join vet_specialties specialtie1_ on vet0_.id=specialtie1_.vet_id left outer join specialties specialty2_ on specialtie1_.specialty_id=specialty2_.id order by vet0_.last_name, vet0_.first_name
+after rest| string org.springframework.samples.petclinic.web.vetcontroller.showvetlist(map) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:1.0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, False, False, False, False]
+request_matching_number_k:[1, 1, 1, 1, 1]
+request_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:1.0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.vetcontroller.showvetlist(map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findvets()
+method:org.springframework.samples.petclinic.repository.jpa.jpavetrepositoryimpl.findall()
+[select distinct vet from vet vet left join fetch vet.specialties order by vet.lastname, vet.firstname]
+
+Syntactic Similarity:0.4608397713564139
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.4608397713564139
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.vetcontroller.showresourcesvetlist()
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findvets()
+method:org.springframework.samples.petclinic.repository.jpa.jpavetrepositoryimpl.findall()
+[select distinct vet from vet vet left join fetch vet.specialties order by vet.lastname, vet.firstname]
+
+Syntactic Similarity:0.4608397713564139
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.4608397713564139
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.visitcontroller.showvisits(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findpetbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.findbyid(int)
+[select birth_date, null, null, null, , address, city, telephone, null, visit_date, description, null from pets left outer join types on pets=types left outer join owners on pets=owners left outer join visits on pets=visits  where id=?]
+
+Syntactic Similarity:0.3326609102322475
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.3326609102322475
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initupdateform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findpetbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.findbyid(int)
+[select birth_date, null, null, null, , address, city, telephone, null, visit_date, description, null from pets left outer join types on pets=types left outer join owners on pets=owners left outer join visits on pets=visits  where id=?]
+
+Syntactic Similarity:0.3326609102322475
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.3326609102322475
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processcreationform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[select birth_date, null, null, null from pets left outer join visits on pets=visits  where id=?]
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update pets set birth_date=?, null=?, null=?, null=? where id=?]
+
+Syntactic Similarity:0.22075124454372197
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.22075124454372197
+Path matching:False
+Request matching:False
+
+
+
+======================================= 18 given SQL query ===========================================
+Given SQL session queries: 
+select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+Pre-processed SQL session queries : 
+select from owners owner left outer join pets where owner.id=? 
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
+called| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
+called| owner com.sun.proxy..proxy49.findownerbyid(int) 
+called| owner org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int) 
+called| owner com.sun.proxy..proxy47.findbyid(int) 
+called| owner org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int) 
+sql|select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+after rest| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
+called| void org.springframework.samples.petclinic.web.ownercontroller.setallowedfields(webdatabinder) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:1.0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, False, False, False, False]
+request_matching_number_k:[1, 1, 1, 1, 1]
+request_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:1.0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.7683219433653732
+Semantic Similarity:0.3333333333333333
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.1016552766987064
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initcreationform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.7683219433653732
+Semantic Similarity:0.3333333333333333
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.1016552766987064
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int,model)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.7683219433653732
+Semantic Similarity:0.3333333333333333
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.1016552766987064
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner,bindingresult,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbylastname(string)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbylastname(string)
+[select distinct owner from owner owner left join fetch owner.pets where owner.lastname like :lastname]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6957591183354475
+Semantic Similarity:0.3333333333333333
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.0290924516687807
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update owners set address=?, city=?, telephone=?, null=? where id=?]
+
+Syntactic Similarity:0.3397043823021092
+Semantic Similarity:0.25
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.5897043823021092
+Path matching:False
+Request matching:False
+
+
+
+======================================= 19 given SQL query ===========================================
+Given SQL session queries: 
+select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+Pre-processed SQL session queries : 
+select from owners owner left outer join pets where owner.id=? 
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int, model) 
+called| string org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int, model) 
+called| owner com.sun.proxy..proxy49.findownerbyid(int) 
+called| owner org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int) 
+called| owner com.sun.proxy..proxy47.findbyid(int) 
+called| owner org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int) 
+sql|select owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+after rest| string org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int, model) 
+called| void org.springframework.samples.petclinic.web.ownercontroller.setallowedfields(webdatabinder) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, False, True, False, False]
+path_matching_number_k:[0, 0, 1, 1, 1]
+path_precision_k:[0.0, 0.0, 0.3333333333333333, 0.25, 0.2]
+path_ap:0.3333333333333333
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, False, True, False, False]
+request_matching_number_k:[0, 0, 1, 1, 1]
+request_precision_k:[0.0, 0.0, 0.3333333333333333, 0.25, 0.2]
+request_ap:0.3333333333333333
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.7683219433653732
+Semantic Similarity:0.3333333333333333
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.1016552766987064
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initcreationform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.7683219433653732
+Semantic Similarity:0.3333333333333333
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.1016552766987064
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int,model)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.7683219433653732
+Semantic Similarity:0.3333333333333333
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.1016552766987064
+Path matching:True
+Request matching:True
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner,bindingresult,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbylastname(string)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbylastname(string)
+[select distinct owner from owner owner left join fetch owner.pets where owner.lastname like :lastname]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6957591183354475
+Semantic Similarity:0.3333333333333333
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.0290924516687807
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update owners set address=?, city=?, telephone=?, null=? where id=?]
+
+Syntactic Similarity:0.3397043823021092
+Semantic Similarity:0.25
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.5897043823021092
+Path matching:False
+Request matching:False
+
+
+
+======================================= 20 given SQL query ===========================================
+Given SQL session queries: 
+select owner0_.id as id1_0_1_, owner0_.first_name as first_na2_0_1_, owner0_.last_name as last_nam3_0_1_, owner0_.address as address4_0_1_, owner0_.city as city5_0_1_, owner0_.telephone as telephon6_0_1_, pets1_.owner_id as owner_id4_0_3_, pets1_.id as id1_1_3_, pets1_.id as id1_1_0_, pets1_.name as name2_1_0_, pets1_.birth_date as birth_da3_1_0_, pets1_.owner_id as owner_id4_1_0_, pets1_.type_id as type_id5_1_0_ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+update owners set first_name=?, last_name=?, address=?, city=?, telephone=? where id=?
+Pre-processed SQL session queries : 
+select from owners owner left outer join pets where owner.id=? 
+update owners set first_name=?, last_name=?, address=?, city=?, telephone=? where id=?
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.ownercontroller.processupdateownerform(owner, bindingresult, sessionstatus) 
+called| string org.springframework.samples.petclinic.web.ownercontroller.processupdateownerform(owner, bindingresult, sessionstatus) 
+called| void com.sun.proxy..proxy49.saveowner(owner) 
+called| void org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner) 
+called| void com.sun.proxy..proxy47.save(owner) 
+called| void org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner) 
+sql|select owner0_.id as id1_0_1_, owner0_.first_name as first_na2_0_1_, owner0_.last_name as last_nam3_0_1_, owner0_.address as address4_0_1_, owner0_.city as city5_0_1_, owner0_.telephone as telephon6_0_1_, pets1_.owner_id as owner_id4_0_3_, pets1_.id as id1_1_3_, pets1_.id as id1_1_0_, pets1_.name as name2_1_0_, pets1_.birth_date as birth_da3_1_0_, pets1_.owner_id as owner_id4_1_0_, pets1_.type_id as type_id5_1_0_ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+sql|update owners set first_name=?, last_name=?, address=?, city=?, telephone=? where id=?
+after rest| string org.springframework.samples.petclinic.web.ownercontroller.processupdateownerform(owner, bindingresult, sessionstatus) 
+called| void org.springframework.samples.petclinic.web.ownercontroller.setallowedfields(webdatabinder) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, True, False, False, False]
+path_matching_number_k:[0, 1, 1, 1, 1]
+path_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:0.3269230769230769
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, True, False, False, False]
+request_matching_number_k:[0, 1, 1, 1, 1]
+request_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:0.3269230769230769
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processcreationform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update owners set address=?, city=?, telephone=?, null=? where id=?]
+
+Syntactic Similarity:0.5917779929896181
+Semantic Similarity:0.5
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.091777992989618
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.processupdateownerform(owner,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.saveowner(owner)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.save(owner)
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update owners set address=?, city=?, telephone=?, null=? where id=?]
+
+Syntactic Similarity:0.5917779929896181
+Semantic Similarity:0.5
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.091777992989618
+Path matching:True
+Request matching:True
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6129154478766611
+Semantic Similarity:0.25
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.8629154478766611
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initcreationform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6129154478766611
+Semantic Similarity:0.25
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.8629154478766611
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int,model)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.6129154478766611
+Semantic Similarity:0.25
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.8629154478766611
+Path matching:False
+Request matching:False
+
+
+
+======================================= 21 given SQL query ===========================================
+Given SQL session queries: 
+select pet0_.id as id1_1_1_, pet0_.name as name2_1_1_, pet0_.birth_date as birth_da3_1_1_, pet0_.owner_id as owner_id4_1_1_, pet0_.type_id as type_id5_1_1_, visits1_.pet_id as pet_id4_1_3_, visits1_.id as id1_6_3_, visits1_.id as id1_6_0_, visits1_.visit_date as visit_da2_6_0_, visits1_.description as descript3_6_0_, visits1_.pet_id as pet_id4_6_0_ from pets pet0_ left outer join visits visits1_ on pet0_.id=visits1_.pet_id where pet0_.id=?
+select owner0_.id as id1_0_1_, owner0_.first_name as first_na2_0_1_, owner0_.last_name as last_nam3_0_1_, owner0_.address as address4_0_1_, owner0_.city as city5_0_1_, owner0_.telephone as telephon6_0_1_, pets1_.owner_id as owner_id4_0_3_, pets1_.id as id1_1_3_, pets1_.id as id1_1_0_, pets1_.name as name2_1_0_, pets1_.birth_date as birth_da3_1_0_, pets1_.owner_id as owner_id4_1_0_, pets1_.type_id as type_id5_1_0_ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+update pets set name=?, birth_date=?, owner_id=?, type_id=? where id=?
+Pre-processed SQL session queries : 
+select from pets left outer join visits where pet.id=? 
+select from owners owner left outer join pets where owner.id=? 
+select from types where pettype.id=? 
+update pets set name=?, birth_date=?, owner_id=?, type_id=? where id=?
+
++++++++++++++++++++++++ instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string org.springframework.samples.petclinic.web.petcontroller.processupdateform(pet, bindingresult, sessionstatus) 
+called| string org.springframework.samples.petclinic.web.petcontroller.processupdateform(pet, bindingresult, sessionstatus) 
+called| void com.sun.proxy..proxy49.savepet(pet) 
+called| void org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet) 
+called| void com.sun.proxy..proxy45.save(pet) 
+called| void org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet) 
+sql|select pet0_.id as id1_1_1_, pet0_.name as name2_1_1_, pet0_.birth_date as birth_da3_1_1_, pet0_.owner_id as owner_id4_1_1_, pet0_.type_id as type_id5_1_1_, visits1_.pet_id as pet_id4_1_3_, visits1_.id as id1_6_3_, visits1_.id as id1_6_0_, visits1_.visit_date as visit_da2_6_0_, visits1_.description as descript3_6_0_, visits1_.pet_id as pet_id4_6_0_ from pets pet0_ left outer join visits visits1_ on pet0_.id=visits1_.pet_id where pet0_.id=?
+sql|select owner0_.id as id1_0_1_, owner0_.first_name as first_na2_0_1_, owner0_.last_name as last_nam3_0_1_, owner0_.address as address4_0_1_, owner0_.city as city5_0_1_, owner0_.telephone as telephon6_0_1_, pets1_.owner_id as owner_id4_0_3_, pets1_.id as id1_1_3_, pets1_.id as id1_1_0_, pets1_.name as name2_1_0_, pets1_.birth_date as birth_da3_1_0_, pets1_.owner_id as owner_id4_1_0_, pets1_.type_id as type_id5_1_0_ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+sql|select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+sql|update pets set name=?, birth_date=?, owner_id=?, type_id=? where id=?
+after rest| string org.springframework.samples.petclinic.web.petcontroller.processupdateform(pet, bindingresult, sessionstatus) 
+called| void org.springframework.samples.petclinic.web.ownercontroller.setallowedfields(webdatabinder) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, True, False, False, False]
+path_matching_number_k:[0, 1, 1, 1, 1]
+path_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:0.31666666666666665
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, True, False, False, False]
+request_matching_number_k:[0, 1, 1, 1, 1]
+request_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:0.31666666666666665
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processcreationform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[select birth_date, null, null, null from pets left outer join visits on pets=visits  where id=?]
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update pets set birth_date=?, null=?, null=?, null=? where id=?]
+
+Syntactic Similarity:0.48373760754537065
+Semantic Similarity:0.8
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.2837376075453708
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.processupdateform(pet,bindingresult,sessionstatus)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.savepet(pet)
+method:org.springframework.samples.petclinic.repository.jpa.jpapetrepositoryimpl.save(pet)
+[select birth_date, null, null, null from pets left outer join visits on pets=visits  where id=?]
+[select address, city, telephone, null from owners left outer join pets on owners=pets  where id=?]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+[update pets set birth_date=?, null=?, null=?, null=? where id=?]
+
+Syntactic Similarity:0.48373760754537065
+Semantic Similarity:0.8
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.2837376075453708
+Path matching:True
+Request matching:True
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5425653030548954
+Semantic Similarity:0.4
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.9425653030548954
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.petcontroller.initcreationform(int,map)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5425653030548954
+Semantic Similarity:0.4
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.9425653030548954
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:org.springframework.samples.petclinic.web.ownercontroller.initupdateownerform(int,model)
+method:org.springframework.samples.petclinic.service.clinicserviceimpl.findownerbyid(int)
+method:org.springframework.samples.petclinic.repository.jpa.jpaownerrepositoryimpl.findbyid(int)
+[select owner from owner owner left join fetch owner.pets where owner.id =:id]
+[select  from types where id=?]
+[select visit_date, description, null from visits where id=?]
+
+Syntactic Similarity:0.5425653030548954
+Semantic Similarity:0.4
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.9425653030548954
+Path matching:False
+Request matching:False

@@ -1,0 +1,340 @@
+======================================= 1 given SQL query ===========================================
+Given individual SQL query: select i2.i_thumbnail as i2_thumbnail,i2.i_id as i2_id,i3.i_thumbnail as i3_thumbnail,i3.i_id as i3_id,i4.i_thumbnail as i4_thumbnail,i4.i_id as i4_id,i5.i_thumbnail as i5_thumbnail,i5.i_id as i5_id, i6.i_thumbnail as i6_thumbnail,i6.i_id as i6_id from item as i left join item as i2 on i.i_related1 = i2.i_id left join item as i3 on i.i_related2 = i3.i_id left join item as i4 on i.i_related3 = i4.i_id left join item as i5 on i.i_related4 = i5.i_id left join item as i6 on i.i_related5 = i6.i_id where i.i_id = 3 limit ?
+Execution time of Given individual SQL query (slow) : 6652600ns
+Pre-processed SQL query : select from item left join item left join item left join item left join item left join item where i.i_id = ?  limit ? 
+
++++++++++++++++++++++++ 1 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string eu.cloudscale.showcase.servlets.homecontroller.home(integer, integer, locale, httpservletrequest, model) 
+called| string eu.cloudscale.showcase.servlets.homecontroller.home(integer, integer, locale, httpservletrequest, model) 
+called| httpsession eu.cloudscale.showcase.servlets.acontroller.gethttpsession(class, httpservletrequest) 
+called| string eu.cloudscale.showcase.servlets.acontroller.geturl1(integer, integer, string) 
+called| list eu.cloudscale.showcase.db.services.aservice.getpromotional() 
+called| list eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getpromotional() 
+called| session eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.getcurrentsession() 
+sql|select i2.i_thumbnail as i2_thumbnail,i2.i_id as i2_id,i3.i_thumbnail as i3_thumbnail,i3.i_id as i3_id,i4.i_thumbnail as i4_thumbnail,i4.i_id as i4_id,i5.i_thumbnail as i5_thumbnail,i5.i_id as i5_id, i6.i_thumbnail as i6_thumbnail,i6.i_id as i6_id from item as i left join item as i2 on i.i_related1 = i2.i_id left join item as i3 on i.i_related2 = i3.i_id left join item as i4 on i.i_related3 = i4.i_id left join item as i5 on i.i_related4 = i5.i_id left join item as i6 on i.i_related5 = i6.i_id where i.i_id = ? limit ?
+called| list eu.cloudscale.showcase.servlets.homecontroller.preparecategories(string) 
+called| string eu.cloudscale.showcase.servlets.homecontroller.getproducturl(integer, integer) 
+called| void eu.cloudscale.showcase.servlets.acontroller.setupfrontend(model, integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.getshoppingcarturl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.geturl2(integer, integer, string) 
+called| string eu.cloudscale.showcase.servlets.acontroller.getsearchrequesturl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.gethomeurl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.getorderinquiryurl(integer, integer) 
+called| properties eu.cloudscale.showcase.servlets.acontroller.getapplicationproperties() 
+after rest| string eu.cloudscale.showcase.servlets.homecontroller.home(integer, integer, locale, httpservletrequest, model) 
+
++++++++++++++++++++++++ 2 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string eu.cloudscale.showcase.servlets.newproductscontroller.newproductscategory(string, integer, integer, locale, httpservletrequest, model) 
+called| string eu.cloudscale.showcase.servlets.newproductscontroller.newproductscategory(string, integer, integer, locale, httpservletrequest, model) 
+called| httpsession eu.cloudscale.showcase.servlets.acontroller.gethttpsession(class, httpservletrequest) 
+called| string eu.cloudscale.showcase.servlets.newproductscontroller.getnewproducts(string, model, integer, integer) 
+called| string eu.cloudscale.showcase.servlets.newproductscontroller.getproducturl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.geturl1(integer, integer, string) 
+called| list eu.cloudscale.showcase.db.services.aservice.getnewproducts(string) 
+called| list eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getnewproducts(string) 
+called| session eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.getcurrentsession() 
+sql|select item0_.i_id as i1_5_0_, author1_.a_id as a1_1_1_, item0_.i_avail as i2_5_0_, item0_.i_backing as i3_5_0_, item0_.i_cost as i4_5_0_, item0_.i_desc as i5_5_0_, item0_.i_dimension as i6_5_0_, item0_.i_image as i7_5_0_, item0_.i_isbn as i8_5_0_, item0_.i_page as i9_5_0_, item0_.i_pub_date as i10_5_0_, item0_.i_publisher as i11_5_0_, item0_.i_random as i12_5_0_, item0_.i_related1 as i13_5_0_, item0_.i_related2 as i14_5_0_, item0_.i_related3 as i15_5_0_, item0_.i_related4 as i16_5_0_, item0_.i_related5 as i17_5_0_, item0_.i_srp as i18_5_0_, item0_.i_stock as i19_5_0_, item0_.i_subject as i20_5_0_, item0_.i_thumbnail as i21_5_0_, item0_.i_title as i22_5_0_, item0_.i_a_id as i23_5_0_, author1_.a_bio as a2_1_1_, author1_.a_dob as a3_1_1_, author1_.a_fname as a4_1_1_, author1_.a_lname as a5_1_1_, author1_.a_mname as a6_1_1_ from item item0_ cross join author author1_ where item0_.i_a_id=author1_.a_id and item0_.i_subject=? order by item0_.i_pub_date desc, item0_.i_title limit ?
+called| list eu.cloudscale.showcase.db.services.aservice.getpromotional() 
+called| list eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getpromotional() 
+sql|select i2.i_thumbnail as i2_thumbnail,i2.i_id as i2_id,i3.i_thumbnail as i3_thumbnail,i3.i_id as i3_id,i4.i_thumbnail as i4_thumbnail,i4.i_id as i4_id,i5.i_thumbnail as i5_thumbnail,i5.i_id as i5_id, i6.i_thumbnail as i6_thumbnail,i6.i_id as i6_id from item as i left join item as i2 on i.i_related1 = i2.i_id left join item as i3 on i.i_related2 = i3.i_id left join item as i4 on i.i_related3 = i4.i_id left join item as i5 on i.i_related4 = i5.i_id left join item as i6 on i.i_related5 = i6.i_id where i.i_id = ? limit ?
+called| void eu.cloudscale.showcase.servlets.acontroller.setupfrontend(model, integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.getshoppingcarturl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.geturl2(integer, integer, string) 
+called| string eu.cloudscale.showcase.servlets.acontroller.getsearchrequesturl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.gethomeurl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.getorderinquiryurl(integer, integer) 
+called| properties eu.cloudscale.showcase.servlets.acontroller.getapplicationproperties() 
+after rest| string eu.cloudscale.showcase.servlets.newproductscontroller.newproductscategory(string, integer, integer, locale, httpservletrequest, model) 
+
++++++++++++++++++++++++ 3 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string eu.cloudscale.showcase.servlets.bestsellerscontroller.bestsellers(string, integer, integer, httpservletrequest, model) 
+called| string eu.cloudscale.showcase.servlets.bestsellerscontroller.bestsellers(string, integer, integer, httpservletrequest, model) 
+called| httpsession eu.cloudscale.showcase.servlets.acontroller.gethttpsession(class, httpservletrequest) 
+called| list eu.cloudscale.showcase.db.services.aservice.getbestsellers(string) 
+called| list eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getbestsellers(string) 
+called| session eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.getcurrentsession() 
+sql|select item1_.i_id as col_0_0_, author2_.a_fname as col_1_0_, author2_.a_lname as col_2_0_, item1_.i_title as col_3_0_, sum(orderline0_.ol_qty) as col_4_0_ from order_line orderline0_ cross join item item1_ cross join author author2_ where item1_.i_a_id=author2_.a_id and item1_.i_id=orderline0_.ol_i_id and item1_.i_subject=? group by orderline0_.ol_i_id order by col_4_0_ desc limit ?
+called| string eu.cloudscale.showcase.servlets.bestsellerscontroller.getproducturl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.geturl2(integer, integer, string) 
+called| list eu.cloudscale.showcase.db.services.aservice.getpromotional() 
+called| list eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getpromotional() 
+sql|select i2.i_thumbnail as i2_thumbnail,i2.i_id as i2_id,i3.i_thumbnail as i3_thumbnail,i3.i_id as i3_id,i4.i_thumbnail as i4_thumbnail,i4.i_id as i4_id,i5.i_thumbnail as i5_thumbnail,i5.i_id as i5_id, i6.i_thumbnail as i6_thumbnail,i6.i_id as i6_id from item as i left join item as i2 on i.i_related1 = i2.i_id left join item as i3 on i.i_related2 = i3.i_id left join item as i4 on i.i_related3 = i4.i_id left join item as i5 on i.i_related4 = i5.i_id left join item as i6 on i.i_related5 = i6.i_id where i.i_id = ? limit ?
+called| void eu.cloudscale.showcase.servlets.acontroller.setupfrontend(model, integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.getshoppingcarturl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.getsearchrequesturl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.gethomeurl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.getorderinquiryurl(integer, integer) 
+called| properties eu.cloudscale.showcase.servlets.acontroller.getapplicationproperties() 
+after rest| string eu.cloudscale.showcase.servlets.bestsellerscontroller.bestsellers(string, integer, integer, httpservletrequest, model) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, True, False, False, False]
+path_matching_number_k:[1, 2, 2, 2, 2]
+path_precision_k:[1.0, 1.0, 0.6666666666666666, 0.5, 0.4]
+path_ap:0.8095238095238094
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, True, False, False, False]
+request_matching_number_k:[1, 2, 2, 2, 2]
+request_precision_k:[1.0, 1.0, 0.6666666666666666, 0.5, 0.4]
+request_ap:0.8095238095238094
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:eu.cloudscale.showcase.servlets.homecontroller.home(integer,integer,locale,httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.getpromotional()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getpromotional()
+[select from item left join item left join item left join item left join item left join item where i.i_id =]
+
+Syntactic Similarity:0.43094755142260904
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.430947551422609
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:eu.cloudscale.showcase.servlets.newproductscontroller.newproductscategory(string,integer,integer,locale,httpservletrequest,model)
+method:eu.cloudscale.showcase.servlets.newproductscontroller.getnewproducts(string,model,integer,integer)
+method:eu.cloudscale.showcase.db.services.aservice.getnewproducts(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getnewproducts(string)
+[select i, a from item as i, author as a where i.author.aid = a.aid and i.isubject = :category order by i.ipubdate desc, i.ititle]
+method:eu.cloudscale.showcase.db.services.aservice.getpromotional()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getpromotional()
+[select from item left join item left join item left join item left join item left join item where i.i_id =]
+
+Syntactic Similarity:0.42947459213728834
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.4294745921372884
+Path matching:True
+Request matching:True
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:eu.cloudscale.showcase.servlets.productdetailservlet.get(integer,integer,integer,httpservletrequest,locale,model)
+method:eu.cloudscale.showcase.db.services.aservice.finditembyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+
+Syntactic Similarity:0.09951777116310984
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.09951777116311
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:eu.cloudscale.showcase.servlets.adminrequestcontroller.get(integer,httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.finditembyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+
+Syntactic Similarity:0.09951777116310984
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.09951777116311
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:eu.cloudscale.showcase.servlets.searchcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.searchbysubject(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findallbysubject(string)
+[select i from item as i where i.isubject = :subject order by i.ititle]
+
+Syntactic Similarity:0.08118148587656264
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.0811814858765627
+Path matching:False
+Request matching:False
+
+
+
+======================================= 2 given SQL query ===========================================
+Given individual SQL query: select item0_.i_id as i1_5_0_, author1_.a_id as a1_1_1_, item0_.i_avail as i2_5_0_, item0_.i_backing as i3_5_0_, item0_.i_cost as i4_5_0_, item0_.i_desc as i5_5_0_, item0_.i_dimension as i6_5_0_, item0_.i_image as i7_5_0_, item0_.i_isbn as i8_5_0_, item0_.i_page as i9_5_0_, item0_.i_pub_date as i10_5_0_, item0_.i_publisher as i11_5_0_, item0_.i_random as i12_5_0_, item0_.i_related1 as i13_5_0_, item0_.i_related2 as i14_5_0_, item0_.i_related3 as i15_5_0_, item0_.i_related4 as i16_5_0_, item0_.i_related5 as i17_5_0_, item0_.i_srp as i18_5_0_, item0_.i_stock as i19_5_0_, item0_.i_subject as i20_5_0_, item0_.i_thumbnail as i21_5_0_, item0_.i_title as i22_5_0_, item0_.i_a_id as i23_5_0_, author1_.a_bio as a2_1_1_, author1_.a_dob as a3_1_1_, author1_.a_fname as a4_1_1_, author1_.a_lname as a5_1_1_, author1_.a_mname as a6_1_1_ from item item0_ cross join author author1_ where item0_.i_a_id=author1_.a_id and item0_.i_subject=? order by item0_.i_pub_date desc, item0_.i_title limit ?
+Execution time of Given individual SQL query (slow) : 155600ns
+Pre-processed SQL query : select from item cross join author where item.i_a_id=author.a_id and item.i_subject=?  order by limit ? 
+
++++++++++++++++++++++++ 1 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string eu.cloudscale.showcase.servlets.newproductscontroller.newproductscategory(string, integer, integer, locale, httpservletrequest, model) 
+called| string eu.cloudscale.showcase.servlets.newproductscontroller.newproductscategory(string, integer, integer, locale, httpservletrequest, model) 
+called| httpsession eu.cloudscale.showcase.servlets.acontroller.gethttpsession(class, httpservletrequest) 
+called| string eu.cloudscale.showcase.servlets.newproductscontroller.getnewproducts(string, model, integer, integer) 
+called| string eu.cloudscale.showcase.servlets.newproductscontroller.getproducturl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.geturl1(integer, integer, string) 
+called| list eu.cloudscale.showcase.db.services.aservice.getnewproducts(string) 
+called| list eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getnewproducts(string) 
+called| session eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.getcurrentsession() 
+sql|select item0_.i_id as i1_5_0_, author1_.a_id as a1_1_1_, item0_.i_avail as i2_5_0_, item0_.i_backing as i3_5_0_, item0_.i_cost as i4_5_0_, item0_.i_desc as i5_5_0_, item0_.i_dimension as i6_5_0_, item0_.i_image as i7_5_0_, item0_.i_isbn as i8_5_0_, item0_.i_page as i9_5_0_, item0_.i_pub_date as i10_5_0_, item0_.i_publisher as i11_5_0_, item0_.i_random as i12_5_0_, item0_.i_related1 as i13_5_0_, item0_.i_related2 as i14_5_0_, item0_.i_related3 as i15_5_0_, item0_.i_related4 as i16_5_0_, item0_.i_related5 as i17_5_0_, item0_.i_srp as i18_5_0_, item0_.i_stock as i19_5_0_, item0_.i_subject as i20_5_0_, item0_.i_thumbnail as i21_5_0_, item0_.i_title as i22_5_0_, item0_.i_a_id as i23_5_0_, author1_.a_bio as a2_1_1_, author1_.a_dob as a3_1_1_, author1_.a_fname as a4_1_1_, author1_.a_lname as a5_1_1_, author1_.a_mname as a6_1_1_ from item item0_ cross join author author1_ where item0_.i_a_id=author1_.a_id and item0_.i_subject=? order by item0_.i_pub_date desc, item0_.i_title limit ?
+called| list eu.cloudscale.showcase.db.services.aservice.getpromotional() 
+called| list eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getpromotional() 
+sql|select i2.i_thumbnail as i2_thumbnail,i2.i_id as i2_id,i3.i_thumbnail as i3_thumbnail,i3.i_id as i3_id,i4.i_thumbnail as i4_thumbnail,i4.i_id as i4_id,i5.i_thumbnail as i5_thumbnail,i5.i_id as i5_id, i6.i_thumbnail as i6_thumbnail,i6.i_id as i6_id from item as i left join item as i2 on i.i_related1 = i2.i_id left join item as i3 on i.i_related2 = i3.i_id left join item as i4 on i.i_related3 = i4.i_id left join item as i5 on i.i_related4 = i5.i_id left join item as i6 on i.i_related5 = i6.i_id where i.i_id = ? limit ?
+called| void eu.cloudscale.showcase.servlets.acontroller.setupfrontend(model, integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.getshoppingcarturl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.geturl2(integer, integer, string) 
+called| string eu.cloudscale.showcase.servlets.acontroller.getsearchrequesturl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.gethomeurl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.getorderinquiryurl(integer, integer) 
+called| properties eu.cloudscale.showcase.servlets.acontroller.getapplicationproperties() 
+after rest| string eu.cloudscale.showcase.servlets.newproductscontroller.newproductscategory(string, integer, integer, locale, httpservletrequest, model) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, False, False, False, True]
+path_matching_number_k:[0, 0, 0, 0, 1]
+path_precision_k:[0.0, 0.0, 0.0, 0.0, 0.2]
+path_ap:0.2
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, False, False, False, True]
+request_matching_number_k:[0, 0, 0, 0, 1]
+request_precision_k:[0.0, 0.0, 0.0, 0.0, 0.2]
+request_ap:0.2
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:eu.cloudscale.showcase.servlets.productdetailservlet.get(integer,integer,integer,httpservletrequest,locale,model)
+method:eu.cloudscale.showcase.db.services.aservice.finditembyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+
+Syntactic Similarity:0.14291849936363982
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.1429184993636399
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:eu.cloudscale.showcase.servlets.adminrequestcontroller.get(integer,httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.finditembyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+
+Syntactic Similarity:0.14291849936363982
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.1429184993636399
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:eu.cloudscale.showcase.servlets.searchcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.searchbysubject(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findallbysubject(string)
+[select i from item as i where i.isubject = :subject order by i.ititle]
+
+Syntactic Similarity:0.10046858254290707
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.100468582542907
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:eu.cloudscale.showcase.servlets.searchcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.searchbytitle(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findallbytitle(string)
+[select i from item as i, author as a where i.author.aid = a.aid and substring(soundex(i.ititle), 0, 4) = substring(soundex(:title), 0, 4) order by i.ititle]
+
+Syntactic Similarity:0.08503546098867103
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.085035460988671
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:eu.cloudscale.showcase.servlets.newproductscontroller.newproductscategory(string,integer,integer,locale,httpservletrequest,model)
+method:eu.cloudscale.showcase.servlets.newproductscontroller.getnewproducts(string,model,integer,integer)
+method:eu.cloudscale.showcase.db.services.aservice.getnewproducts(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getnewproducts(string)
+[select i, a from item as i, author as a where i.author.aid = a.aid and i.isubject = :category order by i.ipubdate desc, i.ititle]
+method:eu.cloudscale.showcase.db.services.aservice.getpromotional()
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.getpromotional()
+[select from item left join item left join item left join item left join item left join item where i.i_id =]
+
+Syntactic Similarity:0.07108495529710976
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.0710849552971098
+Path matching:True
+Request matching:True
+
+
+
+======================================= 3 given SQL query ===========================================
+Given individual SQL query: select author0_.a_id as a1_1_, author0_.a_bio as a2_1_, author0_.a_dob as a3_1_, author0_.a_fname as a4_1_, author0_.a_lname as a5_1_, author0_.a_mname as a6_1_ from author author0_ cross join item item1_ where substring(soundex(author0_.a_lname), 1, 4)=substring(soundex(?), 1, 4) and item1_.i_a_id=author0_.a_id order by item1_.i_title limit ?
+Execution time of Given individual SQL query (slow) : 154600ns
+Pre-processed SQL query : select from author cross join item where substring(soundex(author.a_lname), ?, ?)=substring(soundex(?), ?, ?) and item.i_a_id=author.a_id  order by item.ititle limit ? 
+
++++++++++++++++++++++++ 1 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string eu.cloudscale.showcase.servlets.searchcontroller.get(httpservletrequest, model) 
+called| string eu.cloudscale.showcase.servlets.searchcontroller.get(httpservletrequest, model) 
+called| httpsession eu.cloudscale.showcase.servlets.acontroller.gethttpsession(class, httpservletrequest) 
+called| list eu.cloudscale.showcase.db.services.aservice.searchbyauthor(string) 
+called| list eu.cloudscale.showcase.db.dao.hibernate.impl.authordaoimpl.findbysoundexlname(string) 
+called| session eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.getcurrentsession() 
+sql|select author0_.a_id as a1_1_, author0_.a_bio as a2_1_, author0_.a_dob as a3_1_, author0_.a_fname as a4_1_, author0_.a_lname as a5_1_, author0_.a_mname as a6_1_ from author author0_ cross join item item1_ where substring(soundex(author0_.a_lname), ?, ?)=substring(soundex(?), ?, ?) and item1_.i_a_id=author0_.a_id order by item1_.i_title limit ?
+called| list eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findallbyauthor(iauthor) 
+sql|select item0_.i_id as i1_5_, item0_.i_avail as i2_5_, item0_.i_backing as i3_5_, item0_.i_cost as i4_5_, item0_.i_desc as i5_5_, item0_.i_dimension as i6_5_, item0_.i_image as i7_5_, item0_.i_isbn as i8_5_, item0_.i_page as i9_5_, item0_.i_pub_date as i10_5_, item0_.i_publisher as i11_5_, item0_.i_random as i12_5_, item0_.i_related1 as i13_5_, item0_.i_related2 as i14_5_, item0_.i_related3 as i15_5_, item0_.i_related4 as i16_5_, item0_.i_related5 as i17_5_, item0_.i_srp as i18_5_, item0_.i_stock as i19_5_, item0_.i_subject as i20_5_, item0_.i_thumbnail as i21_5_, item0_.i_title as i22_5_, item0_.i_a_id as i23_5_ from item item0_ where item0_.i_a_id=? order by item0_.i_title limit ?
+called| void eu.cloudscale.showcase.servlets.searchcontroller.setupurls(model, httpservletrequest) 
+called| void eu.cloudscale.showcase.servlets.acontroller.setupfrontend(model, integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.getshoppingcarturl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.geturl2(integer, integer, string) 
+called| string eu.cloudscale.showcase.servlets.acontroller.getsearchrequesturl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.gethomeurl(integer, integer) 
+called| string eu.cloudscale.showcase.servlets.acontroller.getorderinquiryurl(integer, integer) 
+called| properties eu.cloudscale.showcase.servlets.acontroller.getapplicationproperties() 
+called| string eu.cloudscale.showcase.servlets.searchcontroller.getproducturl(integer, integer) 
+after rest| string eu.cloudscale.showcase.servlets.searchcontroller.get(httpservletrequest, model) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:1.0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, True, True, False, False]
+request_matching_number_k:[1, 2, 3, 3, 3]
+request_precision_k:[1.0, 1.0, 1.0, 0.75, 0.6]
+request_ap:1.0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:eu.cloudscale.showcase.servlets.searchcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.searchbyauthor(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.authordaoimpl.findbysoundexlname(string)
+[select a from author as a, item as i where substring(soundex(a.alname),0,4)=substring(soundex(:keyword),0,4) and i.author.aid=a.aid order by i.ititle]
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findallbyauthor(iauthor)
+[select i from item as i where i.author = :author order by i.ititle]
+
+Syntactic Similarity:0.5065473411543189
+Semantic Similarity:0.5
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.0065473411543189
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:eu.cloudscale.showcase.servlets.searchcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.searchbytitle(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findallbytitle(string)
+[select i from item as i, author as a where i.author.aid = a.aid and substring(soundex(i.ititle), 0, 4) = substring(soundex(:title), 0, 4) order by i.ititle]
+
+Syntactic Similarity:0.543569487304211
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.543569487304211
+Path matching:False
+Request matching:True
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:eu.cloudscale.showcase.servlets.searchcontroller.get(httpservletrequest,model)
+method:eu.cloudscale.showcase.db.services.aservice.searchbysubject(string)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findallbysubject(string)
+[select i from item as i where i.isubject = :subject order by i.ititle]
+
+Syntactic Similarity:0.15054594047640363
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.15054594047640363
+Path matching:False
+Request matching:True
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:eu.cloudscale.showcase.servlets.adminconfirmcontroller.post(integer,double,string,string,httpservletrequest,model,redirectattributes)
+method:eu.cloudscale.showcase.db.services.aservice.finditembyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+method:eu.cloudscale.showcase.db.services.aservice.saveitem(iitem)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.daoimpl.shrani(object)
+[insert into item values (?, ?, ?)]
+
+Syntactic Similarity:0.11207792536171785
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.11207792536171785
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:eu.cloudscale.showcase.servlets.productdetailservlet.get(integer,integer,integer,httpservletrequest,locale,model)
+method:eu.cloudscale.showcase.db.services.aservice.finditembyid(integer)
+method:eu.cloudscale.showcase.db.dao.hibernate.impl.itemdaoimpl.findbyid(int)
+[select i, a from item i, author a where i.iid = :itemid and a.aid = i.author.aid]
+
+Syntactic Similarity:0.11139570977474031
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.11139570977474031
+Path matching:False
+Request matching:False
