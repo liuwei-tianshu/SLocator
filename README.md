@@ -10,6 +10,12 @@ We use [Crystal](https://code.google.com/archive/p/crystalsaf/), a Java static a
 This directory contains **Locating the Paths that Generate a Given SQL Query**. Given SQL queries, we use information retrieval techniques to rank the control flow paths that have the highest database access similarity.
 
 We give a demo to show SLocator works on PetClinic:
+```
+Options:
+  --type <style>     Set types of DBMS logs: individual, session
+  --SQL <SQL query>  Set the SQL query to be locate, several SQL queries for SQL session should be seperated with comma
+```
+
 
 
 ## 3. Experiment
