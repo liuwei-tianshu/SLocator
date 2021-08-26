@@ -12,7 +12,9 @@ This directory contains **Locating the Paths that Generate a Given SQL Query**. 
 We give a demo to show SLocator works on PetClinic:
 ```
 Options:
-  -s, --sql <SQL query>  Set the SQL query to be locate. SQL session should be seperated with comma
+  -s, --sql <SQL query>  Set the SQL query to be locate. 
+                         1 SQL session log (should be separated with |)
+                         2 individual query log
 ```
 
 
