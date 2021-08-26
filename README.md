@@ -65,7 +65,9 @@ Request matching:True
 ```
 
 #### 4 metrics for this SQL query
-We calculate metrics on path matching and request matching for this SQL query.
+We calculate metrics on path matching and request matching for this given SQL query.
+
+We calculate final metrics on all given SQL queries.
 ```
 +++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
 path_matching_boolean:[True, True, True, False, False, True, False, True, False, False]
