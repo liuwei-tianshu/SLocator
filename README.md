@@ -7,9 +7,9 @@ This directory constians **Statically Inferring Database Access**, the static an
 We use [Crystal](https://code.google.com/archive/p/crystalsaf/), a Java static analysis framework that is built on top of Eclipse JDT, to analyze the source code and extract the CFG.
 
 ## 2. Demo
-This directory contains **Locating the Paths that Generate a Given SQL Query**.
+This directory contains **Locating the Paths that Generate a Given SQL Query**. Given SQL queries, we use information retrieval techniques to rank the control flow paths that have the highest database access similarity.
 
-Given SQL queries, we use information retrieval techniques to rank the control flow paths that have the highest database access similarity.
+We give a demo to show SLocator works on PetClinic:
 
 
 ## 3. Experiment
@@ -31,7 +31,7 @@ Pre-processed SQL query : select from owners owner left outer join pets where ow
 
 #### 2 instrument dynamic execution path using AspectJ
 The dynamic execution path is surrounded by "before rest" and "after rest".
-It includes called methods and ORM generated SQL queries. For example, ORM generaed one SQL query in method jpaownerrepositoryimpl.findbyid .
+It includes called methods and ORM generated SQL queries. For example, ORM generaed one SQL query in method jpaownerrepositoryimpl.findbyid(int).
 ```
 +++++++++++++++++++++++ 1 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
 before rest| modelandview org.springframework.samples.petclinic.web.ownercontroller.showowner(int) 
@@ -47,7 +47,7 @@ after rest| modelandview org.springframework.samples.petclinic.web.ownercontroll
 #### 3 ranked control flow path according to similarity score
 We rank control flow path according to similarity score. 
 Then we compare this control flow with the ground truth (i.e., dynamic execution path) to see if it is path matching or request matching.
-For example, this control flow path and the dynamic execution path has same HTTP request handling method ownercontroller.showowner(int). As a request, this contrl flow path is request matching.
+For example, this control flow path and the dynamic execution path has same HTTP request handling method ownercontroller.showowner(int). As a result, this control flow path is request matching.
 ```
 ---------Top1 ranked control flow path according to similarity score (Only top 10 are presented here) -----------
 request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
@@ -64,7 +64,8 @@ Path matching:True
 Request matching:True
 ```
 
-#### 4 metrics of this SQL query
+#### 4 metrics for this SQL query
+We calculate metrics on path matching and request matching for this SQL query.
 ```
 +++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
 path_matching_boolean:[True, True, True, False, False, True, False, True, False, False]
