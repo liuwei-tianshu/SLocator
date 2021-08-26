@@ -12,7 +12,7 @@ This directory contains **Locating the Paths that Generate a Given SQL Query**. 
 We give a demo to show SLocator works on PetClinic:
 ```
 Options:
-  -s, --sql <SQL query>  Set the SQL query to be locate, several SQL queries for SQL session should be seperated with comma
+  -s, --sql <SQL query>  Set the SQL query to be locate. SQL session should be seperated with comma
 ```
 
 
@@ -28,10 +28,11 @@ This directory contains the **evaluation dataset on studied applications**. Belo
 
 
 #### 1 given SQL query (or given SQL session query) and pre-processed SQL query
+The dynamic value (owner_id) has been removed to delete duplicate given SQL query.
 ```
 ======================================= 5 given SQL query ===========================================
-Given individual SQL query: select owner0_.id as id1_0_1_, owner0_.first_name as first_na2_0_1_, ...
-Pre-processed SQL query : select from owners owner left outer join pets where owner.id=? 
+Given individual SQL query: select ... from owners owner0_ left outer join pets pets1_ ... where owner0_.id=?
+Pre-processed SQL query: select from owners owner left outer join pets where owner.id=? 
 ```
 
 #### 2 instrument dynamic execution path using AspectJ
