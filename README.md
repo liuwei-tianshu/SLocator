@@ -9,7 +9,7 @@ We use [Crystal](https://code.google.com/archive/p/crystalsaf/), a Java static a
 ## 2. Demo
 This directory contains **Locating the Paths that Generate a Given SQL Query**. Given SQL queries, we use information retrieval techniques to rank the control flow paths that have the highest database access similarity.
 
-We give a demo to show SLocator works on PetClinic.
+We give a demo to show how SLocator works on PetClinic.
 
 #### 2.1 Requirement
 - Python 3.7
@@ -118,7 +118,7 @@ We rank control flow path according to similarity score.
 Then we compare this control flow with the ground truth (i.e., dynamic execution path) to see if it is path matching or request matching.
 For example, this control flow path and the dynamic execution path has same HTTP request handling method ownercontroller.showowner(int). As a result, this control flow path is request matching.
 
-For each given SQL query, Only top 5 are presented here.
+For each given SQL query, Only top 5 control flow paths are presented.
 ```
 ---------Top1 ranked control flow path according to similarity score (Only top 5 are presented here) -----------
 request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
