@@ -278,7 +278,7 @@ public class ObjectCreationHelper {
 			return null;
 		}
 		/**
-		 * add by wei liu, 2020-01-15
+		 * added
 		 */
 		if (!(iMethod instanceof org.eclipse.jdt.internal.core.SourceMethod)) {
 //			System.err.println("createMethodFromIMethod, !(iMethod instanceof org.eclipse.jdt.internal.core.SourceMethod) iMethod:" 
@@ -354,9 +354,6 @@ public class ObjectCreationHelper {
 		if (iMethodBinding == null) {
 			String nodeASTStr = node.getASTNode().toString();
 		} else {
-			/**
-			 * there is a bug here
-			 */     
 			List<String> parametersTypes = getSimpleParameters(iMethodBinding.toString());
 			invokedMethod = new JDTJavaMethod(iMethodBinding.getMethodDeclaration().getDeclaringClass().getPackage().getName(), 
 					iMethodBinding.getMethodDeclaration().getDeclaringClass().getName(),
