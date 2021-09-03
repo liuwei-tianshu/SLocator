@@ -83,7 +83,7 @@ Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.10165
 ## 3. Experiment
 - Instrument: we use [AspectJ](https://www.eclipse.org/aspectj/) to instrument the applications when executing the workloads to get the dynamic execution paths.
 
-- Workload: equivalent test cases of the workloads (only for demonstration). 
+- Workload: Equivalent test cases of the workloads (only for demonstration). We use [JMeter](https://jmeter.apache.org/) to automatically send user requests.  
 
 
 ## 4. Dataset
