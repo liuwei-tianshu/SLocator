@@ -35,9 +35,9 @@ select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype
 select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=1
 
 Pre-processed SQL queries:
-select distinct from owner left outer join pet where owner.last_name like ?
-select from type where pettype.id=?
-select from visit where visits.pet_id=?
+select distinct from owners left outer join pets where owner.last_name like ? 
+select from types where pettype.id=? 
+select from visits where visits.pet_id=?
 
 -------Top1 ranked control flow path according to similarity score (Only top 5 are presented here) ------
 request:org.springframework.samples.petclinic.web.ownercontroller.processfindform(owner,bindingresult,map)
@@ -62,7 +62,7 @@ Given SQL queries:
 select owner0_.id as id1_0_1_, owner0_.first_name as first_na2_0_1_, owner0_.last_name as last_nam3_0_1_, owner0_.address as address4_0_1_, owner0_.city as city5_0_1_, owner0_.telephone as telephon6_0_1_, pets1_.owner_id as owner_id4_0_3_, pets1_.id as id1_1_3_, pets1_.id as id1_1_0_, pets1_.name as name2_1_0_, pets1_.birth_date as birth_da3_1_0_, pets1_.owner_id as owner_id4_1_0_, pets1_.type_id as type_id5_1_0_ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=1
 
 Pre-processed SQL queries:
-select from owner left outer join pet where owner.id=? 
+select from owners left outer join pets where owner.id=? 
 
 ------Top1 ranked control flow path according to similarity score (Only top 5 are presented here) -----------
 request:org.springframework.samples.petclinic.web.ownercontroller.showowner(int)
