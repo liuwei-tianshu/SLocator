@@ -61,13 +61,17 @@ def main(argv):
             locate_control_flow_paths_for_given_sql(pre_processed_given_sql_query_list, cfp_file)
 
 
-def locate_control_flow_paths_for_given_sql(pre_processed_given_sql_query_list, cfp_file):
+def locate_control_flow_paths_for_given_sql(given_sql_query_list, cfp_file):
     """
     locate control flow paths for given SQL query
-    :param pre_processed_given_sql_query_list:
+    :param given_sql_query_list:
     :param cfp_file: control flow path file to be loaded
     :return:
     """
+    pre_processed_given_sql_query_list = list()
+    for original_sql in given_sql_query_list:
+        pre_processed_sql = pre_process_sql(original_sql)
+        pre_processed_given_sql_query_list.append(pre_processed_sql)
     control_flow_path_list = load_control_flow_path(cfp_file)
     ranked_control_flow_paths = compute_similarity_score_and_rank_paths(pre_processed_given_sql_query_list, control_flow_path_list)
     for index_inner, path in enumerate(ranked_control_flow_paths):

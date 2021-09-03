@@ -7,6 +7,15 @@ from sqlparse.tokens import Text
 
 def pre_process(sql):
     sql = sql.strip().rstrip('\r').rstrip('\n')
+    sql = get_abstract_sql_query(sql)
+    sql = replace_string_value_sql(sql)
+    sql = replace_int_value_sql(sql)
+    sql = sql.replace('0_', '').replace('1_', '').replace('2_', '').replace('3_', '')
+    return sql
+
+
+def pre_process_sql(sql):
+    sql = sql.strip().rstrip('\r').rstrip('\n')
     sql = get_abstract_sql(sql)
     sql = replace_string_value_sql(sql)
     sql = replace_int_value_sql(sql)
@@ -70,15 +79,8 @@ def get_abstracted_sql(query):
             # remove the keyword "on"
             if token.value != 'on':
                 abstracted_sql.append(token.value)
-        # Identifier can be table name in an update SQL: "update pets set ...", in this case, pets will be the Identifier
         if isinstance(token, Identifier):
             identifier = token.value
-            # here, identifier can be "visits visits0_", in this case, we remove the variable name "visits0_"
-            # if ' ' in identifier:
-            #     identifier = identifier.split(' ')[0]
-            # # stemmed_identifier = nltk.PorterStemmer().stem(identifier)
-            # abstracted_sql.append(identifier)
-
             if ' ' in identifier:
                 identifier = identifier.split(' ')[0]
             stemmedIdentifier = nltk.PorterStemmer().stem(identifier)
@@ -87,15 +89,39 @@ def get_abstracted_sql(query):
         if isinstance(token, Where):
             abstracted_sql.append(token.value)
 
-        # we are now parsing the "from Table tableVar"
-        # from X ... or left outer join X. We need to parse X.
-        # if token.ttype == Keyword and (token.value == "from" or "join" in token.value):
-        #    visitedFrom = True
-        # if token.ttype == Keyword.DML and token.ttype.value == "delete":
-        #    visitedFrom = True
-        # keyword 'like' in SQL
-        # if ' like ' in token.value:
-        #     abstracted_sql.append('like')
+    abstract_sql_str = ""
+    for token in abstracted_sql:
+        abstract_sql_str += token
+        abstract_sql_str += " "
+
+    return {'sql': query, 'abstract_sql_str': abstract_sql_str, 'str': abstract_sql_str}
+
+
+def get_abstract_sql_query(sql):
+    operator = sql.split(' ')[0]
+    if operator == 'select':
+        abstract_sql = get_abstracted_sql_query(sql).get('str')
+        return abstract_sql
+    else:
+        return sql
+
+
+def get_abstracted_sql_query(query):
+    abstracted_sql = []
+    parsed = sqlparse.parse(query)[0]
+    for token in parsed.tokens:
+        if token.ttype != None and token.ttype is not Text.Whitespace:
+            # remove the keyword "on"
+            if token.value != 'on':
+                abstracted_sql.append(token.value)
+        if isinstance(token, Identifier):
+            identifier = token.value
+            if ' ' in identifier:
+                identifier = identifier.split(' ')[0]
+            abstracted_sql.append(identifier)
+
+        if isinstance(token, Where):
+            abstracted_sql.append(token.value)
 
     abstract_sql_str = ""
     for token in abstracted_sql:
