@@ -140,6 +140,7 @@ Request matching:True
 
 #### 4 metrics for this SQL query
 We calculate metrics on path matching and request matching for this given SQL query.
+> **Note:** We just show top 5 ranked paths here and the average precision (i.e., path_ap and request_ap) are calculated based on all ranked paths. That is way the value 0.722 is not calculated on these top 5 results.
 
 We calculate FINAL metrics based on all given SQL queries.
 ```
