@@ -1,0 +1,1459 @@
+======================================= 1 given SQL query ===========================================
+Given individual SQL query: insert into usergrade (name, needpoint) values (?, ?)
+Execution time of Given individual SQL query (slow) : 121100ns
+Pre-processed SQL query: insert into usergrade (name, needpoint) values (?, ?)
+
++++++++++++++++++++++++ 1 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usergrademanageaction.add(usergrade, bindingresult, modelmap, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usergrademanageaction.add(usergrade, bindingresult, modelmap, httpservletrequest, httpservletresponse) 
+called| void cms.web.action.user.gradevalidator.validate(object, errors) 
+called| usergrade com.sun.proxy..proxy73.findgradebyneedpoint(long) 
+called| usergrade cms.service.user.impl.usergradeservicebean.findgradebyneedpoint(long) 
+sql|select usergrade0_.id as id1_115_, usergrade0_.name as name2_115_, usergrade0_.needpoint as needpoin3_115_ from usergrade usergrade0_ where usergrade0_.needpoint=?
+called| void com.sun.proxy..proxy73.saveusergrade(usergrade) 
+called| void cms.service.user.impl.usergradeservicebean.saveusergrade(usergrade) 
+called| void cms.service.besa.daosupport.save(object) 
+sql|insert into usergrade (name, needpoint) values (?, ?)
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:1.0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, False, False, False, False]
+request_matching_number_k:[1, 1, 1, 1, 1]
+request_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:1.0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.usergrademanageaction.add(usergrade,bindingresult,modelmap,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.usergradeservicebean.saveusergrade(usergrade)
+[insert into usergrade ( ) values ( )]
+
+Syntactic Similarity:0.6437489333584655
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.6437489333584656
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.usergrademanageaction.edit(modelmap,usergrade,bindingresult,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.usergradeservicebean.findgradebyid(integer)
+[select o from usergrade o where o.id=?1]
+method:cms.service.user.impl.usergradeservicebean.findgradebyneedpoint(long)
+[select o from usergrade o where o.needpoint=?1]
+
+Syntactic Similarity:0.6735847623378477
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.6735847623378477
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.topic.topicmanageaction.add(modelmap,long,string,string,boolean,integer,boolean,string,string,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.usergradeservicebean.findallgrade()
+[select o from usergrade o order by o.needpoint desc]
+method:cms.service.topic.impl.topicservicebean.savetopic(topic,giveredenvelope,string,bigdecimal,paymentlog)
+[insert into topic ( ) values ( )]
+method:cms.service.topic.impl.topicindexservicebean.addtopicindex(topicindex)
+[insert into topicindex ( ) values ( )]
+method:cms.service.mediaprocess.impl.mediaprocessservicebean.savemediaprocessqueuelist(list)
+
+Syntactic Similarity:0.6657568183680871
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.6657568183680871
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.topic.topicmanageaction.add(modelmap,long,string,string,boolean,integer,boolean,string,string,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.usergradeservicebean.findallgrade()
+[select o from usergrade o order by o.needpoint desc]
+method:cms.service.topic.impl.topicservicebean.savetopic(topic,giveredenvelope,string,bigdecimal,paymentlog)
+[insert into topic ( ) values ( )]
+method:cms.service.topic.impl.topicindexservicebean.addtopicindex(topicindex)
+[insert into topicindex ( ) values ( )]
+
+Syntactic Similarity:0.6657568183680871
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.6657568183680871
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.topic.topicmanageaction.add(modelmap,long,string,string,boolean,integer,boolean,string,string,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.usergradeservicebean.findallgrade()
+[select o from usergrade o order by o.needpoint desc]
+method:cms.service.topic.impl.topicservicebean.savetopic(topic,giveredenvelope,string,bigdecimal,paymentlog)
+[insert into topic ( ) values ( )]
+method:cms.service.topic.impl.topicindexservicebean.addtopicindex(topicindex)
+[insert into topicindex ( ) values ( )]
+method:cms.service.mediaprocess.impl.mediaprocessservicebean.savemediaprocessqueuelist(list)
+method:cms.service.thumbnail.impl.thumbnailservicebean.findallthumbnail_cache()
+
+Syntactic Similarity:0.6657568183680871
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.6657568183680871
+Path matching:False
+Request matching:False
+
+
+
+======================================= 2 given SQL query ===========================================
+Given individual SQL query: select disableuse0_.id as id1_3_0_, disableuse0_.name as name2_3_0_ from disableusername disableuse0_ where disableuse0_.id=?
+Execution time of Given individual SQL query (slow) : 119900ns
+Pre-processed SQL query: select from disableusername where disableuse.id=? 
+
++++++++++++++++++++++++ 1 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.disableusernamemanageaction.editui(modelmap, integer, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.disableusernamemanageaction.editui(modelmap, integer, httpservletrequest, httpservletresponse) 
+called| disableusername com.sun.proxy..proxy80.finddisableusernamebyid(integer) 
+called| disableusername cms.service.user.impl.userservicebean.finddisableusernamebyid(integer) 
+sql|select disableuse0_.id as id1_3_, disableuse0_.name as name2_3_ from disableusername disableuse0_ where disableuse0_.id=?
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++ 2 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.disableusernamemanageaction.edit(modelmap, disableusername, bindingresult, integer, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.disableusernamemanageaction.edit(modelmap, disableusername, bindingresult, integer, httpservletrequest, httpservletresponse) 
+called| boolean cms.utils.verification.isstring_1(string) 
+called| void com.sun.proxy..proxy80.updatedisableusername(disableusername) 
+called| void cms.service.user.impl.userservicebean.updatedisableusername(disableusername) 
+called| void cms.service.besa.daosupport.update(object) 
+sql|select disableuse0_.id as id1_3_0_, disableuse0_.name as name2_3_0_ from disableusername disableuse0_ where disableuse0_.id=?
+sql|update disableusername set name=? where id=?
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, True, False, False, False]
+path_matching_number_k:[1, 2, 2, 2, 2]
+path_precision_k:[1.0, 1.0, 0.6666666666666666, 0.5, 0.4]
+path_ap:1.0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, True, False, False, False]
+request_matching_number_k:[1, 2, 2, 2, 2]
+request_precision_k:[1.0, 1.0, 0.6666666666666666, 0.5, 0.4]
+request_ap:1.0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.disableusernamemanageaction.editui(modelmap,integer,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userservicebean.finddisableusernamebyid(integer)
+[select o from disableusername o where o.id=?1]
+
+Syntactic Similarity:0.6707804401917707
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.6707804401917707
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.disableusernamemanageaction.edit(modelmap,disableusername,bindingresult,integer,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userservicebean.updatedisableusername(disableusername)
+[update disableusername set where ]
+
+Syntactic Similarity:0.6030385445308739
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.6030385445308739
+Path matching:True
+Request matching:True
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.disableusernamemanageaction.delete(modelmap,integer,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userservicebean.deletedisableusername(integer)
+[delete from disableusername o where o.id=?1]
+
+Syntactic Similarity:0.5973692017688732
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.5973692017688732
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.disableusernamemanageaction.add(modelmap,disableusername,bindingresult,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userservicebean.savedisableusername(disableusername)
+[insert into disableusername ( ) values ( )]
+
+Syntactic Similarity:0.5683129981586966
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.5683129981586966
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.redenvelope.redenvelopeaction.giveredenvelopepage(modelmap,pageform,long,httpservletrequest,httpservletresponse)
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+method:cms.web.action.topic.topicmanage.querytopiccache(long)
+method:cms.service.topic.impl.topicservicebean.findbyid(long)
+[select o from topic o where o.id=?1]
+method:cms.service.user.impl.userservicebean.finduserbyid(long)
+[select o from user o where o.id=?1]
+
+Syntactic Similarity:0.17198171827676
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.17198171827676
+Path matching:False
+Request matching:False
+
+
+
+======================================= 3 given SQL query ===========================================
+Given individual SQL query: select userrolegr0_.id as id1_122_, userrolegr0_.username as username2_122_, userrolegr0_.userroleid as userrole3_122_, userrolegr0_.validperiodend as validper4_122_ from userrolegroup userrolegr0_ where userrolegr0_.username=?
+Execution time of Given individual SQL query (slow) : 110700ns
+Pre-processed SQL query: select from userrolegroup where userrolegr.username=? 
+
++++++++++++++++++++++++ 1 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usermanageaction.editui(user, modelmap, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usermanageaction.editui(user, modelmap, httpservletrequest, httpservletresponse) 
+called| user com.sun.proxy..proxy80.finduserbyid(long) 
+called| user cms.service.user.impl.userservicebean.finduserbyid(long) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+called| list com.sun.proxy..proxy73.findallgrade() 
+called| list cms.service.user.impl.usergradeservicebean.findallgrade() 
+sql|select usergrade0_.id as id1_115_, usergrade0_.name as name2_115_, usergrade0_.needpoint as needpoin3_115_ from usergrade usergrade0_ order by usergrade0_.needpoint desc
+called| list com.sun.proxy..proxy110.findallusercustom() 
+called| list cms.service.user.impl.usercustomservicebean.findallusercustom() 
+sql|select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+called| list com.sun.proxy..proxy110.finduserinputvaluebyusername(long) 
+called| list cms.service.user.impl.usercustomservicebean.finduserinputvaluebyusername(long) 
+sql|select userinputv0_.id as id1_116_, userinputv0_.content as content2_116_, userinputv0_.options as options3_116_, userinputv0_.usercustomid as usercust4_116_, userinputv0_.userid as userid5_116_ from userinputvalue userinputv0_ where userinputv0_.userid=?
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| list com.sun.proxy..proxy78.findrolegroupbyusername(string) 
+called| list cms.service.user.impl.userroleservicebean.findrolegroupbyusername(string) 
+sql|select userrolegr0_.id as id1_122_, userrolegr0_.username as username2_122_, userrolegr0_.userroleid as userrole3_122_, userrolegr0_.validperiodend as validper4_122_ from userrolegroup userrolegr0_ where userrolegr0_.username=?
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++ 2 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usermanageaction.show(modelmap, long, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usermanageaction.show(modelmap, long, httpservletrequest, httpservletresponse) 
+called| user com.sun.proxy..proxy80.finduserbyid(long) 
+called| user cms.service.user.impl.userservicebean.finduserbyid(long) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+called| list com.sun.proxy..proxy73.findallgrade() 
+called| list cms.service.user.impl.usergradeservicebean.findallgrade() 
+sql|select usergrade0_.id as id1_115_, usergrade0_.name as name2_115_, usergrade0_.needpoint as needpoin3_115_ from usergrade usergrade0_ order by usergrade0_.needpoint desc
+called| string cms.web.action.filesystem.filemanage.fileserveraddress() 
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| list com.sun.proxy..proxy78.findrolegroupbyusername(string) 
+called| list cms.service.user.impl.userroleservicebean.findrolegroupbyusername(string) 
+sql|select userrolegr0_.id as id1_122_, userrolegr0_.username as username2_122_, userrolegr0_.userroleid as userrole3_122_, userrolegr0_.validperiodend as validper4_122_ from userrolegroup userrolegr0_ where userrolegr0_.username=?
+called| list com.sun.proxy..proxy110.findallusercustom() 
+called| list cms.service.user.impl.usercustomservicebean.findallusercustom() 
+sql|select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+called| list com.sun.proxy..proxy110.finduserinputvaluebyusername(long) 
+called| list cms.service.user.impl.usercustomservicebean.finduserinputvaluebyusername(long) 
+sql|select userinputv0_.id as id1_116_, userinputv0_.content as content2_116_, userinputv0_.options as options3_116_, userinputv0_.usercustomid as usercust4_116_, userinputv0_.userid as userid5_116_ from userinputvalue userinputv0_ where userinputv0_.userid=?
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, False, False, False, False]
+path_matching_number_k:[0, 0, 0, 0, 0]
+path_precision_k:[0.0, 0.0, 0.0, 0.0, 0.0]
+path_ap:0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, False, False, False, False]
+request_matching_number_k:[0, 0, 0, 0, 0]
+request_precision_k:[0.0, 0.0, 0.0, 0.0, 0.0]
+request_ap:0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.common.topicformaction.upload(modelmap,string,string,multipartfile,httpservletrequest,httpservletresponse)
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+method:cms.web.action.setting.settingmanage.readtopiceditortag()
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+method:cms.web.action.user.userrolemanage.ispermission(resourceenum,long)
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+method:cms.web.action.user.userrolemanage.getdefaultuserresourcegroup()
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+method:cms.web.action.user.userrolemanage.getuserresourcegroup(string)
+method:cms.web.action.user.userrolemanage.query_cache_findrolegroupbyusername(string)
+method:cms.service.user.impl.userroleservicebean.findrolegroupbyusername(string)
+[select o from userrolegroup o where o.username=?1]
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+
+Syntactic Similarity:0.40009530748548466
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.4000953074854847
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.common.questionformaction.add(modelmap,long[],string,string,string,string,string,string,string,string,redirectattributes,httpservletrequest,httpservletresponse)
+method:cms.web.action.user.userrolemanage.ispermission(resourceenum,long)
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+method:cms.web.action.user.userrolemanage.getdefaultuserresourcegroup()
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+method:cms.web.action.user.userrolemanage.getuserresourcegroup(string)
+method:cms.web.action.user.userrolemanage.query_cache_findrolegroupbyusername(string)
+method:cms.service.user.impl.userroleservicebean.findrolegroupbyusername(string)
+[select o from userrolegroup o where o.username=?1]
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+
+Syntactic Similarity:0.40009530748548466
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.4000953074854847
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.common.questionformaction.add(modelmap,long[],string,string,string,string,string,string,string,string,redirectattributes,httpservletrequest,httpservletresponse)
+method:cms.web.action.user.userrolemanage.ispermission(resourceenum,long)
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+method:cms.web.action.user.userrolemanage.getdefaultuserresourcegroup()
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+method:cms.web.action.user.userrolemanage.getuserresourcegroup(string)
+method:cms.web.action.user.userrolemanage.query_cache_findrolegroupbyusername(string)
+method:cms.service.user.impl.userroleservicebean.findrolegroupbyusername(string)
+[select o from userrolegroup o where o.username=?1]
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+
+Syntactic Similarity:0.40009530748548466
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.4000953074854847
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.common.questionformaction.add(modelmap,long[],string,string,string,string,string,string,string,string,redirectattributes,httpservletrequest,httpservletresponse)
+method:cms.web.action.user.userrolemanage.ispermission(resourceenum,long)
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+method:cms.web.action.user.userrolemanage.getdefaultuserresourcegroup()
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+method:cms.web.action.user.userrolemanage.getuserresourcegroup(string)
+method:cms.web.action.user.userrolemanage.query_cache_findrolegroupbyusername(string)
+method:cms.service.user.impl.userroleservicebean.findrolegroupbyusername(string)
+[select o from userrolegroup o where o.username=?1]
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+method:cms.web.action.common.captchamanage.question_iscaptcha(string)
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+
+Syntactic Similarity:0.40009530748548466
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.4000953074854847
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.common.questionformaction.add(modelmap,long[],string,string,string,string,string,string,string,string,redirectattributes,httpservletrequest,httpservletresponse)
+method:cms.web.action.user.userrolemanage.ispermission(resourceenum,long)
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+method:cms.web.action.user.userrolemanage.getdefaultuserresourcegroup()
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+method:cms.web.action.user.userrolemanage.getuserresourcegroup(string)
+method:cms.web.action.user.userrolemanage.query_cache_findrolegroupbyusername(string)
+method:cms.service.user.impl.userroleservicebean.findrolegroupbyusername(string)
+[select o from userrolegroup o where o.username=?1]
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+method:cms.service.template.impl.templateservicebean.findtemplatedir_cache()
+method:cms.web.action.accesssourcedevicemanage.accessdevices(httpservletrequest)
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+
+Syntactic Similarity:0.40009530748548466
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.4000953074854847
+Path matching:False
+Request matching:False
+
+
+
+======================================= 4 given SQL query ===========================================
+Given individual SQL query: select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+Execution time of Given individual SQL query (slow) : 110400ns
+Pre-processed SQL query: select from userrole order by 
+
++++++++++++++++++++++++ 1 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usermanageaction.addui(modelmap, user, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usermanageaction.addui(modelmap, user, httpservletrequest, httpservletresponse) 
+called| list com.sun.proxy..proxy110.findallusercustom() 
+called| list cms.service.user.impl.usercustomservicebean.findallusercustom() 
+sql|select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++ 2 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usermanageaction.add(user, string[], bindingresult, modelmap, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usermanageaction.add(user, string[], bindingresult, modelmap, httpservletrequest, httpservletresponse) 
+called| list com.sun.proxy..proxy110.findallusercustom() 
+called| list cms.service.user.impl.usercustomservicebean.findallusercustom() 
+sql|select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| boolean cms.utils.verification.istime_minute(string) 
+called| void cms.web.action.user.uservalidator.validate(object, errors) 
+called| boolean cms.utils.verification.isnumericlettersunderscore(string) 
+called| user com.sun.proxy..proxy80.finduserbyaccount(string) 
+called| user cms.service.user.impl.userservicebean.finduserbyaccount(string) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.account=?
+called| user com.sun.proxy..proxy80.finduserbynickname(string) 
+called| user cms.service.user.impl.userservicebean.finduserbynickname(string) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.nickname=?
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++ 3 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usermanageaction.add(user, string[], bindingresult, modelmap, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usermanageaction.add(user, string[], bindingresult, modelmap, httpservletrequest, httpservletresponse) 
+called| list com.sun.proxy..proxy110.findallusercustom() 
+called| list cms.service.user.impl.usercustomservicebean.findallusercustom() 
+sql|select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| boolean cms.utils.verification.istime_minute(string) 
+called| void cms.web.action.user.uservalidator.validate(object, errors) 
+called| boolean cms.utils.verification.isnumericlettersunderscore(string) 
+called| user com.sun.proxy..proxy80.finduserbyaccount(string) 
+called| user cms.service.user.impl.userservicebean.finduserbyaccount(string) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.account=?
+called| user com.sun.proxy..proxy80.finduserbynickname(string) 
+called| user cms.service.user.impl.userservicebean.finduserbynickname(string) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.nickname=?
+called| string cms.utils.uuidutil.getuuid22() 
+called| string cms.utils.uuidutil.digits(long, int) 
+called| string cms.utils.uuidutil.tohex(long, int) 
+called| string cms.utils.sha.sha256hex(string) 
+called| string cms.utils.uuidutil.getuuid32() 
+called| void com.sun.proxy..proxy80.saveuser(user, list, list) 
+called| void cms.service.user.impl.userservicebean.saveuser(user, list, list) 
+called| void cms.service.besa.daosupport.save(object) 
+sql|insert into user (account, allowuserdynamic, answer, avatarname, cancelaccounttime, deposit, email, issue, mobile, nickname, password, platformuserid, point, realnameauthentication, registrationdate, remarks, salt, securitydigest, state, type, username, userversion) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+called| void com.sun.proxy..proxy78.saveuserrolegroup(list) 
+called| void cms.service.user.impl.userroleservicebean.saveuserrolegroup(list) 
+sql|insert into userrolegroup (username, userroleid, validperiodend) values (?, ?, ?)
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_cache_finduserbyid(long) 
+called| int cms.web.action.user.usermanage..fastclassbyspringcglib..5391ef1a.getindex(signature) 
+called| int cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08..fastclassbyspringcglib..8647d7e.getindex(signature) 
+called| object cms.web.action.user.usermanage..fastclassbyspringcglib..5391ef1a.invoke(int, object, object[]) 
+called| void cms.web.action.user.usermanage.delete_cache_finduserbyid(long) 
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_cache_finduserbyusername(string) 
+called| void cms.web.action.user.usermanage.delete_cache_finduserbyusername(string) 
+called| void cms.web.action.user.userrolemanage..enhancerbyspringcglib..c0c5f48a.delete_cache_findrolegroupbyusername(string) 
+called| int cms.web.action.user.userrolemanage..fastclassbyspringcglib..511c8b0.getindex(signature) 
+called| int cms.web.action.user.userrolemanage..enhancerbyspringcglib..c0c5f48a..fastclassbyspringcglib..43eddf5f.getindex(signature) 
+called| object cms.web.action.user.userrolemanage..fastclassbyspringcglib..511c8b0.invoke(int, object, object[]) 
+called| void cms.web.action.user.userrolemanage.delete_cache_findrolegroupbyusername(string) 
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++ 4 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usermanageaction.editui(user, modelmap, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usermanageaction.editui(user, modelmap, httpservletrequest, httpservletresponse) 
+called| user com.sun.proxy..proxy80.finduserbyid(long) 
+called| user cms.service.user.impl.userservicebean.finduserbyid(long) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+called| list com.sun.proxy..proxy73.findallgrade() 
+called| list cms.service.user.impl.usergradeservicebean.findallgrade() 
+sql|select usergrade0_.id as id1_115_, usergrade0_.name as name2_115_, usergrade0_.needpoint as needpoin3_115_ from usergrade usergrade0_ order by usergrade0_.needpoint desc
+called| list com.sun.proxy..proxy110.findallusercustom() 
+called| list cms.service.user.impl.usercustomservicebean.findallusercustom() 
+sql|select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+called| list com.sun.proxy..proxy110.finduserinputvaluebyusername(long) 
+called| list cms.service.user.impl.usercustomservicebean.finduserinputvaluebyusername(long) 
+sql|select userinputv0_.id as id1_116_, userinputv0_.content as content2_116_, userinputv0_.options as options3_116_, userinputv0_.usercustomid as usercust4_116_, userinputv0_.userid as userid5_116_ from userinputvalue userinputv0_ where userinputv0_.userid=?
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| list com.sun.proxy..proxy78.findrolegroupbyusername(string) 
+called| list cms.service.user.impl.userroleservicebean.findrolegroupbyusername(string) 
+sql|select userrolegr0_.id as id1_122_, userrolegr0_.username as username2_122_, userrolegr0_.userroleid as userrole3_122_, userrolegr0_.validperiodend as validper4_122_ from userrolegroup userrolegr0_ where userrolegr0_.username=?
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++ 5 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usermanageaction.edit(user, string[], modelmap, pageform, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usermanageaction.edit(user, string[], modelmap, pageform, httpservletrequest, httpservletresponse) 
+called| user com.sun.proxy..proxy80.finduserbyid(long) 
+called| user cms.service.user.impl.userservicebean.finduserbyid(long) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+called| list com.sun.proxy..proxy73.findallgrade() 
+called| list cms.service.user.impl.usergradeservicebean.findallgrade() 
+sql|select usergrade0_.id as id1_115_, usergrade0_.name as name2_115_, usergrade0_.needpoint as needpoin3_115_ from usergrade usergrade0_ order by usergrade0_.needpoint desc
+called| list com.sun.proxy..proxy110.findallusercustom() 
+called| list cms.service.user.impl.usercustomservicebean.findallusercustom() 
+sql|select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+called| user com.sun.proxy..proxy80.finduserbynickname(string) 
+called| user cms.service.user.impl.userservicebean.finduserbynickname(string) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.nickname=?
+called| string cms.utils.sha.sha256hex(string) 
+called| boolean cms.utils.verification.ispositiveinteger(string) 
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| boolean cms.utils.verification.istime_minute(string) 
+called| list com.sun.proxy..proxy110.finduserinputvaluebyusername(long) 
+called| list cms.service.user.impl.usercustomservicebean.finduserinputvaluebyusername(long) 
+sql|select userinputv0_.id as id1_116_, userinputv0_.content as content2_116_, userinputv0_.options as options3_116_, userinputv0_.usercustomid as usercust4_116_, userinputv0_.userid as userid5_116_ from userinputvalue userinputv0_ where userinputv0_.userid=?
+called| integer com.sun.proxy..proxy80.updateuser(user, list, list, list) 
+called| integer cms.service.user.impl.userservicebean.updateuser(user, list, list, list) 
+sql|update user set nickname=?, allowuserdynamic=?, password=?, email=?, issue=?, answer=?, state=?, remarks=?, mobile=?, realnameauthentication=?, securitydigest=?, platformuserid=?, userversion=userversion+1 where id=? and userversion=?
+called| void com.sun.proxy..proxy78.updateuserrolegroup(string, list) 
+called| void cms.service.user.impl.userroleservicebean.updateuserrolegroup(string, list) 
+called| int cms.service.user.impl.userroleservicebean.deleteuserrolegroup(list) 
+sql|delete from userrolegroup where username in (?)
+called| void cms.service.user.impl.userroleservicebean.saveuserrolegroup(list) 
+called| void cms.service.besa.daosupport.save(object) 
+sql|insert into userrolegroup (username, userroleid, validperiodend) values (?, ?, ?)
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_userstate(string) 
+called| int cms.web.action.user.usermanage..fastclassbyspringcglib..5391ef1a.getindex(signature) 
+called| int cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08..fastclassbyspringcglib..8647d7e.getindex(signature) 
+called| object cms.web.action.user.usermanage..fastclassbyspringcglib..5391ef1a.invoke(int, object, object[]) 
+called| void cms.web.action.user.usermanage.delete_userstate(string) 
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_cache_finduserbyid(long) 
+called| void cms.web.action.user.usermanage.delete_cache_finduserbyid(long) 
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_cache_finduserbyusername(string) 
+called| void cms.web.action.user.usermanage.delete_cache_finduserbyusername(string) 
+called| void cms.web.action.user.userrolemanage..enhancerbyspringcglib..c0c5f48a.delete_cache_findrolegroupbyusername(string) 
+called| object cms.web.action.user.userrolemanage..fastclassbyspringcglib..511c8b0.invoke(int, object, object[]) 
+called| void cms.web.action.user.userrolemanage.delete_cache_findrolegroupbyusername(string) 
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++ 6 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.membershipcard.membershipcardmanageaction.addui(modelmap) 
+called| string cms.web.action.membershipcard.membershipcardmanageaction.addui(modelmap) 
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++ 7 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.membershipcard.membershipcardmanageaction.editui(modelmap, long, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.membershipcard.membershipcardmanageaction.editui(modelmap, long, httpservletrequest, httpservletresponse) 
+called| membershipcard com.sun.proxy..proxy104.findbyid(long) 
+called| membershipcard cms.service.membershipcard.impl.membershipcardservicebean.findbyid(long) 
+sql|select membership0_.id as id1_29_, membership0_.createdate as createda2_29_, membership0_.descriptiontagformat as descript3_29_, membership0_.highestpoint as highestp4_29_, membership0_.highestprice as highestp5_29_, membership0_.introduction as introduc6_29_, membership0_.lowestpoint as lowestpo7_29_, membership0_.lowestprice as lowestpr8_29_, membership0_.name as name9_29_, membership0_.sort as sort10_29_, membership0_.state as state11_29_, membership0_.subtitle as subtitl12_29_, membership0_.userroleid as userrol13_29_ from membershipcard membership0_ where membership0_.id=?
+called| object cms.utils.jsonutils.togenericobject(string, typereference) 
+called| list com.sun.proxy..proxy104.findspecificationbymembershipcardid(long) 
+called| list cms.service.membershipcard.impl.membershipcardservicebean.findspecificationbymembershipcardid(long) 
+sql|select specificat0_.id as id1_71_, specificat0_.duration as duration2_71_, specificat0_.enable as enable3_71_, specificat0_.marketprice as marketpr4_71_, specificat0_.membershipcardid as membersh5_71_, specificat0_.point as point6_71_, specificat0_.sellingprice as sellingp7_71_, specificat0_.sort as sort8_71_, specificat0_.specificationname as specific9_71_, specificat0_.stock as stock10_71_, specificat0_.stockoccupy as stockoc11_71_, specificat0_.unit as unit12_71_ from specification specificat0_ where specificat0_.membershipcardid=? order by specificat0_.sort asc
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++ 8 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.topic.topicmanageaction.view(long, long, modelmap, integer, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.topic.topicmanageaction.view(long, long, modelmap, integer, httpservletrequest, httpservletresponse) 
+called| topic com.sun.proxy..proxy88.findbyid(long) 
+called| topic cms.service.topic.impl.topicservicebean.findbyid(long) 
+sql|select topic0_.id as id1_93_, topic0_.allow as allow2_93_, topic0_.commenttotal as commentt3_93_, topic0_.content as content4_93_, topic0_.essence as essence5_93_, topic0_.giveredenvelopeid as giverede6_93_, topic0_.image as image7_93_, topic0_.ip as ip8_93_, topic0_.isstaff as isstaff9_93_, topic0_.lastreplytime as lastrep10_93_, topic0_.lastupdatetime as lastupd11_93_, topic0_.posttime as posttim12_93_, topic0_.sort as sort13_93_, topic0_.status as status14_93_, topic0_.summary as summary15_93_, topic0_.tagid as tagid16_93_, topic0_.title as title17_93_, topic0_.username as usernam18_93_, topic0_.viewtotal as viewtot19_93_ from topic topic0_ where topic0_.id=?
+called| string cms.utils.ipaddress.queryaddress(string) 
+called| string cms.utils.ipaddress.format(string) 
+called| string cms.web.action.filesystem.filemanage.processrichtextfilepath(string, string) 
+called| systemsetting com.sun.proxy..proxy85.findsystemsetting_cache() 
+called| string cms.web.action.textfiltermanage.processvideoplayer(string, long, string) 
+called| list cms.web.action.user.userrolemanage..enhancerbyspringcglib..c0c5f48a.queryallowviewtopicrolename(long) 
+called| int cms.web.action.user.userrolemanage..fastclassbyspringcglib..511c8b0.getindex(signature) 
+called| int cms.web.action.user.userrolemanage..enhancerbyspringcglib..c0c5f48a..fastclassbyspringcglib..43eddf5f.getindex(signature) 
+called| object cms.web.action.user.userrolemanage..fastclassbyspringcglib..511c8b0.invoke(int, object, object[]) 
+called| list cms.web.action.user.userrolemanage.queryallowviewtopicrolename(long) 
+called| list com.sun.proxy..proxy78.findallrole_cache() 
+called| list cms.service.user.impl.userroleservicebean.findallrole_cache() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| object cms.utils.jsonutils.togenericobject(string, typereference) 
+called| tag com.sun.proxy..proxy108.findbyid(long) 
+called| tag cms.service.topic.impl.tagservicebean.findbyid(long) 
+sql|select tag0_.id as id1_89_, tag0_.name as name2_89_, tag0_.sort as sort3_89_ from tag tag0_ where tag0_.id=?
+called| string cms.web.action.topic.commentmanage..enhancerbyspringcglib..34773b3e.availabletag() 
+called| int cms.web.action.topic.commentmanage..fastclassbyspringcglib..6e290e6c.getindex(signature) 
+called| int cms.web.action.topic.commentmanage..enhancerbyspringcglib..34773b3e..fastclassbyspringcglib..1b38352f.getindex(signature) 
+called| object cms.web.action.topic.commentmanage..fastclassbyspringcglib..6e290e6c.invoke(int, object, object[]) 
+called| string cms.web.action.topic.commentmanage.availabletag() 
+called| editortag cms.web.action.setting.settingmanage..enhancerbyspringcglib..b75fe4f4.readeditortag() 
+called| int cms.web.action.setting.settingmanage..fastclassbyspringcglib..b0916b3e.getindex(signature) 
+called| int cms.web.action.setting.settingmanage..enhancerbyspringcglib..b75fe4f4..fastclassbyspringcglib..4a6dc9e.getindex(signature) 
+called| object cms.web.action.setting.settingmanage..fastclassbyspringcglib..b0916b3e.invoke(int, object, object[]) 
+called| editortag cms.web.action.setting.settingmanage.readeditortag() 
+called| object cms.utils.jsonutils.toobject(string, class) 
+called| string cms.utils.jsonutils.tojsonstring(object) 
+called| queryresult com.sun.proxy..proxy89.getscrolldata(class, int, int, string, object[], linkedhashmap) 
+called| queryresult cms.service.besa.daosupport.getscrolldata(class, int, int, string, object[], linkedhashmap) 
+called| queryresult cms.service.besa.daosupport.getscrolldata(class, int, int, string, object[], linkedhashmap, string) 
+called| string cms.service.besa.daosupport.getentityname(class) 
+called| string cms.service.besa.daosupport.buildorderby(linkedhashmap) 
+called| void cms.service.besa.daosupport.setqueryparams(query, object[]) 
+sql|select comment0_.id as id1_2_, comment0_.content as content2_2_, comment0_.ip as ip3_2_, comment0_.isstaff as isstaff4_2_, comment0_.lastupdatetime as lastupda5_2_, comment0_.posttime as posttime6_2_, comment0_.quote as quote7_2_, comment0_.quoteidgroup as quoteidg8_2_, comment0_.quoteupdateid as quoteupd9_2_, comment0_.status as status10_2_, comment0_.topicid as topicid11_2_, comment0_.username as usernam12_2_ from comment comment0_ where comment0_.topicid=? order by comment0_.posttime asc limit ?
+sql|select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.topicid=?
+called| string cms.bean.pageview.querystring() 
+
++++++++++++++++++++++++ 9 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usermanageaction.show(modelmap, long, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usermanageaction.show(modelmap, long, httpservletrequest, httpservletresponse) 
+called| user com.sun.proxy..proxy80.finduserbyid(long) 
+called| user cms.service.user.impl.userservicebean.finduserbyid(long) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+called| list com.sun.proxy..proxy73.findallgrade() 
+called| list cms.service.user.impl.usergradeservicebean.findallgrade() 
+sql|select usergrade0_.id as id1_115_, usergrade0_.name as name2_115_, usergrade0_.needpoint as needpoin3_115_ from usergrade usergrade0_ order by usergrade0_.needpoint desc
+called| string cms.web.action.filesystem.filemanage.fileserveraddress() 
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| list com.sun.proxy..proxy78.findrolegroupbyusername(string) 
+called| list cms.service.user.impl.userroleservicebean.findrolegroupbyusername(string) 
+sql|select userrolegr0_.id as id1_122_, userrolegr0_.username as username2_122_, userrolegr0_.userroleid as userrole3_122_, userrolegr0_.validperiodend as validper4_122_ from userrolegroup userrolegr0_ where userrolegr0_.username=?
+called| list com.sun.proxy..proxy110.findallusercustom() 
+called| list cms.service.user.impl.usercustomservicebean.findallusercustom() 
+sql|select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+called| list com.sun.proxy..proxy110.finduserinputvaluebyusername(long) 
+called| list cms.service.user.impl.usercustomservicebean.finduserinputvaluebyusername(long) 
+sql|select userinputv0_.id as id1_116_, userinputv0_.content as content2_116_, userinputv0_.options as options3_116_, userinputv0_.usercustomid as usercust4_116_, userinputv0_.userid as userid5_116_ from userinputvalue userinputv0_ where userinputv0_.userid=?
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++ 10 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usermanageaction.edit(user, string[], modelmap, pageform, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usermanageaction.edit(user, string[], modelmap, pageform, httpservletrequest, httpservletresponse) 
+called| user com.sun.proxy..proxy80.finduserbyid(long) 
+called| user cms.service.user.impl.userservicebean.finduserbyid(long) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+called| list com.sun.proxy..proxy73.findallgrade() 
+called| list cms.service.user.impl.usergradeservicebean.findallgrade() 
+sql|select usergrade0_.id as id1_115_, usergrade0_.name as name2_115_, usergrade0_.needpoint as needpoin3_115_ from usergrade usergrade0_ order by usergrade0_.needpoint desc
+called| list com.sun.proxy..proxy110.findallusercustom() 
+called| list cms.service.user.impl.usercustomservicebean.findallusercustom() 
+sql|select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+called| user com.sun.proxy..proxy80.finduserbynickname(string) 
+called| user cms.service.user.impl.userservicebean.finduserbynickname(string) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.nickname=?
+called| boolean cms.utils.verification.isemail(string) 
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| list com.sun.proxy..proxy110.finduserinputvaluebyusername(long) 
+called| list cms.service.user.impl.usercustomservicebean.finduserinputvaluebyusername(long) 
+sql|select userinputv0_.id as id1_116_, userinputv0_.content as content2_116_, userinputv0_.options as options3_116_, userinputv0_.usercustomid as usercust4_116_, userinputv0_.userid as userid5_116_ from userinputvalue userinputv0_ where userinputv0_.userid=?
+called| integer com.sun.proxy..proxy80.updateuser(user, list, list, list) 
+called| integer cms.service.user.impl.userservicebean.updateuser(user, list, list, list) 
+sql|update user set nickname=?, allowuserdynamic=?, password=?, email=?, issue=?, answer=?, state=?, remarks=?, mobile=?, realnameauthentication=?, securitydigest=?, platformuserid=?, userversion=userversion+1 where id=? and userversion=?
+called| void com.sun.proxy..proxy78.updateuserrolegroup(string, list) 
+called| void cms.service.user.impl.userroleservicebean.updateuserrolegroup(string, list) 
+called| int cms.service.user.impl.userroleservicebean.deleteuserrolegroup(list) 
+sql|delete from userrolegroup where username in (?)
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_userstate(string) 
+called| object cms.web.action.user.usermanage..fastclassbyspringcglib..5391ef1a.invoke(int, object, object[]) 
+called| void cms.web.action.user.usermanage.delete_userstate(string) 
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_cache_finduserbyid(long) 
+called| void cms.web.action.user.usermanage.delete_cache_finduserbyid(long) 
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_cache_finduserbyusername(string) 
+called| void cms.web.action.user.usermanage.delete_cache_finduserbyusername(string) 
+called| void cms.web.action.user.userrolemanage..enhancerbyspringcglib..c0c5f48a.delete_cache_findrolegroupbyusername(string) 
+called| object cms.web.action.user.userrolemanage..fastclassbyspringcglib..511c8b0.invoke(int, object, object[]) 
+called| void cms.web.action.user.userrolemanage.delete_cache_findrolegroupbyusername(string) 
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, False, False, False, False]
+path_matching_number_k:[0, 0, 0, 0, 0]
+path_precision_k:[0.0, 0.0, 0.0, 0.0, 0.0]
+path_ap:0.4023934195735714
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, False, False, False, False]
+request_matching_number_k:[0, 0, 0, 0, 0]
+request_precision_k:[0.0, 0.0, 0.0, 0.0, 0.0]
+request_ap:0.4023934195735714
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.membershipcard.membershipcardgifttaskmanageaction.add(modelmap,membershipcardgifttask,bindingresult,string,string,string,string,httpservletrequest)
+method:cms.service.user.impl.userroleservicebean.findrolebyid(string)
+[select o from userrole o where o.id=?1]
+
+Syntactic Similarity:0.7605417735569844
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.7605417735569844
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.userrolemanageaction.editui(modelmap,string,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userroleservicebean.findrolebyid(string)
+[select o from userrole o where o.id=?1]
+method:cms.web.action.user.userrolemanage.readalluserresourcegroup()
+
+Syntactic Similarity:0.7605417735569844
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.7605417735569844
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.userrolemanageaction.editui(modelmap,string,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userroleservicebean.findrolebyid(string)
+[select o from userrole o where o.id=?1]
+
+Syntactic Similarity:0.7605417735569844
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.7605417735569844
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.userrolemanageaction.editui(modelmap,string,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userroleservicebean.findrolebyid(string)
+[select o from userrole o where o.id=?1]
+method:cms.web.action.user.userrolemanage.readalluserresourcegroup()
+method:cms.web.action.user.userrolemanage.processingtagresourcegroup(resourcegroupenum)
+method:cms.service.topic.impl.tagservicebean.findalltag_cache()
+
+Syntactic Similarity:0.7605417735569844
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.7605417735569844
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.userroleaction.execute(modelmap,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userroleservicebean.findallrole()
+[select o from userrole o order by o.defaultrole desc, o.sort desc]
+
+Syntactic Similarity:0.5888236823983556
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.5888236823983557
+Path matching:False
+Request matching:False
+
+
+
+======================================= 5 given SQL query ===========================================
+Given individual SQL query: select specificat0_.id as id1_71_, specificat0_.duration as duration2_71_, specificat0_.enable as enable3_71_, specificat0_.marketprice as marketpr4_71_, specificat0_.membershipcardid as membersh5_71_, specificat0_.point as point6_71_, specificat0_.sellingprice as sellingp7_71_, specificat0_.sort as sort8_71_, specificat0_.specificationname as specific9_71_, specificat0_.stock as stock10_71_, specificat0_.stockoccupy as stockoc11_71_, specificat0_.unit as unit12_71_ from specification specificat0_ where specificat0_.membershipcardid=? order by specificat0_.sort asc
+Execution time of Given individual SQL query (slow) : 110200ns
+Pre-processed SQL query: select from specification where specificat.membershipcardid=?  order by specificat.sort 
+
++++++++++++++++++++++++ 1 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.membershipcard.membershipcardmanageaction.editui(modelmap, long, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.membershipcard.membershipcardmanageaction.editui(modelmap, long, httpservletrequest, httpservletresponse) 
+called| membershipcard com.sun.proxy..proxy104.findbyid(long) 
+called| membershipcard cms.service.membershipcard.impl.membershipcardservicebean.findbyid(long) 
+sql|select membership0_.id as id1_29_, membership0_.createdate as createda2_29_, membership0_.descriptiontagformat as descript3_29_, membership0_.highestpoint as highestp4_29_, membership0_.highestprice as highestp5_29_, membership0_.introduction as introduc6_29_, membership0_.lowestpoint as lowestpo7_29_, membership0_.lowestprice as lowestpr8_29_, membership0_.name as name9_29_, membership0_.sort as sort10_29_, membership0_.state as state11_29_, membership0_.subtitle as subtitl12_29_, membership0_.userroleid as userrol13_29_ from membershipcard membership0_ where membership0_.id=?
+called| object cms.utils.jsonutils.togenericobject(string, typereference) 
+called| list com.sun.proxy..proxy104.findspecificationbymembershipcardid(long) 
+called| list cms.service.membershipcard.impl.membershipcardservicebean.findspecificationbymembershipcardid(long) 
+sql|select specificat0_.id as id1_71_, specificat0_.duration as duration2_71_, specificat0_.enable as enable3_71_, specificat0_.marketprice as marketpr4_71_, specificat0_.membershipcardid as membersh5_71_, specificat0_.point as point6_71_, specificat0_.sellingprice as sellingp7_71_, specificat0_.sort as sort8_71_, specificat0_.specificationname as specific9_71_, specificat0_.stock as stock10_71_, specificat0_.stockoccupy as stockoc11_71_, specificat0_.unit as unit12_71_ from specification specificat0_ where specificat0_.membershipcardid=? order by specificat0_.sort asc
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++ 2 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.membershipcard.membershipcardmanageaction.edit(modelmap, membershipcard, bindingresult, long, integer[], long[], string[], boolean[], string[], integer[], string[], string[], string[], string[], string[], string[], integer[], httpservletrequest) 
+called| string cms.web.action.membershipcard.membershipcardmanageaction.edit(modelmap, membershipcard, bindingresult, long, integer[], long[], string[], boolean[], string[], integer[], string[], string[], string[], string[], string[], string[], integer[], httpservletrequest) 
+called| membershipcard com.sun.proxy..proxy104.findbyid(long) 
+called| membershipcard cms.service.membershipcard.impl.membershipcardservicebean.findbyid(long) 
+sql|select membership0_.id as id1_29_, membership0_.createdate as createda2_29_, membership0_.descriptiontagformat as descript3_29_, membership0_.highestpoint as highestp4_29_, membership0_.highestprice as highestp5_29_, membership0_.introduction as introduc6_29_, membership0_.lowestpoint as lowestpo7_29_, membership0_.lowestprice as lowestpr8_29_, membership0_.name as name9_29_, membership0_.sort as sort10_29_, membership0_.state as state11_29_, membership0_.subtitle as subtitl12_29_, membership0_.userroleid as userrol13_29_ from membershipcard membership0_ where membership0_.id=?
+called| list com.sun.proxy..proxy104.findspecificationbymembershipcardid(long) 
+called| list cms.service.membershipcard.impl.membershipcardservicebean.findspecificationbymembershipcardid(long) 
+sql|select specificat0_.id as id1_71_, specificat0_.duration as duration2_71_, specificat0_.enable as enable3_71_, specificat0_.marketprice as marketpr4_71_, specificat0_.membershipcardid as membersh5_71_, specificat0_.point as point6_71_, specificat0_.sellingprice as sellingp7_71_, specificat0_.sort as sort8_71_, specificat0_.specificationname as specific9_71_, specificat0_.stock as stock10_71_, specificat0_.stockoccupy as stockoc11_71_, specificat0_.unit as unit12_71_ from specification specificat0_ where specificat0_.membershipcardid=? order by specificat0_.sort asc
+called| integer com.sun.proxy..proxy104.updatemembershipcard(membershipcard, list, list, list) 
+called| integer cms.service.membershipcard.impl.membershipcardservicebean.updatemembershipcard(membershipcard, list, list, list) 
+sql|update membershipcard set name=?, subtitle=?, lowestprice=?, highestprice=?, lowestpoint=?, highestpoint=?, introduction=?, state=?, userroleid=?, sort=?, descriptiontagformat=? where id=?
+called| void cms.web.action.membershipcard.membershipcardmanage..enhancerbyspringcglib..488f7a28.delete_cache_findbyid(long) 
+called| object cms.web.action.membershipcard.membershipcardmanage..fastclassbyspringcglib..6e65907a.invoke(int, object, object[]) 
+called| void cms.web.action.membershipcard.membershipcardmanage.delete_cache_findbyid(long) 
+called| void cms.web.action.membershipcard.membershipcardmanage..enhancerbyspringcglib..488f7a28.delete_cache_findspecificationbymembershipcardid(long) 
+called| void cms.web.action.membershipcard.membershipcardmanage.delete_cache_findspecificationbymembershipcardid(long) 
+called| object[] cms.web.action.textfiltermanage.readpathname(string, string) 
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, True, True, False, False]
+path_matching_number_k:[0, 1, 2, 2, 2]
+path_precision_k:[0.0, 0.5, 0.6666666666666666, 0.5, 0.4]
+path_ap:0.5555555555555555
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, True, True, False, False]
+request_matching_number_k:[0, 1, 2, 2, 2]
+request_precision_k:[0.0, 0.5, 0.6666666666666666, 0.5, 0.4]
+request_ap:0.5555555555555555
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.common.membershipcardformaction.add(modelmap,long,string,string,redirectattributes,httpservletrequest,httpservletresponse)
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+method:cms.service.membershipcard.impl.membershipcardservicebean.findspecificationbyspecificationid(long)
+[select o from specification o where o.id=?1]
+
+Syntactic Similarity:0.39184704682544125
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.3918470468254411
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.membershipcard.membershipcardmanageaction.edit(modelmap,membershipcard,bindingresult,long,integer[],long[],string[],boolean[],string[],integer[],string[],string[],string[],string[],string[],string[],integer[],httpservletrequest)
+method:cms.service.membershipcard.impl.membershipcardservicebean.findbyid(long)
+[select o from membershipcard o where o.id=?1]
+method:cms.service.membershipcard.impl.membershipcardservicebean.findspecificationbymembershipcardid(long)
+[select o from specification o where o.membershipcardid=?1 order by o.sort asc]
+
+Syntactic Similarity:0.5584537795489707
+Semantic Similarity:0.5
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.0584537795489708
+Path matching:True
+Request matching:True
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.membershipcard.membershipcardmanageaction.editui(modelmap,long,httpservletrequest,httpservletresponse)
+method:cms.service.membershipcard.impl.membershipcardservicebean.findbyid(long)
+[select o from membershipcard o where o.id=?1]
+method:cms.service.membershipcard.impl.membershipcardservicebean.findspecificationbymembershipcardid(long)
+[select o from specification o where o.membershipcardid=?1 order by o.sort asc]
+method:cms.service.user.impl.userroleservicebean.findallrole()
+[select o from userrole o order by o.defaultrole desc, o.sort desc]
+
+Syntactic Similarity:0.5014851944493257
+Semantic Similarity:0.3333333333333333
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.834818527782659
+Path matching:True
+Request matching:True
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.common.membershipcardformaction.add(modelmap,long,string,string,redirectattributes,httpservletrequest,httpservletresponse)
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+method:cms.service.membershipcard.impl.membershipcardservicebean.findspecificationbyspecificationid(long)
+[select o from specification o where o.id=?1]
+method:cms.service.membershipcard.impl.membershipcardservicebean.findbyid(long)
+[select o from membershipcard o where o.id=?1]
+
+Syntactic Similarity:0.2836783810052622
+Semantic Similarity:0.5
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.7836783810052622
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.common.membershipcardformaction.add(modelmap,long,string,string,redirectattributes,httpservletrequest,httpservletresponse)
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+method:cms.service.membershipcard.impl.membershipcardservicebean.findspecificationbyspecificationid(long)
+[select o from specification o where o.id=?1]
+method:cms.service.membershipcard.impl.membershipcardservicebean.findbyid(long)
+[select o from membershipcard o where o.id=?1]
+method:cms.service.user.impl.userroleservicebean.findrolebyid(string)
+[select o from userrole o where o.id=?1]
+
+Syntactic Similarity:0.246497005252147
+Semantic Similarity:0.3333333333333333
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.5798303385854803
+Path matching:False
+Request matching:False
+
+
+
+======================================= 6 given SQL query ===========================================
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.account=?
+Execution time of Given individual SQL query (slow) : 109800ns
+Pre-processed SQL query: select from user user where user.account=? 
+
++++++++++++++++++++++++ 1 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usermanageaction.add(user, string[], bindingresult, modelmap, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usermanageaction.add(user, string[], bindingresult, modelmap, httpservletrequest, httpservletresponse) 
+called| list com.sun.proxy..proxy110.findallusercustom() 
+called| list cms.service.user.impl.usercustomservicebean.findallusercustom() 
+sql|select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| boolean cms.utils.verification.istime_minute(string) 
+called| void cms.web.action.user.uservalidator.validate(object, errors) 
+called| boolean cms.utils.verification.isnumericlettersunderscore(string) 
+called| user com.sun.proxy..proxy80.finduserbyaccount(string) 
+called| user cms.service.user.impl.userservicebean.finduserbyaccount(string) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.account=?
+called| user com.sun.proxy..proxy80.finduserbynickname(string) 
+called| user cms.service.user.impl.userservicebean.finduserbynickname(string) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.nickname=?
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++ 2 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usermanageaction.add(user, string[], bindingresult, modelmap, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usermanageaction.add(user, string[], bindingresult, modelmap, httpservletrequest, httpservletresponse) 
+called| list com.sun.proxy..proxy110.findallusercustom() 
+called| list cms.service.user.impl.usercustomservicebean.findallusercustom() 
+sql|select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| boolean cms.utils.verification.istime_minute(string) 
+called| void cms.web.action.user.uservalidator.validate(object, errors) 
+called| boolean cms.utils.verification.isnumericlettersunderscore(string) 
+called| user com.sun.proxy..proxy80.finduserbyaccount(string) 
+called| user cms.service.user.impl.userservicebean.finduserbyaccount(string) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.account=?
+called| user com.sun.proxy..proxy80.finduserbynickname(string) 
+called| user cms.service.user.impl.userservicebean.finduserbynickname(string) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.nickname=?
+called| string cms.utils.uuidutil.getuuid22() 
+called| string cms.utils.uuidutil.digits(long, int) 
+called| string cms.utils.uuidutil.tohex(long, int) 
+called| string cms.utils.sha.sha256hex(string) 
+called| string cms.utils.uuidutil.getuuid32() 
+called| void com.sun.proxy..proxy80.saveuser(user, list, list) 
+called| void cms.service.user.impl.userservicebean.saveuser(user, list, list) 
+called| void cms.service.besa.daosupport.save(object) 
+sql|insert into user (account, allowuserdynamic, answer, avatarname, cancelaccounttime, deposit, email, issue, mobile, nickname, password, platformuserid, point, realnameauthentication, registrationdate, remarks, salt, securitydigest, state, type, username, userversion) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+called| void com.sun.proxy..proxy78.saveuserrolegroup(list) 
+called| void cms.service.user.impl.userroleservicebean.saveuserrolegroup(list) 
+sql|insert into userrolegroup (username, userroleid, validperiodend) values (?, ?, ?)
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_cache_finduserbyid(long) 
+called| int cms.web.action.user.usermanage..fastclassbyspringcglib..5391ef1a.getindex(signature) 
+called| int cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08..fastclassbyspringcglib..8647d7e.getindex(signature) 
+called| object cms.web.action.user.usermanage..fastclassbyspringcglib..5391ef1a.invoke(int, object, object[]) 
+called| void cms.web.action.user.usermanage.delete_cache_finduserbyid(long) 
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_cache_finduserbyusername(string) 
+called| void cms.web.action.user.usermanage.delete_cache_finduserbyusername(string) 
+called| void cms.web.action.user.userrolemanage..enhancerbyspringcglib..c0c5f48a.delete_cache_findrolegroupbyusername(string) 
+called| int cms.web.action.user.userrolemanage..fastclassbyspringcglib..511c8b0.getindex(signature) 
+called| int cms.web.action.user.userrolemanage..enhancerbyspringcglib..c0c5f48a..fastclassbyspringcglib..43eddf5f.getindex(signature) 
+called| object cms.web.action.user.userrolemanage..fastclassbyspringcglib..511c8b0.invoke(int, object, object[]) 
+called| void cms.web.action.user.userrolemanage.delete_cache_findrolegroupbyusername(string) 
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, False, False, False, False]
+path_matching_number_k:[0, 0, 0, 0, 0]
+path_precision_k:[0.0, 0.0, 0.0, 0.0, 0.0]
+path_ap:0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, False, False, False, False]
+request_matching_number_k:[0, 0, 0, 0, 0]
+request_precision_k:[0.0, 0.0, 0.0, 0.0, 0.0]
+request_ap:0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.question.questionaction.search(modelmap,pageform,integer,string,string,string,string,string,string,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userservicebean.finduserbyaccount(string)
+[select o from user o where o.account=?1]
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+
+Syntactic Similarity:0.40645492000589606
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.406454920005896
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.question.questionaction.search(modelmap,pageform,integer,string,string,string,string,string,string,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userservicebean.finduserbyaccount(string)
+[select o from user o where o.account=?1]
+
+Syntactic Similarity:0.40645492000589606
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.406454920005896
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.common.userformmanageaction.register(modelmap,user,string,string,string,string,string,string,redirectattributes,httpservletrequest,httpservletresponse)
+method:cms.service.template.impl.templateservicebean.findtemplatedir_cache()
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+method:cms.service.user.impl.usercustomservicebean.findallusercustom_cache()
+method:cms.web.action.setting.settingmanage.readallowregisteraccount()
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+method:cms.service.user.impl.userservicebean.findalldisableusername_cache()
+method:cms.service.user.impl.userservicebean.finduserbyaccount(string)
+[select o from user o where o.account=?1]
+
+Syntactic Similarity:0.40645492000589606
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.406454920005896
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.common.userformmanageaction.register(modelmap,user,string,string,string,string,string,string,redirectattributes,httpservletrequest,httpservletresponse)
+method:cms.service.template.impl.templateservicebean.findtemplatedir_cache()
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+method:cms.service.user.impl.usercustomservicebean.findallusercustom_cache()
+method:cms.web.action.setting.settingmanage.readallowregisteraccount()
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+method:cms.service.user.impl.userservicebean.findalldisableusername_cache()
+method:cms.service.user.impl.userservicebean.finduserbyaccount(string)
+[select o from user o where o.account=?1]
+method:cms.web.action.accesssourcedevicemanage.accessdevices(httpservletrequest)
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+
+Syntactic Similarity:0.40645492000589606
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.406454920005896
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.useraction.search(modelmap,pageform,integer,string,string,string,string,string,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userservicebean.finduserbyaccount(string)
+[select o from user o where o.account=?1]
+
+Syntactic Similarity:0.40645492000589606
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.406454920005896
+Path matching:False
+Request matching:False
+
+
+
+======================================= 7 given SQL query ===========================================
+Given individual SQL query: delete from usergrade where id=?
+Execution time of Given individual SQL query (slow) : 108400ns
+Pre-processed SQL query: delete from usergrade where id=?
+
++++++++++++++++++++++++ 1 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usergrademanageaction.delete(modelmap, integer, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usergrademanageaction.delete(modelmap, integer, httpservletrequest, httpservletresponse) 
+called| int com.sun.proxy..proxy73.deleteusergrade(integer) 
+called| int cms.service.user.impl.usergradeservicebean.deleteusergrade(integer) 
+sql|delete from usergrade where id=?
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:1.0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, False, False, False, False]
+request_matching_number_k:[1, 1, 1, 1, 1]
+request_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:1.0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.usergrademanageaction.delete(modelmap,integer,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.usergradeservicebean.deleteusergrade(integer)
+[delete from usergrade o where o.id=?1]
+
+Syntactic Similarity:1.0
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 2.0
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.usergrademanageaction.editui(modelmap,integer,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.usergradeservicebean.findgradebyid(integer)
+[select o from usergrade o where o.id=?1]
+
+Syntactic Similarity:0.8235204016970129
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.8235204016970129
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.usergrademanageaction.edit(modelmap,usergrade,bindingresult,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.usergradeservicebean.findgradebyid(integer)
+[select o from usergrade o where o.id=?1]
+
+Syntactic Similarity:0.8235204016970129
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.8235204016970129
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.usergrademanageaction.edit(modelmap,usergrade,bindingresult,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.usergradeservicebean.findgradebyid(integer)
+[select o from usergrade o where o.id=?1]
+method:cms.service.user.impl.usergradeservicebean.updateusergrade(usergrade)
+[update usergrade set where ]
+
+Syntactic Similarity:0.7984555523460579
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.7984555523460579
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.usergrademanageaction.edit(modelmap,usergrade,bindingresult,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.usergradeservicebean.findgradebyid(integer)
+[select o from usergrade o where o.id=?1]
+method:cms.service.user.impl.usergradeservicebean.findgradebyneedpoint(long)
+[select o from usergrade o where o.needpoint=?1]
+method:cms.service.user.impl.usergradeservicebean.updateusergrade(usergrade)
+[update usergrade set where ]
+
+Syntactic Similarity:0.7684717172951574
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.7684717172951574
+Path matching:False
+Request matching:False
+
+
+
+======================================= 8 given SQL query ===========================================
+Given individual SQL query: select userinputv0_.id as id1_116_, userinputv0_.content as content2_116_, userinputv0_.options as options3_116_, userinputv0_.usercustomid as usercust4_116_, userinputv0_.userid as userid5_116_ from userinputvalue userinputv0_ where userinputv0_.userid=?
+Execution time of Given individual SQL query (slow) : 107800ns
+Pre-processed SQL query: select from userinputvalue where userinputv.userid=? 
+
++++++++++++++++++++++++ 1 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usermanageaction.editui(user, modelmap, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usermanageaction.editui(user, modelmap, httpservletrequest, httpservletresponse) 
+called| user com.sun.proxy..proxy80.finduserbyid(long) 
+called| user cms.service.user.impl.userservicebean.finduserbyid(long) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+called| list com.sun.proxy..proxy73.findallgrade() 
+called| list cms.service.user.impl.usergradeservicebean.findallgrade() 
+sql|select usergrade0_.id as id1_115_, usergrade0_.name as name2_115_, usergrade0_.needpoint as needpoin3_115_ from usergrade usergrade0_ order by usergrade0_.needpoint desc
+called| list com.sun.proxy..proxy110.findallusercustom() 
+called| list cms.service.user.impl.usercustomservicebean.findallusercustom() 
+sql|select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+called| list com.sun.proxy..proxy110.finduserinputvaluebyusername(long) 
+called| list cms.service.user.impl.usercustomservicebean.finduserinputvaluebyusername(long) 
+sql|select userinputv0_.id as id1_116_, userinputv0_.content as content2_116_, userinputv0_.options as options3_116_, userinputv0_.usercustomid as usercust4_116_, userinputv0_.userid as userid5_116_ from userinputvalue userinputv0_ where userinputv0_.userid=?
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| list com.sun.proxy..proxy78.findrolegroupbyusername(string) 
+called| list cms.service.user.impl.userroleservicebean.findrolegroupbyusername(string) 
+sql|select userrolegr0_.id as id1_122_, userrolegr0_.username as username2_122_, userrolegr0_.userroleid as userrole3_122_, userrolegr0_.validperiodend as validper4_122_ from userrolegroup userrolegr0_ where userrolegr0_.username=?
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++ 2 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usermanageaction.edit(user, string[], modelmap, pageform, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usermanageaction.edit(user, string[], modelmap, pageform, httpservletrequest, httpservletresponse) 
+called| user com.sun.proxy..proxy80.finduserbyid(long) 
+called| user cms.service.user.impl.userservicebean.finduserbyid(long) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+called| list com.sun.proxy..proxy73.findallgrade() 
+called| list cms.service.user.impl.usergradeservicebean.findallgrade() 
+sql|select usergrade0_.id as id1_115_, usergrade0_.name as name2_115_, usergrade0_.needpoint as needpoin3_115_ from usergrade usergrade0_ order by usergrade0_.needpoint desc
+called| list com.sun.proxy..proxy110.findallusercustom() 
+called| list cms.service.user.impl.usercustomservicebean.findallusercustom() 
+sql|select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+called| user com.sun.proxy..proxy80.finduserbynickname(string) 
+called| user cms.service.user.impl.userservicebean.finduserbynickname(string) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.nickname=?
+called| string cms.utils.sha.sha256hex(string) 
+called| boolean cms.utils.verification.ispositiveinteger(string) 
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| boolean cms.utils.verification.istime_minute(string) 
+called| list com.sun.proxy..proxy110.finduserinputvaluebyusername(long) 
+called| list cms.service.user.impl.usercustomservicebean.finduserinputvaluebyusername(long) 
+sql|select userinputv0_.id as id1_116_, userinputv0_.content as content2_116_, userinputv0_.options as options3_116_, userinputv0_.usercustomid as usercust4_116_, userinputv0_.userid as userid5_116_ from userinputvalue userinputv0_ where userinputv0_.userid=?
+called| integer com.sun.proxy..proxy80.updateuser(user, list, list, list) 
+called| integer cms.service.user.impl.userservicebean.updateuser(user, list, list, list) 
+sql|update user set nickname=?, allowuserdynamic=?, password=?, email=?, issue=?, answer=?, state=?, remarks=?, mobile=?, realnameauthentication=?, securitydigest=?, platformuserid=?, userversion=userversion+1 where id=? and userversion=?
+called| void com.sun.proxy..proxy78.updateuserrolegroup(string, list) 
+called| void cms.service.user.impl.userroleservicebean.updateuserrolegroup(string, list) 
+called| int cms.service.user.impl.userroleservicebean.deleteuserrolegroup(list) 
+sql|delete from userrolegroup where username in (?)
+called| void cms.service.user.impl.userroleservicebean.saveuserrolegroup(list) 
+called| void cms.service.besa.daosupport.save(object) 
+sql|insert into userrolegroup (username, userroleid, validperiodend) values (?, ?, ?)
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_userstate(string) 
+called| int cms.web.action.user.usermanage..fastclassbyspringcglib..5391ef1a.getindex(signature) 
+called| int cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08..fastclassbyspringcglib..8647d7e.getindex(signature) 
+called| object cms.web.action.user.usermanage..fastclassbyspringcglib..5391ef1a.invoke(int, object, object[]) 
+called| void cms.web.action.user.usermanage.delete_userstate(string) 
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_cache_finduserbyid(long) 
+called| void cms.web.action.user.usermanage.delete_cache_finduserbyid(long) 
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_cache_finduserbyusername(string) 
+called| void cms.web.action.user.usermanage.delete_cache_finduserbyusername(string) 
+called| void cms.web.action.user.userrolemanage..enhancerbyspringcglib..c0c5f48a.delete_cache_findrolegroupbyusername(string) 
+called| object cms.web.action.user.userrolemanage..fastclassbyspringcglib..511c8b0.invoke(int, object, object[]) 
+called| void cms.web.action.user.userrolemanage.delete_cache_findrolegroupbyusername(string) 
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++ 3 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usermanageaction.show(modelmap, long, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usermanageaction.show(modelmap, long, httpservletrequest, httpservletresponse) 
+called| user com.sun.proxy..proxy80.finduserbyid(long) 
+called| user cms.service.user.impl.userservicebean.finduserbyid(long) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+called| list com.sun.proxy..proxy73.findallgrade() 
+called| list cms.service.user.impl.usergradeservicebean.findallgrade() 
+sql|select usergrade0_.id as id1_115_, usergrade0_.name as name2_115_, usergrade0_.needpoint as needpoin3_115_ from usergrade usergrade0_ order by usergrade0_.needpoint desc
+called| string cms.web.action.filesystem.filemanage.fileserveraddress() 
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| list com.sun.proxy..proxy78.findrolegroupbyusername(string) 
+called| list cms.service.user.impl.userroleservicebean.findrolegroupbyusername(string) 
+sql|select userrolegr0_.id as id1_122_, userrolegr0_.username as username2_122_, userrolegr0_.userroleid as userrole3_122_, userrolegr0_.validperiodend as validper4_122_ from userrolegroup userrolegr0_ where userrolegr0_.username=?
+called| list com.sun.proxy..proxy110.findallusercustom() 
+called| list cms.service.user.impl.usercustomservicebean.findallusercustom() 
+sql|select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+called| list com.sun.proxy..proxy110.finduserinputvaluebyusername(long) 
+called| list cms.service.user.impl.usercustomservicebean.finduserinputvaluebyusername(long) 
+sql|select userinputv0_.id as id1_116_, userinputv0_.content as content2_116_, userinputv0_.options as options3_116_, userinputv0_.usercustomid as usercust4_116_, userinputv0_.userid as userid5_116_ from userinputvalue userinputv0_ where userinputv0_.userid=?
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++ 4 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.usermanageaction.edit(user, string[], modelmap, pageform, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.usermanageaction.edit(user, string[], modelmap, pageform, httpservletrequest, httpservletresponse) 
+called| user com.sun.proxy..proxy80.finduserbyid(long) 
+called| user cms.service.user.impl.userservicebean.finduserbyid(long) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+called| list com.sun.proxy..proxy73.findallgrade() 
+called| list cms.service.user.impl.usergradeservicebean.findallgrade() 
+sql|select usergrade0_.id as id1_115_, usergrade0_.name as name2_115_, usergrade0_.needpoint as needpoin3_115_ from usergrade usergrade0_ order by usergrade0_.needpoint desc
+called| list com.sun.proxy..proxy110.findallusercustom() 
+called| list cms.service.user.impl.usercustomservicebean.findallusercustom() 
+sql|select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+called| user com.sun.proxy..proxy80.finduserbynickname(string) 
+called| user cms.service.user.impl.userservicebean.finduserbynickname(string) 
+sql|select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.nickname=?
+called| boolean cms.utils.verification.isemail(string) 
+called| list com.sun.proxy..proxy78.findallrole() 
+called| list cms.service.user.impl.userroleservicebean.findallrole() 
+sql|select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+called| list com.sun.proxy..proxy110.finduserinputvaluebyusername(long) 
+called| list cms.service.user.impl.usercustomservicebean.finduserinputvaluebyusername(long) 
+sql|select userinputv0_.id as id1_116_, userinputv0_.content as content2_116_, userinputv0_.options as options3_116_, userinputv0_.usercustomid as usercust4_116_, userinputv0_.userid as userid5_116_ from userinputvalue userinputv0_ where userinputv0_.userid=?
+called| integer com.sun.proxy..proxy80.updateuser(user, list, list, list) 
+called| integer cms.service.user.impl.userservicebean.updateuser(user, list, list, list) 
+sql|update user set nickname=?, allowuserdynamic=?, password=?, email=?, issue=?, answer=?, state=?, remarks=?, mobile=?, realnameauthentication=?, securitydigest=?, platformuserid=?, userversion=userversion+1 where id=? and userversion=?
+called| void com.sun.proxy..proxy78.updateuserrolegroup(string, list) 
+called| void cms.service.user.impl.userroleservicebean.updateuserrolegroup(string, list) 
+called| int cms.service.user.impl.userroleservicebean.deleteuserrolegroup(list) 
+sql|delete from userrolegroup where username in (?)
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_userstate(string) 
+called| object cms.web.action.user.usermanage..fastclassbyspringcglib..5391ef1a.invoke(int, object, object[]) 
+called| void cms.web.action.user.usermanage.delete_userstate(string) 
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_cache_finduserbyid(long) 
+called| void cms.web.action.user.usermanage.delete_cache_finduserbyid(long) 
+called| void cms.web.action.user.usermanage..enhancerbyspringcglib..f0f4ba08.delete_cache_finduserbyusername(string) 
+called| void cms.web.action.user.usermanage.delete_cache_finduserbyusername(string) 
+called| void cms.web.action.user.userrolemanage..enhancerbyspringcglib..c0c5f48a.delete_cache_findrolegroupbyusername(string) 
+called| object cms.web.action.user.userrolemanage..fastclassbyspringcglib..511c8b0.invoke(int, object, object[]) 
+called| void cms.web.action.user.userrolemanage.delete_cache_findrolegroupbyusername(string) 
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[False, True, False, False, False]
+path_matching_number_k:[0, 1, 1, 1, 1]
+path_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:0.44347111222111224
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[False, True, False, False, False]
+request_matching_number_k:[0, 1, 1, 1, 1]
+request_precision_k:[0.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:0.44347111222111224
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.common.homemanageaction.edituser(modelmap,user,string,string,string,redirectattributes,httpservletrequest,httpservletresponse)
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+method:cms.service.user.impl.usercustomservicebean.findallusercustom_cache()
+method:cms.service.user.impl.userservicebean.finduserbyusername(string)
+[select o from user o where o.username=?1]
+method:cms.service.user.impl.userservicebean.findalldisableusername_cache()
+method:cms.service.user.impl.userservicebean.finduserbynickname(string)
+[select o from user o where o.nickname=?1]
+method:cms.service.user.impl.usercustomservicebean.finduserinputvaluebyusername(long)
+[select o from userinputvalue o where o.userid=?1]
+
+Syntactic Similarity:0.4075466030424385
+Semantic Similarity:0.5
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.9075466030424385
+Path matching:False
+Request matching:False
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.usermanageaction.editui(user,modelmap,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userservicebean.finduserbyid(long)
+[select o from user o where o.id=?1]
+method:cms.service.user.impl.usercustomservicebean.findallusercustom()
+[select o from usercustom o order by o.sort desc]
+method:cms.service.user.impl.usercustomservicebean.finduserinputvaluebyusername(long)
+[select o from userinputvalue o where o.userid=?1]
+
+Syntactic Similarity:0.3710017686919789
+Semantic Similarity:0.3333333333333333
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.7043351020253121
+Path matching:True
+Request matching:True
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.common.homemanageaction.edituserui(modelmap,user,string,string,string,httpservletrequest,httpservletresponse)
+method:cms.service.template.impl.templateservicebean.findtemplatedir_cache()
+method:cms.web.action.accesssourcedevicemanage.accessdevices(httpservletrequest)
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+method:cms.service.user.impl.userservicebean.finduserbyusername(string)
+[select o from user o where o.username=?1]
+method:cms.service.user.impl.usergradeservicebean.findallgrade()
+[select o from usergrade o order by o.needpoint desc]
+method:cms.service.user.impl.usercustomservicebean.findallusercustom_cache()
+method:cms.service.user.impl.usercustomservicebean.finduserinputvaluebyusername(long)
+[select o from userinputvalue o where o.userid=?1]
+
+Syntactic Similarity:0.35673296656613435
+Semantic Similarity:0.3333333333333333
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.6900662998994677
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.common.homemanageaction.edituserui(modelmap,user,string,string,string,httpservletrequest,httpservletresponse)
+method:cms.service.template.impl.templateservicebean.findtemplatedir_cache()
+method:cms.web.action.accesssourcedevicemanage.accessdevices(httpservletrequest)
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+method:cms.service.user.impl.userservicebean.finduserbyusername(string)
+[select o from user o where o.username=?1]
+method:cms.service.user.impl.usergradeservicebean.findallgrade()
+[select o from usergrade o order by o.needpoint desc]
+method:cms.service.user.impl.usercustomservicebean.findallusercustom_cache()
+method:cms.service.user.impl.usercustomservicebean.finduserinputvaluebyusername(long)
+[select o from userinputvalue o where o.userid=?1]
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+
+Syntactic Similarity:0.35673296656613435
+Semantic Similarity:0.3333333333333333
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.6900662998994677
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.common.homemanageaction.edituserui(modelmap,user,string,string,string,httpservletrequest,httpservletresponse)
+method:cms.service.template.impl.templateservicebean.findtemplatedir_cache()
+method:cms.web.action.accesssourcedevicemanage.accessdevices(httpservletrequest)
+method:cms.service.setting.impl.settingservicebean.findsystemsetting_cache()
+method:cms.service.user.impl.userservicebean.finduserbyusername(string)
+[select o from user o where o.username=?1]
+method:cms.service.user.impl.usergradeservicebean.findallgrade()
+[select o from usergrade o order by o.needpoint desc]
+method:cms.service.user.impl.usercustomservicebean.findallusercustom_cache()
+method:cms.service.user.impl.usercustomservicebean.finduserinputvaluebyusername(long)
+[select o from userinputvalue o where o.userid=?1]
+method:cms.service.user.impl.userroleservicebean.findallrole_cache()
+method:cms.web.action.user.userrolemanage.query_cache_findrolegroupbyusername(string)
+method:cms.service.user.impl.userroleservicebean.findrolegroupbyusername(string)
+[select o from userrolegroup o where o.username=?1]
+
+Syntactic Similarity:0.3439168128987692
+Semantic Similarity:0.25
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.5939168128987692
+Path matching:False
+Request matching:False
+
+
+
+======================================= 9 given SQL query ===========================================
+Given individual SQL query: select syspermiss1_.id as id1_80_, syspermiss1_.methods as methods2_80_, syspermiss1_.name as name3_80_, syspermiss1_.priority as priority4_80_, syspermiss1_.remarks as remarks5_80_ from sysrolespermission sysrolespe0_ cross join syspermission syspermiss1_ where sysrolespe0_.permissionid=syspermiss1_.id and sysrolespe0_.roleid=?
+Execution time of Given individual SQL query (slow) : 103200ns
+Pre-processed SQL query: select from sysrolespermission cross join syspermission where sysrolespe.permissionid=syspermiss.id and sysrolespe.roleid=? 
+
++++++++++++++++++++++++ 1 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.staff.aclmanageaction.editrolesui(modelmap, string) 
+called| string cms.web.action.staff.aclmanageaction.editrolesui(modelmap, string) 
+called| object com.sun.proxy..proxy90.find(class, object) 
+called| object cms.service.besa.daosupport.find(class, object) 
+sql|select sysroles0_.id as id1_83_0_, sysroles0_.name as name2_83_0_, sysroles0_.remarks as remarks3_83_0_ from sysroles sysroles0_ where sysroles0_.id=?
+called| list com.sun.proxy..proxy90.findpermissionbyrolesid(string) 
+called| list cms.service.staff.impl.aclservicebean.findpermissionbyrolesid(string) 
+sql|select syspermiss1_.id as id1_80_, syspermiss1_.methods as methods2_80_, syspermiss1_.name as name3_80_, syspermiss1_.priority as priority4_80_, syspermiss1_.remarks as remarks5_80_ from sysrolespermission sysrolespe0_ cross join syspermission syspermiss1_ where sysrolespe0_.permissionid=syspermiss1_.id and sysrolespe0_.roleid=?
+called| list com.sun.proxy..proxy90.findmodulepermission() 
+called| list cms.service.staff.impl.aclservicebean.findmodulepermission() 
+sql|select sysresourc1_.url as col_0_0_, syspermiss2_.methods as col_1_0_, syspermiss2_.name as col_2_0_, sysresourc1_.module as col_3_0_, sysresourc1_.urlparentid as col_4_0_, syspermiss2_.id as col_5_0_, syspermiss2_.remarks as col_6_0_ from syspermissionresources syspermiss0_ cross join sysresources sysresourc1_ cross join syspermission syspermiss2_ where syspermiss0_.resourceid=sysresourc1_.id and syspermiss0_.permissionid=syspermiss2_.id order by sysresourc1_.priority asc, syspermiss2_.priority asc
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:0.6111111111111112
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, False, False, False, False]
+request_matching_number_k:[1, 1, 1, 1, 1]
+request_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:0.6111111111111112
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.staff.aclmanageaction.editrolesui(modelmap,string)
+method:cms.service.staff.impl.aclservicebean.findpermissionbyrolesid(string)
+[select b from sysrolespermission a,syspermission b where a.permissionid=b.id and a.roleid=?1]
+
+Syntactic Similarity:0.4936685664106156
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.4936685664106155
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.staff.aclmanageaction.deleteroles(modelmap,string)
+method:cms.service.staff.impl.aclservicebean.findpermissionbyrolesid(string)
+[select b from sysrolespermission a,syspermission b where a.permissionid=b.id and a.roleid=?1]
+
+Syntactic Similarity:0.4936685664106156
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.4936685664106155
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.staff.aclmanageaction.editroles(modelmap,sysroles,string[],string)
+method:cms.service.staff.impl.aclservicebean.findpermissionbyrolesid(string)
+[select b from sysrolespermission a,syspermission b where a.permissionid=b.id and a.roleid=?1]
+
+Syntactic Similarity:0.4936685664106156
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.4936685664106155
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.staff.staffmanageaction.deletestaff(modelmap,string)
+method:cms.service.staff.impl.staffservicebean.findpermissionidbyuseraccount(string)
+[select a.permissionid from sysrolespermission a,sysusersroles b where  a.roleid = b.roleid and b.useraccount= ?1]
+
+Syntactic Similarity:0.3532004568464675
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 1.3532004568464675
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.staff.aclmanageaction.deleteroles(modelmap,string)
+method:cms.service.staff.impl.aclservicebean.findpermissionbyrolesid(string)
+[select b from sysrolespermission a,syspermission b where a.permissionid=b.id and a.roleid=?1]
+method:cms.service.staff.impl.aclservicebean.deleteroles(string)
+[delete from sysroles where id=?]
+
+Syntactic Similarity:0.42650126896984153
+Semantic Similarity:0.5
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.9265012689698415
+Path matching:False
+Request matching:False
+
+
+
+======================================= 10 given SQL query ===========================================
+Given individual SQL query: delete from disableusername where id=?
+Execution time of Given individual SQL query (slow) : 99200ns
+Pre-processed SQL query: delete from disableusername where id=?
+
++++++++++++++++++++++++ 1 instrument dynamic execution path using AspectJ +++++++++++++++++++++++++++++
+before rest| string cms.web.action.user.disableusernamemanageaction.delete(modelmap, integer, httpservletrequest, httpservletresponse) 
+called| string cms.web.action.user.disableusernamemanageaction.delete(modelmap, integer, httpservletrequest, httpservletresponse) 
+called| integer com.sun.proxy..proxy80.deletedisableusername(integer) 
+called| integer cms.service.user.impl.userservicebean.deletedisableusername(integer) 
+sql|delete from disableusername where id=?
+called| string cms.utils.jsonutils.tojsonstring(object) 
+
++++++++++++++++++++++++++ Path matching metrics +++++++++++++++++++++++++++
+path_matching_boolean:[True, False, False, False, False]
+path_matching_number_k:[1, 1, 1, 1, 1]
+path_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+path_ap:1.0
++++++++++++++++++++++++++ Request matching metrics +++++++++++++++++++++++++++
+request_matching_boolean:[True, False, False, False, False]
+request_matching_number_k:[1, 1, 1, 1, 1]
+request_precision_k:[1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
+request_ap:1.0
+
+-------------------------Top1 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.disableusernamemanageaction.delete(modelmap,integer,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userservicebean.deletedisableusername(integer)
+[delete from disableusername o where o.id=?1]
+
+Syntactic Similarity:1.0
+Semantic Similarity:1.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 2.0
+Path matching:True
+Request matching:True
+-------------------------Top2 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.disableusernamemanageaction.editui(modelmap,integer,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userservicebean.finddisableusernamebyid(integer)
+[select o from disableusername o where o.id=?1]
+
+Syntactic Similarity:0.8908052704213919
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.8908052704213919
+Path matching:False
+Request matching:False
+-------------------------Top3 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.disableusernamemanageaction.edit(modelmap,disableusername,bindingresult,integer,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userservicebean.updatedisableusername(disableusername)
+[update disableusername set where ]
+
+Syntactic Similarity:0.8175094512585366
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.8175094512585366
+Path matching:False
+Request matching:False
+-------------------------Top4 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.user.disableusernamemanageaction.add(modelmap,disableusername,bindingresult,httpservletrequest,httpservletresponse)
+method:cms.service.user.impl.userservicebean.savedisableusername(disableusername)
+[insert into disableusername ( ) values ( )]
+
+Syntactic Similarity:0.7704337500171574
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.7704337500171574
+Path matching:False
+Request matching:False
+-------------------------Top5 ranked control flow path according to similarity score (Only top 5 are presented here)-------------------------------------
+request:cms.web.action.membershipcard.membershipcardgifttaskmanageaction.delete(modelmap,long,httpservletrequest,httpservletresponse)
+method:cms.service.membershipcard.impl.membershipcardgifttaskbean.deletemembershipcardgifttask(long)
+[delete from membershipcardgifttask o where o.id=?1]
+
+Syntactic Similarity:0.4125328375536906
+Semantic Similarity:0.0
+Combining Similarity Score (Syntactic Similarity + Semantic Similarity): 0.4125328375536906
+Path matching:False
+Request matching:False
