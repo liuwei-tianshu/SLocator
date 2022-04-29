@@ -1,0 +1,84 @@
+select sysusertok0_.auth_token as auth_tok1_42_0_, sysusertok0_.channel as channel2_42_0_, sysusertok0_.create_date as create_d3_42_0_, sysusertok0_.expiry_date as expiry_d4_42_0_, sysusertok0_.login_ip as login_ip5_42_0_, sysusertok0_.site_id as site_id6_42_0_, sysusertok0_.user_id as user_id7_42_0_ from sys_user_token sysusertok0_ where sysusertok0_.auth_token=?
+delete from sys_user_token where auth_token=?
+select sysuser0_.id as id1_41_, sysuser0_.dept_id as dept_id2_41_, sysuser0_.disabled as disabled3_41_, sysuser0_.email as email4_41_, sysuser0_.email_checked as email_ch5_41_, sysuser0_.last_login_date as last_log6_41_, sysuser0_.last_login_ip as last_log7_41_, sysuser0_.login_count as login_co8_41_, sysuser0_.name as name9_41_, sysuser0_.nick_name as nick_na10_41_, sysuser0_.owns_all_content as owns_al11_41_, sysuser0_.password as passwor12_41_, sysuser0_.registered_date as registe13_41_, sysuser0_.roles as roles14_41_, sysuser0_.salt as salt15_41_, sysuser0_.site_id as site_id16_41_, sysuser0_.superuser_access as superus17_41_, sysuser0_.weak_password as weak_pa18_41_ from sys_user sysuser0_ where sysuser0_.site_id=? and sysuser0_.name=?
+select sysuser0_.id as id1_41_0_, sysuser0_.dept_id as dept_id2_41_0_, sysuser0_.disabled as disabled3_41_0_, sysuser0_.email as email4_41_0_, sysuser0_.email_checked as email_ch5_41_0_, sysuser0_.last_login_date as last_log6_41_0_, sysuser0_.last_login_ip as last_log7_41_0_, sysuser0_.login_count as login_co8_41_0_, sysuser0_.name as name9_41_0_, sysuser0_.nick_name as nick_na10_41_0_, sysuser0_.owns_all_content as owns_al11_41_0_, sysuser0_.password as passwor12_41_0_, sysuser0_.registered_date as registe13_41_0_, sysuser0_.roles as roles14_41_0_, sysuser0_.salt as salt15_41_0_, sysuser0_.site_id as site_id16_41_0_, sysuser0_.superuser_access as superus17_41_0_, sysuser0_.weak_password as weak_pa18_41_0_ from sys_user sysuser0_ where sysuser0_.id=?
+update sys_user set last_login_date=?, login_count=? where id=?
+select sysconfigd0_.code as code1_24_0_, sysconfigd0_.site_id as site_id2_24_0_, sysconfigd0_.data as data3_24_0_ from sys_config_data sysconfigd0_ where sysconfigd0_.code=? and sysconfigd0_.site_id=?
+insert into sys_user_token (channel, create_date, expiry_date, login_ip, site_id, user_id, auth_token) values (?, ?, ?, ?, ?, ?, ?)
+insert into log_login (channel, create_date, error_password, ip, name, result, site_id, user_id) values (?, ?, ?, ?, ?, ?, ?, ?)
+update sys_user set password=?, salt=? where id=?
+delete from sys_user_token where user_id=?
+insert into log_operate (channel, content, create_date, ip, operate, site_id, user_id) values (?, ?, ?, ?, ?, ?, ?)
+select logoperate0_.id as id1_17_, logoperate0_.channel as channel2_17_, logoperate0_.content as content3_17_, logoperate0_.create_date as create_d4_17_, logoperate0_.ip as ip5_17_, logoperate0_.operate as operate6_17_, logoperate0_.site_id as site_id7_17_, logoperate0_.user_id as user_id8_17_ from log_operate logoperate0_ where logoperate0_.id in (?)
+delete from log_operate where id=?
+select loglogin0_.id as id1_16_, loglogin0_.channel as channel2_16_, loglogin0_.create_date as create_d3_16_, loglogin0_.error_password as error_pa4_16_, loglogin0_.ip as ip5_16_, loglogin0_.name as name6_16_, loglogin0_.result as result7_16_, loglogin0_.site_id as site_id8_16_, loglogin0_.user_id as user_id9_16_ from log_login loglogin0_ where loglogin0_.id in (?)
+delete from log_login where id=?
+insert into cms_tag (name, search_count, site_id, type_id) values (?, ?, ?, ?)
+select cmstag0_.id as id1_13_0_, cmstag0_.name as name2_13_0_, cmstag0_.search_count as search_c3_13_0_, cmstag0_.site_id as site_id4_13_0_, cmstag0_.type_id as type_id5_13_0_ from cms_tag cmstag0_ where cmstag0_.id=?
+update cms_tag set name=? where id=?
+select cmstag0_.id as id1_13_, cmstag0_.name as name2_13_, cmstag0_.search_count as search_c3_13_, cmstag0_.site_id as site_id4_13_, cmstag0_.type_id as type_id5_13_ from cms_tag cmstag0_ where cmstag0_.id in (?)
+delete from cms_tag where id=?
+insert into cms_word (create_date, hidden, name, search_count, site_id) values (?, ?, ?, ?, ?)
+select cmsword0_.id as id1_15_0_, cmsword0_.create_date as create_d2_15_0_, cmsword0_.hidden as hidden3_15_0_, cmsword0_.name as name4_15_0_, cmsword0_.search_count as search_c5_15_0_, cmsword0_.site_id as site_id6_15_0_ from cms_word cmsword0_ where cmsword0_.id=?
+update cms_word set create_date=?, name=? where id=?
+update cms_word set hidden=? where id=?
+delete from cms_word where id=?
+select sysuser0_.id as id1_41_, sysuser0_.dept_id as dept_id2_41_, sysuser0_.disabled as disabled3_41_, sysuser0_.email as email4_41_, sysuser0_.email_checked as email_ch5_41_, sysuser0_.last_login_date as last_log6_41_, sysuser0_.last_login_ip as last_log7_41_, sysuser0_.login_count as login_co8_41_, sysuser0_.name as name9_41_, sysuser0_.nick_name as nick_na10_41_, sysuser0_.owns_all_content as owns_al11_41_, sysuser0_.password as passwor12_41_, sysuser0_.registered_date as registe13_41_, sysuser0_.roles as roles14_41_, sysuser0_.salt as salt15_41_, sysuser0_.site_id as site_id16_41_, sysuser0_.superuser_access as superus17_41_, sysuser0_.weak_password as weak_pa18_41_ from sys_user sysuser0_ where sysuser0_.site_id=? and sysuser0_.nick_name=?
+insert into sys_user (dept_id, disabled, email, email_checked, last_login_date, last_login_ip, login_count, name, nick_name, owns_all_content, password, registered_date, roles, salt, site_id, superuser_access, weak_password) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+update sys_user set nick_name=?, weak_password=? where id=?
+select sysroleuse0_.role_id as role_id1_38_, sysroleuse0_.user_id as user_id2_38_ from sys_role_user sysroleuse0_ where sysroleuse0_.user_id=? limit ?
+delete from sys_role_user where user_id=?
+update sys_user set disabled=? where id=?
+insert into sys_dept (description, max_sort, name, owns_all_category, owns_all_config, owns_all_page, parent_id, site_id, user_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+select sysdept0_.id as id1_25_0_, sysdept0_.description as descript2_25_0_, sysdept0_.max_sort as max_sort3_25_0_, sysdept0_.name as name4_25_0_, sysdept0_.owns_all_category as owns_all5_25_0_, sysdept0_.owns_all_config as owns_all6_25_0_, sysdept0_.owns_all_page as owns_all7_25_0_, sysdept0_.parent_id as parent_i8_25_0_, sysdept0_.site_id as site_id9_25_0_, sysdept0_.user_id as user_id10_25_0_ from sys_dept sysdept0_ where sysdept0_.id=?
+update sys_dept set description=? where id=?
+select sysdept0_.id as id1_25_, sysdept0_.description as descript2_25_, sysdept0_.max_sort as max_sort3_25_, sysdept0_.name as name4_25_, sysdept0_.owns_all_category as owns_all5_25_, sysdept0_.owns_all_config as owns_all6_25_, sysdept0_.owns_all_page as owns_all7_25_, sysdept0_.parent_id as parent_i8_25_, sysdept0_.site_id as site_id9_25_, sysdept0_.user_id as user_id10_25_ from sys_dept sysdept0_ where sysdept0_.site_id=? and sysdept0_.parent_id=? order by sysdept0_.id desc limit ?
+delete from sys_dept where id=?
+insert into sys_role (name, owns_all_right, show_all_module, site_id) values (?, ?, ?, ?)
+select sysroleaut0_.role_id as role_id1_36_, sysroleaut0_.url as url2_36_ from sys_role_authorized sysroleaut0_ where sysroleaut0_.role_id=? limit ?
+select sysrole0_.id as id1_35_0_, sysrole0_.name as name2_35_0_, sysrole0_.owns_all_right as owns_all3_35_0_, sysrole0_.show_all_module as show_all4_35_0_, sysrole0_.site_id as site_id5_35_0_ from sys_role sysrole0_ where sysrole0_.id=?
+update sys_role set name=? where id=?
+delete from sys_role where id=?
+select sysroleuse0_.role_id as role_id1_38_, sysroleuse0_.user_id as user_id2_38_ from sys_role_user sysroleuse0_ where sysroleuse0_.role_id=? limit ?
+delete from sys_role_user where role_id=?
+delete from sys_role_module where role_id=?
+delete from sys_role_authorized where role_id=?
+select cmsdiction0_.id as id1_9_0_, cmsdiction0_.site_id as site_id2_9_0_, cmsdiction0_.multiple as multiple3_9_0_, cmsdiction0_.name as name4_9_0_ from cms_dictionary cmsdiction0_ where cmsdiction0_.id=? and cmsdiction0_.site_id=?
+insert into cms_dictionary (multiple, name, id, site_id) values (?, ?, ?, ?)
+update cms_dictionary set name=? where id=? and site_id=?
+insert into log_upload (channel, create_date, file_path, file_size, file_type, ip, original_name, site_id, user_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+select logupload0_.id as id1_19_, logupload0_.channel as channel2_19_, logupload0_.create_date as create_d3_19_, logupload0_.file_path as file_pat4_19_, logupload0_.file_size as file_siz5_19_, logupload0_.file_type as file_typ6_19_, logupload0_.ip as ip7_19_, logupload0_.original_name as original8_19_, logupload0_.site_id as site_id9_19_, logupload0_.user_id as user_id10_19_ from log_upload logupload0_ where logupload0_.id in (?)
+delete from log_upload where id=?
+select cmscategor0_.id as id1_0_, cmscategor0_.allow_contribute as allow_co2_0_, cmscategor0_.child_ids as child_id3_0_, cmscategor0_.code as code4_0_, cmscategor0_.contain_child as contain_5_0_, cmscategor0_.content_path as content_6_0_, cmscategor0_.disabled as disabled7_0_, cmscategor0_.extend_id as extend_i8_0_, cmscategor0_.has_static as has_stat9_0_, cmscategor0_.hidden as hidden10_0_, cmscategor0_.name as name11_0_, cmscategor0_.only_url as only_ur12_0_, cmscategor0_.page_size as page_si13_0_, cmscategor0_.parent_id as parent_14_0_, cmscategor0_.path as path15_0_, cmscategor0_.site_id as site_id16_0_, cmscategor0_.sort as sort17_0_, cmscategor0_.tag_type_ids as tag_typ18_0_, cmscategor0_.template_path as templat19_0_, cmscategor0_.type_id as type_id20_0_, cmscategor0_.url as url21_0_ from cms_category cmscategor0_ where cmscategor0_.site_id=? and cmscategor0_.code=?
+insert into cms_category_type (extend_id, name, site_id, sort) values (?, ?, ?, ?)
+select cmscategor0_.id as id1_3_0_, cmscategor0_.extend_id as extend_i2_3_0_, cmscategor0_.name as name3_3_0_, cmscategor0_.site_id as site_id4_3_0_, cmscategor0_.sort as sort5_3_0_ from cms_category_type cmscategor0_ where cmscategor0_.id=?
+update cms_category_type set name=? where id=?
+select cmscategor0_.id as id1_0_, cmscategor0_.allow_contribute as allow_co2_0_, cmscategor0_.child_ids as child_id3_0_, cmscategor0_.code as code4_0_, cmscategor0_.contain_child as contain_5_0_, cmscategor0_.content_path as content_6_0_, cmscategor0_.disabled as disabled7_0_, cmscategor0_.extend_id as extend_i8_0_, cmscategor0_.has_static as has_stat9_0_, cmscategor0_.hidden as hidden10_0_, cmscategor0_.name as name11_0_, cmscategor0_.only_url as only_ur12_0_, cmscategor0_.page_size as page_si13_0_, cmscategor0_.parent_id as parent_14_0_, cmscategor0_.path as path15_0_, cmscategor0_.site_id as site_id16_0_, cmscategor0_.sort as sort17_0_, cmscategor0_.tag_type_ids as tag_typ18_0_, cmscategor0_.template_path as templat19_0_, cmscategor0_.type_id as type_id20_0_, cmscategor0_.url as url21_0_ from cms_category cmscategor0_ where cmscategor0_.site_id=? and cmscategor0_.type_id=? and cmscategor0_.disabled=? order by cmscategor0_.sort asc, cmscategor0_.id asc limit ?
+delete from cms_category_type where id=?
+insert into cms_tag_type (count, name, site_id) values (?, ?, ?)
+select cmstagtype0_.id as id1_14_0_, cmstagtype0_.count as count2_14_0_, cmstagtype0_.name as name3_14_0_, cmstagtype0_.site_id as site_id4_14_0_ from cms_tag_type cmstagtype0_ where cmstagtype0_.id=?
+update cms_tag_type set name=? where id=?
+delete from cms_tag_type where id=?
+insert into cms_category (allow_contribute, child_ids, code, contain_child, content_path, disabled, extend_id, has_static, hidden, name, only_url, page_size, parent_id, path, site_id, sort, tag_type_ids, template_path, type_id, url) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+select cmscategor0_.category_id as category1_2_0_, cmscategor0_.model_id as model_id2_2_0_, cmscategor0_.template_path as template3_2_0_ from cms_category_model cmscategor0_ where cmscategor0_.category_id=? and cmscategor0_.model_id=?
+select cmscategor0_.id as id1_0_0_, cmscategor0_.allow_contribute as allow_co2_0_0_, cmscategor0_.child_ids as child_id3_0_0_, cmscategor0_.code as code4_0_0_, cmscategor0_.contain_child as contain_5_0_0_, cmscategor0_.content_path as content_6_0_0_, cmscategor0_.disabled as disabled7_0_0_, cmscategor0_.extend_id as extend_i8_0_0_, cmscategor0_.has_static as has_stat9_0_0_, cmscategor0_.hidden as hidden10_0_0_, cmscategor0_.name as name11_0_0_, cmscategor0_.only_url as only_ur12_0_0_, cmscategor0_.page_size as page_si13_0_0_, cmscategor0_.parent_id as parent_14_0_0_, cmscategor0_.path as path15_0_0_, cmscategor0_.site_id as site_id16_0_0_, cmscategor0_.sort as sort17_0_0_, cmscategor0_.tag_type_ids as tag_typ18_0_0_, cmscategor0_.template_path as templat19_0_0_, cmscategor0_.type_id as type_id20_0_0_, cmscategor0_.url as url21_0_0_ from cms_category cmscategor0_ where cmscategor0_.id=?
+select cmscategor0_.category_id as category1_1_0_, cmscategor0_.data as data2_1_0_, cmscategor0_.description as descript3_1_0_, cmscategor0_.keywords as keywords4_1_0_, cmscategor0_.title as title5_1_0_ from cms_category_attribute cmscategor0_ where cmscategor0_.category_id=?
+insert into cms_category_attribute (data, description, keywords, title, category_id) values (?, ?, ?, ?, ?)
+update cms_category set tag_type_ids=? where id=?
+select cmscategor0_.id as id1_0_, cmscategor0_.allow_contribute as allow_co2_0_, cmscategor0_.child_ids as child_id3_0_, cmscategor0_.code as code4_0_, cmscategor0_.contain_child as contain_5_0_, cmscategor0_.content_path as content_6_0_, cmscategor0_.disabled as disabled7_0_, cmscategor0_.extend_id as extend_i8_0_, cmscategor0_.has_static as has_stat9_0_, cmscategor0_.hidden as hidden10_0_, cmscategor0_.name as name11_0_, cmscategor0_.only_url as only_ur12_0_, cmscategor0_.page_size as page_si13_0_, cmscategor0_.parent_id as parent_14_0_, cmscategor0_.path as path15_0_, cmscategor0_.site_id as site_id16_0_, cmscategor0_.sort as sort17_0_, cmscategor0_.tag_type_ids as tag_typ18_0_, cmscategor0_.template_path as templat19_0_, cmscategor0_.type_id as type_id20_0_, cmscategor0_.url as url21_0_ from cms_category cmscategor0_ where cmscategor0_.id in (?)
+select cmscategor0_.id as id1_0_, cmscategor0_.allow_contribute as allow_co2_0_, cmscategor0_.child_ids as child_id3_0_, cmscategor0_.code as code4_0_, cmscategor0_.contain_child as contain_5_0_, cmscategor0_.content_path as content_6_0_, cmscategor0_.disabled as disabled7_0_, cmscategor0_.extend_id as extend_i8_0_, cmscategor0_.has_static as has_stat9_0_, cmscategor0_.hidden as hidden10_0_, cmscategor0_.name as name11_0_, cmscategor0_.only_url as only_ur12_0_, cmscategor0_.page_size as page_si13_0_, cmscategor0_.parent_id as parent_14_0_, cmscategor0_.path as path15_0_, cmscategor0_.site_id as site_id16_0_, cmscategor0_.sort as sort17_0_, cmscategor0_.tag_type_ids as tag_typ18_0_, cmscategor0_.template_path as templat19_0_, cmscategor0_.type_id as type_id20_0_, cmscategor0_.url as url21_0_ from cms_category cmscategor0_ where cmscategor0_.site_id=? and cmscategor0_.parent_id=? order by cmscategor0_.sort asc, cmscategor0_.id asc limit ?
+update cms_category set disabled=? where id=?
+update cms_content set disabled=? where site_id=? and (category_id in (?))
+select syssite0_.id as id1_39_0_, syssite0_.disabled as disabled2_39_0_, syssite0_.dynamic_path as dynamic_3_39_0_, syssite0_.name as name4_39_0_, syssite0_.parent_id as parent_i5_39_0_, syssite0_.site_path as site_pat6_39_0_, syssite0_.use_ssi as use_ssi7_39_0_, syssite0_.use_static as use_stat8_39_0_ from sys_site syssite0_ where syssite0_.id=?
+update sys_site set name=? where id=?
+select sysdomain0_.name as name1_29_0_, sysdomain0_.path as path2_29_0_, sysdomain0_.site_id as site_id3_29_0_, sysdomain0_.wild as wild4_29_0_ from sys_domain sysdomain0_ where sysdomain0_.name=?
+--------------------
+No. of distinct queries:74
+No. of tables:22
+No. of SELECT:29
+No. of INSERT:14
+No. of UPDATE:16
+No. of DELETE:15
+No. of joins:0
+No. of subselects:0
+No. of tables per query:1.0
