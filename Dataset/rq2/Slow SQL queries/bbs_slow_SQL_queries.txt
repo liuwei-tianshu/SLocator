@@ -1,0 +1,29 @@
+insert into usergrade (name, needpoint) values (?, ?)
+select disableuse0_.id as id1_3_0_, disableuse0_.name as name2_3_0_ from disableusername disableuse0_ where disableuse0_.id=?
+select userrolegr0_.id as id1_122_, userrolegr0_.username as username2_122_, userrolegr0_.userroleid as userrole3_122_, userrolegr0_.validperiodend as validper4_122_ from userrolegroup userrolegr0_ where userrolegr0_.username=?
+select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+select specificat0_.id as id1_71_, specificat0_.duration as duration2_71_, specificat0_.enable as enable3_71_, specificat0_.marketprice as marketpr4_71_, specificat0_.membershipcardid as membersh5_71_, specificat0_.point as point6_71_, specificat0_.sellingprice as sellingp7_71_, specificat0_.sort as sort8_71_, specificat0_.specificationname as specific9_71_, specificat0_.stock as stock10_71_, specificat0_.stockoccupy as stockoc11_71_, specificat0_.unit as unit12_71_ from specification specificat0_ where specificat0_.membershipcardid=? order by specificat0_.sort asc
+select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.account=?
+delete from usergrade where id=?
+select userinputv0_.id as id1_116_, userinputv0_.content as content2_116_, userinputv0_.options as options3_116_, userinputv0_.usercustomid as usercust4_116_, userinputv0_.userid as userid5_116_ from userinputvalue userinputv0_ where userinputv0_.userid=?
+select syspermiss1_.id as id1_80_, syspermiss1_.methods as methods2_80_, syspermiss1_.name as name3_80_, syspermiss1_.priority as priority4_80_, syspermiss1_.remarks as remarks5_80_ from sysrolespermission sysrolespe0_ cross join syspermission syspermiss1_ where sysrolespe0_.permissionid=syspermiss1_.id and sysrolespe0_.roleid=?
+delete from disableusername where id=?
+--------------------
+No. of distinct queries:10
+No. of tables:13
+No. of SELECT:7
+No. of INSERT:1
+No. of UPDATE:0
+No. of DELETE:2
+No. of joins:1
+No. of subselects:0
+No. of tables per query:1.1
+--------------------
+
+number of slow sqls: 10
+number_char_slow_sql: 278.1
+execution_time_slow_sql (ms): 110070.0
+
+number of non-slow sqls: 100
+number_char_sql: 191.84
+execution_time_sql (ms): 52805.0

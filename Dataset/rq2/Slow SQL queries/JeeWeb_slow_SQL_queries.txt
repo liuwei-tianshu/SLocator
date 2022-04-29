@@ -1,0 +1,32 @@
+insert into sys_dict (create_by, create_date, del_flag, remarks, update_by, update_date, gid, label, sort, value, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+select this_.id as id23_0_, this_.create_by as create8_23_0_, this_.create_date as create2_23_0_, this_.del_flag as del3_23_0_, this_.name as name23_0_, this_.remarks as remarks23_0_, this_.testdate as testdate23_0_, this_.update_by as update9_23_0_, this_.update_date as update7_23_0_ from test_single_table this_ order by this_.id asc limit ?
+insert into test_order_main (create_by, create_date, del_flag, money, orderdate, orderno, remarks, update_by, update_date, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+select this_.id as id13_0_, this_.name as name13_0_, this_.parent_id as parent3_13_0_, this_.parent_ids as parent4_13_0_, this_.isshow as isshow13_0_, this_.menu_icon as menu6_13_0_, this_.permission as permission13_0_, this_.remarks as remarks13_0_, this_.sort as sort13_0_, this_.type as type13_0_, this_.url as url13_0_, (select count(*) from sys_menu f_t where f_t.parent_id = this_.id) as formula0_0_ from sys_menu this_
+select this_.id as id10_1_, this_.create_by as create10_10_1_, this_.create_date as create2_10_1_, this_.del_flag as del3_10_1_, this_.remarks as remarks10_1_, this_.update_by as update11_10_1_, this_.update_date as update5_10_1_, this_.gid as gid10_1_, this_.gid as gid10_1_, this_.label as label10_1_, this_.sort as sort10_1_, this_.value as value10_1_, dictgroup2_.id as id11_0_, dictgroup2_.create_by as create8_11_0_, dictgroup2_.create_date as create2_11_0_, dictgroup2_.del_flag as del3_11_0_, dictgroup2_.remarks as remarks11_0_, dictgroup2_.update_by as update9_11_0_, dictgroup2_.update_date as update5_11_0_, dictgroup2_.code as code11_0_, dictgroup2_.name as name11_0_ from sys_dict this_ inner join sys_dict_group dictgroup2_ on this_.gid=dictgroup2_.id where this_.gid=? order by this_.id asc limit ?
+insert into sys_data_source (create_by, create_date, del_flag, remarks, update_by, update_date, db_key, db_name, db_password, db_type, db_user, description, driver_class, url, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+select count(*) as y0_ from sys_dict this_ where this_.gid=?
+insert into test_order_ticket (create_by, create_date, del_flag, fltno, flytime, order_id, remarks, update_by, update_date, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+select this_.id as id2_0_, this_.create_by as create12_2_0_, this_.create_date as create2_2_0_, this_.del_flag as del3_2_0_, this_.remarks as remarks2_0_, this_.update_by as update13_2_0_, this_.update_date as update5_2_0_, this_.class_name as class6_2_0_, this_.sync_database as sync7_2_0_, this_.table_name as table8_2_0_, this_.table_pk_type as table9_2_0_, this_.table_type as table10_2_0_, this_.title as title2_0_ from codegen_table this_ order by this_.id asc limit ?
+select this_.id as id7_0_, this_.business_type as business2_7_0_, this_.code as code7_0_, this_.create_by as create11_7_0_, this_.create_date as create4_7_0_, this_.del_flag as del5_7_0_, this_.name as name7_0_, this_.remarks as remarks7_0_, this_.template_content as template8_7_0_, this_.template_id as template9_7_0_, this_.update_by as update12_7_0_, this_.update_date as update10_7_0_ from sms_template this_ where this_.code like ? order by this_.id asc limit ?
+update codegen_table set create_by=?, create_date=?, del_flag=?, remarks=?, update_by=?, update_date=?, class_name=?, sync_database=?, table_name=?, table_pk_type=?, table_type=?, title=? where id=?
+select count(*) as y0_ from sys_role this_
+insert into sys_attachment (create_by, create_date, del_flag, remarks, update_by, update_date, fileext, filename, filepath, filesize, status, uploadip, uploadtime, userid, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+--------------------
+No. of distinct queries:13
+No. of tables:11
+No. of SELECT:7
+No. of INSERT:5
+No. of UPDATE:1
+No. of DELETE:0
+No. of joins:1
+No. of subselects:0
+No. of tables per query:1.1538461538461537
+--------------------
+
+number of slow sqls: 13
+number_char_slow_sql: 290.0769230769231
+execution_time_slow_sql (ms): 108653.84615384616
+
+number of non-slow sqls: 151
+number_char_sql: 288.9801324503311
+execution_time_sql (ms): 43666.887417218546
