@@ -1,0 +1,121 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `populateDB`()
+BEGIN
+	#Routine body goes here...
+	declare i int default 0;
+
+-- 	set i=10009;
+-- 	start transaction;
+-- 	while i<20009 do
+-- 		INSERT INTO `page`(`id`, `parent_id`, `lft`, `rgt`) VALUES (i, NULL, 3, 4);
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+
+
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<1333 do
+-- 			INSERT INTO `user`
+-- 				SELECT NULL, 
+-- 				CONCAT(name_first, i),
+-- 				login_password,
+-- 				name_first,
+-- 				name_last,
+-- 				nickname,
+-- 				CONCAT(name_first, i, "@gmail.com"),
+-- 				description,
+-- 				created_at,
+-- 				created_by,
+-- 				updated_at,
+-- 				updated_by
+-- 				FROM `user` WHERE id <= 15;
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+-- 	set i=21;
+-- 	start transaction;
+-- 	while i<20000 do
+-- 		INSERT INTO user_role(user_id, role) VALUES (i, "VIEWER");
+-- 	set i=i+1;
+-- 	end while;
+
+-- 	set i=1;
+-- 	start transaction;
+-- 	while i<4000 do
+-- 		INSERT INTO `tag` VALUES (NULL, 'en', CONCAT('Busniess', i), '2020-10-29 13:07:44', 'George', '2020-11-01 10:29:17', 'George');
+-- 		INSERT INTO `tag` VALUES (NULL, 'en', CONCAT('Technology', i), '2020-10-29 13:07:44', 'George', '2020-11-01 10:29:17', 'George');
+-- 		INSERT INTO `tag` VALUES (NULL, 'en', CONCAT('Sports', i), '2020-10-29 13:07:44', 'George', '2020-11-01 10:29:17', 'George');
+-- 		INSERT INTO `tag` VALUES (NULL, 'en', CONCAT('Science', i), '2020-10-29 13:07:44', 'George', '2020-11-01 10:29:17', 'George');
+-- 		INSERT INTO `tag` VALUES (NULL, 'en', CONCAT('Healthy', i), '2020-10-29 13:07:44', 'George', '2020-11-01 10:29:17', 'George');
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+
+-- 	set i=10009;
+-- 	start transaction;
+-- 	while i<20001 do
+-- 		INSERT INTO `article`(`id`) VALUES (i);
+-- 	set i=i+1;
+-- 	end while;
+
+
+-- 	set i=10;
+-- 	start transaction;
+-- 	while i<20000 do
+-- 		INSERT INTO `post_related_post` VALUES (i, i+1);
+-- 	set i=i+1;
+-- 	end while;
+
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<1333 do
+-- 			INSERT INTO `category`
+-- 				SELECT NULL, 
+-- 				parent_id,
+-- 				CONCAT(code, i),
+-- 				language,
+-- 				CONCAT(name, i),
+-- 				description,
+-- 				lft,
+-- 				rgt,
+-- 				created_at,
+-- 				created_by,
+-- 				updated_at,
+-- 				updated_by
+-- 				FROM `category` WHERE id <= 15;
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+		
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<2000 do
+-- 			INSERT INTO `custom_field`
+-- 				SELECT NULL,
+-- 				idx,
+-- 				CONCAT(code, i),
+-- 				language,
+-- 				name,
+-- 				field_type,
+-- 				default_value,
+-- 				description,
+-- 				created_at,
+-- 				created_by,
+-- 				updated_at,
+-- 				updated_by
+-- 			FROM `custom_field` WHERE id <= 10;
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 	set i=10;
+-- 	start transaction;
+-- 	while i<20001 do
+-- 		INSERT INTO `comment`(`id`, `post_id`, `author_id`, `author_name`, `date`, `content`, `approved`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES (NULL, i, 1, 'Franklin George', '2020-10-29 13:06:42', 'test comment', b'1', '2020-10-29 13:06:42', 'Franklin George', '2020-10-29 13:06:42', 'Franklin George');
+-- 	set i=i+1;
+-- 	end while;
+
+END

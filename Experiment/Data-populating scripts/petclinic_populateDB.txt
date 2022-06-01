@@ -1,0 +1,120 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `petclinic_populateDB`()
+BEGIN
+	#Routine body goes here...
+	declare i int default 0;
+		
+		
+-- 	set i=0;
+-- 	start transaction;
+-- 	while i<3333 do
+-- 		INSERT IGNORE INTO vets VALUES (null, 'James', 'Carter');
+-- 		INSERT IGNORE INTO vets VALUES (null, 'Helen', 'Leary');
+-- 		INSERT IGNORE INTO vets VALUES (null, 'Linda', 'Douglas');
+-- 		INSERT IGNORE INTO vets VALUES (null, 'Rafael', 'Ortega');
+-- 		INSERT IGNORE INTO vets VALUES (null, 'Henry', 'Stevens');
+-- 		INSERT IGNORE INTO vets VALUES (null, 'Sharon', 'Jenkins');
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+
+
+-- 	set i=0;
+-- 	start transaction;
+-- 	while i<7777 do
+-- 		INSERT IGNORE INTO specialties VALUES (null, 'radiology');
+-- 		INSERT IGNORE INTO specialties VALUES (null, 'surgery');
+-- 		INSERT IGNORE INTO specialties VALUES (null, 'dentistry');
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+-- 
+-- 
+-- 	set i=0;
+-- 	start transaction;
+-- 	while i<40000 do
+-- 		INSERT IGNORE INTO vet_specialties VALUES (null, i, i);
+-- 		INSERT IGNORE INTO vet_specialties VALUES (null, i, i);
+-- 		INSERT IGNORE INTO vet_specialties VALUES (null, i, i);
+-- 		INSERT IGNORE INTO vet_specialties VALUES (null, i, i);
+-- 		INSERT IGNORE INTO vet_specialties VALUES (null, i, i);
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+
+
+-- 	set i=0;
+-- 	start transaction;
+-- 	while i<3333 do
+-- 		INSERT IGNORE INTO types VALUES (null, 'cat');
+-- 		INSERT IGNORE INTO types VALUES (null, 'dog');
+-- 		INSERT IGNORE INTO types VALUES (null, 'lizard');
+-- 		INSERT IGNORE INTO types VALUES (null, 'snake');
+-- 		INSERT IGNORE INTO types VALUES (null, 'bird');
+-- 		INSERT IGNORE INTO types VALUES (null, 'hamster');
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+
+-- 	set i=0;
+-- 	start transaction;
+-- 	while i<2000 do
+-- 		INSERT IGNORE INTO owners VALUES (null, 'George', 'Franklin', '110 W. Liberty St.', 'Madison', '6085551023');
+-- 		INSERT IGNORE INTO owners VALUES (null, 'Betty', 'Davis', '638 Cardinal Ave.', 'Sun Prairie', '6085551749');
+-- 		INSERT IGNORE INTO owners VALUES (null, 'Eduardo', 'Rodriquez', '2693 Commerce St.', 'McFarland', '6085558763');
+-- 		INSERT IGNORE INTO owners VALUES (null, 'Harold', 'Davis', '563 Friendly St.', 'Windsor', '6085553198');
+-- 		INSERT IGNORE INTO owners VALUES (null, 'Peter', 'McTavish', '2387 S. Fair Way', 'Madison', '6085552765');
+-- 		INSERT IGNORE INTO owners VALUES (null, 'Jean', 'Coleman', '105 N. Lake St.', 'Monona', '6085552654');
+-- 		INSERT IGNORE INTO owners VALUES (null, 'Jeff', 'Black', '1450 Oak Blvd.', 'Monona', '6085555387');
+-- 		INSERT IGNORE INTO owners VALUES (null, 'Maria', 'Escobito', '345 Maple St.', 'Madison', '6085557683');
+-- 		INSERT IGNORE INTO owners VALUES (null, 'David', 'Schroeder', '2749 Blackhawk Trail', 'Madison', '6085559435');
+-- 		INSERT IGNORE INTO owners VALUES (null, 'Carlos', 'Estaban', '2335 Independence La.', 'Waunakee', '6085555487');
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+		
+		
+	#Routine body goes here...
+-- 	set i=0;
+-- 	start transaction;
+-- 	while i<2000 do
+-- 		INSERT IGNORE INTO pets VALUES (null, 'Leo', '2000-09-07', 1, 1+10*i);
+-- 		INSERT IGNORE INTO pets VALUES (null, 'Basil', '2002-08-06', 6, 2+10*i);
+-- 		INSERT IGNORE INTO pets VALUES (null, 'Rosy', '2001-04-17', 2, 3+10*i);
+-- 		INSERT IGNORE INTO pets VALUES (null, 'Jewel', '2000-03-07', 2, 3+10*i);
+-- 		INSERT IGNORE INTO pets VALUES (null, 'Iggy', '2000-11-30', 3, 4+10*i);
+-- 		INSERT IGNORE INTO pets VALUES (null, 'George', '2000-01-20', 4, 5+10*i);
+-- 		INSERT IGNORE INTO pets VALUES (null, 'Samantha', '1995-09-04', 1, 6+10*i);
+-- 		INSERT IGNORE INTO pets VALUES (null, 'Max', '1995-09-04', 1, 6+10*i);
+-- 		INSERT IGNORE INTO pets VALUES (null, 'Lucky', '1999-08-06', 5, 7+10*i);
+-- 		INSERT IGNORE INTO pets VALUES (null, 'Mulligan', '1997-02-24', 2, 8+10*i);
+-- 		INSERT IGNORE INTO pets VALUES (null, 'Freddy', '2000-03-09', 5, 9+10*i);
+-- 		INSERT IGNORE INTO pets VALUES (null, 'Lucky', '2000-06-24', 2, 10+10*i);
+-- 		INSERT IGNORE INTO pets VALUES (null, 'Sly', '2002-06-08', 1, 10+10*i);
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+		
+		
+	#Routine body goes here...
+-- 	set i=0;
+-- 	start transaction;
+-- 	while i<2000 do
+-- 		INSERT IGNORE INTO visits VALUES (null, 1 + 10*i, '2010-03-04', 'rabies shot');
+-- 		INSERT IGNORE INTO visits VALUES (null, 2 + 10*i, '2011-03-04', 'rabies shot');
+-- 		INSERT IGNORE INTO visits VALUES (null, 3 + 10*i, '2009-06-04', 'neutered');
+-- 		INSERT IGNORE INTO visits VALUES (null, 4 + 10*i, '2008-09-04', 'spayed');
+-- 		INSERT IGNORE INTO visits VALUES (null, 5 + 10*i, '2010-03-04', 'rabies shot');
+-- 		INSERT IGNORE INTO visits VALUES (null, 6 + 10*i, '2011-03-04', 'rabies shot');
+-- 		INSERT IGNORE INTO visits VALUES (null, 7 + 10*i, '2009-06-04', 'neutered');
+-- 		INSERT IGNORE INTO visits VALUES (null, 8 + 10*i, '2008-09-04', 'spayed');
+-- 		INSERT IGNORE INTO visits VALUES (null, 9 + 10*i, '2009-06-04', 'neutered');
+-- 		INSERT IGNORE INTO visits VALUES (null, 10 + 10*i, '2008-09-04', 'spayed');
+-- 		INSERT IGNORE INTO visits VALUES (null, 11 + 10*i, '2008-09-04', 'spayed');
+-- 		INSERT IGNORE INTO visits VALUES (null, 12 + 10*i, '2009-06-04', 'neutered');
+-- 		INSERT IGNORE INTO visits VALUES (null, 13 + 10*i, '2008-09-04', 'spayed');
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+	
+	
+END

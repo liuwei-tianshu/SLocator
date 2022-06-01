@@ -1,0 +1,398 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `populateDB`()
+BEGIN
+	#Routine body goes here...
+	declare i int default 0;
+
+-- 	set i=0;
+-- 	start transaction;
+-- 	while i<2000 do
+-- 		INSERT INTO `jeeweb`.`codegen_table`(`id`, `title`, `table_name`, `table_type`, `table_pk_type`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `sync_database`, `class_name`) VALUES (MD5(i*10 + 0), NULL, 'test_single_table', '1', NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-05-30 17:54:39', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-23 22:55:52', 'test table', '0', 1, 'SingleTable');
+-- 		
+-- 		INSERT INTO `jeeweb`.`codegen_table`(`id`, `title`, `table_name`, `table_type`, `table_pk_type`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `sync_database`, `class_name`) VALUES (MD5(i*10 + 1), 'email_send_log', 'email_send_log', '1', NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-10 07:39:23', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-10 07:40:09', 'email log', '0', 1, 'EmailSendLog');
+-- 		
+-- 		INSERT INTO `jeeweb`.`codegen_table`(`id`, `title`, `table_name`, `table_type`, `table_pk_type`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `sync_database`, `class_name`) VALUES (MD5(i*10 + 2), 'email_template', 'email_template', '1', NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-10 07:43:35', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-10 07:43:48', 'email template', '0', 1, NULL);
+-- 
+-- 		INSERT INTO `jeeweb`.`codegen_table`(`id`, `title`, `table_name`, `table_type`, `table_pk_type`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `sync_database`, `class_name`) VALUES (MD5(i*10 + 3), 'test_order_main', 'test_order_main', '2', NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-17 17:12:37', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-22 18:26:40', 'order', '0', 1, 'TestOrderMain');
+-- 
+-- 
+-- 		INSERT INTO `jeeweb`.`codegen_table`(`id`, `title`, `table_name`, `table_type`, `table_pk_type`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `sync_database`, `class_name`) VALUES (MD5(i*10 + 4), 'test_order_ticket', 'test_order_ticket', '3', NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-17 17:16:43', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-22 20:05:28', 'flight info', '0', 1, 'TestOrderTicket');
+-- 
+-- 		INSERT INTO `jeeweb`.`codegen_table`(`id`, `title`, `table_name`, `table_type`, `table_pk_type`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `sync_database`, `class_name`) VALUES (MD5(i*10 + 5), 'test_order_customer', 'test_order_customer', '3', NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-17 17:16:50', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-22 18:37:21', 'client info', '0', 1, 'TestOrderCustomer');
+-- 
+-- 
+-- 		INSERT INTO `jeeweb`.`codegen_table`(`id`, `title`, `table_name`, `table_type`, `table_pk_type`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `sync_database`, `class_name`) VALUES (MD5(i*10 + 6), NULL, 'test_tree', '4', NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-28 22:40:14', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-22 23:05:47', 'test number', '0', 1, 'TestTree');
+-- 
+-- 
+-- 		INSERT INTO `jeeweb`.`codegen_table`(`id`, `title`, `table_name`, `table_type`, `table_pk_type`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `sync_database`, `class_name`) VALUES (MD5(i*10 + 7), 'codegen_table', 'codegen_table', '1', NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2022-03-28 15:24:26', NULL, NULL, NULL, '0', 1, NULL);
+-- 
+-- 
+-- 		INSERT INTO `jeeweb`.`codegen_table`(`id`, `title`, `table_name`, `table_type`, `table_pk_type`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `sync_database`, `class_name`) VALUES (MD5(i*10 + 8), 'sms_send_log', 'sms_send_log', '1', NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-26 16:52:23', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-26 16:52:39', NULL, '0', 1, 'SmsSendLog');
+-- 
+-- 
+-- 		INSERT INTO `jeeweb`.`codegen_table`(`id`, `title`, `table_name`, `table_type`, `table_pk_type`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `sync_database`, `class_name`) VALUES (MD5(i*10 + 9), NULL, 'address', NULL, NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2022-03-28 18:54:24', NULL, NULL, '', '0', 0, 'Address');
+-- 
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+
+
+-- 	set i=0;
+-- 	start transaction;
+-- 	while i<2000 do
+-- 		INSERT INTO `jeeweb`.`codegen_scheme`(`id`, `table_type`, `path_name`, `package_name`, `module_name`, `entity_name`, `table_name`, `sub_module_name`, `function_name`, `function_desc`, `function_author`, `table_id`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) VALUES (MD5(i*10 + 0), '1', 'D:\\Workspaces\\mavengzfzkj\\jeeweb', 'cn.jeeweb.modules', 'test', 'SingleTable', '', '', 'test table', 'test table', 'jeeweb', '40281e815c580ea3015c58c75e89002d', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-05-30 17:54:47', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-05-30 17:54:49', NULL, '0');
+-- 		INSERT INTO `jeeweb`.`codegen_scheme`(`id`, `table_type`, `path_name`, `package_name`, `module_name`, `entity_name`, `table_name`, `sub_module_name`, `function_name`, `function_desc`, `function_author`, `table_id`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) VALUES (MD5(i*10 + 1), '1', 'D:\\Workspaces\\mavengzfzkj\\jeeweb', 'cn.jeeweb.modules', 'test', 'OrderMain', '', '', 'order menu', 'order menu', 'jeeweb', '40281e815c6bb87e015c6c118a19006a', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-03 12:02:01', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-03 12:02:16', NULL, '0');
+-- 		INSERT INTO `jeeweb`.`codegen_scheme`(`id`, `table_type`, `path_name`, `package_name`, `module_name`, `entity_name`, `table_name`, `sub_module_name`, `function_name`, `function_desc`, `function_author`, `table_id`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) VALUES (MD5(i*10 + 2), '1', 'D:\\Workspaces\\mavengzfzkj\\jeeweb', 'cn.jeeweb.modules', 'test', 'OrderTicket', '', '', 'flight info', 'flight info', 'jeeweb', '40281e815c6bb87e015c6c170d450075', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-03 12:02:21', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-03 12:02:26', NULL, '0');
+-- 		INSERT INTO `jeeweb`.`codegen_scheme`(`id`, `table_type`, `path_name`, `package_name`, `module_name`, `entity_name`, `table_name`, `sub_module_name`, `function_name`, `function_desc`, `function_author`, `table_id`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) VALUES (MD5(i*10 + 3), '1', 'D:\\Workspaces\\mavengzfzkj\\jeeweb', 'cn.jeeweb.modules', 'test', 'OrderCustomer', '', '', 'client info', 'client info', 'jeeweb', '40281e815c6bb87e015c6c1bb4d1007f', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-03 12:02:29', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-03 12:02:33', NULL, '0');
+-- 		INSERT INTO `jeeweb`.`codegen_scheme`(`id`, `table_type`, `path_name`, `package_name`, `module_name`, `entity_name`, `table_name`, `sub_module_name`, `function_name`, `function_desc`, `function_author`, `table_id`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) VALUES (MD5(i*10 + 4), '1', 'D:\\Workspaces\\mavengzfzkj\\jeeweb', 'cn.jeeweb.modules', 'email', 'EmailSendLog', '', '', 'email log', 'email log', 'jeeweb', '40281e815c8f3512015c8f3a07440000', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-10 07:45:45', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-10 07:46:06', NULL, '0');
+-- 		INSERT INTO `jeeweb`.`codegen_scheme`(`id`, `table_type`, `path_name`, `package_name`, `module_name`, `entity_name`, `table_name`, `sub_module_name`, `function_name`, `function_desc`, `function_author`, `table_id`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) VALUES (MD5(i*10 + 5), '1', 'D:\\Workspaces\\mavengzfzkj\\jeeweb', 'cn.jeeweb.modules', 'email', 'EmailTemplate', '', '', 'email template', 'email template', 'jeeweb', '40281e815c8f3512015c8f3ddecc000c', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-10 07:46:11', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-10 07:46:14', NULL, '0');
+-- 		INSERT INTO `jeeweb`.`codegen_scheme`(`id`, `table_type`, `path_name`, `package_name`, `module_name`, `entity_name`, `table_name`, `sub_module_name`, `function_name`, `function_desc`, `function_author`, `table_id`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) VALUES (MD5(i*10 + 6), '1', 'D:\\Workspaces\\mavengzfzkj\\jeeweb', 'cn.jeeweb.modules', 'oa', 'OaNotification', '', '', 'notification', 'notification', 'jeeweb', '40281e815c912406015c914826de0038', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-10 17:14:55', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-10 17:15:17', NULL, '0');
+-- 		INSERT INTO `jeeweb`.`codegen_scheme`(`id`, `table_type`, `path_name`, `package_name`, `module_name`, `entity_name`, `table_name`, `sub_module_name`, `function_name`, `function_desc`, `function_author`, `table_id`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) VALUES (MD5(i*10 + 7), '2', 'D:\\Workspaces\\mavengzfzkj\\jeeweb', 'cn.jeeweb.modules', 'test', 'TestOrderMain', '', '', 'order', 'order', 'jeeweb', '40281e815cb51519015cb55358d70000', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-17 17:18:44', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-17 17:18:52', NULL, '0');
+-- 		INSERT INTO `jeeweb`.`codegen_scheme`(`id`, `table_type`, `path_name`, `package_name`, `module_name`, `entity_name`, `table_name`, `sub_module_name`, `function_name`, `function_desc`, `function_author`, `table_id`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) VALUES (MD5(i*10 + 8), '3', 'D:\\Workspaces\\mavengzfzkj\\jeeweb', 'cn.jeeweb.modules', 'testest', 'TestOrderTicket', '', '', 'flight ticket info', 'flight ticket info', 'jeeweb', '40281e815cb55466015cb55718970000', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-17 17:45:33', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-17 17:45:41', NULL, '0');
+-- 		INSERT INTO `jeeweb`.`codegen_scheme`(`id`, `table_type`, `path_name`, `package_name`, `module_name`, `entity_name`, `table_name`, `sub_module_name`, `function_name`, `function_desc`, `function_author`, `table_id`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) VALUES (MD5(i*10 + 9), '3', 'D:\\Workspaces\\mavengzfzkj\\jeeweb', 'cn.jeeweb.modules', 'test', 'TestOrderCustomer', '', '', 'client info', 'client info', 'jeeweb', '40281e815cb55466015cb5573425000b', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-17 20:01:17', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-17 20:01:21', NULL, '0');
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+
+
+-- 	set i=0;
+-- 	start transaction;
+-- 	while i<2000 do
+-- 		INSERT INTO `jeeweb`.`codegen_column`(`id`, `table_id`, `column_name`, `type_name`, `column_size`, `decimal_digits`, `parmary_key`, `imported_key`, `column_def`, `is_nullable`, `java_type`, `java_field`, `is_list`, `is_query`, `is_form`, `query_type`, `input_type`, `dict_group`, `sort`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `regex_valid`, `valid_type`, `max_size`, `min_size`, `max_value`, `min_value`, `nullmsg`, `query_model`, `form_type`, `foreign_table`) VALUES (MD5(i*10 + 0), '40281e815c580ea3015c58c75e89002d', 'id', 'VARCHAR', '32', '0', 1, 0, '', 0, 'String', 'id', '0', '0', '0', 'eq', NULL, '', 1, NULL, NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-23 22:55:52', 'primary key', '0', '', '', NULL, NULL, '', '', '', 'input', 'input', '');
+-- INSERT INTO `jeeweb`.`codegen_column`(`id`, `table_id`, `column_name`, `type_name`, `column_size`, `decimal_digits`, `parmary_key`, `imported_key`, `column_def`, `is_nullable`, `java_type`, `java_field`, `is_list`, `is_query`, `is_form`, `query_type`, `input_type`, `dict_group`, `sort`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `regex_valid`, `valid_type`, `max_size`, `min_size`, `max_value`, `min_value`, `nullmsg`, `query_model`, `form_type`, `foreign_table`) VALUES (MD5(i*10 + 1), '40281e815c580ea3015c58c75e89002d', 'name', 'VARCHAR', '255', '', 0, 0, '', 0, 'String', 'name', '1', '0', '1', 'eq', NULL, '', 2, NULL, NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-23 22:55:52', 'name', '0', '', '*', NULL, NULL, '', '', '', 'input', 'input', '');
+-- INSERT INTO `jeeweb`.`codegen_column`(`id`, `table_id`, `column_name`, `type_name`, `column_size`, `decimal_digits`, `parmary_key`, `imported_key`, `column_def`, `is_nullable`, `java_type`, `java_field`, `is_list`, `is_query`, `is_form`, `query_type`, `input_type`, `dict_group`, `sort`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `regex_valid`, `valid_type`, `max_size`, `min_size`, `max_value`, `min_value`, `nullmsg`, `query_model`, `form_type`, `foreign_table`) VALUES (MD5(i*10 + 2), '40281e815c580ea3015c58c75e89002d', 'create_by', 'VARCHAR', '32', '0', 0, 0, '', 1, 'User', 'createBy', '0', '0', '0', 'eq', NULL, '', 4, NULL, NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-23 22:55:52', 'created by', '0', '', '', NULL, NULL, '', '', '', 'input', 'input', '');
+-- INSERT INTO `jeeweb`.`codegen_column`(`id`, `table_id`, `column_name`, `type_name`, `column_size`, `decimal_digits`, `parmary_key`, `imported_key`, `column_def`, `is_nullable`, `java_type`, `java_field`, `is_list`, `is_query`, `is_form`, `query_type`, `input_type`, `dict_group`, `sort`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `regex_valid`, `valid_type`, `max_size`, `min_size`, `max_value`, `min_value`, `nullmsg`, `query_model`, `form_type`, `foreign_table`) VALUES (MD5(i*10 + 3), '40281e815c580ea3015c58c75e89002d', 'create_date', 'DATE', '19', '0', 0, 0, '', 1, 'Date', 'createDate', '0', '0', '0', 'eq', NULL, '', 5, NULL, NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-23 22:55:52', 'created at', '0', '', '', NULL, NULL, '', '', '', 'input', 'input', '');
+-- INSERT INTO `jeeweb`.`codegen_column`(`id`, `table_id`, `column_name`, `type_name`, `column_size`, `decimal_digits`, `parmary_key`, `imported_key`, `column_def`, `is_nullable`, `java_type`, `java_field`, `is_list`, `is_query`, `is_form`, `query_type`, `input_type`, `dict_group`, `sort`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `regex_valid`, `valid_type`, `max_size`, `min_size`, `max_value`, `min_value`, `nullmsg`, `query_model`, `form_type`, `foreign_table`) VALUES (MD5(i*10 + 4), '40281e815c580ea3015c58c75e89002d', 'update_by', 'VARCHAR', '32', '0', 0, 0, '', 1, 'User', 'updateBy', '0', '0', '0', 'eq', NULL, '', 6, NULL, NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-23 22:55:52', 'updated by', '0', '', '', NULL, NULL, '', '', '', 'input', 'input', '');
+-- INSERT INTO `jeeweb`.`codegen_column`(`id`, `table_id`, `column_name`, `type_name`, `column_size`, `decimal_digits`, `parmary_key`, `imported_key`, `column_def`, `is_nullable`, `java_type`, `java_field`, `is_list`, `is_query`, `is_form`, `query_type`, `input_type`, `dict_group`, `sort`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `regex_valid`, `valid_type`, `max_size`, `min_size`, `max_value`, `min_value`, `nullmsg`, `query_model`, `form_type`, `foreign_table`) VALUES (MD5(i*10 + 5), '40281e815c580ea3015c58c75e89002d', 'update_date', 'DATE', '19', '0', 0, 0, '', 1, 'Date', 'updateDate', '0', '0', '0', 'eq', NULL, '', 7, NULL, NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-23 22:55:52', 'updated at', '0', '', '', NULL, NULL, '', '', '', 'input', 'input', '');
+-- INSERT INTO `jeeweb`.`codegen_column`(`id`, `table_id`, `column_name`, `type_name`, `column_size`, `decimal_digits`, `parmary_key`, `imported_key`, `column_def`, `is_nullable`, `java_type`, `java_field`, `is_list`, `is_query`, `is_form`, `query_type`, `input_type`, `dict_group`, `sort`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `regex_valid`, `valid_type`, `max_size`, `min_size`, `max_value`, `min_value`, `nullmsg`, `query_model`, `form_type`, `foreign_table`) VALUES (MD5(i*10 + 6), '40281e815c580ea3015c58c75e89002d', 'del_flag', 'CHAR', '1', '0', 0, 0, '0', 1, 'String', 'delFlag', '0', '0', '0', 'eq', NULL, '', 8, NULL, NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-23 22:55:52', 'flag(0:normal;1:delete)', '0', '', '', NULL, NULL, '', '', '', 'input', 'input', '');
+-- INSERT INTO `jeeweb`.`codegen_column`(`id`, `table_id`, `column_name`, `type_name`, `column_size`, `decimal_digits`, `parmary_key`, `imported_key`, `column_def`, `is_nullable`, `java_type`, `java_field`, `is_list`, `is_query`, `is_form`, `query_type`, `input_type`, `dict_group`, `sort`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `regex_valid`, `valid_type`, `max_size`, `min_size`, `max_value`, `min_value`, `nullmsg`, `query_model`, `form_type`, `foreign_table`) VALUES (MD5(i*10 + 7), '40281e815c580ea3015c58c75e89002d', 'remarks', 'VARCHAR', '255', '0', 0, 0, '', 1, 'String', 'remarks', '0', '0', '1', 'eq', NULL, '', 9, NULL, NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-23 22:55:52', 'remark', '0', '', '', NULL, NULL, '', '', '', 'input', 'editor', '');
+-- INSERT INTO `jeeweb`.`codegen_column`(`id`, `table_id`, `column_name`, `type_name`, `column_size`, `decimal_digits`, `parmary_key`, `imported_key`, `column_def`, `is_nullable`, `java_type`, `java_field`, `is_list`, `is_query`, `is_form`, `query_type`, `input_type`, `dict_group`, `sort`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `regex_valid`, `valid_type`, `max_size`, `min_size`, `max_value`, `min_value`, `nullmsg`, `query_model`, `form_type`, `foreign_table`) VALUES (MD5(i*10 + 8), '40281e815c580ea3015c58c75e89002d', 'testdate', 'DATE', '255', '', 0, 0, '', 0, 'Date', 'testdate', '0', '0', '1', 'eq', NULL, '', 3, NULL, NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-23 22:55:52', 'time', '0', '', '', NULL, NULL, '', '', '', 'input', 'dateselect', '');
+-- INSERT INTO `jeeweb`.`codegen_column`(`id`, `table_id`, `column_name`, `type_name`, `column_size`, `decimal_digits`, `parmary_key`, `imported_key`, `column_def`, `is_nullable`, `java_type`, `java_field`, `is_list`, `is_query`, `is_form`, `query_type`, `input_type`, `dict_group`, `sort`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`, `regex_valid`, `valid_type`, `max_size`, `min_size`, `max_value`, `min_value`, `nullmsg`, `query_model`, `form_type`, `foreign_table`) VALUES (MD5(i*10 + 9), '40281e815c8f3512015c8f3a07440000', 'id', '', '32', '0', 1, 0, '', 0, 'String', 'id', '1', '0', '0', 'eq', NULL, '', 1, NULL, NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-10 07:43:21', 'id', '0', '', '', NULL, NULL, '', '', '', 'input', 'input', NULL);
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+
+
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<2500 do
+-- 			INSERT INTO `email_send_log`
+-- 				SELECT 
+-- 					SUBSTRING(CONCAT(id, MD5(i)), 10, 32),
+-- 					email,
+-- 					subject,
+-- 					content,
+-- 					senddata,
+-- 					NOW(),
+-- 					business_type,
+-- 					del_flag,
+-- 					status,
+-- 					msg,
+-- 					remarks
+-- 				FROM `email_send_log` WHERE response_date <= "2022-03-29";
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+		
+
+--  	set i=0;
+--  	start transaction;
+--  	while i<4000 do
+-- 		INSERT INTO `jeeweb`.`email_template`(`id`, `name`, `code`, `business_type`, `template_subject`, `template_content`, `remarks`, `update_by`, `create_date`, `del_flag`, `create_by`, `update_date`) VALUES (MD5(i*5 + 0), 'testcode', 'testcode', '1', 'verification code', '&amp;lt;p&amp;gt;testcode${test}&amp;lt;/p&amp;gt;', NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-06-29 00:04:01', '0', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-05 23:42:57');
+-- 		INSERT INTO `jeeweb`.`email_template`(`id`, `name`, `code`, `business_type`, `template_subject`, `template_content`, `remarks`, `update_by`, `create_date`, `del_flag`, `create_by`, `update_date`) VALUES (MD5(i*5 + 1), 'JeeWeb verification', '1', '1', 'verify code', '&amp;lt;p&amp;gt;Hello, this is the template of&amp;amp;nbsp;verify code: {code}&amp;lt;/p&amp;gt;', NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2022-02-25 01:38:03', '0', '4028ea815a3d2a8c015a3d2f8d2a0002', '2022-02-25 01:38:56');
+-- 		INSERT INTO `jeeweb`.`email_template`(`id`, `name`, `code`, `business_type`, `template_subject`, `template_content`, `remarks`, `update_by`, `create_date`, `del_flag`, `create_by`, `update_date`) VALUES (MD5(i*5 + 2), 'JeeWeb notification', '2', '2', 'notification', '&amp;lt;p&amp;gt;Email template for notification: {notification message}&amp;lt;br&amp;gt;&amp;lt;/p&amp;gt;', NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2022-02-25 01:38:39', '0', '4028ea815a3d2a8c015a3d2f8d2a0002', '2022-02-25 01:39:01');
+-- 		INSERT INTO `jeeweb`.`email_template`(`id`, `name`, `code`, `business_type`, `template_subject`, `template_content`, `remarks`, `update_by`, `create_date`, `del_flag`, `create_by`, `update_date`) VALUES (MD5(i*5 + 3), 'Email Notification Template', 'Email Notification Template', '2', 'Email Notification Template', '&amp;lt;p&amp;gt;Hello, this is&amp;amp;nbsp;Email Notification Template.&amp;lt;/p&amp;gt;', NULL, NULL, '2022-03-28 14:48:22', '0', '4028ea815a3d2a8c015a3d2f8d2a0002', NULL);
+-- 		INSERT INTO `jeeweb`.`email_template`(`id`, `name`, `code`, `business_type`, `template_subject`, `template_content`, `remarks`, `update_by`, `create_date`, `del_flag`, `create_by`, `update_date`) VALUES (MD5(i*5 + 4), 'Email verification template', 'Email verification template', '1', 'Email verification template', '&amp;lt;p&amp;gt;Hi, this is the email verification from jeeweb.&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;Here is your vefification code:&amp;amp;nbsp;${code}&amp;lt;/p&amp;gt;', NULL, '4028ea815a3d2a8c015a3d2f8d2a0002', '2022-03-28 14:49:17', '0', '4028ea815a3d2a8c015a3d2f8d2a0002', '2022-03-28 14:49:36');
+--  	set i=i+1;
+--  	end while;
+--  	commit;		
+
+
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `oa_notification`
+-- 				SELECT 
+-- 					SUBSTRING(CONCAT(id, MD5(i)), 10, 32),
+-- 					title,
+-- 					content,
+-- 					status,
+-- 					create_by,
+-- 					NOW(),
+-- 					update_by,
+-- 					update_date,
+-- 					del_flag,
+-- 					remarks
+-- 				FROM `oa_notification` WHERE create_date <= "2022-03-29";
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `sms_send_log`
+-- 				SELECT 
+-- 					SUBSTRING(CONCAT(id, MD5(i)), 10, 32),
+-- 					remarks,
+-- 					business_type,
+-- 					phone,
+-- 					template_id,
+-- 					template_content,
+-- 					senddata,
+-- 					status,
+-- 					smsid,
+-- 					code,
+-- 					msg,
+-- 					del_flag,
+-- 					NOW()
+-- 				FROM `sms_send_log` WHERE response_date <= "2022-03-29";
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<5000 do
+-- 			INSERT INTO `sys_data_source`
+-- 				SELECT 
+-- 					SUBSTRING(CONCAT(id, MD5(i)), 10, 32),
+-- 					db_key,
+-- 					description,
+-- 					driver_class,
+-- 					url,
+-- 					db_user,
+-- 					db_password,
+-- 					db_type,
+-- 					db_name,
+-- 					create_by,
+-- 					NOW(),
+-- 					update_by,
+-- 					update_date,
+-- 					remarks,
+-- 					del_flag
+-- 				FROM `sys_data_source` WHERE create_date <= "2022-03-29";
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<2000 do
+-- 			INSERT INTO `sys_dict`
+-- 				SELECT 
+-- 					SUBSTRING(CONCAT(id, MD5(i)), 10, 32),
+-- 					gid,
+-- 					label,
+-- 					value,
+-- 					sort,
+-- 					remarks,
+-- 					create_by,
+-- 					NOW(),
+-- 					update_by,
+-- 					update_date,
+-- 					del_flag
+-- 				FROM `sys_dict` WHERE create_date <= "2022-03-29";
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `sys_organization`
+-- 				SELECT 
+-- 					SUBSTRING(CONCAT(id, MD5(i)), 20, 32),
+-- 					name,
+-- 					parent_id,
+-- 					parent_ids,
+-- 					create_by,
+-- 					NOW(),
+-- 					update_by,
+-- 					update_date,
+-- 					del_flag,
+-- 					remarks
+-- 				FROM `sys_organization` WHERE create_date <= "2022-03-29";
+-- 				
+-- 			
+-- 			INSERT INTO `sys_role`
+-- 				SELECT 
+-- 					SUBSTRING(CONCAT(id, MD5(i)), 20, 32),
+-- 					name,
+-- 					code,
+-- 					is_sys,
+-- 					usable,
+-- 					create_by,
+-- 					NOW(),
+-- 					update_by,
+-- 					update_date,
+-- 					remarks,
+-- 					del_flag
+-- 				FROM `sys_role` WHERE create_date <= "2022-03-29";
+-- 				
+-- 		
+-- 			INSERT INTO `task_schedule_job`
+-- 				SELECT 
+-- 					SUBSTRING(CONCAT(id, MD5(i)), 20, 32),
+-- 					cron_expression,
+-- 					method_name,
+-- 					is_concurrent,
+-- 					description,
+-- 					update_by,
+-- 					bean_class,
+-- 					NOW(),
+-- 					job_status,
+-- 					job_group,
+-- 					update_date,
+-- 					create_by,
+-- 					spring_bean,
+-- 					job_name
+-- 				FROM `task_schedule_job` WHERE create_date <= "2022-03-29";
+-- 		
+-- 		
+-- 			INSERT INTO `test_order_customer`
+-- 				SELECT 
+-- 					SUBSTRING(CONCAT(id, MD5(i)), 20, 32),
+-- 					order_id,
+-- 					name,
+-- 					sex,
+-- 					phone,
+-- 					remarks,
+-- 					create_by,
+-- 					NOW(),
+-- 					update_by,
+-- 					update_date,
+-- 					del_flag
+-- 				FROM `test_order_customer` WHERE create_date <= "2022-03-29";	
+-- 				
+-- 		
+-- 			INSERT INTO `test_order_main`
+-- 				SELECT 
+-- 					SUBSTRING(CONCAT(id, MD5(i)), 20, 32),
+-- 					orderno,
+-- 					money,
+-- 					orderdate,
+-- 					create_by,
+-- 					NOW(),
+-- 					update_by,
+-- 					update_date,
+-- 					del_flag,
+-- 					remarks
+-- 				FROM `test_order_main` WHERE create_date <= "2022-03-29";				
+-- 				
+-- 				
+-- 			INSERT INTO `test_single_table`
+-- 				SELECT 
+-- 					SUBSTRING(CONCAT(id, MD5(i)), 20, 32),
+-- 					name,
+-- 					testdate,
+-- 					create_by,
+-- 					NOW(),
+-- 					update_by,
+-- 					update_date,
+-- 					del_flag,
+-- 					remarks
+-- 				FROM `test_single_table` WHERE create_date <= "2022-03-29";		
+-- 			
+-- 				
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `test_order_ticket`
+-- 				SELECT 
+-- 					SUBSTRING(CONCAT(id, MD5(i)), 20, 32),
+-- 					fltno,
+-- 					flytime,
+-- 					remarks,
+-- 					order_id,
+-- 					create_by,
+-- 					NOW(),
+-- 					update_by,
+-- 					update_date,
+-- 					del_flag
+-- 				FROM `test_order_ticket` WHERE create_date <= "2022-03-29";
+-- 			
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+--  	set i=0;
+--  	start transaction;
+--  	while i<4000 do
+-- 		INSERT INTO `jeeweb`.`sys_user`(`id`, `realname`, `username`, `portrait`, `password`, `salt`, `email`, `phone`, `status`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) VALUES (MD5(i*5 + 0), 'Franklin', CONCAT('Franklin', i), NULL, '0392ea349196df8f72f7d1090d5be5b2', '15ea9d9bc13430fef62b0b0e74fecc03', CONCAT('Fra', i, "@gmail.com"), CONCAT('15012345678', i), '1', '4028ea815a3d2a8c015a3d2f8d2a0002', '2022-02-24 22:45:35', '4028ea815a3d2a8c015a3d2f8d2a0002', '2022-02-25 01:23:34', NULL, '0');
+-- 		INSERT INTO `jeeweb`.`sys_user`(`id`, `realname`, `username`, `portrait`, `password`, `salt`, `email`, `phone`, `status`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) VALUES (MD5(i*5 + 1), 'Davis', CONCAT('Davis', i), NULL, '64770f1f6ca0730a610994a925efbaba', 'b391c05da83f14f1056f97093fb074ef', CONCAT('Da', i, "@gmail.com"), CONCAT('15112345678', i), '1', '4028ea815a3d2a8c015a3d2f8d2a0002', '2022-02-25 01:20:53', NULL, NULL, NULL, '0');
+-- 		INSERT INTO `jeeweb`.`sys_user`(`id`, `realname`, `username`, `portrait`, `password`, `salt`, `email`, `phone`, `status`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) VALUES (MD5(i*5 + 2), 'Rodriquez', CONCAT('Rodriquez', i), NULL, 'c8194478dea876157344790a0b81024c', '8af9c4352074cfa2233fd79844eb4061', CONCAT('Rod', i, "@gmail.com"), CONCAT('15111111111', i), '1', '4028ea815a3d2a8c015a3d2f8d2a0002', '2022-02-25 01:21:30', NULL, NULL, NULL, '0');
+-- 		INSERT INTO `jeeweb`.`sys_user`(`id`, `realname`, `username`, `portrait`, `password`, `salt`, `email`, `phone`, `status`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) VALUES (MD5(i*5 + 3), 'McTavish', CONCAT('McTavish', i), NULL, '45f9d4f7f944aef2385699d2d1770ad6', '3dcfc5fcaf9a247b0a511ae9e32257d2', CONCAT('Mc', i, "@gmail.com"), CONCAT('15100000000', i), '1', '4028ea815a3d2a8c015a3d2f8d2a0002', '2022-02-25 01:22:52', NULL, NULL, NULL, '0');
+-- 		INSERT INTO `jeeweb`.`sys_user`(`id`, `realname`, `username`, `portrait`, `password`, `salt`, `email`, `phone`, `status`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) VALUES (MD5(i*5 + 4), 'Maria Escobito', CONCAT('Escobito', i), NULL, '49d1a5813359207485a70533b986bf3a', '6956d6de959fe8fad9ceb273a74df357', CONCAT('Es', i, "@gmail.com"), CONCAT('15112345677', i), '1', '4028ea815a3d2a8c015a3d2f8d2a0002', '2022-03-28 13:35:42', '4028ea815a3d2a8c015a3d2f8d2a0002', '2022-03-28 13:37:50', NULL, '0');
+-- 
+--  	set i=i+1;
+--  	end while;
+--  	commit;		
+
+
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<20000 do
+-- 			INSERT INTO `jeeweb`.`sys_user_organization`(`id`, `user_id`, `organization_id`) VALUES (MD5(i), MD5(i*10), MD5(i*100));
+-- 
+-- 			INSERT INTO `jeeweb`.`sys_user_role`(`id`, `user_id`, `role_id`) VALUES (MD5(i), MD5(i*10), MD5(i*100));
+-- 
+-- 			INSERT INTO `jeeweb`.`test_tree`(`id`, `name`, `remarks`, `create_by`, `create_date`, `update_by`, `update_date`, `del_flag`, `parent_id`, `parent_ids`) VALUES (MD5(i), 'sdfsdf', 'sdfsdfsd', '4028ea815a3d2a8c015a3d2f8d2a0002', '2017-07-24 12:04:54', NULL, NULL, '0', MD5(i*10), MD5(i*100));
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `sms_template`
+-- 				SELECT 
+-- 					SUBSTRING(CONCAT(id, MD5(i)), 10, 32),
+-- 					name,
+-- 					code,
+-- 					business_type,
+-- 					template_id,
+-- 					template_content,
+-- 					create_by,
+-- 					NOW(),
+-- 					update_by,
+-- 					update_date,
+-- 					del_flag,
+-- 					remarks
+-- 				FROM `sms_template` WHERE create_date <= "2022-03-29";
+-- 				
+-- 		
+-- 		INSERT INTO `sys_attachment`
+-- 				SELECT 
+-- 					SUBSTRING(CONCAT(id, MD5(i)), 10, 32),
+-- 					filename,
+-- 					userid,
+-- 					uploadtime,
+-- 					uploadip,
+-- 					fileext,
+-- 					filepath,
+-- 					filesize,
+-- 					status,
+-- 					create_by,
+-- 					NOW(),
+-- 					update_by,
+-- 					update_date,
+-- 					remarks,
+-- 					del_flag
+-- 				FROM `sys_attachment` WHERE create_date <= "2022-03-29";
+-- 			
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+END

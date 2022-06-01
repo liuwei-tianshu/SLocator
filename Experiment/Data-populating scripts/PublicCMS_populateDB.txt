@@ -1,0 +1,273 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `populateDB`()
+BEGIN
+	#Routine body goes here...
+	declare i int default 0;
+	
+-- 	set i=0;
+-- 	start transaction;
+-- 	while i<20000 do
+-- INSERT INTO `publiccms`.`cms_content`(`id`, `site_id`, `title`, `user_id`, `check_user_id`, `category_id`, `model_id`, `parent_id`, `quote_content_id`, `copied`, `author`, `editor`, `only_url`, `has_images`, `has_files`, `has_static`, `url`, `description`, `tag_ids`, `dictionar_values`, `cover`, `childs`, `scores`, `comments`, `clicks`, `publish_date`, `expiry_date`, `check_date`, `update_date`, `create_date`, `sort`, `status`, `disabled`) VALUES (null, 1, i, 1, 1, 1, '1', 1, 1, 1, NULL, NULL, 1, 1, 1, 1, '//dev/conent1', NULL, '1', NULL, NULL, 1, 1, 0, 0, '2020-11-17 11:59:42', NULL, NULL, NULL, '2020-12-01 12:00:16', 1, 1, 0);
+-- 
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+
+
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `sys_user`
+-- 				SELECT NULL,
+-- 				site_id,
+-- 				CONCAT(name, i),
+-- 				password,
+-- 				salt,
+-- 				weak_password,
+-- 				CONCAT(nick_name, i),
+-- 				dept_id,
+-- 				owns_all_content,
+-- 				roles,
+-- 				CONCAT(name, i, "@gmail.com"),
+-- 				email_checked,
+-- 				superuser_access,
+-- 				disabled,
+-- 				last_login_date,
+-- 				last_login_ip,
+-- 				login_count,
+-- 				registered_date
+-- 			FROM `sys_user` WHERE id >=2 and id <= 6;
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+		
+-- 		set i=0;
+-- 		start transaction;
+-- 		while i<20000 do
+-- 			INSERT INTO `sys_site`(`id`, `parent_id`, `name`, `use_static`, `site_path`, `use_ssi`, `dynamic_path`, `disabled`) VALUES (NULL, NULL, CONCAT("Site", i), 1, '//dev.publiccms.com:8080/publiccms/webfile/', 0, '//dev.publiccms.com:8080/publiccms/', 0);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+-- 		
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<3334 do
+-- 			INSERT INTO `sys_task`
+-- 				SELECT NULL,
+-- 				i,
+-- 				CONCAT(name, i),
+-- 				status,
+-- 				cron_expression,
+-- 				description,
+-- 				file_path,
+-- 				update_date
+-- 			FROM `sys_task` WHERE id >=2 and id <= 7;
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+-- 	
+
+
+-- 		set i=2;
+-- 		start transaction;
+-- 		while i<20000 do
+-- 			INSERT INTO `publiccms`.`sys_role_user`(`role_id`, `user_id`) VALUES (i%5, i);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<3334 do
+-- 			INSERT INTO `sys_dept`
+-- 				SELECT NULL,
+-- 				i,
+-- 				CONCAT(name, i),
+-- 				parent_id,
+-- 				description,
+-- 				user_id,
+-- 				max_sort,
+-- 				owns_all_category,
+-- 				owns_all_page,
+-- 				owns_all_config
+-- 			FROM `sys_dept` WHERE id >=2 and id <= 6;
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+		
+-- 		set i = 6;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `cms_category`
+-- 				SELECT NULL,
+-- 				i,
+-- 				CONCAT(name, i),
+-- 				parent_id,
+-- 				type_id,
+-- 				child_ids,
+-- 				tag_type_ids,
+-- 				code,
+-- 				template_path,
+-- 				path,
+-- 				only_url,
+-- 				has_static,
+-- 				url,
+-- 				content_path,
+-- 				contain_child,
+-- 				page_size,
+-- 				allow_contribute,
+-- 				sort,
+-- 				hidden,
+-- 				disabled,
+-- 				extend_id
+-- 			FROM `cms_category` WHERE id <= 5;
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<1001 do
+-- 			INSERT INTO `cms_comment`
+-- 				SELECT NULL,
+-- 				i,
+-- 				i,
+-- 				reply_id,
+-- 				i,
+-- 				i*10,
+-- 				i,
+-- 				check_date,
+-- 				update_date,
+-- 				create_date,
+-- 				status,
+-- 				disabled,
+-- 				text
+-- 			FROM `cms_comment` WHERE id<=20;
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4001 do
+-- 			INSERT INTO `publiccms`.`cms_dictionary`(`id`, `site_id`, `name`, `multiple`) VALUES (5*i + 1, 5*i + 1, CONCAT("name", i), 0);
+-- 			INSERT INTO `publiccms`.`cms_dictionary`(`id`, `site_id`, `name`, `multiple`) VALUES (5*i + 2, 5*i + 2, CONCAT("age", i), 0);
+-- 			INSERT INTO `publiccms`.`cms_dictionary`(`id`, `site_id`, `name`, `multiple`) VALUES (5*i + 3, 5*i + 3, CONCAT("address", i), 0);
+-- 			INSERT INTO `publiccms`.`cms_dictionary`(`id`, `site_id`, `name`, `multiple`) VALUES (5*i + 4, 5*i + 4, CONCAT("phone", i), 0);
+-- 			INSERT INTO `publiccms`.`cms_dictionary`(`id`, `site_id`, `name`, `multiple`) VALUES (5*i + 5, 5*i + 5, CONCAT("job", i), 0);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<20001 do
+-- 			INSERT INTO `publiccms`.`cms_dictionary_data`(dictionary_id, site_id, value, text) VALUES (i, i, CONCAT("value", i), 0);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4001 do
+-- 			INSERT INTO `cms_tag`
+-- 				SELECT NULL,
+-- 				i,
+-- 				CONCAT(name, i),
+-- 				type_id,
+-- 				search_count
+-- 				FROM `cms_tag` WHERE id<=5;
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+		
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4001 do
+-- 			INSERT INTO `cms_word`
+-- 				SELECT NULL,
+-- 				i,
+-- 				CONCAT(name, i),
+-- 				search_count,
+-- 				hidden,
+-- 				create_date
+-- 				FROM `cms_word` WHERE id<=5;
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+		
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<6666 do
+-- 			INSERT INTO `cms_place`
+-- 				SELECT NULL,
+-- 				i,
+-- 				path,
+-- 				user_id,
+-- 				check_user_id,
+-- 				item_type,
+-- 				item_id,
+-- 				title,
+-- 				url,
+-- 				cover,
+-- 				create_date,
+-- 				publish_date,
+-- 				expiry_date,
+-- 				status,
+-- 				clicks,
+-- 				disabled
+-- 			FROM `cms_place` WHERE id <=3;
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+		
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<20000 do
+-- 			INSERT INTO `publiccms`.`sys_dept_category`(dept_id, category_id) VALUES (i, i);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 2;
+-- 		start transaction;
+-- 		while i<20001 do
+-- 			INSERT INTO `publiccms`.`cms_content_related`(`id`, `content_id`, `related_content_id`, `user_id`, `url`, `title`, `description`, `clicks`, `sort`) VALUES (NULL, i, i%5, i, NULL, NULL, 'related content', i%15, 1);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4001 do
+-- 			INSERT INTO `cms_category_type`
+-- 				SELECT NULL,
+-- 				i,
+-- 				CONCAT(name, i),
+-- 				sort,
+-- 				extend_id
+-- 				FROM `cms_category_type` WHERE id<=5;
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+		set i = 0;
+		start transaction;
+		while i<20000 do
+			INSERT INTO `publiccms`.`sys_dept_config`(dept_id, config) VALUES (i, "config");
+			INSERT INTO `publiccms`.`sys_dept_page`(dept_id, page) VALUES (i, CONCAT("Http://departments/", i));
+		set i=i+1;
+		end while;
+		commit;
+	
+END

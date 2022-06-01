@@ -1,0 +1,271 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `populateDB`()
+BEGIN
+	#Routine body goes here...
+	declare i int default 0;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `user`
+-- 				SELECT 
+-- 					NULL,
+-- 					CONCAT(account, i),
+-- 					allowUserDynamic,
+-- 					answer,
+-- 					avatarName,
+-- 					cancelAccountTime,
+-- 					deposit,
+-- 					CONCAT(account, i, "@gmail.com"),
+-- 					issue,
+-- 					mobile,
+-- 					nickname,
+-- 					password,
+-- 					SUBSTRING(MD5(CONCAT(account, i)), 10, 20),
+-- 					point,
+-- 					realNameAuthentication,
+-- 					registrationDate,
+-- 					remarks,
+-- 					salt,
+-- 					securityDigest,
+-- 					state,
+-- 					type,
+-- 					SUBSTRING(MD5(CONCAT(account, i)), 10, 20),
+-- 					userVersion
+-- 				FROM `user` WHERE id >= 10 and id <= 14;
+-- 			
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+		
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `bbs`.`sysusers`(`userId`, `enabled`, `fullName`, `issys`, `securityDigest`, `userAccount`, `userDesc`, `userDuty`, `userPassword`) VALUES (SUBSTRING(MD5(CONCAT('Jeff', i)), 10, 20), b'1', CONCAT('Jeff', i), b'0', 'bbe76ab6a53a4cb587595b5be15bf0b2', CONCAT('Jeff', i), '', '', '$2a$10$vJ2/d7RcyKiE1E7h.0m/FeJpkGoEv8TV8ahgJJbmpmRUZVDJXZF3q');
+-- 			
+-- 			INSERT INTO `bbs`.`sysusers`(`userId`, `enabled`, `fullName`, `issys`, `securityDigest`, `userAccount`, `userDesc`, `userDuty`, `userPassword`) VALUES (SUBSTRING(MD5(CONCAT('David', i)), 10, 20), b'1', CONCAT('David', i), b'0', '369f870090634ea3be427e60abb03654', CONCAT('David', i), '', '', '$2a$10$XtzSvpMNY.IX0LWblS4hL.EzrvfvrbYmthOilc1s7DXJTLpuIbKd6');
+-- 
+-- 			INSERT INTO `bbs`.`sysusers`(`userId`, `enabled`, `fullName`, `issys`, `securityDigest`, `userAccount`, `userDesc`, `userDuty`, `userPassword`) VALUES (SUBSTRING(MD5(CONCAT('SuperAdmin', i)), 10, 20), b'1',  CONCAT('SuperAdmin', i), b'1', 'be08d08ac8d2496182301ee59ac5f357', CONCAT('SuperAdmin', i), '', '', '$2a$10$upjKu9fMttTJ0QwZMXCQaOH.C4uL236V6iwlKF78d.oPUD0lt3Tm2');
+-- 
+-- 			INSERT INTO `bbs`.`sysusers`(`userId`, `enabled`, `fullName`, `issys`, `securityDigest`, `userAccount`, `userDesc`, `userDuty`, `userPassword`) VALUES (SUBSTRING(MD5(CONCAT('Carlos', i)), 10, 20), b'1', CONCAT('Carlos', i), b'1', '9195153f6f914fadb04652452a69bbd6', CONCAT('Carlos', i), '', '', '$2a$10$fRBoXkboNZs9FpEsRWxHFuY0ngdqRj4R3RPWcXJMXs2CW1hzZ/8My');
+-- 
+-- 			INSERT INTO `bbs`.`sysusers`(`userId`, `enabled`, `fullName`, `issys`, `securityDigest`, `userAccount`, `userDesc`, `userDuty`, `userPassword`) VALUES (SUBSTRING(MD5(CONCAT('admin', i)), 10, 20), b'1', CONCAT('admin', i), b'1', '962ba4d58c884049ba92cea38ec76ecb', CONCAT('admin', i), NULL, '???', '$2a$10$4jkoMeLDgo0A.UQ5POfstueBnTUFKoTyx7EYGX2a4OnlCaTRTzv3e');
+-- 		
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `topic`
+-- 				SELECT 
+-- 					NULL,
+-- 					allow,
+-- 					0,
+-- 					content,
+-- 					essence,
+-- 					giveRedEnvelopeId,
+-- 					image,
+-- 					ip,
+-- 					isStaff,
+-- 					lastReplyTime,
+-- 					lastUpdateTime,
+-- 					postTime,
+-- 					0,
+-- 					status,
+-- 					summary,
+-- 					tagId,
+-- 					title,
+-- 					userName,
+-- 					0
+-- 				FROM `topic` WHERE id >= 7 and id <= 11;
+-- 			
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+		
+		
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `question`
+-- 				SELECT 
+-- 					NULL,
+-- 					adoptionAnswerId,
+-- 					allow,
+-- 					amount,
+-- 					0,
+-- 					appendContent,
+-- 					content,
+-- 					ip,
+-- 					isStaff,
+-- 					lastAnswerTime,
+-- 					lastUpdateTime,
+-- 					point,
+-- 					postTime,
+-- 					0,
+-- 					status,
+-- 					summary,
+-- 					title,
+-- 					userName,
+-- 					0
+-- 				FROM `question` WHERE id >= 7 and id <= 8;
+-- 			
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `answer`
+-- 				SELECT 
+-- 					NULL,
+-- 					adoption,
+-- 					content,
+-- 					ip,
+-- 					isStaff,
+-- 					lastUpdateTime,
+-- 					postTime,
+-- 					i+10,
+-- 					status,
+-- 					userName
+-- 				FROM `answer` WHERE id >= 1 and id <= 5;
+-- 				
+-- 			
+-- 			INSERT INTO `answerreply`
+-- 				SELECT 
+-- 					NULL,
+-- 					i,
+-- 					content,
+-- 					ip,
+-- 					isStaff,
+-- 					lastUpdateTime,
+-- 					postTime,
+-- 					i+10,
+-- 					status,
+-- 					userName
+-- 				FROM `answerreply` WHERE id >= 1 and id <= 5;
+-- 			
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<2000 do
+-- 			INSERT INTO `comment`
+-- 				SELECT 
+-- 					NULL,
+-- 					content,
+-- 					ip,
+-- 					isStaff,
+-- 					lastUpdateTime,
+-- 					postTime,
+-- 					quote,
+-- 					quoteIdGroup,
+-- 					quoteUpdateId,
+-- 					status,
+-- 					i+7,
+-- 					userName
+-- 				FROM `comment` WHERE id >= 1 and id <= 10;
+-- 			
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+-- 
+
+
+-- 		set i = 2;
+-- 		start transaction;
+-- 		while i<20001 do
+-- 				INSERT INTO `bbs`.`favorites_0`(`id`, `addtime`, `module`, `postUserName`, `questionId`, `topicId`, `userName`) VALUES (MD5(i*99), '2022-04-01 14:10:31', 20, 'admin', i, i%1, 'BQ4HdiaUcxyWDGgwaJM');	
+-- 				INSERT INTO `bbs`.`favorites_1`(`id`, `addtime`, `module`, `postUserName`, `questionId`, `topicId`, `userName`) VALUES (MD5(i*99), '2022-04-01 14:10:31', 20, 'admin', i, i%2, 'BQ4HdiaUcxyWDGgwaJM');
+-- 				INSERT INTO `bbs`.`favorites_2`(`id`, `addtime`, `module`, `postUserName`, `questionId`, `topicId`, `userName`) VALUES (MD5(i*99), '2022-04-01 14:10:31', 20, 'admin', i, i%3, 'BQ4HdiaUcxyWDGgwaJM');
+-- 				INSERT INTO `bbs`.`favorites_3`(`id`, `addtime`, `module`, `postUserName`, `questionId`, `topicId`, `userName`) VALUES (MD5(i*99), '2022-04-01 14:10:31', 20, 'admin', i, i%4, 'BQ4HdiaUcxyWDGgwaJM');
+-- 				
+-- 				
+-- 				INSERT INTO `bbs`.`follow_0`(`id`, `addtime`, `friendUserName`, `userName`) VALUES (CONCAT(i, "-", i+9), '2022-04-01 14:02:20', SUBSTRING(MD5(i), 15, 32), SUBSTRING(MD5(i+1), 15, 32));
+-- 				INSERT INTO `bbs`.`follow_1`(`id`, `addtime`, `friendUserName`, `userName`) VALUES (CONCAT(i, "-", i+9), '2022-04-01 14:02:20', SUBSTRING(MD5(i), 15, 32), SUBSTRING(MD5(i+1), 15, 32));
+-- 				INSERT INTO `bbs`.`follow_2`(`id`, `addtime`, `friendUserName`, `userName`) VALUES (CONCAT(i, "-", i+9), '2022-04-01 14:02:20', SUBSTRING(MD5(i), 15, 32), SUBSTRING(MD5(i+1), 15, 32));
+-- 				INSERT INTO `bbs`.`follow_3`(`id`, `addtime`, `friendUserName`, `userName`) VALUES (CONCAT(i, "-", i+9), '2022-04-01 14:02:20', SUBSTRING(MD5(i), 15, 32), SUBSTRING(MD5(i+1), 15, 32));
+-- 				
+-- 				
+-- 				INSERT INTO `bbs`.`follower_0`(`id`, `addtime`, `friendUserName`, `userName`) VALUES (CONCAT(i+5, "-", i), '2022-04-01 14:02:20', SUBSTRING(MD5(i+1), 15, 32), SUBSTRING(MD5(i), 15, 32));
+-- 				INSERT INTO `bbs`.`follower_1`(`id`, `addtime`, `friendUserName`, `userName`) VALUES (CONCAT(i+5, "-", i), '2022-04-01 14:02:20', SUBSTRING(MD5(i+1), 15, 32), SUBSTRING(MD5(i), 15, 32));
+-- 				INSERT INTO `bbs`.`follower_2`(`id`, `addtime`, `friendUserName`, `userName`) VALUES (CONCAT(i+5, "-", i), '2022-04-01 14:02:20', SUBSTRING(MD5(i+1), 15, 32), SUBSTRING(MD5(i), 15, 32));
+-- 				INSERT INTO `bbs`.`follower_3`(`id`, `addtime`, `friendUserName`, `userName`) VALUES (CONCAT(i+5, "-", i), '2022-04-01 14:02:20', SUBSTRING(MD5(i+1), 15, 32), SUBSTRING(MD5(i), 15, 32));
+-- 				
+-- 				
+-- 				INSERT INTO `bbs`.`like_0`(`id`, `addtime`, `postUserName`, `topicId`, `userName`) VALUES (MD5(i*99), '2022-04-01 14:09:37', 'admin', i, 'BQ4HdiaUcxyWDGgwaJM');
+-- 				INSERT INTO `bbs`.`like_1`(`id`, `addtime`, `postUserName`, `topicId`, `userName`) VALUES (MD5(i*99), '2022-04-01 14:09:37', 'admin', i, 'BQ4HdiaUcxyWDGgwaJM');
+-- 				INSERT INTO `bbs`.`like_2`(`id`, `addtime`, `postUserName`, `topicId`, `userName`) VALUES (MD5(i*99), '2022-04-01 14:09:37', 'admin', i, 'BQ4HdiaUcxyWDGgwaJM');
+-- 				INSERT INTO `bbs`.`like_3`(`id`, `addtime`, `postUserName`, `topicId`, `userName`) VALUES (MD5(i*99), '2022-04-01 14:09:37', 'admin', i, 'BQ4HdiaUcxyWDGgwaJM');
+-- 				
+-- 				
+-- 				INSERT INTO `bbs`.`privatemessage_0`(`id`, `friendUserId`, `messageContent`, `readTimeFormat`, `receiverUserId`, `sendTimeFormat`, `senderUserId`, `status`, `userId`) VALUES (MD5(i*99), i, 'Hi, message.', 1648793338909, i, 1648793338909, i+2, 20, i+2);
+-- 				INSERT INTO `bbs`.`privatemessage_1`(`id`, `friendUserId`, `messageContent`, `readTimeFormat`, `receiverUserId`, `sendTimeFormat`, `senderUserId`, `status`, `userId`) VALUES (MD5(i*99), i, 'Hi, message.', 1648793338909, i, 1648793338909, i+2, 20, i+2);
+-- 				INSERT INTO `bbs`.`privatemessage_2`(`id`, `friendUserId`, `messageContent`, `readTimeFormat`, `receiverUserId`, `sendTimeFormat`, `senderUserId`, `status`, `userId`) VALUES (MD5(i*99), i, 'Hi, message.', 1648793338909, i, 1648793338909, i+2, 20, i+2);
+-- 				INSERT INTO `bbs`.`privatemessage_3`(`id`, `friendUserId`, `messageContent`, `readTimeFormat`, `receiverUserId`, `sendTimeFormat`, `senderUserId`, `status`, `userId`) VALUES (MD5(i*99), i, 'Hi, message.', 1648793338909, i, 1648793338909, i+2, 20, i+2);
+-- 
+-- 
+-- 				INSERT INTO `bbs`.`questionfavorite_0`(`id`, `addtime`, `postUserName`, `questionId`, `userName`) VALUES (CONCAT(i, "_", i+7), '2022-04-01 13:59:32', 'admin', i, 'HTCjrBWc7k6mFCcxvnT');
+-- 				INSERT INTO `bbs`.`questionfavorite_1`(`id`, `addtime`, `postUserName`, `questionId`, `userName`) VALUES (CONCAT(i, "_", i+7), '2022-04-01 13:59:32', 'admin', i, 'HTCjrBWc7k6mFCcxvnT');
+-- 				INSERT INTO `bbs`.`questionfavorite_2`(`id`, `addtime`, `postUserName`, `questionId`, `userName`) VALUES (CONCAT(i, "_", i+7), '2022-04-01 13:59:32', 'admin', i, 'HTCjrBWc7k6mFCcxvnT');
+-- 				INSERT INTO `bbs`.`questionfavorite_3`(`id`, `addtime`, `postUserName`, `questionId`, `userName`) VALUES (CONCAT(i, "_", i+7), '2022-04-01 13:59:32', 'admin', i, 'HTCjrBWc7k6mFCcxvnT');
+-- 
+-- 		
+-- 				INSERT INTO `bbs`.`topicfavorite_0`(`id`, `addtime`, `postUserName`, `topicId`, `userName`) VALUES (CONCAT(i, "_", i+9), '2022-04-01 13:59:24', 'admin', i, 'HTCjrBWc7k6mFCcxvnT');
+-- 				INSERT INTO `bbs`.`topicfavorite_1`(`id`, `addtime`, `postUserName`, `topicId`, `userName`) VALUES (CONCAT(i, "_", i+9), '2022-04-01 13:59:24', 'admin', i, 'HTCjrBWc7k6mFCcxvnT');
+-- 				INSERT INTO `bbs`.`topicfavorite_2`(`id`, `addtime`, `postUserName`, `topicId`, `userName`) VALUES (CONCAT(i, "_", i+9), '2022-04-01 13:59:24', 'admin', i, 'HTCjrBWc7k6mFCcxvnT');
+-- 				INSERT INTO `bbs`.`topicfavorite_3`(`id`, `addtime`, `postUserName`, `topicId`, `userName`) VALUES (CONCAT(i, "_", i+9), '2022-04-01 13:59:24', 'admin', i, 'HTCjrBWc7k6mFCcxvnT');
+-- 				
+-- 				
+-- 				INSERT INTO `bbs`.`topiclike_0`(`id`, `addtime`, `postUserName`, `topicId`, `userName`) VALUES (CONCAT(i, "_", i+7), '2022-04-01 14:00:28', 'admin', i, 'HTCjrBWc7k6mFCcxvnT');
+-- 				INSERT INTO `bbs`.`topiclike_1`(`id`, `addtime`, `postUserName`, `topicId`, `userName`) VALUES (CONCAT(i, "_", i+7), '2022-04-01 14:00:28', 'admin', i, 'HTCjrBWc7k6mFCcxvnT');
+-- 				INSERT INTO `bbs`.`topiclike_2`(`id`, `addtime`, `postUserName`, `topicId`, `userName`) VALUES (CONCAT(i, "_", i+7), '2022-04-01 14:00:28', 'admin', i, 'HTCjrBWc7k6mFCcxvnT');
+-- 				INSERT INTO `bbs`.`topiclike_3`(`id`, `addtime`, `postUserName`, `topicId`, `userName`) VALUES (CONCAT(i, "_", i+7), '2022-04-01 14:00:28', 'admin', i, 'HTCjrBWc7k6mFCcxvnT');
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<6667 do
+-- 			INSERT INTO `reply`
+-- 				SELECT 
+-- 					NULL,
+-- 					i,
+-- 					content,
+-- 					ip,
+-- 					isStaff,
+-- 					lastUpdateTime,
+-- 					postTime,
+-- 					status,
+-- 					i%3,
+-- 					userName
+-- 				FROM `reply` WHERE id >= 1 and id <= 3;
+-- 			
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<20000 do
+-- 				INSERT INTO `bbs`.`questiontagassociation`(`id`, `questionId`, `questionTagId`, `userName`) VALUES (NULL, i, 38642779307200 + i%8, 'admin');
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+		
+END

@@ -1,0 +1,154 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `populateDB`()
+BEGIN
+	#Routine body goes here...
+	declare i int default 0;
+	
+-- 	set i=0;
+-- 	start transaction;
+-- 	while i<4000 do
+-- 		INSERT IGNORE INTO author VALUES (null,  	"Kelly Yang is the New York Times bestselling, award-winning author of the FRONT DESK series", 	'1985-01-01 00:00:00', 		'Yang',		'Kelly', 			'');
+-- 		INSERT IGNORE INTO author VALUES (null,  	'Akwaeke Emezi is an artist and writer based in liminal spaces.', 															'1980-09-01 00:00:00', 		'Emezi', 	'Akwaeke ', 	'');
+-- 		INSERT IGNORE INTO author VALUES (null,  	'Tahereh Mafi is the #1 internationally bestselling.', 																					'1987-09-01 00:00:00', 		'Mafi', 	'Tahereh', 		'');
+-- 		INSERT IGNORE INTO author VALUES (null, 	'Pat Zietlow Miller is the New York Times bestselling author of Be Kind. ', 										'1978-09-15 00:00:00', 		'Miller', 'Pat', 				'Zietlow');
+-- 		INSERT IGNORE INTO author VALUES (null, 	'Artist Nathalie Goss has been an illustrator for NB Literary Magazine and a book illustrator for We All Belong.', 		'1985-01-01 00:00:00', 		'Goss', 		'Nathalie', 	'');
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+	
+	
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<2000 do
+-- 			INSERT INTO `customer`
+-- 				SELECT NULL, 
+-- 					C_BALANCE,
+-- 					C_BIRTHDATE,
+-- 					C_DATA,
+-- 					C_DISCOUNT,
+-- 					C_EMAIL,
+-- 					C_EXPIRATION,
+-- 					C_FNAME,
+-- 					C_LAST_VISIT,
+-- 					C_LNAME,
+-- 					C_LOGIN,
+-- 					C_PASSWD,
+-- 					C_PHONE,
+-- 					C_SINCE,
+-- 					C_UNAME,
+-- 					C_YTD_PMT,
+-- 					C_ADDR_ID
+-- 				FROM `customer` WHERE C_ID <= 288014;
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+		
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<2000 do
+-- 			INSERT INTO `orders`
+-- 				SELECT NULL, 
+-- 				O_DATE,
+-- 				O_SHIP_DATE,
+-- 				O_SHIP_TYPE,
+-- 				O_STATUS,
+-- 				O_SUB_TOTAL,
+-- 				O_TAX,
+-- 				O_TOTAL,
+-- 				O_BILL_ADDR_ID,
+-- 				O_SHIP_ADDR_ID,
+-- 				O_C_ID
+-- 				FROM `orders` WHERE O_ID <= 115141;
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 0;
+-- 		start transaction;
+-- 		while i<2000 do
+-- 			INSERT INTO `order_line`
+-- 				SELECT NULL, 
+-- 				OL_COMMENT,
+-- 				OL_DISCOUNT,
+-- 				OL_QTY,
+-- 				OL_I_ID,
+-- 				OL_O_ID
+-- 				FROM `order_line` WHERE OL_ID <= 344763;
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+	
+-- 	set i=0;
+-- 	start transaction;
+-- 	while i<2000 do
+-- 		INSERT IGNORE INTO address VALUES (null, 'Ozark', 					'AL', '1537 Hwy 231 South', 				'#100', 			'36360', 	1);
+-- 		INSERT IGNORE INTO address VALUES (null, 'Pelham', 					'AL', '1300 Gilmer Ave', 						'#56', 				'35124', 	1);
+-- 		INSERT IGNORE INTO address VALUES (null, 'Pell City', 			'AL', '165 Vaughan Ln', 						'#100', 			'#110',   1);
+-- 		INSERT IGNORE INTO address VALUES (null, 'Latham', 					'NY', '579 Troy-Schenectady Road', 	'apt 123', 		'12110',	1);
+-- 		INSERT IGNORE INTO address VALUES (null, 'Gardner', 				'MA', '677 Timpany Blvd', 					'apt 145', 		'1440', 	1);
+-- 		INSERT IGNORE INTO address VALUES (null, 'Halifax', 				'MA', '295 Plymouth Street', 				'apt 128', 		'2338', 	1);
+-- 		INSERT IGNORE INTO address VALUES (null, 'Lunenburg', 			'MA', '301 Massachusetts Ave', 			'#998', 			 '12', 		1);
+-- 		INSERT IGNORE INTO address VALUES (null, 'Talladega', 			'AL', '214 Haynes Street', 					'#4560', 			'35160',	1);
+-- 		INSERT IGNORE INTO address VALUES (null, '742 Main Street', 'MA', '506 State Road', 						'#90', 				'1537',	 	1);
+-- 		INSERT IGNORE INTO address VALUES (null, '72 Main St', 			'MA', '72 Main St', 								'#10', 				'1864', 	1);
+-- 		INSERT IGNORE INTO address VALUES (null, '200 Otis Street', 'MA', '200 Otis Street', 						'#20', 				'1532', 	1);
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+	
+-- 	set i=0;
+-- 	start transaction;
+-- 	while i<4000 do
+-- 		INSERT INTO item (I_AVAIL ,
+-- 			I_BACKING ,
+-- 			I_COST ,
+-- 			I_DESC ,
+-- 			I_DIMENSION ,
+-- 			I_IMAGE ,
+-- 			I_ISBN ,
+-- 			I_PAGE ,
+-- 			I_PUB_DATE ,
+-- 			I_PUBLISHER ,
+-- 			I_RANDOM ,
+-- 			I_RELATED1 ,
+-- 			I_RELATED2 ,
+-- 			I_RELATED3 ,
+-- 			I_RELATED4 ,
+-- 			I_RELATED5 ,
+-- 			I_SRP ,
+-- 			I_STOCK ,
+-- 			I_SUBJECT ,
+-- 			I_THUMBNAIL,
+-- 			I_TITLE,
+-- 			I_A_ID)
+-- 		SELECT   I_AVAIL ,
+-- 			I_BACKING ,
+-- 			I_COST ,
+-- 			I_DESC ,
+-- 			I_DIMENSION ,
+-- 			I_IMAGE ,
+-- 			I_ISBN ,
+-- 			I_PAGE ,
+-- 			I_PUB_DATE ,
+-- 			I_PUBLISHER ,
+-- 			I_RANDOM ,
+-- 			I_RELATED1 ,
+-- 			I_RELATED2 ,
+-- 			I_RELATED3 ,
+-- 			I_RELATED4 ,
+-- 			I_RELATED5 ,
+-- 			I_SRP,
+-- 			I_STOCK ,
+-- 			I_SUBJECT ,
+-- 			I_THUMBNAIL,
+-- 			I_TITLE,
+-- 			I_A_ID FROM item WHERE I_ID <= 5;
+-- 	set i=i+1;
+-- 	end while;
+-- 	commit;
+
+
+
+	
+END

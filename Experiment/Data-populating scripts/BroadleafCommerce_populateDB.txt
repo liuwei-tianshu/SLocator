@@ -1,0 +1,456 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `populateDB`()
+BEGIN
+	#Routine body goes here...
+	declare i int default 0;
+	
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `broadleaf`.`blc_customer`(`CUSTOMER_ID`, `CREATED_BY`, `DATE_CREATED`, `DATE_UPDATED`, `UPDATED_BY`, `CHALLENGE_ANSWER`, `DEACTIVATED`, `EMAIL_ADDRESS`, `EXTERNAL_ID`, `FIRST_NAME`, `IS_TAX_EXEMPT`, `LAST_NAME`, `PASSWORD`, `PASSWORD_CHANGE_REQUIRED`, `IS_PREVIEW`, `RECEIVE_EMAIL`, `IS_REGISTERED`, `TAX_EXEMPTION_CODE`, `USER_NAME`, `CHALLENGE_QUESTION_ID`, `LOCALE_CODE`) VALUES (i*4000 + 1, 2700, '2022-04-01 04:19:06', '2022-04-01 04:22:05', 2700, NULL, b'0', CONCAT('George', i, "@gmail.com"), NULL, CONCAT('George', i), b'0', CONCAT('Davis', i), '12345678', b'0', NULL, b'0', b'1', NULL, CONCAT('George', i, "@gmail.com"), NULL, NULL);
+-- 			
+-- 			INSERT INTO `broadleaf`.`blc_customer`(`CUSTOMER_ID`, `CREATED_BY`, `DATE_CREATED`, `DATE_UPDATED`, `UPDATED_BY`, `CHALLENGE_ANSWER`, `DEACTIVATED`, `EMAIL_ADDRESS`, `EXTERNAL_ID`, `FIRST_NAME`, `IS_TAX_EXEMPT`, `LAST_NAME`, `PASSWORD`, `PASSWORD_CHANGE_REQUIRED`, `IS_PREVIEW`, `RECEIVE_EMAIL`, `IS_REGISTERED`, `TAX_EXEMPTION_CODE`, `USER_NAME`, `CHALLENGE_QUESTION_ID`, `LOCALE_CODE`) VALUES (i*4000 + 2, 2700, '2022-04-01 04:19:06', '2022-04-01 04:22:05', 2700, NULL, b'0', CONCAT('Eduardo', i, "@gmail.com"), NULL, CONCAT('Eduardo', i), b'0', CONCAT('Rodriquez', i), '12345678', b'0', NULL, b'0', b'1', NULL, CONCAT('Eduardo', i, "@gmail.com"), NULL, NULL);
+-- 			
+-- 			INSERT INTO `broadleaf`.`blc_customer`(`CUSTOMER_ID`, `CREATED_BY`, `DATE_CREATED`, `DATE_UPDATED`, `UPDATED_BY`, `CHALLENGE_ANSWER`, `DEACTIVATED`, `EMAIL_ADDRESS`, `EXTERNAL_ID`, `FIRST_NAME`, `IS_TAX_EXEMPT`, `LAST_NAME`, `PASSWORD`, `PASSWORD_CHANGE_REQUIRED`, `IS_PREVIEW`, `RECEIVE_EMAIL`, `IS_REGISTERED`, `TAX_EXEMPTION_CODE`, `USER_NAME`, `CHALLENGE_QUESTION_ID`, `LOCALE_CODE`) VALUES (i*4000 + 3, 2700, '2022-04-01 04:19:06', '2022-04-01 04:22:05', 2700, NULL, b'0', CONCAT('Harold', i, "@gmail.com"), NULL, CONCAT('Harold', i), b'0', CONCAT('Davis', i), '12345678', b'0', NULL, b'0', b'1', NULL, CONCAT('Harold', i, "@gmail.com"), NULL, NULL);
+-- 			
+-- 			INSERT INTO `broadleaf`.`blc_customer`(`CUSTOMER_ID`, `CREATED_BY`, `DATE_CREATED`, `DATE_UPDATED`, `UPDATED_BY`, `CHALLENGE_ANSWER`, `DEACTIVATED`, `EMAIL_ADDRESS`, `EXTERNAL_ID`, `FIRST_NAME`, `IS_TAX_EXEMPT`, `LAST_NAME`, `PASSWORD`, `PASSWORD_CHANGE_REQUIRED`, `IS_PREVIEW`, `RECEIVE_EMAIL`, `IS_REGISTERED`, `TAX_EXEMPTION_CODE`, `USER_NAME`, `CHALLENGE_QUESTION_ID`, `LOCALE_CODE`) VALUES (i*4000 + 4, 2700, '2022-04-01 04:19:06', '2022-04-01 04:22:05', 2700, NULL, b'0', CONCAT('Jean', i, "@gmail.com"), NULL, CONCAT('Jean', i), b'0', CONCAT('Coleman', i), '12345678', b'0', NULL, b'0', b'1', NULL, CONCAT('Jean', i, "@gmail.com"), NULL, NULL);
+-- 			
+-- 			INSERT INTO `broadleaf`.`blc_customer`(`CUSTOMER_ID`, `CREATED_BY`, `DATE_CREATED`, `DATE_UPDATED`, `UPDATED_BY`, `CHALLENGE_ANSWER`, `DEACTIVATED`, `EMAIL_ADDRESS`, `EXTERNAL_ID`, `FIRST_NAME`, `IS_TAX_EXEMPT`, `LAST_NAME`, `PASSWORD`, `PASSWORD_CHANGE_REQUIRED`, `IS_PREVIEW`, `RECEIVE_EMAIL`, `IS_REGISTERED`, `TAX_EXEMPTION_CODE`, `USER_NAME`, `CHALLENGE_QUESTION_ID`, `LOCALE_CODE`) VALUES (i*4000 + 5, 2700, '2022-04-01 04:19:06', '2022-04-01 04:22:05', 2700, NULL, b'0', CONCAT('Maria', i, "@gmail.com"), NULL, CONCAT('Maria', i), b'0', CONCAT('Escobito', i), '12345678', b'0', NULL, b'0', b'1', NULL, CONCAT('Maria', i, "@gmail.com"), NULL, NULL);
+-- 			
+-- 			
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `broadleaf`.`blc_address`(`ADDRESS_ID`, `ADDRESS_LINE1`, `ADDRESS_LINE2`, `ADDRESS_LINE3`, `CITY`, `COMPANY_NAME`, `COUNTY`, `EMAIL_ADDRESS`, `FAX`, `FIRST_NAME`, `FULL_NAME`, `IS_ACTIVE`, `IS_BUSINESS`, `IS_DEFAULT`, `IS_MAILING`, `IS_STREET`, `ISO_COUNTRY_SUB`, `LAST_NAME`, `POSTAL_CODE`, `PRIMARY_PHONE`, `SECONDARY_PHONE`, `STANDARDIZED`, `SUB_STATE_PROV_REG`, `TOKENIZED_ADDRESS`, `VERIFICATION_LEVEL`, `ZIP_FOUR`, `COUNTRY`, `ISO_COUNTRY_ALPHA2`, `PHONE_FAX_ID`, `PHONE_PRIMARY_ID`, `PHONE_SECONDARY_ID`, `STATE_PROV_REGION`) VALUES (i*5+600+0, 'avenue lorne', '3580', NULL, 'montreal', NULL, NULL, NULL, NULL, NULL, 'new home', b'1', b'0', b'0', b'0', b'0', 'US-DE', NULL, 'h2x2a6', NULL, NULL, b'0', 'DE', NULL, NULL, NULL, 'US', 'US', NULL, 309, NULL, 'DE');
+-- 			INSERT INTO `broadleaf`.`blc_address`(`ADDRESS_ID`, `ADDRESS_LINE1`, `ADDRESS_LINE2`, `ADDRESS_LINE3`, `CITY`, `COMPANY_NAME`, `COUNTY`, `EMAIL_ADDRESS`, `FAX`, `FIRST_NAME`, `FULL_NAME`, `IS_ACTIVE`, `IS_BUSINESS`, `IS_DEFAULT`, `IS_MAILING`, `IS_STREET`, `ISO_COUNTRY_SUB`, `LAST_NAME`, `POSTAL_CODE`, `PRIMARY_PHONE`, `SECONDARY_PHONE`, `STANDARDIZED`, `SUB_STATE_PROV_REG`, `TOKENIZED_ADDRESS`, `VERIFICATION_LEVEL`, `ZIP_FOUR`, `COUNTRY`, `ISO_COUNTRY_ALPHA2`, `PHONE_FAX_ID`, `PHONE_PRIMARY_ID`, `PHONE_SECONDARY_ID`, `STATE_PROV_REGION`) VALUES (i*5+600+1, '1537 Hwy 231 South', '#100', NULL, 'Ozark', NULL, NULL, NULL, NULL, NULL, 'Home address', b'1', b'0', b'0', b'0', b'0', 'US-AL', NULL, '36360', NULL, NULL, b'0', 'AL', NULL, NULL, NULL, 'US', 'US', NULL, 354, NULL, 'AL');
+-- 			INSERT INTO `broadleaf`.`blc_address`(`ADDRESS_ID`, `ADDRESS_LINE1`, `ADDRESS_LINE2`, `ADDRESS_LINE3`, `CITY`, `COMPANY_NAME`, `COUNTY`, `EMAIL_ADDRESS`, `FAX`, `FIRST_NAME`, `FULL_NAME`, `IS_ACTIVE`, `IS_BUSINESS`, `IS_DEFAULT`, `IS_MAILING`, `IS_STREET`, `ISO_COUNTRY_SUB`, `LAST_NAME`, `POSTAL_CODE`, `PRIMARY_PHONE`, `SECONDARY_PHONE`, `STANDARDIZED`, `SUB_STATE_PROV_REG`, `TOKENIZED_ADDRESS`, `VERIFICATION_LEVEL`, `ZIP_FOUR`, `COUNTRY`, `ISO_COUNTRY_ALPHA2`, `PHONE_FAX_ID`, `PHONE_PRIMARY_ID`, `PHONE_SECONDARY_ID`, `STATE_PROV_REGION`) VALUES (i*5+600+2, '1300 Gilmer Ave', '#56', NULL, 'Pelham', NULL, NULL, NULL, NULL, NULL, 'Work address', b'1', b'0', b'0', b'0', b'0', 'US-AL', NULL, '35124', NULL, NULL, b'0', 'AL', NULL, NULL, NULL, 'US', 'US', NULL, 355, NULL, 'AL');
+-- 			INSERT INTO `broadleaf`.`blc_address`(`ADDRESS_ID`, `ADDRESS_LINE1`, `ADDRESS_LINE2`, `ADDRESS_LINE3`, `CITY`, `COMPANY_NAME`, `COUNTY`, `EMAIL_ADDRESS`, `FAX`, `FIRST_NAME`, `FULL_NAME`, `IS_ACTIVE`, `IS_BUSINESS`, `IS_DEFAULT`, `IS_MAILING`, `IS_STREET`, `ISO_COUNTRY_SUB`, `LAST_NAME`, `POSTAL_CODE`, `PRIMARY_PHONE`, `SECONDARY_PHONE`, `STANDARDIZED`, `SUB_STATE_PROV_REG`, `TOKENIZED_ADDRESS`, `VERIFICATION_LEVEL`, `ZIP_FOUR`, `COUNTRY`, `ISO_COUNTRY_ALPHA2`, `PHONE_FAX_ID`, `PHONE_PRIMARY_ID`, `PHONE_SECONDARY_ID`, `STATE_PROV_REGION`) VALUES (i*5+600+3, '1537 Hwy 231 South', '#100', NULL, 'Ozark', NULL, NULL, NULL, NULL, NULL, 'Home address', b'1', b'0', b'0', b'0', b'0', 'US-AL', NULL, '36360', NULL, NULL, b'0', 'AL', NULL, NULL, NULL, 'US', 'US', NULL, 356, NULL, 'AL');
+-- 			INSERT INTO `broadleaf`.`blc_address`(`ADDRESS_ID`, `ADDRESS_LINE1`, `ADDRESS_LINE2`, `ADDRESS_LINE3`, `CITY`, `COMPANY_NAME`, `COUNTY`, `EMAIL_ADDRESS`, `FAX`, `FIRST_NAME`, `FULL_NAME`, `IS_ACTIVE`, `IS_BUSINESS`, `IS_DEFAULT`, `IS_MAILING`, `IS_STREET`, `ISO_COUNTRY_SUB`, `LAST_NAME`, `POSTAL_CODE`, `PRIMARY_PHONE`, `SECONDARY_PHONE`, `STANDARDIZED`, `SUB_STATE_PROV_REG`, `TOKENIZED_ADDRESS`, `VERIFICATION_LEVEL`, `ZIP_FOUR`, `COUNTRY`, `ISO_COUNTRY_ALPHA2`, `PHONE_FAX_ID`, `PHONE_PRIMARY_ID`, `PHONE_SECONDARY_ID`, `STATE_PROV_REGION`) VALUES (i*5+600+4, '1300 Gilmer Ave', '#56', NULL, 'Pelham', NULL, NULL, NULL, NULL, NULL, 'Work address', b'1', b'0', b'0', b'0', b'0', 'US-AL', NULL, '35124', NULL, NULL, b'0', 'AL', NULL, NULL, NULL, 'US', 'US', NULL, 360, NULL, 'AL');
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+-- 
+
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do			
+-- 			INSERT INTO `broadleaf`.`blc_customer_address`(`CUSTOMER_ADDRESS_ID`, `ADDRESS_NAME`, `ARCHIVED`, `ADDRESS_ID`, `CUSTOMER_ID`) VALUES (i*5+600+0, 'new home', 'N',i*5+600+0, i*4000 + 1);
+-- 			INSERT INTO `broadleaf`.`blc_customer_address`(`CUSTOMER_ADDRESS_ID`, `ADDRESS_NAME`, `ARCHIVED`, `ADDRESS_ID`, `CUSTOMER_ID`) VALUES (i*5+600+1, 'new company', 'Y', i*5+600+1, i*4000 + 2);
+-- 			INSERT INTO `broadleaf`.`blc_customer_address`(`CUSTOMER_ADDRESS_ID`, `ADDRESS_NAME`, `ARCHIVED`, `ADDRESS_ID`, `CUSTOMER_ID`) VALUES (i*5+600+2, 'Home', 'N',i*5+600+2, i*4000 + 3);
+-- 			INSERT INTO `broadleaf`.`blc_customer_address`(`CUSTOMER_ADDRESS_ID`, `ADDRESS_NAME`, `ARCHIVED`, `ADDRESS_ID`, `CUSTOMER_ID`) VALUES (i*5+600+3, 'Work', 'N', i*5+600+3, i*4000 + 4);
+-- 			INSERT INTO `broadleaf`.`blc_customer_address`(`CUSTOMER_ADDRESS_ID`, `ADDRESS_NAME`, `ARCHIVED`, `ADDRESS_ID`, `CUSTOMER_ID`) VALUES (i*5+600+4, 'Company', 'Y', i*5+600+4, i*4000 + 5);
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 2;
+-- 		start transaction;
+-- 		while i<4000 do			
+-- 			INSERT INTO `broadleaf`.`blc_admin_user`(`ADMIN_USER_ID`, `ACTIVE_STATUS_FLAG`, `EMAIL`, `LOGIN`, `NAME`, `PASSWORD`, `PHONE_NUMBER`) VALUES (i*5+0, b'1', CONCAT('Maria', i, '@gmail.com'), CONCAT('George', i), CONCAT('George', i), '123456', NULL);
+-- 
+-- 			INSERT INTO `broadleaf`.`blc_admin_user`(`ADMIN_USER_ID`, `ACTIVE_STATUS_FLAG`, `EMAIL`, `LOGIN`, `NAME`, `PASSWORD`, `PHONE_NUMBER`) VALUES (i*5+1, b'1', CONCAT('Harold', i, '@gmail.com'), CONCAT('Harold', i), CONCAT('Harold', i), '123456', NULL);
+-- 
+-- 			INSERT INTO `broadleaf`.`blc_admin_user`(`ADMIN_USER_ID`, `ACTIVE_STATUS_FLAG`, `EMAIL`, `LOGIN`, `NAME`, `PASSWORD`, `PHONE_NUMBER`) VALUES (i*5+2, b'1', CONCAT('Eduardo', i, '@gmail.com'), CONCAT('Eduardo', i), CONCAT('Eduardo', i), '123456', NULL);
+-- 
+-- 			INSERT INTO `broadleaf`.`blc_admin_user`(`ADMIN_USER_ID`, `ACTIVE_STATUS_FLAG`, `EMAIL`, `LOGIN`, `NAME`, `PASSWORD`, `PHONE_NUMBER`) VALUES (i*5+3, b'1', CONCAT('Jean', i, '@gmail.com'), CONCAT('Jean', i), CONCAT('Jean', i), '123456', NULL);
+-- 
+-- 			INSERT INTO `broadleaf`.`blc_admin_user`(`ADMIN_USER_ID`, `ACTIVE_STATUS_FLAG`, `EMAIL`, `LOGIN`, `NAME`, `PASSWORD`, `PHONE_NUMBER`) VALUES (i*5+4, b'1', CONCAT('Maria', i, '@gmail.com'), CONCAT('Maria', i), CONCAT('Maria', i), '123456', NULL);
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do			
+-- 
+-- 				INSERT INTO `broadleaf`.`blc_customer_payment`(`CUSTOMER_PAYMENT_ID`, `IS_DEFAULT`, `GATEWAY_TYPE`, `PAYMENT_TOKEN`, `PAYMENT_TYPE`, `ADDRESS_ID`, `CUSTOMER_ID`) VALUES (i*5 + 500, b'1', 'NULL_GATEWAY', 'SAMPLE_PAYMENT_GATEWAY_MULTI_USE_TOKEN_47144893', 'CREDIT_CARD', i*5+600+0, i*4000 + 1);
+-- 				INSERT INTO `broadleaf`.`blc_customer_payment`(`CUSTOMER_PAYMENT_ID`, `IS_DEFAULT`, `GATEWAY_TYPE`, `PAYMENT_TOKEN`, `PAYMENT_TYPE`, `ADDRESS_ID`, `CUSTOMER_ID`) VALUES (i*5 + 501, b'1', 'NULL_GATEWAY', 'SAMPLE_PAYMENT_GATEWAY_MULTI_USE_TOKEN_81979538', 'CREDIT_CARD', i*5+600+1, i*4000 + 2);
+-- 				INSERT INTO `broadleaf`.`blc_customer_payment`(`CUSTOMER_PAYMENT_ID`, `IS_DEFAULT`, `GATEWAY_TYPE`, `PAYMENT_TOKEN`, `PAYMENT_TYPE`, `ADDRESS_ID`, `CUSTOMER_ID`) VALUES (i*5 + 502, b'1', 'NULL_GATEWAY', 'SAMPLE_PAYMENT_GATEWAY_MULTI_USE_TOKEN_78377315', 'CREDIT_CARD', i*5+600+2, i*4000 + 3);
+-- 				INSERT INTO `broadleaf`.`blc_customer_payment`(`CUSTOMER_PAYMENT_ID`, `IS_DEFAULT`, `GATEWAY_TYPE`, `PAYMENT_TOKEN`, `PAYMENT_TYPE`, `ADDRESS_ID`, `CUSTOMER_ID`) VALUES (i*5 + 503, b'1', 'NULL_GATEWAY', 'SAMPLE_PAYMENT_GATEWAY_MULTI_USE_TOKEN_80790140', 'CREDIT_CARD', i*5+600+3, i*4000 + 4);
+-- 				INSERT INTO `broadleaf`.`blc_customer_payment`(`CUSTOMER_PAYMENT_ID`, `IS_DEFAULT`, `GATEWAY_TYPE`, `PAYMENT_TOKEN`, `PAYMENT_TYPE`, `ADDRESS_ID`, `CUSTOMER_ID`) VALUES (i*5 + 504, b'0', 'NULL_GATEWAY', 'SAMPLE_PAYMENT_GATEWAY_MULTI_USE_TOKEN_61599359', 'CREDIT_CARD', i*5+600+4, i*4000 + 5);
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do			
+-- 
+-- 				INSERT INTO `broadleaf`.`blc_customer_payment_fields`(`CUSTOMER_PAYMENT_ID`, `FIELD_VALUE`, `FIELD_NAME`) VALUES (i*5 + 500, 'MASTERCARD', 'CARD_TYPE');
+-- 				INSERT INTO `broadleaf`.`blc_customer_payment_fields`(`CUSTOMER_PAYMENT_ID`, `FIELD_VALUE`, `FIELD_NAME`) VALUES (i*5 + 500, CONCAT('George', i, "@gmail.com"), 'customer.emailAddress');
+-- 				INSERT INTO `broadleaf`.`blc_customer_payment_fields`(`CUSTOMER_PAYMENT_ID`, `FIELD_VALUE`, `FIELD_NAME`) VALUES (i*5 + 500, CONCAT('George', i), 'customer.firstName');
+-- 				INSERT INTO `broadleaf`.`blc_customer_payment_fields`(`CUSTOMER_PAYMENT_ID`, `FIELD_VALUE`, `FIELD_NAME`) VALUES (i*5 + 500, CONVERT(i*4000 + 1, CHAR), 'customer.id');
+-- 				
+-- 				
+-- 				INSERT INTO `broadleaf`.`blc_customer_payment_fields`(`CUSTOMER_PAYMENT_ID`, `FIELD_VALUE`, `FIELD_NAME`) VALUES (i*5 + 501, 'MASTERCARD', 'CARD_TYPE');
+-- 				INSERT INTO `broadleaf`.`blc_customer_payment_fields`(`CUSTOMER_PAYMENT_ID`, `FIELD_VALUE`, `FIELD_NAME`) VALUES (i*5 + 501, CONCAT('Eduardo', i, "@gmail.com"), 'customer.emailAddress');
+-- 				INSERT INTO `broadleaf`.`blc_customer_payment_fields`(`CUSTOMER_PAYMENT_ID`, `FIELD_VALUE`, `FIELD_NAME`) VALUES (i*5 + 501, CONCAT('Eduardo', i), 'customer.firstName');
+-- 				INSERT INTO `broadleaf`.`blc_customer_payment_fields`(`CUSTOMER_PAYMENT_ID`, `FIELD_VALUE`, `FIELD_NAME`) VALUES (i*5 + 501, CONVERT(i*4000 + 2, CHAR), 'customer.id');
+-- 				
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do			
+-- 			INSERT INTO `broadleaf`.`blc_customer_role`(`CUSTOMER_ROLE_ID`, `CUSTOMER_ID`, `ROLE_ID`) VALUES (i*5+600, i*4000 + 1, 1);
+-- 			INSERT INTO `broadleaf`.`blc_customer_role`(`CUSTOMER_ROLE_ID`, `CUSTOMER_ID`, `ROLE_ID`) VALUES (i*5+601, i*4000 + 2, 1);
+-- 			INSERT INTO `broadleaf`.`blc_customer_role`(`CUSTOMER_ROLE_ID`, `CUSTOMER_ID`, `ROLE_ID`) VALUES (i*5+602, i*4000 + 3, 1);
+-- 			INSERT INTO `broadleaf`.`blc_customer_role`(`CUSTOMER_ROLE_ID`, `CUSTOMER_ID`, `ROLE_ID`) VALUES (i*5+603, i*4000 + 4, 1);
+-- 			INSERT INTO `broadleaf`.`blc_customer_role`(`CUSTOMER_ROLE_ID`, `CUSTOMER_ID`, `ROLE_ID`) VALUES (i*5+604, i*4000 + 5, 1);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do			
+-- 				INSERT INTO `broadleaf`.`blc_email_tracking`(`EMAIL_TRACKING_ID`, `DATE_SENT`, `EMAIL_ADDRESS`, `TYPE`) VALUES (i*5+600, '2022-04-01 04:19:06', CONCAT('George', i, "@gmail.com"), NULL);
+-- 				
+-- 				INSERT INTO `broadleaf`.`blc_email_tracking`(`EMAIL_TRACKING_ID`, `DATE_SENT`, `EMAIL_ADDRESS`, `TYPE`) VALUES (i*5+601, '2022-04-01 04:19:06', CONCAT('Eduardo', i, "@gmail.com"), NULL);
+-- 				
+-- 				INSERT INTO `broadleaf`.`blc_email_tracking`(`EMAIL_TRACKING_ID`, `DATE_SENT`, `EMAIL_ADDRESS`, `TYPE`) VALUES (i*5+602, '2022-04-01 04:19:06', CONCAT('Harold', i, "@gmail.com"), NULL);
+-- 				
+-- 				INSERT INTO `broadleaf`.`blc_email_tracking`(`EMAIL_TRACKING_ID`, `DATE_SENT`, `EMAIL_ADDRESS`, `TYPE`) VALUES (i*5+603, '2022-04-01 04:19:06', CONCAT('Jean', i, "@gmail.com"), NULL);
+-- 				
+-- 				INSERT INTO `broadleaf`.`blc_email_tracking`(`EMAIL_TRACKING_ID`, `DATE_SENT`, `EMAIL_ADDRESS`, `TYPE`) VALUES (i*5+604, '2022-04-01 04:19:06', CONCAT('Maria', i, "@gmail.com"), NULL);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+		
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do			
+-- 
+-- 			INSERT INTO `broadleaf`.`blc_order`(`ORDER_ID`, `CREATED_BY`, `DATE_CREATED`, `DATE_UPDATED`, `UPDATED_BY`, `EMAIL_ADDRESS`, `NAME`, `ORDER_NUMBER`, `IS_PREVIEW`, `ORDER_STATUS`, `ORDER_SUBTOTAL`, `SUBMIT_DATE`, `TAX_OVERRIDE`, `ORDER_TOTAL`, `TOTAL_SHIPPING`, `TOTAL_TAX`, `CURRENCY_CODE`, `CUSTOMER_ID`, `LOCALE_CODE`) VALUES (i*5 + 400, 2700, '2022-04-01 04:43:52', '2022-04-01 04:58:21', 2700, CONCAT('George', i, "@gmail.com"), NULL, '20220401045820853352', NULL, 'SUBMITTED', 94.89000, '2022-04-01 04:58:21', NULL, 114.89000, 20.00000, 0.00000, 'USD', i*4000 + 1, 'en_US');
+-- 			
+-- 			INSERT INTO `broadleaf`.`blc_order`(`ORDER_ID`, `CREATED_BY`, `DATE_CREATED`, `DATE_UPDATED`, `UPDATED_BY`, `EMAIL_ADDRESS`, `NAME`, `ORDER_NUMBER`, `IS_PREVIEW`, `ORDER_STATUS`, `ORDER_SUBTOTAL`, `SUBMIT_DATE`, `TAX_OVERRIDE`, `ORDER_TOTAL`, `TOTAL_SHIPPING`, `TOTAL_TAX`, `CURRENCY_CODE`, `CUSTOMER_ID`, `LOCALE_CODE`) VALUES (i*5 + 401, 2700, '2022-04-01 04:43:52', '2022-04-01 04:58:21', 2700, CONCAT('Harold', i, '@gmail.com'), NULL, '20220401045820853352', NULL, 'SUBMITTED', 94.89000, '2022-04-01 04:58:21', NULL, 114.89000, 20.00000, 0.00000, 'USD', i*4000 + 2, 'en_US');
+-- 						
+-- 			INSERT INTO `broadleaf`.`blc_order`(`ORDER_ID`, `CREATED_BY`, `DATE_CREATED`, `DATE_UPDATED`, `UPDATED_BY`, `EMAIL_ADDRESS`, `NAME`, `ORDER_NUMBER`, `IS_PREVIEW`, `ORDER_STATUS`, `ORDER_SUBTOTAL`, `SUBMIT_DATE`, `TAX_OVERRIDE`, `ORDER_TOTAL`, `TOTAL_SHIPPING`, `TOTAL_TAX`, `CURRENCY_CODE`, `CUSTOMER_ID`, `LOCALE_CODE`) VALUES (i*5 + 402, 2700, '2022-04-01 04:43:52', '2022-04-01 04:58:21', 2700, CONCAT('Eduardo', i, '@gmail.com'), NULL, '20220401045820853352', NULL, 'SUBMITTED', 94.89000, '2022-04-01 04:58:21', NULL, 114.89000, 20.00000, 0.00000, 'USD', i*4000 + 3, 'en_US');
+-- 									
+-- 			INSERT INTO `broadleaf`.`blc_order`(`ORDER_ID`, `CREATED_BY`, `DATE_CREATED`, `DATE_UPDATED`, `UPDATED_BY`, `EMAIL_ADDRESS`, `NAME`, `ORDER_NUMBER`, `IS_PREVIEW`, `ORDER_STATUS`, `ORDER_SUBTOTAL`, `SUBMIT_DATE`, `TAX_OVERRIDE`, `ORDER_TOTAL`, `TOTAL_SHIPPING`, `TOTAL_TAX`, `CURRENCY_CODE`, `CUSTOMER_ID`, `LOCALE_CODE`) VALUES (i*5 + 403, 2700, '2022-04-01 04:43:52', '2022-04-01 04:58:21', 2700, CONCAT('Jean', i, "@gmail.com"), NULL, '20220401045820853352', NULL, 'SUBMITTED', 94.89000, '2022-04-01 04:58:21', NULL, 114.89000, 20.00000, 0.00000, 'USD', i*4000 + 4, 'en_US');
+-- 												
+-- 			INSERT INTO `broadleaf`.`blc_order`(`ORDER_ID`, `CREATED_BY`, `DATE_CREATED`, `DATE_UPDATED`, `UPDATED_BY`, `EMAIL_ADDRESS`, `NAME`, `ORDER_NUMBER`, `IS_PREVIEW`, `ORDER_STATUS`, `ORDER_SUBTOTAL`, `SUBMIT_DATE`, `TAX_OVERRIDE`, `ORDER_TOTAL`, `TOTAL_SHIPPING`, `TOTAL_TAX`, `CURRENCY_CODE`, `CUSTOMER_ID`, `LOCALE_CODE`) VALUES (i*5 + 404, 2700, '2022-04-01 04:43:52', '2022-04-01 04:58:21', 2700, CONCAT('Maria', i, "@gmail.com"), NULL, '20220401045820853352', NULL, 'SUBMITTED', 94.89000, '2022-04-01 04:58:21', NULL, 114.89000, 20.00000, 0.00000, 'USD', i*4000 + 5, 'en_US');
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do			
+-- 				INSERT INTO `broadleaf`.`blc_product`(`PRODUCT_ID`, `ARCHIVED`, `CAN_SELL_WITHOUT_OPTIONS`, `CANONICAL_URL`, `DISPLAY_TEMPLATE`, `IS_FEATURED_PRODUCT`, `MANUFACTURE`, `META_DESC`, `META_TITLE`, `MODEL`, `OVERRIDE_GENERATED_URL`, `URL`, `URL_KEY`, `DEFAULT_CATEGORY_ID`, `DEFAULT_SKU_ID`) VALUES (i*5+800, NULL, NULL, NULL, NULL, b'0', 'The Heat Clinic', NULL, NULL, NULL, NULL, '/merchandise/hawt_like_a_habanero_womens', NULL, NULL, 200);
+-- 				INSERT INTO `broadleaf`.`blc_product`(`PRODUCT_ID`, `ARCHIVED`, `CAN_SELL_WITHOUT_OPTIONS`, `CANONICAL_URL`, `DISPLAY_TEMPLATE`, `IS_FEATURED_PRODUCT`, `MANUFACTURE`, `META_DESC`, `META_TITLE`, `MODEL`, `OVERRIDE_GENERATED_URL`, `URL`, `URL_KEY`, `DEFAULT_CATEGORY_ID`, `DEFAULT_SKU_ID`) VALUES (i*5+801, NULL, NULL, NULL, NULL, b'0', 'The Heat Clinic', NULL, NULL, NULL, NULL, '/merchandise/heat_clinic_hand-drawn_mens', NULL, NULL, 300);
+-- 				INSERT INTO `broadleaf`.`blc_product`(`PRODUCT_ID`, `ARCHIVED`, `CAN_SELL_WITHOUT_OPTIONS`, `CANONICAL_URL`, `DISPLAY_TEMPLATE`, `IS_FEATURED_PRODUCT`, `MANUFACTURE`, `META_DESC`, `META_TITLE`, `MODEL`, `OVERRIDE_GENERATED_URL`, `URL`, `URL_KEY`, `DEFAULT_CATEGORY_ID`, `DEFAULT_SKU_ID`) VALUES (i*5+802, NULL, NULL, NULL, NULL, b'0', 'The Heat Clinic', NULL, NULL, NULL, NULL, '/merchandise/heat_clinic_hand-drawn_womens', NULL, NULL, 400);
+-- 				INSERT INTO `broadleaf`.`blc_product`(`PRODUCT_ID`, `ARCHIVED`, `CAN_SELL_WITHOUT_OPTIONS`, `CANONICAL_URL`, `DISPLAY_TEMPLATE`, `IS_FEATURED_PRODUCT`, `MANUFACTURE`, `META_DESC`, `META_TITLE`, `MODEL`, `OVERRIDE_GENERATED_URL`, `URL`, `URL_KEY`, `DEFAULT_CATEGORY_ID`, `DEFAULT_SKU_ID`) VALUES (i*5+803, NULL, NULL, NULL, NULL, b'0', 'The Heat Clinic', NULL, NULL, NULL, NULL, '/merchandise/heat_clinic_mascot_mens', NULL, NULL, 500);
+-- 				INSERT INTO `broadleaf`.`blc_product`(`PRODUCT_ID`, `ARCHIVED`, `CAN_SELL_WITHOUT_OPTIONS`, `CANONICAL_URL`, `DISPLAY_TEMPLATE`, `IS_FEATURED_PRODUCT`, `MANUFACTURE`, `META_DESC`, `META_TITLE`, `MODEL`, `OVERRIDE_GENERATED_URL`, `URL`, `URL_KEY`, `DEFAULT_CATEGORY_ID`, `DEFAULT_SKU_ID`) VALUES (i*5+804, NULL, NULL, NULL, NULL, b'0', 'The Heat Clinic', NULL, NULL, NULL, NULL, '/merchandise/heat_clinic_mascot_womens', NULL, NULL, 600);
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do			
+-- 				INSERT INTO `broadleaf`.`blc_order_item`(`ORDER_ITEM_ID`, `CREATED_BY`, `DATE_CREATED`, `DATE_UPDATED`, `UPDATED_BY`, `DISCOUNTS_ALLOWED`, `HAS_VALIDATION_ERRORS`, `ITEM_TAXABLE_FLAG`, `NAME`, `ORDER_ITEM_TYPE`, `PRICE`, `QUANTITY`, `RETAIL_PRICE`, `RETAIL_PRICE_OVERRIDE`, `SALE_PRICE`, `SALE_PRICE_OVERRIDE`, `TOTAL_TAX`, `CATEGORY_ID`, `GIFT_WRAP_ITEM_ID`, `ORDER_ID`, `PARENT_ORDER_ITEM_ID`, `PERSONAL_MESSAGE_ID`) VALUES (i*5 + 500, 2700, '2022-04-01 04:50:58', '2022-04-01 04:50:58', 2700, NULL, NULL, b'1', 'Hoppin\' Hot Sauce', 'org.broadleafcommerce.core.order.domain.DiscreteOrderItem', 4.99000, 5, 4.99000, NULL, 4.99000, NULL, NULL, 2002, NULL, i*5 + 400, NULL, NULL);
+-- 				INSERT INTO `broadleaf`.`blc_order_item`(`ORDER_ITEM_ID`, `CREATED_BY`, `DATE_CREATED`, `DATE_UPDATED`, `UPDATED_BY`, `DISCOUNTS_ALLOWED`, `HAS_VALIDATION_ERRORS`, `ITEM_TAXABLE_FLAG`, `NAME`, `ORDER_ITEM_TYPE`, `PRICE`, `QUANTITY`, `RETAIL_PRICE`, `RETAIL_PRICE_OVERRIDE`, `SALE_PRICE`, `SALE_PRICE_OVERRIDE`, `TOTAL_TAX`, `CATEGORY_ID`, `GIFT_WRAP_ITEM_ID`, `ORDER_ID`, `PARENT_ORDER_ITEM_ID`, `PERSONAL_MESSAGE_ID`) VALUES (i*5 + 501, 2700, '2022-04-01 04:51:19', '2022-04-01 04:51:19', 2700, NULL, NULL, b'1', 'Hawt Like a Habanero Shirt (Men\'s)', 'org.broadleafcommerce.core.order.domain.DiscreteOrderItem', 14.99000, 2, 14.99000, NULL, 14.99000, NULL, NULL, 2003, NULL, i*5 + 401, NULL, NULL);
+-- 				INSERT INTO `broadleaf`.`blc_order_item`(`ORDER_ITEM_ID`, `CREATED_BY`, `DATE_CREATED`, `DATE_UPDATED`, `UPDATED_BY`, `DISCOUNTS_ALLOWED`, `HAS_VALIDATION_ERRORS`, `ITEM_TAXABLE_FLAG`, `NAME`, `ORDER_ITEM_TYPE`, `PRICE`, `QUANTITY`, `RETAIL_PRICE`, `RETAIL_PRICE_OVERRIDE`, `SALE_PRICE`, `SALE_PRICE_OVERRIDE`, `TOTAL_TAX`, `CATEGORY_ID`, `GIFT_WRAP_ITEM_ID`, `ORDER_ID`, `PARENT_ORDER_ITEM_ID`, `PERSONAL_MESSAGE_ID`) VALUES (i*5 + 502, 2700, '2022-04-01 04:51:19', '2022-04-01 04:51:19', 2700, NULL, NULL, b'1', 'Day of the Dead Chipotle Hot Sauce', 'org.broadleafcommerce.core.order.domain.DiscreteOrderItem', 6.99000, 1, 6.99000, NULL, 6.99000, NULL, NULL, 2002, NULL, i*5 + 402, NULL, NULL);
+-- 				INSERT INTO `broadleaf`.`blc_order_item`(`ORDER_ITEM_ID`, `CREATED_BY`, `DATE_CREATED`, `DATE_UPDATED`, `UPDATED_BY`, `DISCOUNTS_ALLOWED`, `HAS_VALIDATION_ERRORS`, `ITEM_TAXABLE_FLAG`, `NAME`, `ORDER_ITEM_TYPE`, `PRICE`, `QUANTITY`, `RETAIL_PRICE`, `RETAIL_PRICE_OVERRIDE`, `SALE_PRICE`, `SALE_PRICE_OVERRIDE`, `TOTAL_TAX`, `CATEGORY_ID`, `GIFT_WRAP_ITEM_ID`, `ORDER_ID`, `PARENT_ORDER_ITEM_ID`, `PERSONAL_MESSAGE_ID`) VALUES (i*5 + 503, 2700, '2022-04-01 04:51:19', '2022-04-01 04:51:19', 2700, NULL, NULL, b'1', 'Green Ghost', 'org.broadleafcommerce.core.order.domain.DiscreteOrderItem', 9.99000, 1, 11.99000, NULL, 9.99000, NULL, NULL, 2002, NULL, i*5 + 403, NULL, NULL);
+-- 				INSERT INTO `broadleaf`.`blc_order_item`(`ORDER_ITEM_ID`, `CREATED_BY`, `DATE_CREATED`, `DATE_UPDATED`, `UPDATED_BY`, `DISCOUNTS_ALLOWED`, `HAS_VALIDATION_ERRORS`, `ITEM_TAXABLE_FLAG`, `NAME`, `ORDER_ITEM_TYPE`, `PRICE`, `QUANTITY`, `RETAIL_PRICE`, `RETAIL_PRICE_OVERRIDE`, `SALE_PRICE`, `SALE_PRICE_OVERRIDE`, `TOTAL_TAX`, `CATEGORY_ID`, `GIFT_WRAP_ITEM_ID`, `ORDER_ID`, `PARENT_ORDER_ITEM_ID`, `PERSONAL_MESSAGE_ID`) VALUES (i*5 + 504, 2700, '2022-04-01 04:51:19', '2022-04-01 04:51:19', 2700, NULL, NULL, b'1', 'Day of the Dead Habanero Hot Sauce', 'org.broadleafcommerce.core.order.domain.DiscreteOrderItem', 6.99000, 1, 6.99000, NULL, 6.99000, NULL, NULL, 2002, NULL, i*5 + 404, NULL, NULL);
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do			
+-- 				INSERT INTO `broadleaf`.`blc_order_payment`(`ORDER_PAYMENT_ID`, `AMOUNT`, `ARCHIVED`, `GATEWAY_TYPE`, `REFERENCE_NUMBER`, `PAYMENT_TYPE`, `ADDRESS_ID`, `ORDER_ID`) VALUES (i*5 + 300, 24.99000, 'N', 'NULL_GATEWAY', NULL, 'CREDIT_CARD', 154, i*5 + 400);
+-- 				INSERT INTO `broadleaf`.`blc_order_payment`(`ORDER_PAYMENT_ID`, `AMOUNT`, `ARCHIVED`, `GATEWAY_TYPE`, `REFERENCE_NUMBER`, `PAYMENT_TYPE`, `ADDRESS_ID`, `ORDER_ID`) VALUES (i*5 + 301, 20.99000, 'N', 'NULL_GATEWAY', NULL, 'CREDIT_CARD', 204, i*5 + 401);
+-- 				INSERT INTO `broadleaf`.`blc_order_payment`(`ORDER_PAYMENT_ID`, `AMOUNT`, `ARCHIVED`, `GATEWAY_TYPE`, `REFERENCE_NUMBER`, `PAYMENT_TYPE`, `ADDRESS_ID`, `ORDER_ID`) VALUES (i*5 + 302, 22.99000, 'N', 'NULL_GATEWAY', NULL, 'CREDIT_CARD', 259, i*5 + 402);
+-- 				INSERT INTO `broadleaf`.`blc_order_payment`(`ORDER_PAYMENT_ID`, `AMOUNT`, `ARCHIVED`, `GATEWAY_TYPE`, `REFERENCE_NUMBER`, `PAYMENT_TYPE`, `ADDRESS_ID`, `ORDER_ID`) VALUES (i*5 + 303, 61.95000, 'N', 'NULL_GATEWAY', NULL, 'CREDIT_CARD', 307, i*5 + 403);
+-- 				INSERT INTO `broadleaf`.`blc_order_payment`(`ORDER_PAYMENT_ID`, `AMOUNT`, `ARCHIVED`, `GATEWAY_TYPE`, `REFERENCE_NUMBER`, `PAYMENT_TYPE`, `ADDRESS_ID`, `ORDER_ID`) VALUES (i*5 + 304, 114.89000, 'N', 'NULL_GATEWAY', NULL, 'CREDIT_CARD', 311, i*5 + 404);
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<20000 do			
+-- 				INSERT INTO `broadleaf`.`blc_phone`(`PHONE_ID`, `COUNTRY_CODE`, `EXTENSION`, `IS_ACTIVE`, `IS_DEFAULT`, `PHONE_NUMBER`) VALUES (i+360, NULL, NULL, b'1', b'0', SUBSTRING(CONCAT('514', i, '12345678'), 1, 10));
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<2223 do
+-- 			INSERT INTO `blc_field`
+-- 				SELECT
+-- 					FIELD_ID+i*9,
+-- 					ABBREVIATION,
+-- 					ENTITY_TYPE,
+-- 					FRIENDLY_NAME,
+-- 					OVERRIDE_GENERATED_PROP_NAME,
+-- 					PROPERTY_NAME,
+-- 					TRANSLATABLE
+-- 				FROM `blc_field` WHERE FIELD_ID >= 1 and FIELD_ID <= 9;
+-- 			
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 5;
+-- 		start transaction;
+-- 		while i<5005 do
+-- 			INSERT INTO `blc_fld_group`
+-- 				SELECT
+-- 						FLD_GROUP_ID+i*10,
+-- 						INIT_COLLAPSED_FLAG,
+-- 						IS_MASTER_FIELD_GROUP,
+-- 						NAME
+-- 				FROM `blc_fld_group` WHERE FLD_GROUP_ID >= 1 and FLD_GROUP_ID <= 6;
+-- 			
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+		
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<2857 do
+-- 			INSERT INTO `blc_admin_role`
+-- 				SELECT
+-- 					ADMIN_ROLE_ID + i*10,
+-- 					DESCRIPTION,
+-- 					NAME
+-- 				FROM `blc_admin_role` WHERE ADMIN_ROLE_ID >= -7 and ADMIN_ROLE_ID <= -1;
+-- 			
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `blc_customer_attribute`
+-- 				SELECT
+-- 					CUSTOMER_ATTR_ID + i*30,
+-- 					NAME,
+-- 					VALUE,
+-- 					CUSTOMER_ID
+-- 				FROM `blc_customer_attribute` WHERE CUSTOMER_ATTR_ID >= 10 and CUSTOMER_ATTR_ID <= 14;		
+-- 			
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `broadleaf`.`blc_order_item_attribute`(`ORDER_ITEM_ATTRIBUTE_ID`, `NAME`, `VALUE`, `ORDER_ITEM_ID`) VALUES (i*5 + 200, 'COLOR', 'Red', i*5 + 500);
+-- 			INSERT INTO `broadleaf`.`blc_order_item_attribute`(`ORDER_ITEM_ATTRIBUTE_ID`, `NAME`, `VALUE`, `ORDER_ITEM_ID`) VALUES (i*5 + 201, 'SIZE', 'S', i*5 + 501);
+-- 			INSERT INTO `broadleaf`.`blc_order_item_attribute`(`ORDER_ITEM_ATTRIBUTE_ID`, `NAME`, `VALUE`, `ORDER_ITEM_ID`) VALUES (i*5 + 202, 'COLOR', 'Red', i*5 + 502);
+-- 			INSERT INTO `broadleaf`.`blc_order_item_attribute`(`ORDER_ITEM_ATTRIBUTE_ID`, `NAME`, `VALUE`, `ORDER_ITEM_ID`) VALUES (i*5 + 203, 'SIZE', 'S', i*5 + 503);
+-- 			INSERT INTO `broadleaf`.`blc_order_item_attribute`(`ORDER_ITEM_ATTRIBUTE_ID`, `NAME`, `VALUE`, `ORDER_ITEM_ID`) VALUES (i*5 + 204, 'NAME', '', i*5 + 504);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+		
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 				INSERT INTO `broadleaf`.`blc_fulfillment_group`(`FULFILLMENT_GROUP_ID`, `DELIVERY_INSTRUCTION`, `PRICE`, `SHIPPING_PRICE_TAXABLE`, `MERCHANDISE_TOTAL`, `METHOD`, `IS_PRIMARY`, `REFERENCE_NUMBER`, `RETAIL_PRICE`, `SALE_PRICE`, `FULFILLMENT_GROUP_SEQUNCE`, `SERVICE`, `SHIPPING_OVERRIDE`, `STATUS`, `TOTAL`, `TOTAL_FEE_TAX`, `TOTAL_FG_TAX`, `TOTAL_ITEM_TAX`, `TOTAL_TAX`, `TYPE`, `ADDRESS_ID`, `FULFILLMENT_OPTION_ID`, `ORDER_ID`, `PERSONAL_MESSAGE_ID`, `PHONE_ID`) VALUES (i*5 + 500, NULL, 0.00000, b'0', 6.99000, NULL, b'0', NULL, 0.00000, 0.00000, NULL, NULL, NULL, NULL, 6.99000, 0.00000, 0.00000, 0.00000, 0.00000, NULL, NULL, NULL, i*5 + 400, NULL, NULL);
+-- 				INSERT INTO `broadleaf`.`blc_fulfillment_group`(`FULFILLMENT_GROUP_ID`, `DELIVERY_INSTRUCTION`, `PRICE`, `SHIPPING_PRICE_TAXABLE`, `MERCHANDISE_TOTAL`, `METHOD`, `IS_PRIMARY`, `REFERENCE_NUMBER`, `RETAIL_PRICE`, `SALE_PRICE`, `FULFILLMENT_GROUP_SEQUNCE`, `SERVICE`, `SHIPPING_OVERRIDE`, `STATUS`, `TOTAL`, `TOTAL_FEE_TAX`, `TOTAL_FG_TAX`, `TOTAL_ITEM_TAX`, `TOTAL_TAX`, `TYPE`, `ADDRESS_ID`, `FULFILLMENT_OPTION_ID`, `ORDER_ID`, `PERSONAL_MESSAGE_ID`, `PHONE_ID`) VALUES (i*5 + 501, NULL, 20.00000, b'0', 2.99000, NULL, b'0', NULL, 20.00000, 20.00000, NULL, NULL, NULL, NULL, 22.99000, 0.00000, 0.00000, 0.00000, 0.00000, NULL, 258, 3, i*5 + 401, NULL, NULL);
+-- 				INSERT INTO `broadleaf`.`blc_fulfillment_group`(`FULFILLMENT_GROUP_ID`, `DELIVERY_INSTRUCTION`, `PRICE`, `SHIPPING_PRICE_TAXABLE`, `MERCHANDISE_TOTAL`, `METHOD`, `IS_PRIMARY`, `REFERENCE_NUMBER`, `RETAIL_PRICE`, `SALE_PRICE`, `FULFILLMENT_GROUP_SEQUNCE`, `SERVICE`, `SHIPPING_OVERRIDE`, `STATUS`, `TOTAL`, `TOTAL_FEE_TAX`, `TOTAL_FG_TAX`, `TOTAL_ITEM_TAX`, `TOTAL_TAX`, `TYPE`, `ADDRESS_ID`, `FULFILLMENT_OPTION_ID`, `ORDER_ID`, `PERSONAL_MESSAGE_ID`, `PHONE_ID`) VALUES (i*5 + 502, NULL, 5.00000, b'0', 56.95000, NULL, b'0', NULL, 5.00000, 5.00000, NULL, NULL, NULL, NULL, 61.95000, 0.00000, 0.00000, 0.00000, 0.00000, NULL, 306, 1, i*5 + 402, NULL, NULL);
+-- 				INSERT INTO `broadleaf`.`blc_fulfillment_group`(`FULFILLMENT_GROUP_ID`, `DELIVERY_INSTRUCTION`, `PRICE`, `SHIPPING_PRICE_TAXABLE`, `MERCHANDISE_TOTAL`, `METHOD`, `IS_PRIMARY`, `REFERENCE_NUMBER`, `RETAIL_PRICE`, `SALE_PRICE`, `FULFILLMENT_GROUP_SEQUNCE`, `SERVICE`, `SHIPPING_OVERRIDE`, `STATUS`, `TOTAL`, `TOTAL_FEE_TAX`, `TOTAL_FG_TAX`, `TOTAL_ITEM_TAX`, `TOTAL_TAX`, `TYPE`, `ADDRESS_ID`, `FULFILLMENT_OPTION_ID`, `ORDER_ID`, `PERSONAL_MESSAGE_ID`, `PHONE_ID`) VALUES (i*5 + 503, NULL, 20.00000, b'0', 94.89000, NULL, b'0', NULL, 20.00000, 20.00000, NULL, NULL, NULL, NULL, 114.89000, 0.00000, 0.00000, 0.00000, 0.00000, NULL, 309, 3, i*5 + 403, NULL, NULL);
+-- 				INSERT INTO `broadleaf`.`blc_fulfillment_group`(`FULFILLMENT_GROUP_ID`, `DELIVERY_INSTRUCTION`, `PRICE`, `SHIPPING_PRICE_TAXABLE`, `MERCHANDISE_TOTAL`, `METHOD`, `IS_PRIMARY`, `REFERENCE_NUMBER`, `RETAIL_PRICE`, `SALE_PRICE`, `FULFILLMENT_GROUP_SEQUNCE`, `SERVICE`, `SHIPPING_OVERRIDE`, `STATUS`, `TOTAL`, `TOTAL_FEE_TAX`, `TOTAL_FG_TAX`, `TOTAL_ITEM_TAX`, `TOTAL_TAX`, `TYPE`, `ADDRESS_ID`, `FULFILLMENT_OPTION_ID`, `ORDER_ID`, `PERSONAL_MESSAGE_ID`, `PHONE_ID`) VALUES (i*5 + 504, NULL, 0.00000, b'0', 4.99000, NULL, b'0', NULL, 0.00000, 0.00000, NULL, NULL, NULL, NULL, 4.99000, 0.00000, 0.00000, 0.00000, 0.00000, NULL, NULL, NULL, i*5 + 404, NULL, NULL);
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 				INSERT INTO `broadleaf`.`blc_fulfillment_group_item`(`FULFILLMENT_GROUP_ITEM_ID`, `PRORATED_ORDER_ADJ`, `QUANTITY`, `STATUS`, `TOTAL_ITEM_AMOUNT`, `TOTAL_ITEM_TAXABLE_AMOUNT`, `TOTAL_ITEM_TAX`, `FULFILLMENT_GROUP_ID`, `ORDER_ITEM_ID`) VALUES (i*5 + 500, 0.00, 3, NULL, 44.97000, 44.97000, 0.00000, i*5 + 500, i*5 + 500);
+-- 				INSERT INTO `broadleaf`.`blc_fulfillment_group_item`(`FULFILLMENT_GROUP_ITEM_ID`, `PRORATED_ORDER_ADJ`, `QUANTITY`, `STATUS`, `TOTAL_ITEM_AMOUNT`, `TOTAL_ITEM_TAXABLE_AMOUNT`, `TOTAL_ITEM_TAX`, `FULFILLMENT_GROUP_ID`, `ORDER_ITEM_ID`) VALUES (i*5 + 501, 0.00, 1, NULL, 15.99000, 15.99000, 0.00000, i*5 + 501, i*5 + 501);
+-- 				INSERT INTO `broadleaf`.`blc_fulfillment_group_item`(`FULFILLMENT_GROUP_ITEM_ID`, `PRORATED_ORDER_ADJ`, `QUANTITY`, `STATUS`, `TOTAL_ITEM_AMOUNT`, `TOTAL_ITEM_TAXABLE_AMOUNT`, `TOTAL_ITEM_TAX`, `FULFILLMENT_GROUP_ID`, `ORDER_ITEM_ID`) VALUES (i*5 + 502, 0.00, 5, NULL, 24.95000, 24.95000, 0.00000, i*5 + 502, i*5 + 502);
+-- 				INSERT INTO `broadleaf`.`blc_fulfillment_group_item`(`FULFILLMENT_GROUP_ITEM_ID`, `PRORATED_ORDER_ADJ`, `QUANTITY`, `STATUS`, `TOTAL_ITEM_AMOUNT`, `TOTAL_ITEM_TAXABLE_AMOUNT`, `TOTAL_ITEM_TAX`, `FULFILLMENT_GROUP_ID`, `ORDER_ITEM_ID`) VALUES (i*5 + 503, 0.00, 2, NULL, 29.98000, 29.98000, 0.00000, i*5 + 503, i*5 + 503);
+-- 				INSERT INTO `broadleaf`.`blc_fulfillment_group_item`(`FULFILLMENT_GROUP_ITEM_ID`, `PRORATED_ORDER_ADJ`, `QUANTITY`, `STATUS`, `TOTAL_ITEM_AMOUNT`, `TOTAL_ITEM_TAXABLE_AMOUNT`, `TOTAL_ITEM_TAX`, `FULFILLMENT_GROUP_ID`, `ORDER_ITEM_ID`) VALUES (i*5 + 504, 0.00, 1, NULL, 6.99000, 6.99000, 0.00000, i*5 + 504, i*5 + 504);
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `broadleaf`.`blc_order_item_price_dtl`(`ORDER_ITEM_PRICE_DTL_ID`, `QUANTITY`, `USE_SALE_PRICE`, `ORDER_ITEM_ID`) VALUES (i*5 + 400, 2, b'1', i*5 + 500);
+-- 			INSERT INTO `broadleaf`.`blc_order_item_price_dtl`(`ORDER_ITEM_PRICE_DTL_ID`, `QUANTITY`, `USE_SALE_PRICE`, `ORDER_ITEM_ID`) VALUES (i*5 + 401, 1, b'1', i*5 + 501);
+-- 			INSERT INTO `broadleaf`.`blc_order_item_price_dtl`(`ORDER_ITEM_PRICE_DTL_ID`, `QUANTITY`, `USE_SALE_PRICE`, `ORDER_ITEM_ID`) VALUES (i*5 + 402, 1, b'1', i*5 + 502);
+-- 			INSERT INTO `broadleaf`.`blc_order_item_price_dtl`(`ORDER_ITEM_PRICE_DTL_ID`, `QUANTITY`, `USE_SALE_PRICE`, `ORDER_ITEM_ID`) VALUES (i*5 + 403, 1, b'1', i*5 + 503);
+-- 			INSERT INTO `broadleaf`.`blc_order_item_price_dtl`(`ORDER_ITEM_PRICE_DTL_ID`, `QUANTITY`, `USE_SALE_PRICE`, `ORDER_ITEM_ID`) VALUES (i*5 + 404, 1, b'1', i*5 + 504);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `broadleaf`.`blc_order_payment_transaction`(`PAYMENT_TRANSACTION_ID`, `TRANSACTION_AMOUNT`, `ARCHIVED`, `CUSTOMER_IP_ADDRESS`, `DATE_RECORDED`, `RAW_RESPONSE`, `SAVE_TOKEN`, `SUCCESS`, `TRANSACTION_TYPE`, `ORDER_PAYMENT`, `PARENT_TRANSACTION`) VALUES (i*5 + 300, 22.99, 'N', NULL, '2022-03-13 00:01:49', 'Success!', b'0', b'1', 'AUTHORIZE_AND_CAPTURE', i*5 + 300, 201);
+-- 			INSERT INTO `broadleaf`.`blc_order_payment_transaction`(`PAYMENT_TRANSACTION_ID`, `TRANSACTION_AMOUNT`, `ARCHIVED`, `CUSTOMER_IP_ADDRESS`, `DATE_RECORDED`, `RAW_RESPONSE`, `SAVE_TOKEN`, `SUCCESS`, `TRANSACTION_TYPE`, `ORDER_PAYMENT`, `PARENT_TRANSACTION`) VALUES (i*5 + 301, 61.95, 'N', NULL, '2022-04-01 04:42:00', NULL, b'0', b'1', 'UNCONFIRMED', i*5 + 301, NULL);
+-- 			INSERT INTO `broadleaf`.`blc_order_payment_transaction`(`PAYMENT_TRANSACTION_ID`, `TRANSACTION_AMOUNT`, `ARCHIVED`, `CUSTOMER_IP_ADDRESS`, `DATE_RECORDED`, `RAW_RESPONSE`, `SAVE_TOKEN`, `SUCCESS`, `TRANSACTION_TYPE`, `ORDER_PAYMENT`, `PARENT_TRANSACTION`) VALUES (i*5 + 302, 61.95, 'N', NULL, '2022-04-01 04:42:25', 'Success!', b'0', b'1', 'AUTHORIZE_AND_CAPTURE', i*5 + 302, 251);
+-- 			INSERT INTO `broadleaf`.`blc_order_payment_transaction`(`PAYMENT_TRANSACTION_ID`, `TRANSACTION_AMOUNT`, `ARCHIVED`, `CUSTOMER_IP_ADDRESS`, `DATE_RECORDED`, `RAW_RESPONSE`, `SAVE_TOKEN`, `SUCCESS`, `TRANSACTION_TYPE`, `ORDER_PAYMENT`, `PARENT_TRANSACTION`) VALUES (i*5 + 303, 114.89, 'N', NULL, '2022-04-01 04:58:18', NULL, b'0', b'1', 'UNCONFIRMED', i*5 + 303, NULL);
+-- 			INSERT INTO `broadleaf`.`blc_order_payment_transaction`(`PAYMENT_TRANSACTION_ID`, `TRANSACTION_AMOUNT`, `ARCHIVED`, `CUSTOMER_IP_ADDRESS`, `DATE_RECORDED`, `RAW_RESPONSE`, `SAVE_TOKEN`, `SUCCESS`, `TRANSACTION_TYPE`, `ORDER_PAYMENT`, `PARENT_TRANSACTION`) VALUES (i*5 + 304, 114.89, 'N', NULL, '2022-04-01 04:58:21', 'Success!', b'0', b'1', 'AUTHORIZE_AND_CAPTURE', i*5 + 304, 253);
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO blc_customer_phone(CUSTOMER_PHONE_ID, PHONE_NAME, CUSTOMER_ID, PHONE_ID) values (i*5 + 0, 'mobile phone', i*4000 + 1, i+360);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+-- 
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `broadleaf`.`blc_fld_def`(`FLD_DEF_ID`, `ALLOW_MULTIPLES`, `COLUMN_WIDTH`, `FLD_ORDER`, `FLD_TYPE`, `FRIENDLY_NAME`, `HELP_TEXT`, `HIDDEN_FLAG`, `HINT`, `MAX_LENGTH`, `NAME`, `REQUIRED_FLAG`, `SECURITY_LEVEL`, `TEXT_AREA_FLAG`, `TOOLTIP`, `VLDTN_ERROR_MSSG_KEY`, `VLDTN_REGEX`, `ENUM_ID`, `FLD_GROUP_ID`) VALUES (i*5 + 100, b'0', '*', 1, 'HTML', 'Body', NULL, b'0', NULL, NULL, 'body', NULL, NULL, b'0', NULL, NULL, NULL, NULL, 1);
+-- 			INSERT INTO `broadleaf`.`blc_fld_def`(`FLD_DEF_ID`, `ALLOW_MULTIPLES`, `COLUMN_WIDTH`, `FLD_ORDER`, `FLD_TYPE`, `FRIENDLY_NAME`, `HELP_TEXT`, `HIDDEN_FLAG`, `HINT`, `MAX_LENGTH`, `NAME`, `REQUIRED_FLAG`, `SECURITY_LEVEL`, `TEXT_AREA_FLAG`, `TOOLTIP`, `VLDTN_ERROR_MSSG_KEY`, `VLDTN_REGEX`, `ENUM_ID`, `FLD_GROUP_ID`) VALUES (i*5 + 101, b'0', '*', 0, 'STRING', 'Title', NULL, b'0', NULL, NULL, 'title', NULL, NULL, b'0', NULL, NULL, NULL, NULL, 1);
+-- 			INSERT INTO `broadleaf`.`blc_fld_def`(`FLD_DEF_ID`, `ALLOW_MULTIPLES`, `COLUMN_WIDTH`, `FLD_ORDER`, `FLD_TYPE`, `FRIENDLY_NAME`, `HELP_TEXT`, `HIDDEN_FLAG`, `HINT`, `MAX_LENGTH`, `NAME`, `REQUIRED_FLAG`, `SECURITY_LEVEL`, `TEXT_AREA_FLAG`, `TOOLTIP`, `VLDTN_ERROR_MSSG_KEY`, `VLDTN_REGEX`, `ENUM_ID`, `FLD_GROUP_ID`) VALUES (i*5 + 102, b'0', '*', 0, 'ASSET_LOOKUP', 'Image URL', NULL, b'0', NULL, 150, 'imageUrl', b'1', NULL, b'0', NULL, NULL, NULL, NULL, 4);
+-- 			INSERT INTO `broadleaf`.`blc_fld_def`(`FLD_DEF_ID`, `ALLOW_MULTIPLES`, `COLUMN_WIDTH`, `FLD_ORDER`, `FLD_TYPE`, `FRIENDLY_NAME`, `HELP_TEXT`, `HIDDEN_FLAG`, `HINT`, `MAX_LENGTH`, `NAME`, `REQUIRED_FLAG`, `SECURITY_LEVEL`, `TEXT_AREA_FLAG`, `TOOLTIP`, `VLDTN_ERROR_MSSG_KEY`, `VLDTN_REGEX`, `ENUM_ID`, `FLD_GROUP_ID`) VALUES (i*5 + 103, b'0', '*', 1, 'STRING', 'Target URL', NULL, b'0', NULL, 150, 'targetUrl', b'1', NULL, b'0', NULL, 'Invalid Url', '^(\\/)[a-z(\\/)\\d\\-\\_]+$', NULL, 4);
+-- 			INSERT INTO `broadleaf`.`blc_fld_def`(`FLD_DEF_ID`, `ALLOW_MULTIPLES`, `COLUMN_WIDTH`, `FLD_ORDER`, `FLD_TYPE`, `FRIENDLY_NAME`, `HELP_TEXT`, `HIDDEN_FLAG`, `HINT`, `MAX_LENGTH`, `NAME`, `REQUIRED_FLAG`, `SECURITY_LEVEL`, `TEXT_AREA_FLAG`, `TOOLTIP`, `VLDTN_ERROR_MSSG_KEY`, `VLDTN_REGEX`, `ENUM_ID`, `FLD_GROUP_ID`) VALUES (i*5 + 104, b'0', '*', 0, 'STRING', 'Message Text', NULL, b'0', NULL, 150, 'messageText', NULL, NULL, b'0', NULL, NULL, NULL, NULL, 6);
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `broadleaf`.`blc_media`(`MEDIA_ID`, `ALT_TEXT`, `TAGS`, `TITLE`, `URL`) VALUES (i*5 + 60000, 'primary', 'Red', 'Heat Clinic Mascot Men\'s Red', '/cmsstatic/img/merch/heat_clinic_mascot_mens_red.jpg');
+-- 			INSERT INTO `broadleaf`.`blc_media`(`MEDIA_ID`, `ALT_TEXT`, `TAGS`, `TITLE`, `URL`) VALUES (i*5 + 60001, 'primary', 'Silver', 'Heat Clinic Mascot Men\'s Silver', '/cmsstatic/img/merch/heat_clinic_mascot_mens_silver.jpg');
+-- 			INSERT INTO `broadleaf`.`blc_media`(`MEDIA_ID`, `ALT_TEXT`, `TAGS`, `TITLE`, `URL`) VALUES (i*5 + 60002, 'primary', 'Black', 'Heat Clinic Mascot Women\'s Black', '/cmsstatic/img/merch/heat_clinic_mascot_womens_black.jpg');
+-- 			INSERT INTO `broadleaf`.`blc_media`(`MEDIA_ID`, `ALT_TEXT`, `TAGS`, `TITLE`, `URL`) VALUES (i*5 + 60003, 'primary', 'Red', 'Heat Clinic Mascot Women\'s Red', '/cmsstatic/img/merch/heat_clinic_mascot_womens_red.jpg');
+-- 			INSERT INTO `broadleaf`.`blc_media`(`MEDIA_ID`, `ALT_TEXT`, `TAGS`, `TITLE`, `URL`) VALUES (i*5 + 60004, 'primary', 'Silver', 'Heat Clinic Mascot Women\'s Silver', '/cmsstatic/img/merch/heat_clinic_mascot_womens_silver.jpg');
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<20000 do
+-- 			INSERT INTO `broadleaf`.`blc_offer`(`OFFER_ID`, `APPLY_TO_CHILD_ITEMS`, `APPLY_TO_SALE_PRICE`, `ARCHIVED`, `AUTOMATICALLY_ADDED`, `COMBINABLE_WITH_OTHER_OFFERS`, `OFFER_DESCRIPTION`, `OFFER_DISCOUNT_TYPE`, `END_DATE`, `MARKETING_MESSASGE`, `MAX_USES_PER_CUSTOMER`, `MAX_USES`, `OFFER_NAME`, `OFFER_ITEM_QUALIFIER_RULE`, `OFFER_ITEM_TARGET_RULE`, `ORDER_MIN_TOTAL`, `OFFER_PRIORITY`, `QUALIFYING_ITEM_MIN_TOTAL`, `REQUIRES_RELATED_TAR_QUAL`, `START_DATE`, `TARGET_MIN_TOTAL`, `TARGET_SYSTEM`, `TOTALITARIAN_OFFER`, `OFFER_TYPE`, `OFFER_VALUE`) VALUES (i, b'0', b'0', NULL, b'0', b'1', NULL, 'PERCENT_OFF', '2020-01-01 00:00:00', NULL, NULL, 0, 'Shirts Special', NULL, 'NONE', NULL, NULL, NULL, NULL, '2022-03-03 00:00:00', NULL, NULL, NULL, 'ORDER_ITEM', 20.00000);
+-- 
+-- 			INSERT INTO `broadleaf`.`blc_offer_item_criteria`(`OFFER_ITEM_CRITERIA_ID`, `ORDER_ITEM_MATCH_RULE`, `QUANTITY`) VALUES (i, 'MvelHelper.toUpperCase(orderItem.?category.?name)==MvelHelper.toUpperCase(\"merchandise\")', 1);
+-- 
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<4000 do
+-- 			INSERT INTO `broadleaf`.`blc_customer_offer_xref`(CUSTOMER_OFFER_ID,CUSTOMER_ID,OFFER_ID) VALUES (i*5 + 0, i*4000 + 1, i+5);
+-- 			INSERT INTO `broadleaf`.`blc_customer_offer_xref`(CUSTOMER_OFFER_ID,CUSTOMER_ID,OFFER_ID) VALUES (i*5 + 1, i*4000 + 2, i+6);
+-- 			INSERT INTO `broadleaf`.`blc_customer_offer_xref`(CUSTOMER_OFFER_ID,CUSTOMER_ID,OFFER_ID) VALUES (i*5 + 2, i*4000 + 3, i+7);
+-- 			INSERT INTO `broadleaf`.`blc_customer_offer_xref`(CUSTOMER_OFFER_ID,CUSTOMER_ID,OFFER_ID) VALUES (i*5 + 3, i*4000 + 4, i+8);
+-- 			INSERT INTO `broadleaf`.`blc_customer_offer_xref`(CUSTOMER_OFFER_ID,CUSTOMER_ID,OFFER_ID) VALUES (i*5 + 4, i*4000 + 5, i+9);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<20000 do
+-- 			INSERT INTO `broadleaf`.`blc_offer_code`(
+-- 					OFFER_CODE_ID,
+-- 					ARCHIVED,
+-- 					EMAIL_ADDRESS,
+-- 					MAX_USES,
+-- 					OFFER_CODE,
+-- 					END_DATE,
+-- 					START_DATE,
+-- 					USES,
+-- 					OFFER_ID) 
+-- 				VALUES (i, 'y', CONCAT('George', i, "@gmail.com"), 100, 'code', "2022-3-30", "2021-3-30", 100, i);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+		
+		
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<20000 do
+-- 			INSERT INTO `broadleaf`.`blc_order_offer_code_xref`(ORDER_ID, OFFER_CODE_ID) VALUES (i + 405, i);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 20;
+-- 		start transaction;
+-- 		while i<20000 do
+-- 			INSERT INTO `broadleaf`.`blc_product_attribute`(`PRODUCT_ATTRIBUTE_ID`, `NAME`, `VALUE`, `PRODUCT_ID`) VALUES (i, 'heatRange', '10', i+800);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 		set i = 1;
+-- 		start transaction;
+-- 		while i<20000 do
+-- 			INSERT INTO `broadleaf`.`blc_product_featured`(`FEATURED_PRODUCT_ID`, `PROMOTION_MESSAGE`, `SEQUENCE`, `CATEGORY_ID`, `PRODUCT_ID`) VALUES (i+30, NULL, 4.000000, 2002, i+804);
+-- 			INSERT INTO `broadleaf`.`blc_product_option_xref`(`PRODUCT_OPTION_XREF_ID`, `PRODUCT_ID`, `PRODUCT_OPTION_ID`) VALUES (i+30, i+804, i%3 + 1);
+-- 		set i=i+1;
+-- 		end while;
+-- 		commit;
+
+
+-- 
+END
