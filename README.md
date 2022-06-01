@@ -1,5 +1,7 @@
 # SLocator: Localizing the Origin of SQL Queries in Database-Backed Web Applications
 > **Note:** This is the source code (**SLocator**), demo (**Demo**), experiment (**Experiment**) and evaluation dataset (**Dataset**) for SLocator
+> 
+> **Note:** The **appendix.pdf** is in (**Appendix**)
 
 ## 1. SLocator
 This directory constians **Statically Inferring Database Access**, the static analysis to infer the database access of each control flow path in the source code.
