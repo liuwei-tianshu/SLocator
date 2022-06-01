@@ -1,0 +1,610 @@
+Given individual SQL query: select tag0_.id as id1_89_, tag0_.name as name2_89_, tag0_.sort as sort3_89_ from tag tag0_ order by tag0_.sort desc
+Pre-processed SQL query: select from tag order by tag.sort
+SQL query Searched: select o from Tag o order by o.sort desc
+Request Searched: cms.web.action.topic.TopicAction.allAuditTopic(PageForm, ModelMap, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select tag0_.id as id1_89_, tag0_.name as name2_89_, tag0_.sort as sort3_89_ from tag tag0_ order by tag0_.sort desc
+Pre-processed SQL query: select from tag order by tag.sort
+SQL query Searched: select o from Tag o order by o.sort desc
+Request Searched: cms.web.action.user.UserManageAction.allTopic(PageForm, ModelMap, String, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select usergrade0_.id as id1_115_, usergrade0_.name as name2_115_, usergrade0_.needpoint as needpoin3_115_ from usergrade usergrade0_ order by usergrade0_.needpoint desc
+Pre-processed SQL query: select from usergrade order by usergrade.needpoint
+SQL query Searched: select o from UserGrade o where o.id=?1
+Request Searched: cms.web.action.user.UserGradeManageAction.delete(ModelMap, Integer, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select tag0_.id as id1_89_, tag0_.name as name2_89_, tag0_.sort as sort3_89_ from tag tag0_ order by tag0_.sort desc
+Pre-processed SQL query: select from tag order by tag.sort
+SQL query Searched: select o from Tag o order by o.sort desc
+Request Searched: cms.web.action.topic.TopicManageAction.editUI(ModelMap, Long, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select tag0_.id as id1_89_, tag0_.name as name2_89_, tag0_.sort as sort3_89_ from tag tag0_ order by tag0_.sort desc
+Pre-processed SQL query: select from tag order by tag.sort
+SQL query Searched: select o from Tag o order by o.sort desc
+Request Searched: cms.web.action.topic.TagAction.execute(ModelMap, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select tag0_.id as id1_89_, tag0_.name as name2_89_, tag0_.sort as sort3_89_ from tag tag0_ order by tag0_.sort desc
+Pre-processed SQL query: select from tag order by tag.sort
+SQL query Searched: select o from Tag o order by o.sort desc
+Request Searched: cms.web.action.topic.TopicAction.execute(PageForm, ModelMap, Boolean, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select tag0_.id as id1_89_, tag0_.name as name2_89_, tag0_.sort as sort3_89_ from tag tag0_ order by tag0_.sort desc
+Pre-processed SQL query: select from tag order by tag.sort
+SQL query Searched: select o from Tag o order by o.sort desc
+Request Searched: cms.web.action.topic.TagManageAction.queryAllTag(ModelMap, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select usergrade0_.id as id1_115_, usergrade0_.name as name2_115_, usergrade0_.needpoint as needpoin3_115_ from usergrade usergrade0_ order by usergrade0_.needpoint desc
+Pre-processed SQL query: select from usergrade order by usergrade.needpoint
+SQL query Searched: select o from UserGrade o where o.id=?1
+Request Searched: cms.web.action.user.UserGradeManageAction.edit(ModelMap, UserGrade, BindingResult, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select usergrade0_.id as id1_115_, usergrade0_.name as name2_115_, usergrade0_.needpoint as needpoin3_115_ from usergrade usergrade0_ order by usergrade0_.needpoint desc
+Pre-processed SQL query: select from usergrade order by usergrade.needpoint
+SQL query Searched: select o from UserGrade o where o.id=?1
+Request Searched: cms.web.action.user.UserGradeManageAction.editUI(ModelMap, Integer, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into tag (name, sort, id) values (?, ?, ?)
+Pre-processed SQL query: insert into tag (name, sort, id) values (?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select tag0_.id as id1_89_, tag0_.name as name2_89_, tag0_.sort as sort3_89_ from tag tag0_ where tag0_.id=?
+Pre-processed SQL query: select from tag where tag.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update tag set name=?, sort=? where id=?
+Pre-processed SQL query: update tag set name=?, sort=? where id=?
+SQL query Searched: update Tag o set o.name=?1, o.sort=?2 where o.id=?3
+Request Searched: cms.web.action.topic.TagManageAction.edit(ModelMap, Tag, BindingResult, Long, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from tag where id=?
+Pre-processed SQL query: delete from tag where id=?
+SQL query Searched: delete from Tag o where o.id=?1
+Request Searched: cms.web.action.topic.TagManageAction.delete(ModelMap, Long, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into topic (allow, commenttotal, content, essence, giveredenvelopeid, image, ip, isstaff, lastreplytime, lastupdatetime, posttime, sort, status, summary, tagid, title, username, viewtotal) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into topic (allow, commenttotal, content, essence, giveredenvelopeid, image, ip, isstaff, lastreplytime, lastupdatetime, posttime, sort, status, summary, tagid, title, username, viewtotal) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into topicindex (dataid, indexstate) values (?, ?)
+Pre-processed SQL query: insert into topicindex (dataid, indexstate) values (?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select thumbnail0_.id as id1_92_, thumbnail0_.high as high2_92_, thumbnail0_.name as name3_92_, thumbnail0_.specificationgroup as specific4_92_, thumbnail0_.width as width5_92_ from thumbnail thumbnail0_
+Pre-processed SQL query: select from thumbnail
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select topic0_.id as id1_93_, topic0_.allow as allow2_93_, topic0_.commenttotal as commentt3_93_, topic0_.content as content4_93_, topic0_.essence as essence5_93_, topic0_.giveredenvelopeid as giverede6_93_, topic0_.image as image7_93_, topic0_.ip as ip8_93_, topic0_.isstaff as isstaff9_93_, topic0_.lastreplytime as lastrep10_93_, topic0_.lastupdatetime as lastupd11_93_, topic0_.posttime as posttim12_93_, topic0_.sort as sort13_93_, topic0_.status as status14_93_, topic0_.summary as summary15_93_, topic0_.tagid as tagid16_93_, topic0_.title as title17_93_, topic0_.username as usernam18_93_, topic0_.viewtotal as viewtot19_93_ from topic topic0_ where topic0_.id=?
+Pre-processed SQL query: select from topic where topic.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ order by userrole0_.defaultrole desc, userrole0_.sort desc
+Pre-processed SQL query: select o from UserRole o ORDER BY o.defaultRole DESC, o.sort DESC
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select comment0_.id as id1_2_, comment0_.content as content2_2_, comment0_.ip as ip3_2_, comment0_.isstaff as isstaff4_2_, comment0_.lastupdatetime as lastupda5_2_, comment0_.posttime as posttime6_2_, comment0_.quote as quote7_2_, comment0_.quoteidgroup as quoteidg8_2_, comment0_.quoteupdateid as quoteupd9_2_, comment0_.status as status10_2_, comment0_.topicid as topicid11_2_, comment0_.username as usernam12_2_ from comment comment0_ where comment0_.topicid=? order by comment0_.posttime asc limit ?
+Pre-processed SQL query: select from comment comment where comment.topicid=?  order by comment.posttime limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(comment0_.id) as col_0_0_ from comment comment0_ where comment0_.topicid=?
+Pre-processed SQL query: select count(comment.id) from comment comment where comment.topicid=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update topic set title=?, content=?, summary=?, tagid=?, allow=?, image=?, status=?, sort=?, essence=? where id=?
+Pre-processed SQL query: update topic set title=?, content=?, summary=?, tagid=?, allow=?, image=?, status=?, sort=?, essence=? where id=?
+SQL query Searched: update Topic o set o.title=?1, o.content=?2,o.summary=?3,o.tagId=?4,o.allow=?5,o.image=?6,o.status=?7,o.sort=?8,o.essence=?9 where o.id=?10
+Request Searched: cms.web.action.topic.TopicManageAction.edit(ModelMap, Long, Long, String, String, Boolean, Integer, Boolean, String, String, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select sysusers0_.userid as userid1_87_, sysusers0_.enabled as enabled2_87_, sysusers0_.fullname as fullname3_87_, sysusers0_.issys as issys4_87_, sysusers0_.securitydigest as security5_87_, sysusers0_.useraccount as useracco6_87_, sysusers0_.userdesc as userdesc7_87_, sysusers0_.userduty as userduty8_87_, sysusers0_.userpassword as userpass9_87_ from sysusers sysusers0_ where sysusers0_.useraccount=?
+Pre-processed SQL query: select from sysusers where sysusers.useraccount=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select topic0_.id as id1_93_, topic0_.allow as allow2_93_, topic0_.commenttotal as commentt3_93_, topic0_.content as content4_93_, topic0_.essence as essence5_93_, topic0_.giveredenvelopeid as giverede6_93_, topic0_.image as image7_93_, topic0_.ip as ip8_93_, topic0_.isstaff as isstaff9_93_, topic0_.lastreplytime as lastrep10_93_, topic0_.lastupdatetime as lastupd11_93_, topic0_.posttime as posttim12_93_, topic0_.sort as sort13_93_, topic0_.status as status14_93_, topic0_.summary as summary15_93_, topic0_.tagid as tagid16_93_, topic0_.title as title17_93_, topic0_.username as usernam18_93_, topic0_.viewtotal as viewtot19_93_ from topic topic0_ where topic0_.id in (?)
+Pre-processed SQL query: select from topic where topic.id in (?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update topic set status=status+100 where id=?
+Pre-processed SQL query: update topic set status=status+ where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update topic set status=? where id=?
+Pre-processed SQL query: update topic set status=? where id=?
+SQL query Searched: update Topic o set o.status=?1 where o.id=?2
+Request Searched: cms.web.action.topic.TopicManageAction.auditTopic(ModelMap, Long, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select questionta0_.id as id1_58_, questionta0_.childnodenumber as childnod2_58_, questionta0_.name as name3_58_, questionta0_.parentid as parentid4_58_, questionta0_.parentidgroup as parentid5_58_, questionta0_.sort as sort6_58_ from questiontag questionta0_ order by questionta0_.sort desc
+Pre-processed SQL query: select from questiontag order by questionta.sort
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into question (adoptionanswerid, allow, amount, answertotal, appendcontent, content, ip, isstaff, lastanswertime, lastupdatetime, point, posttime, sort, status, summary, title, username, viewtotal) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into question (adoptionanswerid, allow, amount, answertotal, appendcontent, content, ip, isstaff, lastanswertime, lastupdatetime, point, posttime, sort, status, summary, title, username, viewtotal) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into questiontagassociation (questionid, questiontagid, username) values (?, ?, ?)
+Pre-processed SQL query: insert into questiontagassociation (questionid, questiontagid, username) values (?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into questionindex (dataid, indexstate) values (?, ?)
+Pre-processed SQL query: insert into questionindex (dataid, indexstate) values (?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select question0_.id as id1_51_, question0_.adoptionanswerid as adoption2_51_, question0_.allow as allow3_51_, question0_.amount as amount4_51_, question0_.answertotal as answerto5_51_, question0_.appendcontent as appendco6_51_, question0_.content as content7_51_, question0_.ip as ip8_51_, question0_.isstaff as isstaff9_51_, question0_.lastanswertime as lastans10_51_, question0_.lastupdatetime as lastupd11_51_, question0_.point as point12_51_, question0_.posttime as posttim13_51_, question0_.sort as sort14_51_, question0_.status as status15_51_, question0_.summary as summary16_51_, question0_.title as title17_51_, question0_.username as usernam18_51_, question0_.viewtotal as viewtot19_51_ from question question0_ where question0_.id=?
+Pre-processed SQL query: select from question where question.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select questionta0_.id as id1_59_, questionta0_.questionid as question2_59_, questionta0_.questiontagid as question3_59_, questionta0_.username as username4_59_ from questiontagassociation questionta0_ where questionta0_.questionid=?
+Pre-processed SQL query: select from questiontagassociation where questionta.questionid=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.username=?
+Pre-processed SQL query: select from user user where user.username=?
+SQL query Searched: select o from User o where o.userName=?1
+Request Searched: cms.web.action.common.TopicFormAction.add(ModelMap, Long, String, String, Integer, String, String, String, String, String, String, String, RedirectAttributes, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.username=?
+Pre-processed SQL query: select from user user where user.username=?
+SQL query Searched: select o from User o where o.userName=?1
+Request Searched: cms.web.action.user.PointLogManageAction.addUI(ModelMap, String, String, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.username=?
+Pre-processed SQL query: select from user user where user.username=?
+SQL query Searched: select o from User o where o.userName=?1
+Request Searched: cms.web.action.common.MembershipCardFormAction.add(ModelMap, Long, String, String, RedirectAttributes, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.username=?
+Pre-processed SQL query: select from user user where user.username=?
+SQL query Searched: select o from User o where o.userName=?1
+Request Searched: cms.web.action.common.QuestionFormAction.add(ModelMap, Long[], String, String, String, String, String, String, String, String, RedirectAttributes, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.username=?
+Pre-processed SQL query: select from user user where user.username=?
+SQL query Searched: select o from User o where o.userName=?1
+Request Searched: cms.web.action.common.HomeManageAction.balanceUI(ModelMap, PageForm, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update question set title=?, content=?, summary=?, allow=?, status=?, sort=?, point=?, amount=? where id=?
+Pre-processed SQL query: update question set title=?, content=?, summary=?, allow=?, status=?, sort=?, point=?, amount=? where id=?
+SQL query Searched: update Question o set o.title=?1, o.content=?2,o.summary=?3,o.allow=?4,o.status=?5,o.sort=?6,o.point=?7,o.amount=?8 where o.id=?9
+Request Searched: cms.web.action.question.QuestionManageAction.editQuestion(ModelMap, Long, Long[], String, Boolean, Integer, String, String, String, String, Boolean, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from questiontagassociation where questionid=?
+Pre-processed SQL query: delete from questiontagassociation where questionid=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select question0_.id as id1_51_, question0_.adoptionanswerid as adoption2_51_, question0_.allow as allow3_51_, question0_.amount as amount4_51_, question0_.answertotal as answerto5_51_, question0_.appendcontent as appendco6_51_, question0_.content as content7_51_, question0_.ip as ip8_51_, question0_.isstaff as isstaff9_51_, question0_.lastanswertime as lastans10_51_, question0_.lastupdatetime as lastupd11_51_, question0_.point as point12_51_, question0_.posttime as posttim13_51_, question0_.sort as sort14_51_, question0_.status as status15_51_, question0_.summary as summary16_51_, question0_.title as title17_51_, question0_.username as usernam18_51_, question0_.viewtotal as viewtot19_51_ from question question0_ where question0_.id in (?)
+Pre-processed SQL query: select from question where question.id in (?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update question set status=status+100 where id=?
+Pre-processed SQL query: update question set status=status+ where id=?
+SQL query Searched: update Question o set o.status=o.status+100 where o.id=?1
+Request Searched: cms.web.action.question.QuestionManageAction.deleteQuestion(ModelMap, Long[], HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into questiontag (childnodenumber, name, parentid, parentidgroup, sort, id) values (?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into questiontag (childnodenumber, name, parentid, parentidgroup, sort, id) values (?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select questionta0_.id as id1_58_, questionta0_.childnodenumber as childnod2_58_, questionta0_.name as name3_58_, questionta0_.parentid as parentid4_58_, questionta0_.parentidgroup as parentid5_58_, questionta0_.sort as sort6_58_ from questiontag questionta0_ where questionta0_.id=?
+Pre-processed SQL query: select from questiontag where questionta.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select questionta0_.id as id1_58_, questionta0_.childnodenumber as childnod2_58_, questionta0_.name as name3_58_, questionta0_.parentid as parentid4_58_, questionta0_.parentidgroup as parentid5_58_, questionta0_.sort as sort6_58_ from questiontag questionta0_ where questionta0_.parentid=?
+Pre-processed SQL query: select from questiontag where questionta.parentid=?
+SQL query Searched: select o from QuestionTag o where o.parentId=?1
+Request Searched: cms.service.question.impl.QuestionTagServiceBean.deleteChildNode(List<Long>)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update questiontag set name=?, sort=? where id=?
+Pre-processed SQL query: update questiontag set name=?, sort=? where id=?
+SQL query Searched: update QuestionTag o set o.name=?1, o.sort=?2 where o.id=?3
+Request Searched: cms.web.action.question.QuestionTagManageAction.edit(ModelMap, Long, String, String, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select questionta0_.id as id1_58_, questionta0_.childnodenumber as childnod2_58_, questionta0_.name as name3_58_, questionta0_.parentid as parentid4_58_, questionta0_.parentidgroup as parentid5_58_, questionta0_.sort as sort6_58_ from questiontag questionta0_ where questionta0_.parentid=?
+Pre-processed SQL query: select from questiontag where questionta.parentid=?
+SQL query Searched: select o from QuestionTag o where o.parentId=?1
+Request Searched: cms.web.action.question.QuestionTagManageAction.delete(ModelMap, Long, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from questiontag where id=?
+Pre-processed SQL query: delete from questiontag where id=?
+SQL query Searched: delete from QuestionTag o where o.id=?1
+Request Searched: cms.web.action.question.QuestionTagManageAction.delete(ModelMap, Long, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from questiontagassociation where questiontagid=?
+Pre-processed SQL query: delete from questiontagassociation where questiontagid=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+Pre-processed SQL query: select from usercustom order by usercustom.sort
+SQL query Searched: select o from UserCustom o where o.id=?1
+Request Searched: cms.web.action.user.UserCustomManageAction.editUI(ModelMap, Integer, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+Pre-processed SQL query: select from usercustom order by usercustom.sort
+SQL query Searched: select o from UserCustom o where o.id=?1
+Request Searched: cms.web.action.user.UserCustomManageAction.delete(ModelMap, Integer, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select usercustom0_.id as id1_110_, usercustom0_.choosetype as choosety2_110_, usercustom0_.cols as cols3_110_, usercustom0_.fieldfilter as fieldfil4_110_, usercustom0_.maxlength as maxlengt5_110_, usercustom0_.multiple as multiple6_110_, usercustom0_.name as name7_110_, usercustom0_.regular as regular8_110_, usercustom0_.required as required9_110_, usercustom0_.`rows` as rows10_110_, usercustom0_.search as search11_110_, usercustom0_.selete_size as selete_12_110_, usercustom0_.size as size13_110_, usercustom0_.sort as sort14_110_, usercustom0_.tip as tip15_110_, usercustom0_.`value` as value16_110_, usercustom0_.`visible` as visible17_110_ from usercustom usercustom0_ order by usercustom0_.sort desc
+Pre-processed SQL query: select from usercustom order by usercustom.sort
+SQL query Searched: select o from UserCustom o where o.id=?1
+Request Searched: cms.web.action.user.UserCustomManageAction.edit(ModelMap, UserCustom, String, String, String, String[], String[], String, String, String, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.account=?
+Pre-processed SQL query: select from user user where user.account=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.nickname=?
+Pre-processed SQL query: select from user user where user.nickname=?
+SQL query Searched: select o from User o where o.nickname=?1
+Request Searched: cms.web.action.user.UserManageAction.edit(User, String[], ModelMap, PageForm, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.nickname=?
+Pre-processed SQL query: select from user user where user.nickname=?
+SQL query Searched: select o from User o where o.nickname=?1
+Request Searched: cms.web.action.common.HomeManageAction.editUser(ModelMap, User, String, String, String, RedirectAttributes, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into user (account, allowuserdynamic, answer, avatarname, cancelaccounttime, deposit, email, issue, mobile, nickname, password, platformuserid, point, realnameauthentication, registrationdate, remarks, salt, securitydigest, state, type, username, userversion) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into user (account, allowuserdynamic, answer, avatarname, cancelaccounttime, deposit, email, issue, mobile, nickname, password, platformuserid, point, realnameauthentication, registrationdate, remarks, salt, securitydigest, state, type, username, userversion) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+Pre-processed SQL query: select from user user where user.id=?
+SQL query Searched: select o from User o where o.id=?1
+Request Searched: cms.web.action.user.UserManageAction.cancelAccount(ModelMap, Long, Integer, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+Pre-processed SQL query: select from user user where user.id=?
+SQL query Searched: select o from User o where o.id=?1
+Request Searched: cms.web.action.user.UserManageAction.edit(User, String[], ModelMap, PageForm, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+Pre-processed SQL query: select from user user where user.id=?
+SQL query Searched: select o from User o where o.id=?1
+Request Searched: cms.web.action.follow.FollowAction.followerList(ModelMap, PageForm, Long, String, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+Pre-processed SQL query: select from user user where user.id=?
+SQL query Searched: select o from User o where o.id=?1
+Request Searched: cms.web.action.user.UserManageAction.editUI(User, ModelMap, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+Pre-processed SQL query: select from user user where user.id=?
+SQL query Searched: select o from User o where o.id=?1
+Request Searched: cms.web.action.favorite.FavoriteAction.favoriteList(ModelMap, PageForm, Long, String, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id=?
+Pre-processed SQL query: select from user user where user.id=?
+SQL query Searched: select o from User o where o.id=?1
+Request Searched: cms.web.action.user.UserLoginLogAction.execute(ModelMap, Long, PageForm, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select userinputv0_.id as id1_116_, userinputv0_.content as content2_116_, userinputv0_.options as options3_116_, userinputv0_.usercustomid as usercust4_116_, userinputv0_.userid as userid5_116_ from userinputvalue userinputv0_ where userinputv0_.userid=?
+Pre-processed SQL query: select from userinputvalue where userinputv.userid=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select userrolegr0_.id as id1_122_, userrolegr0_.username as username2_122_, userrolegr0_.userroleid as userrole3_122_, userrolegr0_.validperiodend as validper4_122_ from userrolegroup userrolegr0_ where userrolegr0_.username=?
+Pre-processed SQL query: select from userrolegroup where userrolegr.username=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update user set nickname=?, allowuserdynamic=?, password=?, email=?, issue=?, answer=?, state=?, remarks=?, mobile=?, realnameauthentication=?, securitydigest=?, platformuserid=?, userversion=userversion+1 where id=? and userversion=?
+Pre-processed SQL query: update user set nickname=?, allowuserdynamic=?, password=?, email=?, issue=?, answer=?, state=?, remarks=?, mobile=?, realnameauthentication=?, securitydigest=?, platformuserid=?, userversion=userversion+ where id=? and userversion=?
+SQL query Searched: update user set nickname=?, allowuserdynamic=?, password=?, email=?, issue=?, answer=?, state=?, remarks=?, mobile=?, realnameauthentication=?, securitydigest=?, platformuserid=?, userversion=userversion+ where id=? and userversion=?
+Request Searched: cms.web.action.user.UserManageAction.edit(User, String[], ModelMap, PageForm, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from userrolegroup where username in (?)
+Pre-processed SQL query: delete from userrolegroup where username in (?)
+SQL query Searched: delete from UserRoleGroup o where o.userName in(:userName)
+Request Searched: cms.web.action.user.UserManageAction.delete(ModelMap, Long[], HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from userrolegroup where username in (?)
+Pre-processed SQL query: delete from userrolegroup where username in (?)
+SQL query Searched: delete from UserRoleGroup o where o.userName in(:userName)
+Request Searched: cms.web.action.user.UserManageAction.edit(User, String[], ModelMap, PageForm, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into userrolegroup (username, userroleid, validperiodend) values (?, ?, ?)
+Pre-processed SQL query: insert into userrolegroup (username, userroleid, validperiodend) values (?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id in (?)
+Pre-processed SQL query: select from user user where user.id in (?)
+SQL query Searched: elect o from User o where o.id in(:id)
+Request Searched: cms.web.action.user.UserManageAction.delete(ModelMap, Long[], HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select user0_.id as id1_109_, user0_.account as account2_109_, user0_.allowuserdynamic as allowuse3_109_, user0_.answer as answer4_109_, user0_.avatarname as avatarna5_109_, user0_.cancelaccounttime as cancelac6_109_, user0_.deposit as deposit7_109_, user0_.email as email8_109_, user0_.issue as issue9_109_, user0_.mobile as mobile10_109_, user0_.nickname as nicknam11_109_, user0_.password as passwor12_109_, user0_.platformuserid as platfor13_109_, user0_.point as point14_109_, user0_.realnameauthentication as realnam15_109_, user0_.registrationdate as registr16_109_, user0_.remarks as remarks17_109_, user0_.salt as salt18_109_, user0_.securitydigest as securit19_109_, user0_.state as state20_109_, user0_.type as type21_109_, user0_.username as usernam22_109_, user0_.userversion as userver23_109_ from user user0_ where user0_.id in (?)
+Pre-processed SQL query: select from user user where user.id in (?)
+SQL query Searched: elect o from User o where o.id in(:id)
+Request Searched: cms.web.action.user.UserManageAction.reduction(ModelMap, Long[], HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update user set state=state+10, userversion=userversion+1 where (id in (?)) and state<?
+Pre-processed SQL query: update user set state=state+, userversion=userversion+ where (id in (?)) and state<?
+SQL query Searched: update User o set o.state=o.state+10,o.userVersion=o.userVersion+1 where o.id in(:id) and o.state < :state
+Request Searched: cms.web.action.user.UserManageAction.delete(ModelMap, Long[], HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into userrole (defaultrole, name, remark, sort, userresourceformat, id) values (?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into userrole (defaultrole, name, remark, sort, userresourceformat, id) values (?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select userrole0_.id as id1_121_, userrole0_.defaultrole as defaultr2_121_, userrole0_.name as name3_121_, userrole0_.remark as remark4_121_, userrole0_.sort as sort5_121_, userrole0_.userresourceformat as userreso6_121_ from userrole userrole0_ where userrole0_.id=?
+Pre-processed SQL query: select from userrole where userrole.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update userrole set name=?, sort=?, remark=?, userresourceformat=? where id=?
+Pre-processed SQL query: update userrole set name=?, sort=?, remark=?, userresourceformat=? where id=?
+SQL query Searched: update UserRole o set o.name=?1,o.sort=?2, o.remark=?3,o.userResourceFormat=?4 where o.id=?5
+Request Searched: cms.web.action.user.UserRoleManageAction.edit(ModelMap, UserRole, String, String[], BindingResult, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from userrole where id=?
+Pre-processed SQL query: delete from userrole where id=?
+SQL query Searched: delete from UserRole o where o.id=?1
+Request Searched: cms.web.action.user.UserRoleManageAction.delete(ModelMap, String, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select usergrade0_.id as id1_115_, usergrade0_.name as name2_115_, usergrade0_.needpoint as needpoin3_115_ from usergrade usergrade0_ where usergrade0_.needpoint=?
+Pre-processed SQL query: select from usergrade where usergrade.needpoint=?
+SQL query Searched: select o from UserGrade o where o.needPoint=?1
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into usergrade (name, needpoint) values (?, ?)
+Pre-processed SQL query: insert into usergrade (name, needpoint) values (?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select usergrade0_.id as id1_115_0_, usergrade0_.name as name2_115_0_, usergrade0_.needpoint as needpoin3_115_0_ from usergrade usergrade0_ where usergrade0_.id=?
+Pre-processed SQL query: select from usergrade where usergrade.id=?
+SQL query Searched: select o from UserGrade o where o.id=?1
+Request Searched: cms.web.action.user.UserGradeManageAction.edit(ModelMap, UserGrade, BindingResult, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select usergrade0_.id as id1_115_0_, usergrade0_.name as name2_115_0_, usergrade0_.needpoint as needpoin3_115_0_ from usergrade usergrade0_ where usergrade0_.id=?
+Pre-processed SQL query: select from usergrade where usergrade.id=?
+SQL query Searched: select o from UserGrade o where o.id=?1
+Request Searched: cms.web.action.user.UserGradeManageAction.editUI(ModelMap, Integer, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update usergrade set name=?, needpoint=? where id=?
+Pre-processed SQL query: update usergrade set name=?, needpoint=? where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from usergrade where id=?
+Pre-processed SQL query: delete from usergrade where id=?
+SQL query Searched: delete from UserGrade o where o.id=?1
+Request Searched: cms.web.action.user.UserGradeManageAction.delete(ModelMap, Integer, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into disableusername (name) values (?)
+Pre-processed SQL query: insert into disableusername (name) values (?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select disableuse0_.id as id1_3_0_, disableuse0_.name as name2_3_0_ from disableusername disableuse0_ where disableuse0_.id=?
+Pre-processed SQL query: select from disableusername where disableuse.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update disableusername set name=? where id=?
+Pre-processed SQL query: update disableusername set name=? where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from disableusername where id=?
+Pre-processed SQL query: delete from disableusername where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into membershipcard (createdate, descriptiontagformat, highestpoint, highestprice, introduction, lowestpoint, lowestprice, name, sort, state, subtitle, userroleid) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into membershipcard (createdate, descriptiontagformat, highestpoint, highestprice, introduction, lowestpoint, lowestprice, name, sort, state, subtitle, userroleid) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select membership0_.id as id1_29_, membership0_.createdate as createda2_29_, membership0_.descriptiontagformat as descript3_29_, membership0_.highestpoint as highestp4_29_, membership0_.highestprice as highestp5_29_, membership0_.introduction as introduc6_29_, membership0_.lowestpoint as lowestpo7_29_, membership0_.lowestprice as lowestpr8_29_, membership0_.name as name9_29_, membership0_.sort as sort10_29_, membership0_.state as state11_29_, membership0_.subtitle as subtitl12_29_, membership0_.userroleid as userrol13_29_ from membershipcard membership0_ where membership0_.id=?
+Pre-processed SQL query: select from membershipcard where membership.id=?
+SQL query Searched: select o from MembershipCard o where o.id=?1
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select specificat0_.id as id1_71_, specificat0_.duration as duration2_71_, specificat0_.enable as enable3_71_, specificat0_.marketprice as marketpr4_71_, specificat0_.membershipcardid as membersh5_71_, specificat0_.point as point6_71_, specificat0_.sellingprice as sellingp7_71_, specificat0_.sort as sort8_71_, specificat0_.specificationname as specific9_71_, specificat0_.stock as stock10_71_, specificat0_.stockoccupy as stockoc11_71_, specificat0_.unit as unit12_71_ from specification specificat0_ where specificat0_.membershipcardid=? order by specificat0_.sort asc
+Pre-processed SQL query: select from specification where specificat.membershipcardid=?  order by specificat.sort
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update membershipcard set name=?, subtitle=?, lowestprice=?, highestprice=?, lowestpoint=?, highestpoint=?, introduction=?, state=?, userroleid=?, sort=?, descriptiontagformat=? where id=?
+Pre-processed SQL query: update membershipcard set name=?, subtitle=?, lowestprice=?, highestprice=?, lowestpoint=?, highestpoint=?, introduction=?, state=?, userroleid=?, sort=?, descriptiontagformat=? where id=?
+SQL query Searched: update membershipcard set name=?, subtitle=?, lowestprice=?, highestprice=?, lowestpoint=?, highestpoint=?, introduction=?, state=?, userroleid=?, sort=?, descriptiontagformat=? where id=?
+Request Searched: cms.web.action.membershipCard.MembershipCardManageAction.edit(ModelMap, MembershipCard, BindingResult, Long, Integer[], Long[], String[], Boolean[], String[], Integer[], String[], String[], String[], String[], String[], String[], Integer[], HttpServletRequest)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from membershipcard where id=?
+Pre-processed SQL query: delete from membershipcard where id=?
+SQL query Searched: delete from MembershipCard o where o.id=?1
+Request Searched: cms.web.action.membershipCard.MembershipCardManageAction.delete(ModelMap, Long, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from specification where membershipcardid=?
+Pre-processed SQL query: delete from specification where membershipcardid=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select sysusersro0_.roleid as col_0_0_ from sysusersroles sysusersro0_ where sysusersro0_.useraccount=?
+Pre-processed SQL query: select sysusersro.roleid from sysusersroles where sysusersro.useraccount=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select sysroles0_.id as id1_83_, sysroles0_.name as name2_83_, sysroles0_.remarks as remarks3_83_ from sysroles sysroles0_
+Pre-processed SQL query: select from sysroles
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sysusersroles (roleid, useraccount) values (?, ?)
+Pre-processed SQL query: insert into sysusersroles (roleid, useraccount) values (?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sysusers (enabled, fullname, issys, securitydigest, useraccount, userdesc, userduty, userpassword, userid) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into sysusers (enabled, fullname, issys, securitydigest, useraccount, userdesc, userduty, userpassword, userid) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select sysusers0_.userid as userid1_87_0_, sysusers0_.enabled as enabled2_87_0_, sysusers0_.fullname as fullname3_87_0_, sysusers0_.issys as issys4_87_0_, sysusers0_.securitydigest as security5_87_0_, sysusers0_.useraccount as useracco6_87_0_, sysusers0_.userdesc as userdesc7_87_0_, sysusers0_.userduty as userduty8_87_0_, sysusers0_.userpassword as userpass9_87_0_ from sysusers sysusers0_ where sysusers0_.userid=?
+Pre-processed SQL query: select from sysusers where sysusers.userid=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sysusersroles where useraccount=?
+Pre-processed SQL query: delete from sysusersroles where useraccount=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update sysusers set enabled=?, fullname=?, issys=?, securitydigest=?, useraccount=?, userdesc=?, userduty=?, userpassword=? where userid=?
+Pre-processed SQL query: update sysusers set enabled=?, fullname=?, issys=?, securitydigest=?, useraccount=?, userdesc=?, userduty=?, userpassword=? where userid=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sysusers where useraccount=?
+Pre-processed SQL query: delete from sysusers where useraccount=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from staffloginlog_0 where staffid=?
+Pre-processed SQL query: delete from staffloginlog_ where staffid=?
+SQL query Searched: delete from staffloginlog_ where staffid=?
+Request Searched: cms.web.action.staff.StaffManageAction.deleteStaff(ModelMap, String)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from staffloginlog_3 where staffid=?
+Pre-processed SQL query: delete from staffloginlog_ where staffid=?
+SQL query Searched: delete from StaffLoginLog o where o.staffId =?1
+Request Searched: cms.web.action.staff.StaffManageAction.deleteStaff(ModelMap, String)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from staffloginlog_1 where staffid=?
+Pre-processed SQL query: delete from staffloginlog_ where staffid=?
+SQL query Searched: delete from StaffLoginLog o where o.staffId =?1
+Request Searched: cms.web.action.staff.StaffManageAction.deleteStaff(ModelMap, String)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from staffloginlog_2 where staffid=?
+Pre-processed SQL query: delete from staffloginlog_ where staffid=?
+SQL query Searched: delete from StaffLoginLog o where o.staffId =?1
+Request Searched: cms.web.action.staff.StaffManageAction.deleteStaff(ModelMap, String)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select sysresourc1_.url as col_0_0_, syspermiss2_.methods as col_1_0_, syspermiss2_.name as col_2_0_, sysresourc1_.module as col_3_0_, sysresourc1_.urlparentid as col_4_0_, syspermiss2_.id as col_5_0_, syspermiss2_.remarks as col_6_0_ from syspermissionresources syspermiss0_ cross join sysresources sysresourc1_ cross join syspermission syspermiss2_ where syspermiss0_.resourceid=sysresourc1_.id and syspermiss0_.permissionid=syspermiss2_.id order by sysresourc1_.priority asc, syspermiss2_.priority asc
+Pre-processed SQL query: select from syspermissionresources cross join sysresources cross join syspermission where syspermiss.resourceid=sysresourc.id and syspermiss.permissionid=syspermiss.id  order by
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sysroles (name, remarks, id) values (?, ?, ?)
+Pre-processed SQL query: insert into sysroles (name, remarks, id) values (?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sysrolespermission (permissionid, roleid) values (?, ?)
+Pre-processed SQL query: insert into sysrolespermission (permissionid, roleid) values (?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select sysroles0_.id as id1_83_0_, sysroles0_.name as name2_83_0_, sysroles0_.remarks as remarks3_83_0_ from sysroles sysroles0_ where sysroles0_.id=?
+Pre-processed SQL query: select from sysroles where sysroles.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sysrolespermission where roleid=?
+Pre-processed SQL query: delete from sysrolespermission where roleid=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sysroles where id=?
+Pre-processed SQL query: delete from sysroles where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select syspermiss1_.id as id1_80_, syspermiss1_.methods as methods2_80_, syspermiss1_.name as name3_80_, syspermiss1_.priority as priority4_80_, syspermiss1_.remarks as remarks5_80_ from sysrolespermission sysrolespe0_ cross join syspermission syspermiss1_ where sysrolespe0_.permissionid=syspermiss1_.id and sysrolespe0_.roleid=?
+Pre-processed SQL query: select from sysrolespermission cross join syspermission where sysrolespe.permissionid=syspermiss.id and sysrolespe.roleid=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update sysroles set name=?, remarks=? where id=?
+Pre-processed SQL query: update sysroles set name=?, remarks=? where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into helptype (childnodenumber, description, helpquantity, image, mergertypeid, name, parentid, parentidgroup, sort, totalhelp, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into helptype (childnodenumber, description, helpquantity, image, mergertypeid, name, parentid, parentidgroup, sort, totalhelp, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select helptype0_.id as id1_20_, helptype0_.childnodenumber as childnod2_20_, helptype0_.description as descript3_20_, helptype0_.helpquantity as helpquan4_20_, helptype0_.image as image5_20_, helptype0_.mergertypeid as mergerty6_20_, helptype0_.name as name7_20_, helptype0_.parentid as parentid8_20_, helptype0_.parentidgroup as parentid9_20_, helptype0_.sort as sort10_20_, helptype0_.totalhelp as totalhe11_20_ from helptype helptype0_ where helptype0_.id=?
+Pre-processed SQL query: select from helptype where helptype.id=?
+SQL query Searched: select o from HelpType o where o.id=?1
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update helptype set name=?, sort=?, image=?, description=? where id=?
+Pre-processed SQL query: update helptype set name=?, sort=?, image=?, description=? where id=?
+SQL query Searched: update HelpType o set o.name=?1, o.sort=?2,o.image=?3,o.description=?4 where o.id=?5
+Request Searched: cms.web.action.help.HelpTypeManageAction.edit(ModelMap, HelpType, BindingResult, Long, String, MultipartFile, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select helptype0_.id as id1_20_, helptype0_.childnodenumber as childnod2_20_, helptype0_.description as descript3_20_, helptype0_.helpquantity as helpquan4_20_, helptype0_.image as image5_20_, helptype0_.mergertypeid as mergerty6_20_, helptype0_.name as name7_20_, helptype0_.parentid as parentid8_20_, helptype0_.parentidgroup as parentid9_20_, helptype0_.sort as sort10_20_, helptype0_.totalhelp as totalhe11_20_ from helptype helptype0_ where helptype0_.parentidgroup like ?
+Pre-processed SQL query: select from helptype where helptype.parentidgroup like ? like
+SQL query Searched: select o from HelpType o where o.parentIdGroup like ?1
+Request Searched: cms.web.action.help.HelpTypeManageAction.delete(ModelMap, Long, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from help where helptypeid=?
+Pre-processed SQL query: delete from help where helptypeid=?
+SQL query Searched: delete from Help o where o.id=?1
+Request Searched: cms.web.action.help.HelpManageAction.delete(ModelMap, Long[], HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from helptype where id=?
+Pre-processed SQL query: delete from helptype where id=?
+SQL query Searched: delete from HelpType o where o.id=?1
+Request Searched: cms.web.action.help.HelpTypeManageAction.delete(ModelMap, Long, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select helptype0_.id as id1_20_, helptype0_.childnodenumber as childnod2_20_, helptype0_.description as descript3_20_, helptype0_.helpquantity as helpquan4_20_, helptype0_.image as image5_20_, helptype0_.mergertypeid as mergerty6_20_, helptype0_.name as name7_20_, helptype0_.parentid as parentid8_20_, helptype0_.parentidgroup as parentid9_20_, helptype0_.sort as sort10_20_, helptype0_.totalhelp as totalhe11_20_ from helptype helptype0_ where helptype0_.parentid=?
+Pre-processed SQL query: select from helptype where helptype.parentid=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update helptype set totalhelp=totalhelp+1, helpquantity=helpquantity+1 where id=? and childnodenumber=?
+Pre-processed SQL query: update helptype set totalhelp=totalhelp+, helpquantity=helpquantity+ where id=? and childnodenumber=?
+SQL query Searched: update HelpType o set o.childNodeNumber=?1,o.totalHelp=?2,o.helpQuantity=?3,o.mergerTypeId=?4 where o.id=?5 and o.childNodeNumber=?6
+Request Searched: cms.web.action.help.HelpTypeManageAction.add(ModelMap, HelpType, BindingResult, Long, String, MultipartFile, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into help (content, helptypeid, name, times, username, visible) values (?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into help (content, helptypeid, name, times, username, visible) values (?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select help0_.id as id1_19_, help0_.content as content2_19_, help0_.helptypeid as helptype3_19_, help0_.name as name4_19_, help0_.times as times5_19_, help0_.username as username6_19_, help0_.visible as visible7_19_ from help help0_ where help0_.id=?
+Pre-processed SQL query: select from help where help.id=?
+SQL query Searched: select o from Help o where o.id=?1
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update help set name=?, content=?, helptypeid=? where id=?
+Pre-processed SQL query: update help set name=?, content=?, helptypeid=? where id=?
+SQL query Searched: update Help o set o.name=?1, o.content=?2,o.helpTypeId=?3 where o.id=?4
+Request Searched: cms.web.action.help.HelpManageAction.edit(ModelMap, Long, Long, String, String, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select help0_.id as id1_19_, help0_.content as content2_19_, help0_.helptypeid as helptype3_19_, help0_.name as name4_19_, help0_.times as times5_19_, help0_.username as username6_19_, help0_.visible as visible7_19_ from help help0_ where help0_.id in (?)
+Pre-processed SQL query: select from help where help.id in (?)
+SQL query Searched: select o from Help o where o.id in(:helpIdList)
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update help set visible=? where id=?
+Pre-processed SQL query: update help set visible=? where id=?
+SQL query Searched: update Help o set o.visible=?1 where o.id=?2
+Request Searched: cms.web.action.help.HelpManageAction.delete(ModelMap, Long[], HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------

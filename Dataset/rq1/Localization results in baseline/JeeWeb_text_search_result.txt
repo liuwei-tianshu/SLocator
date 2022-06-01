@@ -1,0 +1,745 @@
+Given individual SQL query: select user0_.id as id17_0_, user0_.create_by as create14_17_0_, user0_.create_date as create2_17_0_, user0_.del_flag as del3_17_0_, user0_.remarks as remarks17_0_, user0_.update_by as update15_17_0_, user0_.update_date as update5_17_0_, user0_.email as email17_0_, user0_.password as password17_0_, user0_.phone as phone17_0_, user0_.portrait as portrait17_0_, user0_.realname as realname17_0_, user0_.salt as salt17_0_, user0_.status as status17_0_, user0_.username as username17_0_ from sys_user user0_ where user0_.id=?
+Pre-processed SQL query: select from sysuser user where user.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sys_attachment (create_by, create_date, del_flag, remarks, update_by, update_date, fileext, filename, filepath, filesize, status, uploadip, uploadtime, userid, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into sys_attachment (create_by, create_date, del_flag, remarks, update_by, update_date, fileext, filename, filepath, filesize, status, uploadip, uploadtime, userid, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update sys_user set create_by=?, create_date=?, del_flag=?, remarks=?, update_by=?, update_date=?, email=?, password=?, phone=?, portrait=?, realname=?, salt=?, status=?, username=? where id=?
+Pre-processed SQL query: update sys_user set create_by=?, create_date=?, del_flag=?, remarks=?, update_by=?, update_date=?, email=?, password=?, phone=?, portrait=?, realname=?, salt=?, status=?, username=? where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_user this_
+Pre-processed SQL query: select count(*) from sysuser
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id14_0_, this_.name as name14_0_, this_.parent_id as parent3_14_0_, this_.parent_ids as parent4_14_0_, this_.remarks as remarks14_0_, (select count(*) from sys_organization f_t where f_t.parent_id = this_.id) as formula1_0_ from sys_organization this_
+Pre-processed SQL query: select from sysorganization
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id17_0_, this_.create_by as create14_17_0_, this_.create_date as create2_17_0_, this_.del_flag as del3_17_0_, this_.remarks as remarks17_0_, this_.update_by as update15_17_0_, this_.update_date as update5_17_0_, this_.email as email17_0_, this_.password as password17_0_, this_.phone as phone17_0_, this_.portrait as portrait17_0_, this_.realname as realname17_0_, this_.salt as salt17_0_, this_.status as status17_0_, this_.username as username17_0_ from sys_user this_ order by this_.id asc limit ?
+Pre-processed SQL query: select from sysuser order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_dict_group this_
+Pre-processed SQL query: select count(*) from sysdictgroup
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id11_0_, this_.create_by as create8_11_0_, this_.create_date as create2_11_0_, this_.del_flag as del3_11_0_, this_.remarks as remarks11_0_, this_.update_by as update9_11_0_, this_.update_date as update5_11_0_, this_.code as code11_0_, this_.name as name11_0_ from sys_dict_group this_ order by this_.id asc limit ?
+Pre-processed SQL query: select as create , as update , from sysdictgroup order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sys_dict_group (create_by, create_date, del_flag, remarks, update_by, update_date, code, name, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into sys_dict_group (create_by, create_date, del_flag, remarks, update_by, update_date, code, name, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_dict this_ where this_.gid=?
+Pre-processed SQL query: select count(*) from sysdict where this_.gid=?
+SQL query Searched: select count(*) from sysdict
+Request Searched: cn.jeeweb.modules.sys.controller.IndexController.index(Model, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_dict this_ where this_.gid=?
+Pre-processed SQL query: select count(*) from sysdict where this_.gid=?
+SQL query Searched: select count(*) from sysdict
+Request Searched: cn.jeeweb.core.common.controller.BaseCRUDController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_dict this_ where this_.gid=?
+Pre-processed SQL query: select count(*) from sysdict where this_.gid=?
+SQL query Searched: select count(*) from sysdict
+Request Searched: cn.jeeweb.modules.sys.controller.AttachmentController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id10_1_, this_.create_by as create10_10_1_, this_.create_date as create2_10_1_, this_.del_flag as del3_10_1_, this_.remarks as remarks10_1_, this_.update_by as update11_10_1_, this_.update_date as update5_10_1_, this_.gid as gid10_1_, this_.gid as gid10_1_, this_.label as label10_1_, this_.sort as sort10_1_, this_.value as value10_1_, dictgroup2_.id as id11_0_, dictgroup2_.create_by as create8_11_0_, dictgroup2_.create_date as create2_11_0_, dictgroup2_.del_flag as del3_11_0_, dictgroup2_.remarks as remarks11_0_, dictgroup2_.update_by as update9_11_0_, dictgroup2_.update_date as update5_11_0_, dictgroup2_.code as code11_0_, dictgroup2_.name as name11_0_ from sys_dict this_ inner join sys_dict_group dictgroup2_ on this_.gid=dictgroup2_.id where this_.gid=? order by this_.id asc limit ?
+Pre-processed SQL query: select as create , this.createdate as create , as update , this.updatedate as update , as create , as update , from sysdict inner join sysdictgroup where this_.gid=?  order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sys_dict (create_by, create_date, del_flag, remarks, update_by, update_date, gid, label, sort, value, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into sys_dict (create_by, create_date, del_flag, remarks, update_by, update_date, gid, label, sort, value, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select dictentity0_.id as id10_1_, dictentity0_.create_by as create10_10_1_, dictentity0_.create_date as create2_10_1_, dictentity0_.del_flag as del3_10_1_, dictentity0_.remarks as remarks10_1_, dictentity0_.update_by as update11_10_1_, dictentity0_.update_date as update5_10_1_, dictentity0_.gid as gid10_1_, dictentity0_.gid as gid10_1_, dictentity0_.label as label10_1_, dictentity0_.sort as sort10_1_, dictentity0_.value as value10_1_, dictgroup1_.id as id11_0_, dictgroup1_.create_by as create8_11_0_, dictgroup1_.create_date as create2_11_0_, dictgroup1_.del_flag as del3_11_0_, dictgroup1_.remarks as remarks11_0_, dictgroup1_.update_by as update9_11_0_, dictgroup1_.update_date as update5_11_0_, dictgroup1_.code as code11_0_, dictgroup1_.name as name11_0_ from sys_dict dictentity0_ inner join sys_dict_group dictgroup1_ on dictentity0_.gid=dictgroup1_.id where dictentity0_.id=?
+Pre-processed SQL query: select as create , dictentity.createdate as create , as update , dictentity.updatedate as update , as create , as update , from sysdict inner join sysdictgroup where dictentity.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update sys_dict set create_by=?, create_date=?, del_flag=?, remarks=?, update_by=?, update_date=?, gid=?, label=?, sort=?, value=? where id=?
+Pre-processed SQL query: update sys_dict set create_by=?, create_date=?, del_flag=?, remarks=?, update_by=?, update_date=?, gid=?, label=?, sort=?, value=? where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_dict this_ where this_.label=? and this_.gid=?
+Pre-processed SQL query: select count(*) from sysdict where this_.label=? and this_.gid=?
+SQL query Searched: select count(*) from sysdict
+Request Searched: cn.jeeweb.modules.sys.controller.IndexController.index(Model, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_dict this_ where this_.label=? and this_.gid=?
+Pre-processed SQL query: select count(*) from sysdict where this_.label=? and this_.gid=?
+SQL query Searched: select count(*) from sysdict
+Request Searched: cn.jeeweb.core.common.controller.BaseCRUDController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_dict this_ where this_.label=? and this_.gid=?
+Pre-processed SQL query: select count(*) from sysdict where this_.label=? and this_.gid=?
+SQL query Searched: select count(*) from sysdict
+Request Searched: cn.jeeweb.modules.sys.controller.AttachmentController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id10_1_, this_.create_by as create10_10_1_, this_.create_date as create2_10_1_, this_.del_flag as del3_10_1_, this_.remarks as remarks10_1_, this_.update_by as update11_10_1_, this_.update_date as update5_10_1_, this_.gid as gid10_1_, this_.gid as gid10_1_, this_.label as label10_1_, this_.sort as sort10_1_, this_.value as value10_1_, dictgroup2_.id as id11_0_, dictgroup2_.create_by as create8_11_0_, dictgroup2_.create_date as create2_11_0_, dictgroup2_.del_flag as del3_11_0_, dictgroup2_.remarks as remarks11_0_, dictgroup2_.update_by as update9_11_0_, dictgroup2_.update_date as update5_11_0_, dictgroup2_.code as code11_0_, dictgroup2_.name as name11_0_ from sys_dict this_ inner join sys_dict_group dictgroup2_ on this_.gid=dictgroup2_.id where this_.label=? and this_.gid=? order by this_.id asc limit ?
+Pre-processed SQL query: select as create , this.createdate as create , as update , this.updatedate as update , as create , as update , from sysdict inner join sysdictgroup where this_.label=? and this_.gid=?  order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sys_dict where id=?
+Pre-processed SQL query: delete from sys_dict where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select dictgroup0_.id as id11_0_, dictgroup0_.create_by as create8_11_0_, dictgroup0_.create_date as create2_11_0_, dictgroup0_.del_flag as del3_11_0_, dictgroup0_.remarks as remarks11_0_, dictgroup0_.update_by as update9_11_0_, dictgroup0_.update_date as update5_11_0_, dictgroup0_.code as code11_0_, dictgroup0_.name as name11_0_ from sys_dict_group dictgroup0_ where dictgroup0_.id=?
+Pre-processed SQL query: select as create , as update , from sysdictgroup where dictgroup.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sys_dict_group where id=?
+Pre-processed SQL query: delete from sys_dict_group where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_dict_group this_ where this_.name like ?
+Pre-processed SQL query: select count(*) from sysdictgroup where this_.name like ? like
+SQL query Searched: select count(*) from sysdictgroup
+Request Searched: cn.jeeweb.modules.sys.controller.AttachmentController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_dict_group this_ where this_.name like ?
+Pre-processed SQL query: select count(*) from sysdictgroup where this_.name like ? like
+SQL query Searched: select count(*) from sysdictgroup
+Request Searched: cn.jeeweb.modules.sys.controller.IndexController.index(Model, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_dict_group this_ where this_.name like ?
+Pre-processed SQL query: select count(*) from sysdictgroup where this_.name like ? like
+SQL query Searched: select count(*) from sysdictgroup
+Request Searched: cn.jeeweb.core.common.controller.BaseCRUDController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id11_0_, this_.create_by as create8_11_0_, this_.create_date as create2_11_0_, this_.del_flag as del3_11_0_, this_.remarks as remarks11_0_, this_.update_by as update9_11_0_, this_.update_date as update5_11_0_, this_.code as code11_0_, this_.name as name11_0_ from sys_dict_group this_ where this_.name like ? order by this_.id asc limit ?
+Pre-processed SQL query: select as create , as update , from sysdictgroup where this_.name like ?  like order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sys_menu (name, parent_id, parent_ids, isshow, menu_icon, permission, remarks, sort, type, url, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into sys_menu (name, parent_id, parent_ids, isshow, menu_icon, permission, remarks, sort, type, url, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select menu0_.id as id13_0_, menu0_.name as name13_0_, menu0_.parent_id as parent3_13_0_, menu0_.parent_ids as parent4_13_0_, menu0_.isshow as isshow13_0_, menu0_.menu_icon as menu6_13_0_, menu0_.permission as permission13_0_, menu0_.remarks as remarks13_0_, menu0_.sort as sort13_0_, menu0_.type as type13_0_, menu0_.url as url13_0_, (select count(*) from sys_menu f_t where f_t.parent_id = menu0_.id) as formula0_0_ from sys_menu menu0_ where menu0_.id=?
+Pre-processed SQL query: select from sysmenu where menu.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update sys_menu set name=?, parent_id=?, parent_ids=?, isshow=?, menu_icon=?, permission=?, remarks=?, sort=?, type=?, url=? where id=?
+Pre-processed SQL query: update sys_menu set name=?, parent_id=?, parent_ids=?, isshow=?, menu_icon=?, permission=?, remarks=?, sort=?, type=?, url=? where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update sys_menu set parent_ids=concat(?, substring(parent_ids, length(?)+1, length(parent_ids)+1)) where parent_ids like concat(?, '%')
+Pre-processed SQL query: update sys_menu set parent_ids=concat(?, substring(parent_ids, length(?)+, length(parent_ids)+)) where parent_ids like concat(?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sys_menu where id=? or parent_ids like concat(?, '%')
+Pre-processed SQL query: delete from sys_menu where id=? or parent_ids like concat(?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_role this_
+Pre-processed SQL query: select count(*) from sysrole
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id15_0_, this_.create_by as create10_15_0_, this_.create_date as create2_15_0_, this_.del_flag as del3_15_0_, this_.remarks as remarks15_0_, this_.update_by as update11_15_0_, this_.update_date as update5_15_0_, this_.code as code15_0_, this_.is_sys as is7_15_0_, this_.name as name15_0_, this_.usable as usable15_0_ from sys_role this_ order by this_.id asc limit ?
+Pre-processed SQL query: select as create , this.createdate as create , as update , this.updatedate as update , from sysrole order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select role0_.id as id15_0_, role0_.create_by as create10_15_0_, role0_.create_date as create2_15_0_, role0_.del_flag as del3_15_0_, role0_.remarks as remarks15_0_, role0_.update_by as update11_15_0_, role0_.update_date as update5_15_0_, role0_.code as code15_0_, role0_.is_sys as is7_15_0_, role0_.name as name15_0_, role0_.usable as usable15_0_ from sys_role role0_ where role0_.id=?
+Pre-processed SQL query: select as create , role.createdate as create , as update , role.updatedate as update , from sysrole role where role.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sys_role where id=?
+Pre-processed SQL query: delete from sys_role where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sys_role (create_by, create_date, del_flag, remarks, update_by, update_date, code, is_sys, name, usable, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into sys_role (create_by, create_date, del_flag, remarks, update_by, update_date, code, is_sys, name, usable, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update sys_role set create_by=?, create_date=?, del_flag=?, remarks=?, update_by=?, update_date=?, code=?, is_sys=?, name=?, usable=? where id=?
+Pre-processed SQL query: update sys_role set create_by=?, create_date=?, del_flag=?, remarks=?, update_by=?, update_date=?, code=?, is_sys=?, name=?, usable=? where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id13_0_, this_.name as name13_0_, this_.parent_id as parent3_13_0_, this_.parent_ids as parent4_13_0_, this_.isshow as isshow13_0_, this_.menu_icon as menu6_13_0_, this_.permission as permission13_0_, this_.remarks as remarks13_0_, this_.sort as sort13_0_, this_.type as type13_0_, this_.url as url13_0_, (select count(*) from sys_menu f_t where f_t.parent_id = this_.id) as formula0_0_ from sys_menu this_
+Pre-processed SQL query: select from sysmenu
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select menu0_.id as id13_, menu0_.name as name13_, menu0_.parent_id as parent3_13_, menu0_.parent_ids as parent4_13_, menu0_.isshow as isshow13_, menu0_.menu_icon as menu6_13_, menu0_.permission as permission13_, menu0_.remarks as remarks13_, menu0_.sort as sort13_, menu0_.type as type13_, menu0_.url as url13_, (select count(*) from sys_menu f_t where f_t.parent_id = menu0_.id) as formula0_ from sys_menu menu0_ where menu0_.id in (select rolemenu1_.menu_id from sys_role_menu rolemenu1_ where rolemenu1_.role_id=?)
+Pre-processed SQL query: select from sysmenu where menu.id in (select rolemenu.menu_id from sys_role_menu rolemenu where rolemenu.role_id=?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id16_0_, this_.menu_id as menu2_16_0_, this_.role_id as role3_16_0_ from sys_role_menu this_ where this_.role_id=?
+Pre-processed SQL query: select from sysrolemenu where this_.role_id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sys_role_menu (menu_id, role_id, id) values (?, ?, ?)
+Pre-processed SQL query: insert into sys_role_menu (menu_id, role_id, id) values (?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sys_organization (name, parent_id, parent_ids, remarks, id) values (?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into sys_organization (name, parent_id, parent_ids, remarks, id) values (?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select organizati0_.id as id14_0_, organizati0_.name as name14_0_, organizati0_.parent_id as parent3_14_0_, organizati0_.parent_ids as parent4_14_0_, organizati0_.remarks as remarks14_0_, (select count(*) from sys_organization f_t where f_t.parent_id = organizati0_.id) as formula1_0_ from sys_organization organizati0_ where organizati0_.id=?
+Pre-processed SQL query: select from sysorganization where organizati.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sys_organization where id=? or parent_ids like concat(?, '%')
+Pre-processed SQL query: delete from sys_organization where id=? or parent_ids like concat(?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update sys_organization set name=?, parent_id=?, parent_ids=?, remarks=? where id=?
+Pre-processed SQL query: update sys_organization set name=?, parent_id=?, parent_ids=?, remarks=? where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update sys_organization set parent_ids=concat(?, substring(parent_ids, length(?)+1, length(parent_ids)+1)) where parent_ids like concat(?, '%')
+Pre-processed SQL query: update sys_organization set parent_ids=concat(?, substring(parent_ids, length(?)+, length(parent_ids)+)) where parent_ids like concat(?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_user this_ where this_.realname like ?
+Pre-processed SQL query: select count(*) from sysuser where this_.realname like ? like
+SQL query Searched: select count(*) from sysuser where
+Request Searched: cn.jeeweb.core.common.controller.BaseCRUDController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_user this_ where this_.realname like ?
+Pre-processed SQL query: select count(*) from sysuser where this_.realname like ? like
+SQL query Searched: select count(*) from sysuser where
+Request Searched: cn.jeeweb.modules.sys.controller.AttachmentController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_user this_ where this_.realname like ?
+Pre-processed SQL query: select count(*) from sysuser where this_.realname like ? like
+SQL query Searched: select count(*) from sysuser where
+Request Searched: cn.jeeweb.modules.sys.controller.IndexController.index(Model, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id17_0_, this_.create_by as create14_17_0_, this_.create_date as create2_17_0_, this_.del_flag as del3_17_0_, this_.remarks as remarks17_0_, this_.update_by as update15_17_0_, this_.update_date as update5_17_0_, this_.email as email17_0_, this_.password as password17_0_, this_.phone as phone17_0_, this_.portrait as portrait17_0_, this_.realname as realname17_0_, this_.salt as salt17_0_, this_.status as status17_0_, this_.username as username17_0_ from sys_user this_ where this_.realname like ? order by this_.id asc limit ?
+Pre-processed SQL query: select from sysuser where this_.realname like ?  like order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id15_0_, this_.create_by as create10_15_0_, this_.create_date as create2_15_0_, this_.del_flag as del3_15_0_, this_.remarks as remarks15_0_, this_.update_by as update11_15_0_, this_.update_date as update5_15_0_, this_.code as code15_0_, this_.is_sys as is7_15_0_, this_.name as name15_0_, this_.usable as usable15_0_ from sys_role this_
+Pre-processed SQL query: select as create , this.createdate as create , as update , this.updatedate as update , from sysrole
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sys_user (create_by, create_date, del_flag, remarks, update_by, update_date, email, password, phone, portrait, realname, salt, status, username, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into sys_user (create_by, create_date, del_flag, remarks, update_by, update_date, email, password, phone, portrait, realname, salt, status, username, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id21_2_, this_.role_id as role2_21_2_, this_.user_id as user3_21_2_, role2_.id as id15_0_, role2_.create_by as create10_15_0_, role2_.create_date as create2_15_0_, role2_.del_flag as del3_15_0_, role2_.remarks as remarks15_0_, role2_.update_by as update11_15_0_, role2_.update_date as update5_15_0_, role2_.code as code15_0_, role2_.is_sys as is7_15_0_, role2_.name as name15_0_, role2_.usable as usable15_0_, user3_.id as id17_1_, user3_.create_by as create14_17_1_, user3_.create_date as create2_17_1_, user3_.del_flag as del3_17_1_, user3_.remarks as remarks17_1_, user3_.update_by as update15_17_1_, user3_.update_date as update5_17_1_, user3_.email as email17_1_, user3_.password as password17_1_, user3_.phone as phone17_1_, user3_.portrait as portrait17_1_, user3_.realname as realname17_1_, user3_.salt as salt17_1_, user3_.status as status17_1_, user3_.username as username17_1_ from sys_user_role this_ inner join sys_role role2_ on this_.role_id=role2_.id inner join sys_user user3_ on this_.user_id=user3_.id where this_.user_id=?
+Pre-processed SQL query: select as create , role.createdate as create , as update , role.updatedate as update , from sysuserrole inner join sysrole role inner join sysuser user where this_.user_id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sys_user_role (role_id, user_id, id) values (?, ?, ?)
+Pre-processed SQL query: insert into sys_user_role (role_id, user_id, id) values (?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id20_2_, this_.organization_id as organiza2_20_2_, this_.user_id as user3_20_2_, organizati2_.id as id14_0_, organizati2_.name as name14_0_, organizati2_.parent_id as parent3_14_0_, organizati2_.parent_ids as parent4_14_0_, organizati2_.remarks as remarks14_0_, (select count(*) from sys_organization f_t where f_t.parent_id = organizati2_.id) as formula1_0_, user3_.id as id17_1_, user3_.create_by as create14_17_1_, user3_.create_date as create2_17_1_, user3_.del_flag as del3_17_1_, user3_.remarks as remarks17_1_, user3_.update_by as update15_17_1_, user3_.update_date as update5_17_1_, user3_.email as email17_1_, user3_.password as password17_1_, user3_.phone as phone17_1_, user3_.portrait as portrait17_1_, user3_.realname as realname17_1_, user3_.salt as salt17_1_, user3_.status as status17_1_, user3_.username as username17_1_ from sys_user_organization this_ inner join sys_organization organizati2_ on this_.organization_id=organizati2_.id inner join sys_user user3_ on this_.user_id=user3_.id where this_.user_id=?
+Pre-processed SQL query: select from sysuserorganization inner join sysorganization inner join sysuser user where this_.user_id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sys_user_organization (organization_id, user_id, id) values (?, ?, ?)
+Pre-processed SQL query: insert into sys_user_organization (organization_id, user_id, id) values (?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select role0_.id as id15_, role0_.create_by as create10_15_, role0_.create_date as create2_15_, role0_.del_flag as del3_15_, role0_.remarks as remarks15_, role0_.update_by as update11_15_, role0_.update_date as update5_15_, role0_.code as code15_, role0_.is_sys as is7_15_, role0_.name as name15_, role0_.usable as usable15_ from sys_role role0_ where role0_.id in (select userrole1_.role_id from sys_user_role userrole1_ where userrole1_.user_id=?)
+Pre-processed SQL query: select as create , role.createdate as create , as update , role.updatedate as update , from sysrole role where role.id in (select userrole.role_id from sys_user_role userrole where userrole.user_id=?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select organizati0_.id as id14_, organizati0_.name as name14_, organizati0_.parent_id as parent3_14_, organizati0_.parent_ids as parent4_14_, organizati0_.remarks as remarks14_, (select count(*) from sys_organization f_t where f_t.parent_id = organizati0_.id) as formula1_ from sys_organization organizati0_ where organizati0_.id in (select userorgani1_.organization_id from sys_user_organization userorgani1_ where userorgani1_.user_id=?)
+Pre-processed SQL query: select from sysorganization where organizati.id in (select userorgani.organization_id from sys_user_organization userorgani where userorgani.user_id=?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sys_user_role where id=?
+Pre-processed SQL query: delete from sys_user_role where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sys_user_organization where id=?
+Pre-processed SQL query: delete from sys_user_organization where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sys_user where id=?
+Pre-processed SQL query: delete from sys_user where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_user_online this_
+Pre-processed SQL query: select count(*) from sysuseronline
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id19_0_, this_.create_by as create16_19_0_, this_.create_date as create2_19_0_, this_.del_flag as del3_19_0_, this_.remarks as remarks19_0_, this_.update_by as update17_19_0_, this_.update_date as update5_19_0_, this_.host as host19_0_, this_.last_access_time as last7_19_0_, this_.online_session as online8_19_0_, this_.start_timestsamp as start9_19_0_, this_.status as status19_0_, this_.system_host as system11_19_0_, this_.online_timeout as online12_19_0_, this_.user_agent as user13_19_0_, this_.user_id as user14_19_0_, this_.username as username19_0_ from sys_user_online this_ order by this_.start_timestsamp desc limit ?
+Pre-processed SQL query: select from sysuseronline order by this.starttimestsamp limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_user_online this_ where this_.username=?
+Pre-processed SQL query: select count(*) from sysuseronline where this_.username=?
+SQL query Searched: select count(*) from sysuseronline
+Request Searched: cn.jeeweb.modules.sys.controller.IndexController.index(Model, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_user_online this_ where this_.username=?
+Pre-processed SQL query: select count(*) from sysuseronline where this_.username=?
+SQL query Searched: select count(*) from sysuseronline
+Request Searched: cn.jeeweb.core.common.controller.BaseCRUDController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_user_online this_ where this_.username=?
+Pre-processed SQL query: select count(*) from sysuseronline where this_.username=?
+SQL query Searched: select count(*) from sysuseronline
+Request Searched: cn.jeeweb.modules.sys.controller.AttachmentController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse) 
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id19_0_, this_.create_by as create16_19_0_, this_.create_date as create2_19_0_, this_.del_flag as del3_19_0_, this_.remarks as remarks19_0_, this_.update_by as update17_19_0_, this_.update_date as update5_19_0_, this_.host as host19_0_, this_.last_access_time as last7_19_0_, this_.online_session as online8_19_0_, this_.start_timestsamp as start9_19_0_, this_.status as status19_0_, this_.system_host as system11_19_0_, this_.online_timeout as online12_19_0_, this_.user_agent as user13_19_0_, this_.user_id as user14_19_0_, this_.username as username19_0_ from sys_user_online this_ where this_.username=? order by this_.start_timestsamp desc limit ?
+Pre-processed SQL query: select from sysuseronline where this_.username=?  order by this.starttimestsamp limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id19_0_, this_.create_by as create16_19_0_, this_.create_date as create2_19_0_, this_.del_flag as del3_19_0_, this_.remarks as remarks19_0_, this_.update_by as update17_19_0_, this_.update_date as update5_19_0_, this_.host as host19_0_, this_.last_access_time as last7_19_0_, this_.online_session as online8_19_0_, this_.start_timestsamp as start9_19_0_, this_.status as status19_0_, this_.system_host as system11_19_0_, this_.online_timeout as online12_19_0_, this_.user_agent as user13_19_0_, this_.user_id as user14_19_0_, this_.username as username19_0_ from sys_user_online this_ where this_.username=? order by this_.start_timestsamp desc limit ?, ?
+Pre-processed SQL query: select from sysuseronline where this_.username=?  order by this.starttimestsamp limit
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_user_last_online this_
+Pre-processed SQL query: select count(*) from sysuserlastonline
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id18_0_, this_.create_by as create16_18_0_, this_.create_date as create2_18_0_, this_.del_flag as del3_18_0_, this_.remarks as remarks18_0_, this_.update_by as update17_18_0_, this_.update_date as update5_18_0_, this_.host as host18_0_, this_.last_login_timestamp as last7_18_0_, this_.last_stop_timestamp as last8_18_0_, this_.login_count as login9_18_0_, this_.system_host as system10_18_0_, this_.total_online_time as total11_18_0_, this_.uid as uid18_0_, this_.user_agent as user13_18_0_, this_.user_id as user14_18_0_, this_.username as username18_0_ from sys_user_last_online this_ order by this_.id asc limit ?
+Pre-processed SQL query: select from sysuserlastonline order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_attachment this_
+Pre-processed SQL query: select count(*) from sysattachment
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id8_1_, this_.create_by as create13_8_1_, this_.create_date as create2_8_1_, this_.del_flag as del3_8_1_, this_.remarks as remarks8_1_, this_.update_by as update14_8_1_, this_.update_date as update5_8_1_, this_.fileext as fileext8_1_, this_.filename as filename8_1_, this_.filepath as filepath8_1_, this_.filesize as filesize8_1_, this_.status as status8_1_, this_.uploadip as uploadip8_1_, this_.uploadtime as uploadtime8_1_, this_.userid as userid8_1_, user2_.id as id17_0_, user2_.create_by as create14_17_0_, user2_.create_date as create2_17_0_, user2_.del_flag as del3_17_0_, user2_.remarks as remarks17_0_, user2_.update_by as update15_17_0_, user2_.update_date as update5_17_0_, user2_.email as email17_0_, user2_.password as password17_0_, user2_.phone as phone17_0_, user2_.portrait as portrait17_0_, user2_.realname as realname17_0_, user2_.salt as salt17_0_, user2_.status as status17_0_, user2_.username as username17_0_ from sys_attachment this_ inner join sys_user user2_ on this_.userid=user2_.id order by this_.id asc limit ?
+Pre-processed SQL query: select from sysattachment inner join sysuser user order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select attachment0_.id as id8_1_, attachment0_.create_by as create13_8_1_, attachment0_.create_date as create2_8_1_, attachment0_.del_flag as del3_8_1_, attachment0_.remarks as remarks8_1_, attachment0_.update_by as update14_8_1_, attachment0_.update_date as update5_8_1_, attachment0_.fileext as fileext8_1_, attachment0_.filename as filename8_1_, attachment0_.filepath as filepath8_1_, attachment0_.filesize as filesize8_1_, attachment0_.status as status8_1_, attachment0_.uploadip as uploadip8_1_, attachment0_.uploadtime as uploadtime8_1_, attachment0_.userid as userid8_1_, user1_.id as id17_0_, user1_.create_by as create14_17_0_, user1_.create_date as create2_17_0_, user1_.del_flag as del3_17_0_, user1_.remarks as remarks17_0_, user1_.update_by as update15_17_0_, user1_.update_date as update5_17_0_, user1_.email as email17_0_, user1_.password as password17_0_, user1_.phone as phone17_0_, user1_.portrait as portrait17_0_, user1_.realname as realname17_0_, user1_.salt as salt17_0_, user1_.status as status17_0_, user1_.username as username17_0_ from sys_attachment attachment0_ inner join sys_user user1_ on attachment0_.userid=user1_.id where attachment0_.id=?
+Pre-processed SQL query: select from sysattachment inner join sysuser user where attachment.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sys_attachment where id=?
+Pre-processed SQL query: delete from sys_attachment where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_log this_
+Pre-processed SQL query: select count(*) from syslog
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id12_0_, this_.content as content12_0_, this_.create_by as create13_12_0_, this_.create_date as create3_12_0_, this_.exception as exception12_0_, this_.logtype as logtype12_0_, this_.method as method12_0_, this_.params as params12_0_, this_.remote_addr as remote8_12_0_, this_.request_uri as request9_12_0_, this_.title as title12_0_, this_.type as type12_0_, this_.user_agent as user12_12_0_ from sys_log this_ order by this_.create_date desc limit ?
+Pre-processed SQL query: select as create , this.createdate as create , from syslog order by this.createdate limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from task_schedule_job this_
+Pre-processed SQL query: select count(*) from taskschedulejob
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id22_0_, this_.bean_class as bean2_22_0_, this_.create_by as create13_22_0_, this_.create_date as create3_22_0_, this_.cron_expression as cron4_22_0_, this_.description as descript5_22_0_, this_.is_concurrent as is6_22_0_, this_.job_group as job7_22_0_, this_.job_name as job8_22_0_, this_.job_status as job9_22_0_, this_.method_name as method10_22_0_, this_.spring_bean as spring11_22_0_, this_.update_by as update14_22_0_, this_.update_date as update12_22_0_ from task_schedule_job this_ order by this_.id asc limit ?
+Pre-processed SQL query: select as create , this.createdate as create , as update , this.updatedate as update from taskschedulejob order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select schedulejo0_.id as id22_0_, schedulejo0_.bean_class as bean2_22_0_, schedulejo0_.create_by as create13_22_0_, schedulejo0_.create_date as create3_22_0_, schedulejo0_.cron_expression as cron4_22_0_, schedulejo0_.description as descript5_22_0_, schedulejo0_.is_concurrent as is6_22_0_, schedulejo0_.job_group as job7_22_0_, schedulejo0_.job_name as job8_22_0_, schedulejo0_.job_status as job9_22_0_, schedulejo0_.method_name as method10_22_0_, schedulejo0_.spring_bean as spring11_22_0_, schedulejo0_.update_by as update14_22_0_, schedulejo0_.update_date as update12_22_0_ from task_schedule_job schedulejo0_ where schedulejo0_.id=?
+Pre-processed SQL query: select as create , schedulejo.createdate as create , as update , schedulejo.updatedate as update from taskschedulejob where schedulejo.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into task_schedule_job (bean_class, create_by, create_date, cron_expression, description, is_concurrent, job_group, job_name, job_status, method_name, spring_bean, update_by, update_date, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into task_schedule_job (bean_class, create_by, create_date, cron_expression, description, is_concurrent, job_group, job_name, job_status, method_name, spring_bean, update_by, update_date, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update task_schedule_job set bean_class=?, create_by=?, create_date=?, cron_expression=?, description=?, is_concurrent=?, job_group=?, job_name=?, job_status=?, method_name=?, spring_bean=?, update_by=?, update_date=? where id=?
+Pre-processed SQL query: update task_schedule_job set bean_class=?, create_by=?, create_date=?, cron_expression=?, description=?, is_concurrent=?, job_group=?, job_name=?, job_status=?, method_name=?, spring_bean=?, update_by=?, update_date=? where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from task_schedule_job this_ where this_.job_name=?
+Pre-processed SQL query: select count(*) from taskschedulejob where this_.job_name=?
+SQL query Searched: select count(*) from taskschedulejob
+Request Searched: cn.jeeweb.modules.sys.controller.IndexController.index(Model, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from task_schedule_job this_ where this_.job_name=?
+Pre-processed SQL query: select count(*) from taskschedulejob where this_.job_name=?
+SQL query Searched: select count(*) from taskschedulejob
+Request Searched: cn.jeeweb.core.common.controller.BaseCRUDController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from task_schedule_job this_ where this_.job_name=?
+Pre-processed SQL query: select count(*) from taskschedulejob where this_.job_name=?
+SQL query Searched: select count(*) from taskschedulejob
+Request Searched: cn.jeeweb.modules.sys.controller.AttachmentController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id22_0_, this_.bean_class as bean2_22_0_, this_.create_by as create13_22_0_, this_.create_date as create3_22_0_, this_.cron_expression as cron4_22_0_, this_.description as descript5_22_0_, this_.is_concurrent as is6_22_0_, this_.job_group as job7_22_0_, this_.job_name as job8_22_0_, this_.job_status as job9_22_0_, this_.method_name as method10_22_0_, this_.spring_bean as spring11_22_0_, this_.update_by as update14_22_0_, this_.update_date as update12_22_0_ from task_schedule_job this_ where this_.job_name=? order by this_.id asc limit ?
+Pre-processed SQL query: select as create , this.createdate as create , as update , this.updatedate as update from taskschedulejob where this_.job_name=?  order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from task_schedule_job where id=?
+Pre-processed SQL query: delete from task_schedule_job where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_data_source this_
+Pre-processed SQL query: select count(*) from sysdatasource
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id9_0_, this_.create_by as create14_9_0_, this_.create_date as create2_9_0_, this_.del_flag as del3_9_0_, this_.remarks as remarks9_0_, this_.update_by as update15_9_0_, this_.update_date as update5_9_0_, this_.db_key as db6_9_0_, this_.db_name as db7_9_0_, this_.db_password as db8_9_0_, this_.db_type as db9_9_0_, this_.db_user as db10_9_0_, this_.description as descrip11_9_0_, this_.driver_class as driver12_9_0_, this_.url as url9_0_ from sys_data_source this_ order by this_.id asc limit ?
+Pre-processed SQL query: select from sysdatasource order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select datasource0_.id as id9_0_, datasource0_.create_by as create14_9_0_, datasource0_.create_date as create2_9_0_, datasource0_.del_flag as del3_9_0_, datasource0_.remarks as remarks9_0_, datasource0_.update_by as update15_9_0_, datasource0_.update_date as update5_9_0_, datasource0_.db_key as db6_9_0_, datasource0_.db_name as db7_9_0_, datasource0_.db_password as db8_9_0_, datasource0_.db_type as db9_9_0_, datasource0_.db_user as db10_9_0_, datasource0_.description as descrip11_9_0_, datasource0_.driver_class as driver12_9_0_, datasource0_.url as url9_0_ from sys_data_source datasource0_ where datasource0_.id=?
+Pre-processed SQL query: select from sysdatasource where datasource.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sys_data_source (create_by, create_date, del_flag, remarks, update_by, update_date, db_key, db_name, db_password, db_type, db_user, description, driver_class, url, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into sys_data_source (create_by, create_date, del_flag, remarks, update_by, update_date, db_key, db_name, db_password, db_type, db_user, description, driver_class, url, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_data_source this_ where this_.db_key=?
+Pre-processed SQL query: select count(*) from sysdatasource where this_.db_key=?
+SQL query Searched: select count(*) from sysdatasource
+Request Searched: cn.jeeweb.modules.sys.controller.AttachmentController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_data_source this_ where this_.db_key=?
+Pre-processed SQL query: select count(*) from sysdatasource where this_.db_key=?
+SQL query Searched: select count(*) from sysdatasource
+Request Searched: cn.jeeweb.modules.sys.controller.IndexController.index(Model, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sys_data_source this_ where this_.db_key=?
+Pre-processed SQL query: select count(*) from sysdatasource where this_.db_key=?
+SQL query Searched: select count(*) from sysdatasource
+Request Searched: cn.jeeweb.core.common.controller.BaseCRUDController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id9_0_, this_.create_by as create14_9_0_, this_.create_date as create2_9_0_, this_.del_flag as del3_9_0_, this_.remarks as remarks9_0_, this_.update_by as update15_9_0_, this_.update_date as update5_9_0_, this_.db_key as db6_9_0_, this_.db_name as db7_9_0_, this_.db_password as db8_9_0_, this_.db_type as db9_9_0_, this_.db_user as db10_9_0_, this_.description as descrip11_9_0_, this_.driver_class as driver12_9_0_, this_.url as url9_0_ from sys_data_source this_ where this_.db_key=? order by this_.id asc limit ?
+Pre-processed SQL query: select from sysdatasource where this_.db_key=?  order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update sys_data_source set create_by=?, create_date=?, del_flag=?, remarks=?, update_by=?, update_date=?, db_key=?, db_name=?, db_password=?, db_type=?, db_user=?, description=?, driver_class=?, url=? where id=?
+Pre-processed SQL query: update sys_data_source set create_by=?, create_date=?, del_flag=?, remarks=?, update_by=?, update_date=?, db_key=?, db_name=?, db_password=?, db_type=?, db_user=?, description=?, driver_class=?, url=? where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sys_data_source where id=?
+Pre-processed SQL query: delete from sys_data_source where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from oa_notification this_
+Pre-processed SQL query: select count(*) from oanotification
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id5_0_, this_.content as content5_0_, this_.create_by as create9_5_0_, this_.create_date as create3_5_0_, this_.del_flag as del4_5_0_, this_.remarks as remarks5_0_, this_.status as status5_0_, this_.title as title5_0_, this_.update_by as update10_5_0_, this_.update_date as update8_5_0_ from oa_notification this_ order by this_.id asc limit ?
+Pre-processed SQL query: select as create , as update , this.updatedate from oanotification order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into oa_notification (content, create_by, create_date, del_flag, remarks, status, title, update_by, update_date, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into oa_notification (content, create_by, create_date, del_flag, remarks, status, title, update_by, update_date, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select oanotifica0_.id as id5_0_, oanotifica0_.content as content5_0_, oanotifica0_.create_by as create9_5_0_, oanotifica0_.create_date as create3_5_0_, oanotifica0_.del_flag as del4_5_0_, oanotifica0_.remarks as remarks5_0_, oanotifica0_.status as status5_0_, oanotifica0_.title as title5_0_, oanotifica0_.update_by as update10_5_0_, oanotifica0_.update_date as update8_5_0_ from oa_notification oanotifica0_ where oanotifica0_.id=?
+Pre-processed SQL query: select as create , as update , oanotifica.updatedate from oanotification where oanotifica.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from oa_notification where id=?
+Pre-processed SQL query: delete from oa_notification where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update oa_notification set content=?, create_by=?, create_date=?, del_flag=?, remarks=?, status=?, title=?, update_by=?, update_date=? where id=?
+Pre-processed SQL query: update oa_notification set content=?, create_by=?, create_date=?, del_flag=?, remarks=?, status=?, title=?, update_by=?, update_date=? where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from oa_notification this_ where this_.title like ?
+Pre-processed SQL query: select count(*) from oanotification where this_.title like ? like
+SQL query Searched: select count(*) from oanotification
+Request Searched: cn.jeeweb.core.common.controller.BaseCRUDController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from oa_notification this_ where this_.title like ?
+Pre-processed SQL query: select count(*) from oanotification where this_.title like ? like
+SQL query Searched: select count(*) from oanotification
+Request Searched: cn.jeeweb.modules.sys.controller.AttachmentController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from oa_notification this_ where this_.title like ?
+Pre-processed SQL query: select count(*) from oanotification where this_.title like ? like
+SQL query Searched: select count(*) from oanotification
+Request Searched: cn.jeeweb.modules.sys.controller.IndexController.index(Model, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id5_0_, this_.content as content5_0_, this_.create_by as create9_5_0_, this_.create_date as create3_5_0_, this_.del_flag as del4_5_0_, this_.remarks as remarks5_0_, this_.status as status5_0_, this_.title as title5_0_, this_.update_by as update10_5_0_, this_.update_date as update8_5_0_ from oa_notification this_ where this_.title like ? order by this_.id asc limit ?
+Pre-processed SQL query: select as create , as update , this.updatedate from oanotification where this_.title like ?  like order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from oa_notification this_ where this_.status=? and this_.title like ?
+Pre-processed SQL query: select count(*) from oanotification where this_.status=? and this_.title like ? like
+SQL query Searched: select count(*) from oanotification
+Request Searched: cn.jeeweb.core.common.controller.BaseCRUDController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from oa_notification this_ where this_.status=? and this_.title like ?
+Pre-processed SQL query: select count(*) from oanotification where this_.status=? and this_.title like ? like
+SQL query Searched: select count(*) from oanotification
+Request Searched: cn.jeeweb.modules.sys.controller.IndexController.index(Model, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from oa_notification this_ where this_.status=? and this_.title like ?
+Pre-processed SQL query: select count(*) from oanotification where this_.status=? and this_.title like ? like
+SQL query Searched: select count(*) from oanotification
+Request Searched: cn.jeeweb.modules.sys.controller.AttachmentController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id5_0_, this_.content as content5_0_, this_.create_by as create9_5_0_, this_.create_date as create3_5_0_, this_.del_flag as del4_5_0_, this_.remarks as remarks5_0_, this_.status as status5_0_, this_.title as title5_0_, this_.update_by as update10_5_0_, this_.update_date as update8_5_0_ from oa_notification this_ where this_.status=? and this_.title like ? order by this_.id asc limit ?
+Pre-processed SQL query: select as create , as update , this.updatedate from oanotification where this_.status=? and this_.title like ?  like order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from email_template this_
+Pre-processed SQL query: select count(*) from emailtemplate
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id4_0_, this_.business_type as business2_4_0_, this_.code as code4_0_, this_.create_by as create11_4_0_, this_.create_date as create4_4_0_, this_.del_flag as del5_4_0_, this_.name as name4_0_, this_.remarks as remarks4_0_, this_.template_content as template8_4_0_, this_.template_subject as template9_4_0_, this_.update_by as update12_4_0_, this_.update_date as update10_4_0_ from email_template this_ order by this_.id asc limit ?
+Pre-processed SQL query: select as create , this.createdate as create , as update , this.updatedate as update from emailtemplate order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into email_template (business_type, code, create_by, create_date, del_flag, name, remarks, template_content, template_subject, update_by, update_date, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into email_template (business_type, code, create_by, create_date, del_flag, name, remarks, template_content, template_subject, update_by, update_date, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select emailtempl0_.id as id4_0_, emailtempl0_.business_type as business2_4_0_, emailtempl0_.code as code4_0_, emailtempl0_.create_by as create11_4_0_, emailtempl0_.create_date as create4_4_0_, emailtempl0_.del_flag as del5_4_0_, emailtempl0_.name as name4_0_, emailtempl0_.remarks as remarks4_0_, emailtempl0_.template_content as template8_4_0_, emailtempl0_.template_subject as template9_4_0_, emailtempl0_.update_by as update12_4_0_, emailtempl0_.update_date as update10_4_0_ from email_template emailtempl0_ where emailtempl0_.id=?
+Pre-processed SQL query: select as create , emailtempl.createdate as create , as update , emailtempl.updatedate as update from emailtemplate where emailtempl.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update email_template set business_type=?, code=?, create_by=?, create_date=?, del_flag=?, name=?, remarks=?, template_content=?, template_subject=?, update_by=?, update_date=? where id=?
+Pre-processed SQL query: update email_template set business_type=?, code=?, create_by=?, create_date=?, del_flag=?, name=?, remarks=?, template_content=?, template_subject=?, update_by=?, update_date=? where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from email_template where id=?
+Pre-processed SQL query: delete from email_template where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from email_send_log this_
+Pre-processed SQL query: select count(*) from emailsendlog
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id3_0_, this_.business_type as business2_3_0_, this_.content as content3_0_, this_.del_flag as del4_3_0_, this_.email as email3_0_, this_.msg as msg3_0_, this_.remarks as remarks3_0_, this_.response_date as response8_3_0_, this_.senddata as senddata3_0_, this_.status as status3_0_, this_.subject as subject3_0_ from email_send_log this_ order by this_.id asc limit ?
+Pre-processed SQL query: select from emailsendlog order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from email_send_log this_ where this_.subject=?
+Pre-processed SQL query: select count(*) from emailsendlog where this_.subject=?
+SQL query Searched: select count(*) from emailsendlog
+Request Searched: cn.jeeweb.modules.sys.controller.IndexController.index(Model, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from email_send_log this_ where this_.subject=?
+Pre-processed SQL query: select count(*) from emailsendlog where this_.subject=?
+SQL query Searched: select count(*) from emailsendlog
+Request Searched: cn.jeeweb.modules.sys.controller.AttachmentController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from email_send_log this_ where this_.subject=?
+Pre-processed SQL query: select count(*) from emailsendlog where this_.subject=?
+SQL query Searched: select count(*) from emailsendlog
+Request Searched: cn.jeeweb.core.common.controller.BaseCRUDController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id3_0_, this_.business_type as business2_3_0_, this_.content as content3_0_, this_.del_flag as del4_3_0_, this_.email as email3_0_, this_.msg as msg3_0_, this_.remarks as remarks3_0_, this_.response_date as response8_3_0_, this_.senddata as senddata3_0_, this_.status as status3_0_, this_.subject as subject3_0_ from email_send_log this_ where this_.subject=? order by this_.id asc limit ?
+Pre-processed SQL query: select from emailsendlog where this_.subject=?  order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select emailsendl0_.id as id3_0_, emailsendl0_.business_type as business2_3_0_, emailsendl0_.content as content3_0_, emailsendl0_.del_flag as del4_3_0_, emailsendl0_.email as email3_0_, emailsendl0_.msg as msg3_0_, emailsendl0_.remarks as remarks3_0_, emailsendl0_.response_date as response8_3_0_, emailsendl0_.senddata as senddata3_0_, emailsendl0_.status as status3_0_, emailsendl0_.subject as subject3_0_ from email_send_log emailsendl0_ where emailsendl0_.id=?
+Pre-processed SQL query: select from emailsendlog where emailsendl.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from email_send_log where id=?
+Pre-processed SQL query: delete from email_send_log where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sms_template this_
+Pre-processed SQL query: select count(*) from smstemplate
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id7_0_, this_.business_type as business2_7_0_, this_.code as code7_0_, this_.create_by as create11_7_0_, this_.create_date as create4_7_0_, this_.del_flag as del5_7_0_, this_.name as name7_0_, this_.remarks as remarks7_0_, this_.template_content as template8_7_0_, this_.template_id as template9_7_0_, this_.update_by as update12_7_0_, this_.update_date as update10_7_0_ from sms_template this_ order by this_.id asc limit ?
+Pre-processed SQL query: select from smstemplate order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into sms_template (business_type, code, create_by, create_date, del_flag, name, remarks, template_content, template_id, update_by, update_date, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into sms_template (business_type, code, create_by, create_date, del_flag, name, remarks, template_content, template_id, update_by, update_date, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select smstemplat0_.id as id7_0_, smstemplat0_.business_type as business2_7_0_, smstemplat0_.code as code7_0_, smstemplat0_.create_by as create11_7_0_, smstemplat0_.create_date as create4_7_0_, smstemplat0_.del_flag as del5_7_0_, smstemplat0_.name as name7_0_, smstemplat0_.remarks as remarks7_0_, smstemplat0_.template_content as template8_7_0_, smstemplat0_.template_id as template9_7_0_, smstemplat0_.update_by as update12_7_0_, smstemplat0_.update_date as update10_7_0_ from sms_template smstemplat0_ where smstemplat0_.id=?
+Pre-processed SQL query: select from smstemplate where smstemplat.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update sms_template set business_type=?, code=?, create_by=?, create_date=?, del_flag=?, name=?, remarks=?, template_content=?, template_id=?, update_by=?, update_date=? where id=?
+Pre-processed SQL query: update sms_template set business_type=?, code=?, create_by=?, create_date=?, del_flag=?, name=?, remarks=?, template_content=?, template_id=?, update_by=?, update_date=? where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sms_template this_ where this_.name like ?
+Pre-processed SQL query: select count(*) from smstemplate where this_.name like ? like
+SQL query Searched: select count(*) from smstemplate
+Request Searched: cn.jeeweb.core.common.controller.BaseCRUDController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sms_template this_ where this_.name like ?
+Pre-processed SQL query: select count(*) from smstemplate where this_.name like ? like
+SQL query Searched: select count(*) from smstemplate
+Request Searched: cn.jeeweb.modules.sys.controller.AttachmentController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sms_template this_ where this_.name like ?
+Pre-processed SQL query: select count(*) from smstemplate where this_.name like ? like
+SQL query Searched: select count(*) from smstemplate
+Request Searched: cn.jeeweb.modules.sys.controller.IndexController.index(Model, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id7_0_, this_.business_type as business2_7_0_, this_.code as code7_0_, this_.create_by as create11_7_0_, this_.create_date as create4_7_0_, this_.del_flag as del5_7_0_, this_.name as name7_0_, this_.remarks as remarks7_0_, this_.template_content as template8_7_0_, this_.template_id as template9_7_0_, this_.update_by as update12_7_0_, this_.update_date as update10_7_0_ from sms_template this_ where this_.name like ? order by this_.id asc limit ?
+Pre-processed SQL query: select from smstemplate where this_.name like ?  like order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sms_template where id=?
+Pre-processed SQL query: delete from sms_template where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sms_send_log this_
+Pre-processed SQL query: select count(*) from smssendlog
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id6_0_, this_.business_type as business2_6_0_, this_.code as code6_0_, this_.del_flag as del4_6_0_, this_.msg as msg6_0_, this_.phone as phone6_0_, this_.remarks as remarks6_0_, this_.response_date as response8_6_0_, this_.senddata as senddata6_0_, this_.smsid as smsid6_0_, this_.status as status6_0_, this_.template_content as template12_6_0_, this_.template_id as template13_6_0_ from sms_send_log this_ order by this_.id asc limit ?
+Pre-processed SQL query: select from smssendlog order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sms_send_log this_ where this_.phone like ?
+Pre-processed SQL query: select count(*) from smssendlog where this_.phone like ? like
+SQL query Searched: select count(*) from smssendlog
+Request Searched: cn.jeeweb.modules.sys.controller.IndexController.index(Model, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sms_send_log this_ where this_.phone like ?
+Pre-processed SQL query: select count(*) from smssendlog where this_.phone like ? like
+SQL query Searched: select count(*) from smssendlog
+Request Searched: cn.jeeweb.modules.sys.controller.AttachmentController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from sms_send_log this_ where this_.phone like ?
+Pre-processed SQL query: select count(*) from smssendlog where this_.phone like ? like
+SQL query Searched: select count(*) from smssendlog
+Request Searched: cn.jeeweb.core.common.controller.BaseCRUDController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id6_0_, this_.business_type as business2_6_0_, this_.code as code6_0_, this_.del_flag as del4_6_0_, this_.msg as msg6_0_, this_.phone as phone6_0_, this_.remarks as remarks6_0_, this_.response_date as response8_6_0_, this_.senddata as senddata6_0_, this_.smsid as smsid6_0_, this_.status as status6_0_, this_.template_content as template12_6_0_, this_.template_id as template13_6_0_ from sms_send_log this_ where this_.phone like ? order by this_.id asc limit ?
+Pre-processed SQL query: select from smssendlog where this_.phone like ?  like order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select smssendlog0_.id as id6_0_, smssendlog0_.business_type as business2_6_0_, smssendlog0_.code as code6_0_, smssendlog0_.del_flag as del4_6_0_, smssendlog0_.msg as msg6_0_, smssendlog0_.phone as phone6_0_, smssendlog0_.remarks as remarks6_0_, smssendlog0_.response_date as response8_6_0_, smssendlog0_.senddata as senddata6_0_, smssendlog0_.smsid as smsid6_0_, smssendlog0_.status as status6_0_, smssendlog0_.template_content as template12_6_0_, smssendlog0_.template_id as template13_6_0_ from sms_send_log smssendlog0_ where smssendlog0_.id=?
+Pre-processed SQL query: select from smssendlog where smssendlog.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from sms_send_log where id=?
+Pre-processed SQL query: delete from sms_send_log where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from codegen_table this_
+Pre-processed SQL query: select count(*) from codegentable
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id2_0_, this_.create_by as create12_2_0_, this_.create_date as create2_2_0_, this_.del_flag as del3_2_0_, this_.remarks as remarks2_0_, this_.update_by as update13_2_0_, this_.update_date as update5_2_0_, this_.class_name as class6_2_0_, this_.sync_database as sync7_2_0_, this_.table_name as table8_2_0_, this_.table_pk_type as table9_2_0_, this_.table_type as table10_2_0_, this_.title as title2_0_ from codegen_table this_ order by this_.id asc limit ?
+Pre-processed SQL query: select as create , this.createdate as create , as update , this.updatedate as update , from codegentable order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from codegen_table this_ where this_.table_name=?
+Pre-processed SQL query: select count(*) from codegentable where this_.table_name=?
+SQL query Searched: select count(*) from codegentable
+Request Searched: cn.jeeweb.modules.sys.controller.IndexController.index(Model, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from codegen_table this_ where this_.table_name=?
+Pre-processed SQL query: select count(*) from codegentable where this_.table_name=?
+SQL query Searched: select count(*) from codegentable
+Request Searched: cn.jeeweb.core.common.controller.BaseCRUDController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select count(*) as y0_ from codegen_table this_ where this_.table_name=?
+Pre-processed SQL query: select count(*) from codegentable where this_.table_name=?
+SQL query Searched: select count(*) from codegentable
+Request Searched: cn.jeeweb.modules.sys.controller.AttachmentController.ajaxList(Queryable, PropertyPreFilterable, HttpServletRequest, HttpServletResponse)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select this_.id as id2_0_, this_.create_by as create12_2_0_, this_.create_date as create2_2_0_, this_.del_flag as del3_2_0_, this_.remarks as remarks2_0_, this_.update_by as update13_2_0_, this_.update_date as update5_2_0_, this_.class_name as class6_2_0_, this_.sync_database as sync7_2_0_, this_.table_name as table8_2_0_, this_.table_pk_type as table9_2_0_, this_.table_type as table10_2_0_, this_.title as title2_0_ from codegen_table this_ where this_.table_name=? order by this_.id asc limit ?
+Pre-processed SQL query: select as create , this.createdate as create , as update , this.updatedate as update , from codegentable where this_.table_name=?  order by this.id limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------

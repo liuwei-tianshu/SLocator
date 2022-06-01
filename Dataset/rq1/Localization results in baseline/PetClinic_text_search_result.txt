@@ -1,0 +1,86 @@
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select distinct owner0_.id as id1_0_0_, pets1_.id as id1_1_1_, owner0_.first_name as first_na2_0_0_, owner0_.last_name as last_nam3_0_0_, owner0_.address as address4_0_0_, owner0_.city as city5_0_0_, owner0_.telephone as telephon6_0_0_, pets1_.name as name2_1_1_, pets1_.birth_date as birth_da3_1_1_, pets1_.owner_id as owner_id4_1_1_, pets1_.type_id as type_id5_1_1_, pets1_.owner_id as owner_id4_0_0__, pets1_.id as id1_1_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.last_name like ?
+Pre-processed SQL query: select distinct from owners owner left outer join pets where owner.last_name like ? like
+SQL query Searched: SELECT DISTINCT owner FROM Owner owner left join fetch owner.pets WHERE owner.lastName LIKE :lastName
+Request Searched: org.springframework.samples.petclinic.web.OwnerController.processFindForm(Owner, BindingResult, Map<String, Object>)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select pettype0_.id as id1_3_0_, pettype0_.name as name2_3_0_ from types pettype0_ where pettype0_.id=?
+Pre-processed SQL query: select from types where pettype.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select visits0_.pet_id as pet_id4_1_0_, visits0_.id as id1_6_0_, visits0_.id as id1_6_1_, visits0_.visit_date as visit_da2_6_1_, visits0_.description as descript3_6_1_, visits0_.pet_id as pet_id4_6_1_ from visits visits0_ where visits0_.pet_id=?
+Pre-processed SQL query: select from visits where visits.pet_id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select owner0_.id as id1_0_1_, owner0_.first_name as first_na2_0_1_, owner0_.last_name as last_nam3_0_1_, owner0_.address as address4_0_1_, owner0_.city as city5_0_1_, owner0_.telephone as telephon6_0_1_, pets1_.owner_id as owner_id4_0_3_, pets1_.id as id1_1_3_, pets1_.id as id1_1_0_, pets1_.name as name2_1_0_, pets1_.birth_date as birth_da3_1_0_, pets1_.owner_id as owner_id4_1_0_, pets1_.type_id as type_id5_1_0_ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+Pre-processed SQL query: select from owners owner left outer join pets where owner.id=?
+SQL query Searched: SELECT owner FROM Owner owner left join fetch owner.pets WHERE owner.id =:id
+Request Searched: org.springframework.samples.petclinic.web.OwnerController.initUpdateOwnerForm(int, Model)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into owners (first_name, last_name, address, city, telephone) values (?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into owners (first_name, last_name, address, city, telephone) values (?, ?, ?, ?, ?)
+SQL query Searched: insert into owners (first_name, last_name, address, city, telephone) values (?, ?, ?, ?)
+Request Searched: org.springframework.samples.petclinic.web.OwnerController.processCreationForm(Owner,BindingResult,SessionStatus)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into owners (first_name, last_name, address, city, telephone) values (?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into owners (first_name, last_name, address, city, telephone) values (?, ?, ?, ?, ?)
+SQL query Searched: insert into owners (first_name, last_name, address, city, telephone) values (?, ?, ?, ?)
+Request Searched: org.springframework.samples.petclinic.web.OwnerController.processUpdateOwnerForm(Owner,BindingResult,SessionStatus)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select owner0_.id as id1_0_1_, owner0_.first_name as first_na2_0_1_, owner0_.last_name as last_nam3_0_1_, owner0_.address as address4_0_1_, owner0_.city as city5_0_1_, owner0_.telephone as telephon6_0_1_, pets1_.owner_id as owner_id4_0_3_, pets1_.id as id1_1_3_, pets1_.id as id1_1_0_, pets1_.name as name2_1_0_, pets1_.birth_date as birth_da3_1_0_, pets1_.owner_id as owner_id4_1_0_, pets1_.type_id as type_id5_1_0_ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+Pre-processed SQL query: select from owners owner left outer join pets where owner.id=?
+SQL query Searched: SELECT owner FROM Owner owner left join fetch owner.pets WHERE owner.id =:id
+Request Searched: org.springframework.samples.petclinic.web.PetController.initCreationForm(int, Map<String, Object>)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select owner0_.id as id1_0_1_, owner0_.first_name as first_na2_0_1_, owner0_.last_name as last_nam3_0_1_, owner0_.address as address4_0_1_, owner0_.city as city5_0_1_, owner0_.telephone as telephon6_0_1_, pets1_.owner_id as owner_id4_0_3_, pets1_.id as id1_1_3_, pets1_.id as id1_1_0_, pets1_.name as name2_1_0_, pets1_.birth_date as birth_da3_1_0_, pets1_.owner_id as owner_id4_1_0_, pets1_.type_id as type_id5_1_0_ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?
+Pre-processed SQL query: select from owners owner left outer join pets where owner.id=?
+SQL query Searched: SELECT owner FROM Owner owner left join fetch owner.pets WHERE owner.id =:id
+Request Searched: org.springframework.samples.petclinic.web.OwnerController.showOwner(int)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select pettype0_.id as id1_3_, pettype0_.name as name2_3_ from types pettype0_ order by pettype0_.name
+Pre-processed SQL query: select from types order by pettype.name
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into pets (name, birth_date, owner_id, type_id) values (?, ?, ?, ?)
+Pre-processed SQL query: insert into pets (name, birth_date, owner_id, type_id) values (?, ?, ?, ?)
+SQL query Searched: insert into pets (name, birth_date, owner_id, type_id) values (?, ?, ?, ?)
+Request Searched: org.springframework.samples.petclinic.web.PetController.processUpdateForm(Pet,BindingResult,SessionStatus)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into pets (name, birth_date, owner_id, type_id) values (?, ?, ?, ?)
+Pre-processed SQL query: insert into pets (name, birth_date, owner_id, type_id) values (?, ?, ?, ?)
+SQL query Searched: insert into pets (name, birth_date, owner_id, type_id) values (?, ?, ?, ?)
+Request Searched: org.springframework.samples.petclinic.web.PetController.processCreationForm(Pet,BindingResult,SessionStatus)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select pet0_.id as id1_1_0_, pet0_.name as name2_1_0_, pet0_.birth_date as birth_da3_1_0_, pet0_.owner_id as owner_id4_1_0_, pet0_.type_id as type_id5_1_0_, owner1_.id as id1_0_1_, owner1_.first_name as first_na2_0_1_, owner1_.last_name as last_nam3_0_1_, owner1_.address as address4_0_1_, owner1_.city as city5_0_1_, owner1_.telephone as telephon6_0_1_, pettype2_.id as id1_3_2_, pettype2_.name as name2_3_2_, visits3_.pet_id as pet_id4_1_3_, visits3_.id as id1_6_3_, visits3_.id as id1_6_4_, visits3_.visit_date as visit_da2_6_4_, visits3_.description as descript3_6_4_, visits3_.pet_id as pet_id4_6_4_ from pets pet0_ left outer join owners owner1_ on pet0_.owner_id=owner1_.id left outer join types pettype2_ on pet0_.type_id=pettype2_.id left outer join visits visits3_ on pet0_.id=visits3_.pet_id where pet0_.id=?
+Pre-processed SQL query: select from pets left outer join owners owner left outer join types left outer join visits where pet.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into visits (visit_date, description, pet_id) values (?, ?, ?)
+Pre-processed SQL query: insert into visits (visit_date, description, pet_id) values (?, ?, ?)
+SQL query Searched: insert into visits (visit_date, description, pet_id) values (?, ?, ?)
+Request Searched: org.springframework.samples.petclinic.web.VisitController.processNewVisitForm(Visit,BindingResult)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update owners set first_name=?, last_name=?, address=?, city=?, telephone=? where id=?
+Pre-processed SQL query: update owners set first_name=?, last_name=?, address=?, city=?, telephone=? where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select pet0_.id as id1_1_1_, pet0_.name as name2_1_1_, pet0_.birth_date as birth_da3_1_1_, pet0_.owner_id as owner_id4_1_1_, pet0_.type_id as type_id5_1_1_, visits1_.pet_id as pet_id4_1_3_, visits1_.id as id1_6_3_, visits1_.id as id1_6_0_, visits1_.visit_date as visit_da2_6_0_, visits1_.description as descript3_6_0_, visits1_.pet_id as pet_id4_6_0_ from pets pet0_ left outer join visits visits1_ on pet0_.id=visits1_.pet_id where pet0_.id=?
+Pre-processed SQL query: select from pets left outer join visits where pet.id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update pets set name=?, birth_date=?, owner_id=?, type_id=? where id=?
+Pre-processed SQL query: update pets set name=?, birth_date=?, owner_id=?, type_id=? where id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select distinct vet0_.id as id1_5_0_, specialty2_.id as id1_2_1_, vet0_.first_name as first_na2_5_0_, vet0_.last_name as last_nam3_5_0_, specialty2_.name as name2_2_1_, specialtie1_.vet_id as vet_id1_5_0__, specialtie1_.specialty_id as specialt2_4_0__ from vets vet0_ left outer join vet_specialties specialtie1_ on vet0_.id=specialtie1_.vet_id left outer join specialties specialty2_ on specialtie1_.specialty_id=specialty2_.id order by vet0_.last_name, vet0_.first_name
+Pre-processed SQL query: select distinct from vets left outer join vet_specialties left outer join specialties order by
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------

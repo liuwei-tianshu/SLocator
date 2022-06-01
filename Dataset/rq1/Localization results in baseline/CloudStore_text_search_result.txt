@@ -1,0 +1,195 @@
+Given individual SQL query: select item0_.i_id as i1_5_0_, author1_.a_id as a1_1_1_, item0_.i_avail as i2_5_0_, item0_.i_backing as i3_5_0_, item0_.i_cost as i4_5_0_, item0_.i_desc as i5_5_0_, item0_.i_dimension as i6_5_0_, item0_.i_image as i7_5_0_, item0_.i_isbn as i8_5_0_, item0_.i_page as i9_5_0_, item0_.i_pub_date as i10_5_0_, item0_.i_publisher as i11_5_0_, item0_.i_random as i12_5_0_, item0_.i_related1 as i13_5_0_, item0_.i_related2 as i14_5_0_, item0_.i_related3 as i15_5_0_, item0_.i_related4 as i16_5_0_, item0_.i_related5 as i17_5_0_, item0_.i_srp as i18_5_0_, item0_.i_stock as i19_5_0_, item0_.i_subject as i20_5_0_, item0_.i_thumbnail as i21_5_0_, item0_.i_title as i22_5_0_, item0_.i_a_id as i23_5_0_, author1_.a_bio as a2_1_1_, author1_.a_dob as a3_1_1_, author1_.a_fname as a4_1_1_, author1_.a_lname as a5_1_1_, author1_.a_mname as a6_1_1_ from item item0_ cross join author author1_ where item0_.i_a_id=author1_.a_id and item0_.i_subject=? order by item0_.i_pub_date desc, item0_.i_title limit ?
+Pre-processed SQL query: select from item cross join author where item.i_a_id=author.a_id and item.i_subject=?  order by limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select i2.i_thumbnail as i2_thumbnail,i2.i_id as i2_id,i3.i_thumbnail as i3_thumbnail,i3.i_id as i3_id,i4.i_thumbnail as i4_thumbnail,i4.i_id as i4_id,i5.i_thumbnail as i5_thumbnail,i5.i_id as i5_id, i6.i_thumbnail as i6_thumbnail,i6.i_id as i6_id from item as i left join item as i2 on i.i_related1 = i2.i_id left join item as i3 on i.i_related2 = i3.i_id left join item as i4 on i.i_related3 = i4.i_id left join item as i5 on i.i_related4 = i5.i_id left join item as i6 on i.i_related5 = i6.i_id where i.i_id = ? limit ?
+Pre-processed SQL query: select from item left join item left join item left join item left join item left join item where i.i_id = ?  limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select author0_.a_id as a1_1_, author0_.a_bio as a2_1_, author0_.a_dob as a3_1_, author0_.a_fname as a4_1_, author0_.a_lname as a5_1_, author0_.a_mname as a6_1_ from author author0_ cross join item item1_ where substring(soundex(author0_.a_lname), 1, 4)=substring(soundex(?), 1, 4) and item1_.i_a_id=author0_.a_id order by item1_.i_title limit ?
+Pre-processed SQL query: select from author cross join item where substring(soundex(author.a_lname), ?, ?)=substring(soundex(?), ?, ?) and item.i_a_id=author.a_id  order by item.ititle limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select item0_.i_id as i1_5_, item0_.i_avail as i2_5_, item0_.i_backing as i3_5_, item0_.i_cost as i4_5_, item0_.i_desc as i5_5_, item0_.i_dimension as i6_5_, item0_.i_image as i7_5_, item0_.i_isbn as i8_5_, item0_.i_page as i9_5_, item0_.i_pub_date as i10_5_, item0_.i_publisher as i11_5_, item0_.i_random as i12_5_, item0_.i_related1 as i13_5_, item0_.i_related2 as i14_5_, item0_.i_related3 as i15_5_, item0_.i_related4 as i16_5_, item0_.i_related5 as i17_5_, item0_.i_srp as i18_5_, item0_.i_stock as i19_5_, item0_.i_subject as i20_5_, item0_.i_thumbnail as i21_5_, item0_.i_title as i22_5_, item0_.i_a_id as i23_5_ from item item0_ where item0_.i_a_id=? order by item0_.i_title limit ?
+Pre-processed SQL query: select from item where item.i_a_id=?  order by item.ititle limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select item0_.i_id as i1_5_, item0_.i_avail as i2_5_, item0_.i_backing as i3_5_, item0_.i_cost as i4_5_, item0_.i_desc as i5_5_, item0_.i_dimension as i6_5_, item0_.i_image as i7_5_, item0_.i_isbn as i8_5_, item0_.i_page as i9_5_, item0_.i_pub_date as i10_5_, item0_.i_publisher as i11_5_, item0_.i_random as i12_5_, item0_.i_related1 as i13_5_, item0_.i_related2 as i14_5_, item0_.i_related3 as i15_5_, item0_.i_related4 as i16_5_, item0_.i_related5 as i17_5_, item0_.i_srp as i18_5_, item0_.i_stock as i19_5_, item0_.i_subject as i20_5_, item0_.i_thumbnail as i21_5_, item0_.i_title as i22_5_, item0_.i_a_id as i23_5_ from item item0_ cross join author author1_ where item0_.i_a_id=author1_.a_id and substring(soundex(item0_.i_title), 1, 4)=substring(soundex(?), 1, 4) order by item0_.i_title limit ?
+Pre-processed SQL query: select from item cross join author where item.i_a_id=author.a_id and substring(soundex(item.i_title), ?, ?)=substring(soundex(?), ?, ?)  order by item.ititle limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select author0_.a_id as a1_1_0_, author0_.a_bio as a2_1_0_, author0_.a_dob as a3_1_0_, author0_.a_fname as a4_1_0_, author0_.a_lname as a5_1_0_, author0_.a_mname as a6_1_0_ from author author0_ where author0_.a_id=?
+Pre-processed SQL query: select from author where author.a_id=?
+SQL query Searched: select from author where author.a_id=?
+Request Searched: eu.cloudscale.showcase.servlets.SearchController.get(HttpServletRequest, Model)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select author0_.a_id as a1_1_0_, author0_.a_bio as a2_1_0_, author0_.a_dob as a3_1_0_, author0_.a_fname as a4_1_0_, author0_.a_lname as a5_1_0_, author0_.a_mname as a6_1_0_ from author author0_ where author0_.a_id=?
+Pre-processed SQL query: select from author where author.a_id=?
+SQL query Searched: select from author where author.a_id=?
+Request Searched: eu.cloudscale.showcase.servlets.BestSellersController.bestSellers(String, Integer, Integer, HttpServletRequest, Model)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select item0_.i_id as i1_5_, item0_.i_avail as i2_5_, item0_.i_backing as i3_5_, item0_.i_cost as i4_5_, item0_.i_desc as i5_5_, item0_.i_dimension as i6_5_, item0_.i_image as i7_5_, item0_.i_isbn as i8_5_, item0_.i_page as i9_5_, item0_.i_pub_date as i10_5_, item0_.i_publisher as i11_5_, item0_.i_random as i12_5_, item0_.i_related1 as i13_5_, item0_.i_related2 as i14_5_, item0_.i_related3 as i15_5_, item0_.i_related4 as i16_5_, item0_.i_related5 as i17_5_, item0_.i_srp as i18_5_, item0_.i_stock as i19_5_, item0_.i_subject as i20_5_, item0_.i_thumbnail as i21_5_, item0_.i_title as i22_5_, item0_.i_a_id as i23_5_ from item item0_ where item0_.i_subject=? order by item0_.i_title limit ?
+Pre-processed SQL query: select from item where item.i_subject=?  order by item.ititle limit ?
+SQL query Searched: SELECT I FROM Item as I WHERE I.ISubject = :subject ORDER BY I.ITitle
+Request Searched: eu.cloudscale.showcase.servlets.SearchController.get(HttpServletRequest, Model)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select item0_.i_id as i1_5_0_, author1_.a_id as a1_1_1_, item0_.i_avail as i2_5_0_, item0_.i_backing as i3_5_0_, item0_.i_cost as i4_5_0_, item0_.i_desc as i5_5_0_, item0_.i_dimension as i6_5_0_, item0_.i_image as i7_5_0_, item0_.i_isbn as i8_5_0_, item0_.i_page as i9_5_0_, item0_.i_pub_date as i10_5_0_, item0_.i_publisher as i11_5_0_, item0_.i_random as i12_5_0_, item0_.i_related1 as i13_5_0_, item0_.i_related2 as i14_5_0_, item0_.i_related3 as i15_5_0_, item0_.i_related4 as i16_5_0_, item0_.i_related5 as i17_5_0_, item0_.i_srp as i18_5_0_, item0_.i_stock as i19_5_0_, item0_.i_subject as i20_5_0_, item0_.i_thumbnail as i21_5_0_, item0_.i_title as i22_5_0_, item0_.i_a_id as i23_5_0_, author1_.a_bio as a2_1_1_, author1_.a_dob as a3_1_1_, author1_.a_fname as a4_1_1_, author1_.a_lname as a5_1_1_, author1_.a_mname as a6_1_1_ from item item0_ cross join author author1_ where item0_.i_id=? and author1_.a_id=item0_.i_a_id
+Pre-processed SQL query: select from item cross join author where item.i_id=? and author.a_id=item.i_a_id
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update item set i_avail=?, i_backing=?, i_cost=?, i_desc=?, i_dimension=?, i_image=?, i_isbn=?, i_page=?, i_pub_date=?, i_publisher=?, i_random=?, i_related1=?, i_related2=?, i_related3=?, i_related4=?, i_related5=?, i_srp=?, i_stock=?, i_subject=?, i_thumbnail=?, i_title=?, i_a_id=? where i_id=?
+Pre-processed SQL query: update item set i_avail=?, i_backing=?, i_cost=?, i_desc=?, i_dimension=?, i_image=?, i_isbn=?, i_page=?, i_pub_date=?, i_publisher=?, i_random=?, i_related1=?, i_related2=?, i_related3=?, i_related4=?, i_related5=?, i_srp=?, i_stock=?, i_subject=?, i_thumbnail=?, i_title=?, i_a_id=? where i_id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select shoppingca0_.sc_id as sc1_8_, shoppingca0_.sc_time as sc2_8_ from shopping_cart shoppingca0_ where shoppingca0_.sc_id=?
+Pre-processed SQL query: select from shoppingcart where shoppingca.sc_id=?
+SQL query Searched: SELECT SC FROM ShoppingCart as SC WHERE SC.scId = :scId
+Request Searched: eu.cloudscale.showcase.db.model.mongo.ShoppingCartLine.getShoppingCart()
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select shoppingca0_.sc_id as sc1_8_, shoppingca0_.sc_time as sc2_8_ from shopping_cart shoppingca0_ where shoppingca0_.sc_id=?
+Pre-processed SQL query: select from shoppingcart where shoppingca.sc_id=?
+SQL query Searched: SELECT SC FROM ShoppingCart as SC WHERE SC.scId = :scId
+Request Searched: eu.cloudscale.showcase.servlets.BuyConfirmController.get(HttpServletRequest, Model)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select shoppingca0_.sc_id as sc1_8_, shoppingca0_.sc_time as sc2_8_ from shopping_cart shoppingca0_ where shoppingca0_.sc_id=?
+Pre-processed SQL query: select from shoppingcart where shoppingca.sc_id=?
+SQL query Searched: SELECT SC FROM ShoppingCart as SC WHERE SC.scId = :scId
+Request Searched: eu.cloudscale.showcase.servlets.BuyController.get(Integer, Integer, String, HttpServletRequest, Model)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into shopping_cart (sc_time) values (?)
+Pre-processed SQL query: insert into shoppingcart values (?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select shoppingca0_.scl_id as scl1_9_, shoppingca0_.scl_i_id as scl3_9_, shoppingca0_.scl_qty as scl2_9_, shoppingca0_.scl_sc_id as scl4_9_ from shopping_cart_line shoppingca0_ where shoppingca0_.scl_sc_id=? and shoppingca0_.scl_i_id=? limit ?
+Pre-processed SQL query: select from shoppingcartline where shoppingca.scl_sc_id=? and shoppingca.scl_i_id=?  limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into shopping_cart_line (scl_i_id, scl_qty, scl_sc_id) values (?, ?, ?)
+Pre-processed SQL query: insert into shoppingcartline values (?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update shopping_cart set sc_time=? where sc_id=?
+Pre-processed SQL query: update shopping_cart set sc_time=? where sc_id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select country0_.co_id as co1_3_, country0_.co_currency as co2_3_, country0_.co_exchange as co3_3_, country0_.co_name as co4_3_ from country country0_ where country0_.co_name=?
+Pre-processed SQL query: select from country where country.co_name=?
+SQL query Searched: SELECT C FROM Country as C WHERE C.coName = :countryName
+Request Searched: eu.cloudscale.showcase.servlets.BuyConfirmController.get(HttpServletRequest, Model)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select country0_.co_id as co1_3_, country0_.co_currency as co2_3_, country0_.co_exchange as co3_3_, country0_.co_name as co4_3_ from country country0_ where country0_.co_name=?
+Pre-processed SQL query: select from country where country.co_name=?
+SQL query Searched: SELECT C FROM Country as C WHERE C.coName = :countryName
+Request Searched: eu.cloudscale.showcase.servlets.PaymentController.get(HttpServletRequest, Model, RedirectAttributes)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select country0_.co_id as co1_3_, country0_.co_currency as co2_3_, country0_.co_exchange as co3_3_, country0_.co_name as co4_3_ from country country0_ where country0_.co_name=?
+Pre-processed SQL query: select from country where country.co_name=?
+SQL query Searched: SELECT C FROM Country as C WHERE C.coName = :countryName
+Request Searched: eu.cloudscale.showcase.servlets.BuyController.get(Integer, Integer, String, HttpServletRequest, Model)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into address (addr_city, addr_state, addr_street1, addr_street2, addr_zip, addr_co_id) values (?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into address values (?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into customer (c_balance, c_birthdate, c_data, c_discount, c_email, c_expiration, c_fname, c_last_visit, c_lname, c_login, c_passwd, c_phone, c_since, c_uname, c_ytd_pmt, c_addr_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into customer values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select shoppingca0_.scl_sc_id as scl4_8_2_, shoppingca0_.scl_id as scl1_9_2_, shoppingca0_.scl_id as scl1_9_1_, shoppingca0_.scl_i_id as scl3_9_1_, shoppingca0_.scl_qty as scl2_9_1_, shoppingca0_.scl_sc_id as scl4_9_1_, item1_.i_id as i1_5_0_, item1_.i_avail as i2_5_0_, item1_.i_backing as i3_5_0_, item1_.i_cost as i4_5_0_, item1_.i_desc as i5_5_0_, item1_.i_dimension as i6_5_0_, item1_.i_image as i7_5_0_, item1_.i_isbn as i8_5_0_, item1_.i_page as i9_5_0_, item1_.i_pub_date as i10_5_0_, item1_.i_publisher as i11_5_0_, item1_.i_random as i12_5_0_, item1_.i_related1 as i13_5_0_, item1_.i_related2 as i14_5_0_, item1_.i_related3 as i15_5_0_, item1_.i_related4 as i16_5_0_, item1_.i_related5 as i17_5_0_, item1_.i_srp as i18_5_0_, item1_.i_stock as i19_5_0_, item1_.i_subject as i20_5_0_, item1_.i_thumbnail as i21_5_0_, item1_.i_title as i22_5_0_, item1_.i_a_id as i23_5_0_ from shopping_cart_line shoppingca0_ inner join item item1_ on shoppingca0_.scl_i_id=item1_.i_id where shoppingca0_.scl_sc_id=?
+Pre-processed SQL query: select from shoppingcartline inner join item where shoppingca.scl_sc_id=?
+SQL query Searched: SELECT SCL, I FROM ShoppingCartLine as SCL, Item as I WHERE SCL.item.IId = I.IId AND SCL.shoppingCart.scId = :scId
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: update customer set c_balance=?, c_birthdate=?, c_data=?, c_discount=?, c_email=?, c_expiration=?, c_fname=?, c_last_visit=?, c_lname=?, c_login=?, c_passwd=?, c_phone=?, c_since=?, c_uname=?, c_ytd_pmt=?, c_addr_id=? where c_id=?
+Pre-processed SQL query: update customer set c_balance=?, c_birthdate=?, c_data=?, c_discount=?, c_email=?, c_expiration=?, c_fname=?, c_last_visit=?, c_lname=?, c_login=?, c_passwd=?, c_phone=?, c_since=?, c_uname=?, c_ytd_pmt=?, c_addr_id=? where c_id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select customer0_.c_id as c1_4_2_, customer0_.c_balance as c2_4_2_, customer0_.c_birthdate as c3_4_2_, customer0_.c_data as c4_4_2_, customer0_.c_discount as c5_4_2_, customer0_.c_email as c6_4_2_, customer0_.c_expiration as c7_4_2_, customer0_.c_fname as c8_4_2_, customer0_.c_last_visit as c9_4_2_, customer0_.c_lname as c10_4_2_, customer0_.c_login as c11_4_2_, customer0_.c_passwd as c12_4_2_, customer0_.c_phone as c13_4_2_, customer0_.c_since as c14_4_2_, customer0_.c_uname as c15_4_2_, customer0_.c_ytd_pmt as c16_4_2_, customer0_.c_addr_id as c17_4_2_, address1_.addr_id as addr1_0_0_, address1_.addr_city as addr2_0_0_, address1_.addr_state as addr3_0_0_, address1_.addr_street1 as addr4_0_0_, address1_.addr_street2 as addr5_0_0_, address1_.addr_zip as addr6_0_0_, address1_.addr_co_id as addr7_0_0_, country2_.co_id as co1_3_1_, country2_.co_currency as co2_3_1_, country2_.co_exchange as co3_3_1_, country2_.co_name as co4_3_1_ from customer customer0_ inner join address address1_ on customer0_.c_addr_id=address1_.addr_id left outer join country country2_ on address1_.addr_co_id=country2_.co_id where customer0_.c_id=?
+Pre-processed SQL query: select from customer inner join address left outer join country where customer.c_id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into orders (o_date, o_ship_date, o_ship_type, o_status, o_sub_total, o_tax, o_total, o_bill_addr_id, o_ship_addr_id, o_c_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into orders values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into order_line (ol_i_id, ol_comment, ol_discount, ol_qty, ol_o_id) values (?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into orderline values (?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: insert into cc_xacts (cx_co_id, cx_auth_id, cx_expiry, cx_name, cx_num, cx_type, cx_xact_amt, cx_xact_date, cx_o_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Pre-processed SQL query: insert into ccxacts values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from shopping_cart_line where scl_id=?
+Pre-processed SQL query: delete from shopping_cart_line where scl_id=?
+SQL query Searched: delete from shopping_cart_line where scl_id=?
+Request Searched: eu.cloudscale.showcase.servlets.BuyConfirmController.get(HttpServletRequest, Model)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: delete from shopping_cart_line where scl_id=?
+Pre-processed SQL query: delete from shopping_cart_line where scl_id=?
+SQL query Searched: delete from shopping_cart_line where scl_id=?
+Request Searched: eu.cloudscale.showcase.servlets.ShoppingCartController.get(HttpServletRequest, Model)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select customer0_.c_id as c1_4_, customer0_.c_balance as c2_4_, customer0_.c_birthdate as c3_4_, customer0_.c_data as c4_4_, customer0_.c_discount as c5_4_, customer0_.c_email as c6_4_, customer0_.c_expiration as c7_4_, customer0_.c_fname as c8_4_, customer0_.c_last_visit as c9_4_, customer0_.c_lname as c10_4_, customer0_.c_login as c11_4_, customer0_.c_passwd as c12_4_, customer0_.c_phone as c13_4_, customer0_.c_since as c14_4_, customer0_.c_uname as c15_4_, customer0_.c_ytd_pmt as c16_4_, customer0_.c_addr_id as c17_4_ from customer customer0_ where customer0_.c_uname=? and customer0_.c_passwd=? limit ?
+Pre-processed SQL query: select from customer where customer.c_uname=? and customer.c_passwd=?  limit ?
+SQL query Searched: SELECT C FROM Customer as C WHERE C.CUname = :username AND C.CPasswd = :passwd
+Request Searched: eu.cloudscale.showcase.servlets.OrderDisplayController.get(HttpServletRequest, Model)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select customer0_.c_id as c1_4_, customer0_.c_balance as c2_4_, customer0_.c_birthdate as c3_4_, customer0_.c_data as c4_4_, customer0_.c_discount as c5_4_, customer0_.c_email as c6_4_, customer0_.c_expiration as c7_4_, customer0_.c_fname as c8_4_, customer0_.c_last_visit as c9_4_, customer0_.c_lname as c10_4_, customer0_.c_login as c11_4_, customer0_.c_passwd as c12_4_, customer0_.c_phone as c13_4_, customer0_.c_since as c14_4_, customer0_.c_uname as c15_4_, customer0_.c_ytd_pmt as c16_4_, customer0_.c_addr_id as c17_4_ from customer customer0_ where customer0_.c_uname=? and customer0_.c_passwd=? limit ?
+Pre-processed SQL query: select from customer where customer.c_uname=? and customer.c_passwd=?  limit ?
+SQL query Searched: SELECT C FROM Customer as C WHERE C.CUname = :username AND C.CPasswd = :passwd
+Request Searched: eu.cloudscale.showcase.servlets.BuyController.get(Integer, Integer, String, HttpServletRequest, Model)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select customer0_.c_id as c1_4_, customer0_.c_balance as c2_4_, customer0_.c_birthdate as c3_4_, customer0_.c_data as c4_4_, customer0_.c_discount as c5_4_, customer0_.c_email as c6_4_, customer0_.c_expiration as c7_4_, customer0_.c_fname as c8_4_, customer0_.c_last_visit as c9_4_, customer0_.c_lname as c10_4_, customer0_.c_login as c11_4_, customer0_.c_passwd as c12_4_, customer0_.c_phone as c13_4_, customer0_.c_since as c14_4_, customer0_.c_uname as c15_4_, customer0_.c_ytd_pmt as c16_4_, customer0_.c_addr_id as c17_4_ from customer customer0_ where customer0_.c_uname=? and customer0_.c_passwd=? limit ?
+Pre-processed SQL query: select from customer where customer.c_uname=? and customer.c_passwd=?  limit ?
+SQL query Searched: SELECT C FROM Customer as C WHERE C.CUname = :username AND C.CPasswd = :passwd
+Request Searched: eu.cloudscale.showcase.servlets.LoginController.post(String, String, String, HttpSession, Model)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select address0_.addr_id as addr1_0_1_, address0_.addr_city as addr2_0_1_, address0_.addr_state as addr3_0_1_, address0_.addr_street1 as addr4_0_1_, address0_.addr_street2 as addr5_0_1_, address0_.addr_zip as addr6_0_1_, address0_.addr_co_id as addr7_0_1_, country1_.co_id as co1_3_0_, country1_.co_currency as co2_3_0_, country1_.co_exchange as co3_3_0_, country1_.co_name as co4_3_0_ from address address0_ inner join country country1_ on address0_.addr_co_id=country1_.co_id where address0_.addr_id=?
+Pre-processed SQL query: select from address inner join country where address.addr_id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select orders0_.o_id as o1_7_, orders0_.o_date as o2_7_, orders0_.o_ship_date as o3_7_, orders0_.o_ship_type as o4_7_, orders0_.o_status as o5_7_, orders0_.o_sub_total as o6_7_, orders0_.o_tax as o7_7_, orders0_.o_total as o8_7_, orders0_.o_bill_addr_id as o9_7_, orders0_.o_ship_addr_id as o10_7_, orders0_.o_c_id as o11_7_ from orders orders0_ cross join customer customer1_ where orders0_.o_c_id=customer1_.c_id and customer1_.c_id=? order by orders0_.o_date, orders0_.o_id desc limit ?
+Pre-processed SQL query: select from orders cross join customer where orders.o_c_id=customer.c_id and customer.c_id=?  order by limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select orderline0_.ol_id as ol1_6_, orderline0_.ol_i_id as ol5_6_, orderline0_.ol_comment as ol2_6_, orderline0_.ol_discount as ol3_6_, orderline0_.ol_qty as ol4_6_, orderline0_.ol_o_id as ol6_6_ from order_line orderline0_ where orderline0_.ol_o_id=?
+Pre-processed SQL query: select from orderline where orderline.ol_o_id=?
+SQL query Searched: SELECT OL FROM OrderLine as OL WHERE OL.id = :id
+Request Searched: eu.cloudscale.showcase.servlets.BuyConfirmController.get(HttpServletRequest, Model)
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select item0_.i_id as i1_5_0_, item0_.i_avail as i2_5_0_, item0_.i_backing as i3_5_0_, item0_.i_cost as i4_5_0_, item0_.i_desc as i5_5_0_, item0_.i_dimension as i6_5_0_, item0_.i_image as i7_5_0_, item0_.i_isbn as i8_5_0_, item0_.i_page as i9_5_0_, item0_.i_pub_date as i10_5_0_, item0_.i_publisher as i11_5_0_, item0_.i_random as i12_5_0_, item0_.i_related1 as i13_5_0_, item0_.i_related2 as i14_5_0_, item0_.i_related3 as i15_5_0_, item0_.i_related4 as i16_5_0_, item0_.i_related5 as i17_5_0_, item0_.i_srp as i18_5_0_, item0_.i_stock as i19_5_0_, item0_.i_subject as i20_5_0_, item0_.i_thumbnail as i21_5_0_, item0_.i_title as i22_5_0_, item0_.i_a_id as i23_5_0_ from item item0_ where item0_.i_id=?
+Pre-processed SQL query: select from item where item.i_id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select orders0_.o_id as o1_7_5_, orders0_.o_date as o2_7_5_, orders0_.o_ship_date as o3_7_5_, orders0_.o_ship_type as o4_7_5_, orders0_.o_status as o5_7_5_, orders0_.o_sub_total as o6_7_5_, orders0_.o_tax as o7_7_5_, orders0_.o_total as o8_7_5_, orders0_.o_bill_addr_id as o9_7_5_, orders0_.o_ship_addr_id as o10_7_5_, orders0_.o_c_id as o11_7_5_, address1_.addr_id as addr1_0_0_, address1_.addr_city as addr2_0_0_, address1_.addr_state as addr3_0_0_, address1_.addr_street1 as addr4_0_0_, address1_.addr_street2 as addr5_0_0_, address1_.addr_zip as addr6_0_0_, address1_.addr_co_id as addr7_0_0_, country2_.co_id as co1_3_1_, country2_.co_currency as co2_3_1_, country2_.co_exchange as co3_3_1_, country2_.co_name as co4_3_1_, address3_.addr_id as addr1_0_2_, address3_.addr_city as addr2_0_2_, address3_.addr_state as addr3_0_2_, address3_.addr_street1 as addr4_0_2_, address3_.addr_street2 as addr5_0_2_, address3_.addr_zip as addr6_0_2_, address3_.addr_co_id as addr7_0_2_, customer4_.c_id as c1_4_3_, customer4_.c_balance as c2_4_3_, customer4_.c_birthdate as c3_4_3_, customer4_.c_data as c4_4_3_, customer4_.c_discount as c5_4_3_, customer4_.c_email as c6_4_3_, customer4_.c_expiration as c7_4_3_, customer4_.c_fname as c8_4_3_, customer4_.c_last_visit as c9_4_3_, customer4_.c_lname as c10_4_3_, customer4_.c_login as c11_4_3_, customer4_.c_passwd as c12_4_3_, customer4_.c_phone as c13_4_3_, customer4_.c_since as c14_4_3_, customer4_.c_uname as c15_4_3_, customer4_.c_ytd_pmt as c16_4_3_, customer4_.c_addr_id as c17_4_3_, address5_.addr_id as addr1_0_4_, address5_.addr_city as addr2_0_4_, address5_.addr_state as addr3_0_4_, address5_.addr_street1 as addr4_0_4_, address5_.addr_street2 as addr5_0_4_, address5_.addr_zip as addr6_0_4_, address5_.addr_co_id as addr7_0_4_ from orders orders0_ inner join address address1_ on orders0_.o_bill_addr_id=address1_.addr_id left outer join country country2_ on address1_.addr_co_id=country2_.co_id inner join address address3_ on orders0_.o_ship_addr_id=address3_.addr_id inner join customer customer4_ on orders0_.o_c_id=customer4_.c_id left outer join address address5_ on customer4_.c_addr_id=address5_.addr_id where orders0_.o_id=?
+Pre-processed SQL query: select from orders inner join address left outer join country inner join address inner join customer left outer join address where orders.o_id=?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
+Given individual SQL query: select item1_.i_id as col_0_0_, author2_.a_fname as col_1_0_, author2_.a_lname as col_2_0_, item1_.i_title as col_3_0_, sum(orderline0_.ol_qty) as col_4_0_ from order_line orderline0_ cross join item item1_ cross join author author2_ where item1_.i_a_id=author2_.a_id and item1_.i_id=orderline0_.ol_i_id and item1_.i_subject=? group by orderline0_.ol_i_id order by col_4_0_ desc limit ?
+Pre-processed SQL query: select from orderline cross join item cross join author where item.i_a_id=author.a_id and item.i_id=orderline.ol_i_id and item.i_subject=?  group by orderline.oliid order by col limit ?
+SQL query Searched: None
+Request Searched: None
+-------------------------------------------------------------------------------------------------------
