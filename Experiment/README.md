@@ -1,4 +1,4 @@
-## 1. SLocator
+## 1. Experiment
 - Instrument: AspectJ conﬁguration for the instrumentation.
 - Workload: (the statistics of the workload and SQL queries can be found in the appendix)
 - Database dump.zip: The synthetic database data and data-populating scripts. 
