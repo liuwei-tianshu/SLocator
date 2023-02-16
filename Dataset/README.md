@@ -4,5 +4,5 @@
 - Localization results in the baseline approach
 
 ## 2. RQ2
-- Slow SQL queries
+- SQL queries with different lengths
 - Localization results by SLocator
