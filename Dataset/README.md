@@ -5,4 +5,3 @@
 
 ## 2. RQ2
 - SQL queries with different lengths
-- Localization results by SLocator
